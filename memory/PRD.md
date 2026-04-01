@@ -35,6 +35,9 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 - ✅ Animações com Framer Motion
 - ✅ Design responsivo completo
 
+**Date: Abril 2026**
+- ✅ Linha pontilhada em L conectando DIRGED e ASGID (SVG com coordenadas precisas baseadas em medições reais)
+
 ## Architecture
 - **Frontend**: React 19 + Tailwind CSS + Framer Motion
 - **Components**: Shadcn UI components
