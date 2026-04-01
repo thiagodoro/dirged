@@ -295,7 +295,7 @@ const OrganogaramaSection = () => {
       sigla: "GEDOC", 
       responsavel: "Simone Meireles",
       coordenacoes: [
-        { nome: "Coordenação de Arquivo Permanente", sigla: "COARPE", responsavel: "Sônia da Conceição Aparecida dos Santos" },
+        { nome: "Coordenação de Arquivo Permanente", sigla: "COARPE", responsavel: "Sônia da Conceição A. dos Santos" },
         { nome: "Coordenação de Arquivo da Segunda Instância", sigla: "COARQ", responsavel: "Giselle Santos Cesário da Costa" },
         { nome: "Coordenação de Gestão de Documentos Eletrônicos", sigla: "COGEDE", responsavel: "Bárbara Maria Wacha de Melo" },
       ]
@@ -332,10 +332,9 @@ const OrganogaramaSection = () => {
         </motion.div>
 
         {/* DIRGED (centered) with ASGID to the right */}
-        <div className="relative">
+        <div className="flex justify-center items-center gap-0">
           {/* DIRGED - Centered */}
           <motion.div 
-            className="flex justify-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -353,16 +352,13 @@ const OrganogaramaSection = () => {
             </div>
           </motion.div>
 
-          {/* Dotted line from DIRGED to ASGID */}
-          <div className="absolute right-[280px] top-1/2 -translate-y-1/2">
-            <svg width="100" height="2">
-              <line x1="0" y1="1" x2="100" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
-            </svg>
-          </div>
+          {/* Dotted line connecting DIRGED to ASGID */}
+          <svg width="50" height="2" className="flex-shrink-0">
+            <line x1="0" y1="1" x2="50" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+          </svg>
 
-          {/* ASGID - Positioned to the right */}
+          {/* ASGID */}
           <motion.div 
-            className="absolute right-0 top-1/2 -translate-y-1/2"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
