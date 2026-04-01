@@ -36,6 +36,18 @@ body {
     overflow-x: hidden;
 }
 
+/* Hide Emergent watermark */
+[data-testid="emergent-watermark"],
+[class*="emergent"],
+[id*="emergent"],
+div[style*="Made with Emergent"],
+a[href*="emergent.sh"]:has(img),
+div:has(> a[href*="emergent"]) {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
 .font-outfit {
     font-family: 'Outfit', sans-serif;
 }
