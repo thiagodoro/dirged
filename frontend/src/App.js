@@ -411,7 +411,7 @@ const OrganogaramaSection = () => {
       sigla: "GEDAN", 
       responsavel: "Daniela Fernanda da Silva Castro Santos",
       coordenacoes: [
-        { nome: "Coordenação de Orientação e Avaliação Documental", sigla: "CORAV", responsavel: "Vantuir de Oliveira Machado Júnior" },
+        { nome: "Coordenação de Orientação e Avaliação Documental", sigla: "CORAV", responsavel: "Vantuir de O. Machado Júnior" },
         { nome: "Coordenação do Arquivo Central", sigla: "CORCEN", responsavel: "Marianna Levenhagen Moura Dias" },
         { nome: "Coordenação de Mov. e Expedição de Documentos", sigla: "COMEX", responsavel: "Márcio Charles da Silva" },
       ]
@@ -546,6 +546,7 @@ const OrganogaramaSection = () => {
                   <span className="inline-block bg-[#BE185D] rounded-lg px-3 py-1 text-white text-[11px] font-bold">
                     {gerencia.sigla}
                   </span>
+                  <br />
                   <span className="text-white text-xs inline-block cursor-pointer rounded px-2 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">{gerencia.responsavel}</span>
                 </div>
               </div>
