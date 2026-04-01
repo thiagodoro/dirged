@@ -304,10 +304,10 @@ const OrganogaramaSection = () => {
 
   return (
     <section id="organograma" data-testid="organograma-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212]">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div 
-          className="text-center mb-20"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -330,43 +330,40 @@ const OrganogaramaSection = () => {
 
         {/* DIRGED - Top */}
         <motion.div 
-          className="flex justify-center mb-8"
+          className="flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="relative">
-            <div className="bg-gradient-to-br from-[#FF007F] to-[#9D00FF] p-[2px] rounded-2xl">
-              <div className="bg-[#1a1a1a] rounded-2xl p-8 text-center min-w-[320px]">
-                <p className="text-white font-bold text-lg leading-tight mb-3">
-                  Diretoria Executiva de Gestão da Informação Documental
-                </p>
-                <span className="inline-block bg-[#FF007F] rounded-lg px-4 py-2 text-white text-sm font-bold mb-3">
-                  DIRGED
-                </span>
-                <p className="text-white/70 text-sm">Thiago Israel Simões Doro Pereira</p>
-              </div>
+          <div className="bg-gradient-to-r from-[#FF007F] to-[#9D00FF] p-[2px] rounded-2xl">
+            <div className="bg-[#1a1a1a] rounded-2xl px-10 py-6 text-center">
+              <p className="text-white font-bold text-base leading-tight mb-3">
+                Diretoria Executiva de Gestão da Informação Documental
+              </p>
+              <span className="inline-block bg-[#FF007F] rounded-lg px-4 py-1.5 text-white text-sm font-bold mb-2">
+                DIRGED
+              </span>
+              <p className="text-white/60 text-xs">Thiago Israel Simões Doro Pereira</p>
             </div>
           </div>
         </motion.div>
 
-        {/* Vertical line from DIRGED */}
+        {/* Vertical line from DIRGED to horizontal line */}
         <div className="flex justify-center">
-          <div className="w-[2px] h-16 bg-gradient-to-b from-[#FF007F] to-white/30"></div>
+          <div className="w-[2px] h-10 bg-white/40"></div>
         </div>
 
-        {/* Horizontal connector line */}
-        <div className="flex justify-center mb-8">
-          <div className="w-[80%] h-[2px] bg-white/30 relative">
-            {/* Three vertical lines going down */}
-            <div className="absolute left-[16.66%] -translate-x-1/2 top-0 w-[2px] h-12 bg-white/30"></div>
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[2px] h-12 bg-white/30"></div>
-            <div className="absolute left-[83.33%] -translate-x-1/2 top-0 w-[2px] h-12 bg-white/30"></div>
-          </div>
+        {/* Main horizontal connector */}
+        <div className="relative mx-auto" style={{ width: '85%' }}>
+          <div className="h-[2px] bg-white/40 w-full"></div>
+          {/* Three vertical lines down to gerências */}
+          <div className="absolute left-[16.67%] top-0 w-[2px] h-10 bg-white/40 -translate-x-1/2"></div>
+          <div className="absolute left-[50%] top-0 w-[2px] h-10 bg-white/40 -translate-x-1/2"></div>
+          <div className="absolute left-[83.33%] top-0 w-[2px] h-10 bg-white/40 -translate-x-1/2"></div>
         </div>
 
-        {/* Gerências with their Coordenações */}
-        <div className="grid md:grid-cols-3 gap-8 mt-8">
+        {/* Gerências Row */}
+        <div className="grid grid-cols-3 gap-6 mt-10 mb-0">
           {gerenciasComCoord.map((gerencia, gIndex) => (
             <motion.div 
               key={gIndex}
@@ -376,81 +373,110 @@ const OrganogaramaSection = () => {
               viewport={{ once: true }}
               transition={{ delay: gIndex * 0.1 }}
             >
-              {/* Gerência Card */}
-              <div className="bg-gradient-to-br from-[#BE185D] to-[#9D174D] p-[1px] rounded-xl w-full">
-                <div className="bg-[#1a1a1a] rounded-xl p-5 text-center h-full">
-                  <p className="text-white font-semibold text-sm leading-tight mb-3">
+              {/* Gerência Card - Fixed height */}
+              <div className="bg-gradient-to-r from-[#BE185D] to-[#9D174D] p-[2px] rounded-xl w-full h-[140px]">
+                <div className="bg-[#1a1a1a] rounded-xl p-4 text-center h-full flex flex-col justify-center">
+                  <p className="text-white font-semibold text-xs leading-tight mb-2 line-clamp-3">
                     {gerencia.nome}
                   </p>
-                  <span className="inline-block bg-[#BE185D] rounded-lg px-3 py-1.5 text-white text-xs font-bold mb-2">
+                  <span className="inline-block bg-[#BE185D] rounded px-3 py-1 text-white text-[11px] font-bold mb-1">
                     {gerencia.sigla}
                   </span>
-                  <p className="text-white/60 text-xs">{gerencia.responsavel}</p>
+                  <p className="text-white/50 text-[10px] line-clamp-1">{gerencia.responsavel}</p>
                 </div>
-              </div>
-
-              {/* Vertical line */}
-              <div className="w-[2px] h-8 bg-white/30"></div>
-
-              {/* Horizontal line for coordenações */}
-              <div className="w-full h-[2px] bg-white/30 relative mb-8">
-                {gerencia.coordenacoes.map((_, cIndex) => {
-                  const positions = gerencia.coordenacoes.length === 2 
-                    ? ['25%', '75%'] 
-                    : ['16.66%', '50%', '83.33%'];
-                  return (
-                    <div 
-                      key={cIndex}
-                      className="absolute top-0 w-[2px] h-6 bg-white/30"
-                      style={{ left: positions[cIndex], transform: 'translateX(-50%)' }}
-                    ></div>
-                  );
-                })}
-              </div>
-
-              {/* Coordenações */}
-              <div className={`grid gap-3 w-full ${gerencia.coordenacoes.length === 2 ? 'grid-cols-2' : 'grid-cols-1 lg:grid-cols-3'}`}>
-                {gerencia.coordenacoes.map((coord, cIndex) => (
-                  <div key={cIndex} className="bg-gradient-to-br from-[#F59E0B] to-[#D97706] p-[1px] rounded-lg">
-                    <div className="bg-[#1a1a1a] rounded-lg p-4 text-center h-full flex flex-col justify-between">
-                      <p className="text-white font-medium text-[11px] leading-tight mb-2">
-                        {coord.nome}
-                      </p>
-                      <span className="inline-block bg-[#F59E0B] rounded px-2 py-1 text-white text-[10px] font-bold mb-2">
-                        {coord.sigla}
-                      </span>
-                      <p className="text-white/50 text-[9px]">{coord.responsavel}</p>
-                    </div>
-                  </div>
-                ))}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* ASGID - Bottom left */}
-        <motion.div 
-          className="mt-16 flex justify-start"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="relative">
-            {/* Connecting line to DIRGED */}
-            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[2px] h-16 bg-white/20"></div>
-            <div className="bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] p-[1px] rounded-xl">
-              <div className="bg-[#1a1a1a] rounded-xl p-5 text-center max-w-[280px]">
-                <p className="text-white font-semibold text-sm leading-tight mb-2">
+        {/* Vertical lines from gerências to horizontal connectors */}
+        <div className="grid grid-cols-3 gap-6">
+          {gerenciasComCoord.map((_, gIndex) => (
+            <div key={gIndex} className="flex justify-center">
+              <div className="w-[2px] h-8 bg-white/40"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Horizontal lines for each gerência's coordenações */}
+        <div className="grid grid-cols-3 gap-6">
+          {gerenciasComCoord.map((gerencia, gIndex) => (
+            <div key={gIndex} className="relative">
+              <div className="h-[2px] bg-white/40 w-full"></div>
+              {/* Vertical lines down to coordenações */}
+              {gerencia.coordenacoes.length === 2 ? (
+                <>
+                  <div className="absolute left-[25%] top-0 w-[2px] h-8 bg-white/40 -translate-x-1/2"></div>
+                  <div className="absolute left-[75%] top-0 w-[2px] h-8 bg-white/40 -translate-x-1/2"></div>
+                </>
+              ) : (
+                <>
+                  <div className="absolute left-[16.67%] top-0 w-[2px] h-8 bg-white/40 -translate-x-1/2"></div>
+                  <div className="absolute left-[50%] top-0 w-[2px] h-8 bg-white/40 -translate-x-1/2"></div>
+                  <div className="absolute left-[83.33%] top-0 w-[2px] h-8 bg-white/40 -translate-x-1/2"></div>
+                </>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Coordenações Row */}
+        <div className="grid grid-cols-3 gap-6 mt-8">
+          {gerenciasComCoord.map((gerencia, gIndex) => (
+            <div 
+              key={gIndex} 
+              className={`grid gap-2 ${gerencia.coordenacoes.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}
+            >
+              {gerencia.coordenacoes.map((coord, cIndex) => (
+                <motion.div 
+                  key={cIndex} 
+                  className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] p-[1px] rounded-lg h-[130px]"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (gIndex * 3 + cIndex) * 0.05 }}
+                >
+                  <div className="bg-[#1a1a1a] rounded-lg p-3 text-center h-full flex flex-col justify-center">
+                    <p className="text-white font-medium text-[10px] leading-tight mb-2 line-clamp-3">
+                      {coord.nome}
+                    </p>
+                    <span className="inline-block bg-[#F59E0B] rounded px-2 py-0.5 text-white text-[9px] font-bold mb-1">
+                      {coord.sigla}
+                    </span>
+                    <p className="text-white/40 text-[8px] line-clamp-2">{coord.responsavel}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        {/* ASGID - Below DIRGED, left aligned */}
+        <div className="mt-16 relative">
+          {/* Connecting structure */}
+          <div className="absolute left-[8%] -top-16 flex flex-col items-center">
+            <div className="w-[2px] h-16 bg-white/30"></div>
+          </div>
+          
+          <motion.div 
+            className="ml-0 md:ml-[2%]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-xl inline-block">
+              <div className="bg-[#1a1a1a] rounded-xl px-6 py-4 text-center w-[260px]">
+                <p className="text-white font-semibold text-xs leading-tight mb-2">
                   Assessoria Técnica para a Gestão da Informação Documental
                 </p>
-                <span className="inline-block bg-[#3B82F6] rounded-lg px-3 py-1.5 text-white text-xs font-bold mb-2">
+                <span className="inline-block bg-[#3B82F6] rounded px-3 py-1 text-white text-[11px] font-bold mb-1">
                   ASGID
                 </span>
-                <p className="text-white/60 text-xs">André Borges Ribeiro</p>
+                <p className="text-white/50 text-[10px]">André Borges Ribeiro</p>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
