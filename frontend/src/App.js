@@ -331,8 +331,8 @@ const OrganogaramaSection = () => {
           </p>
         </motion.div>
 
-        {/* DIRGED (centered) with ASGID to the right */}
-        <div className="relative">
+        {/* DIRGED (centered) with ASGID connected via L-shape */}
+        <div className="relative mb-8">
           {/* DIRGED - Centered */}
           <motion.div 
             className="flex justify-center"
@@ -340,41 +340,50 @@ const OrganogaramaSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gradient-to-r from-[#FF007F] to-[#9D00FF] p-[2px] rounded-2xl">
-              <div className="bg-[#1a1a1a] rounded-2xl px-10 py-6 text-center min-w-[380px]">
-                <p className="text-white font-bold text-base leading-tight mb-3 h-[40px] flex items-center justify-center">
-                  Diretoria Executiva de Gestão da Informação Documental
-                </p>
-                <span className="inline-block bg-[#FF007F] rounded-lg px-4 py-1.5 text-white text-sm font-bold mb-2">
-                  DIRGED
-                </span>
-                <p className="text-white text-xs h-[16px]">Thiago Doro</p>
+            <div className="relative">
+              <div className="bg-gradient-to-r from-[#FF007F] to-[#9D00FF] p-[2px] rounded-2xl">
+                <div className="bg-[#1a1a1a] rounded-2xl px-10 py-6 text-center min-w-[380px]">
+                  <p className="text-white font-bold text-base leading-tight mb-3 h-[40px] flex items-center justify-center">
+                    Diretoria Executiva de Gestão da Informação Documental
+                  </p>
+                  <span className="inline-block bg-[#FF007F] rounded-lg px-4 py-1.5 text-white text-sm font-bold mb-2">
+                    DIRGED
+                  </span>
+                  <p className="text-white text-xs h-[16px]">Thiago Doro</p>
+                </div>
               </div>
-            </div>
-          </motion.div>
-
-          {/* ASGID - Absolute positioned to the right */}
-          <motion.div 
-            className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            {/* Dotted line connecting to DIRGED */}
-            <svg width="52" height="2" className="flex-shrink-0">
-              <line x1="0" y1="1" x2="52" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
-            </svg>
-            <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-2xl">
-              <div className="bg-[#1a1a1a] rounded-2xl px-5 py-4 text-center w-[240px]">
-                <p className="text-white font-semibold text-xs leading-tight mb-2 h-[32px] flex items-center justify-center">
-                  Assessoria Técnica e Jurídica para Gestão da Informação Documental
-                </p>
-                <span className="inline-block bg-[#3B82F6] rounded-lg px-3 py-1 text-white text-[11px] font-bold mb-1">
-                  ASGID
-                </span>
-                <p className="text-white text-xs h-[14px]">André Borges Ribeiro</p>
-              </div>
+              
+              {/* L-shaped line from DIRGED to ASGID */}
+              <svg className="absolute" style={{ left: '100%', top: '50%', width: '100px', height: '80px', overflow: 'visible' }}>
+                {/* Horizontal line from DIRGED */}
+                <line x1="0" y1="0" x2="30" y2="0" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray="2,3" strokeLinecap="round" />
+                {/* Vertical line down */}
+                <line x1="30" y1="0" x2="30" y2="50" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray="2,3" strokeLinecap="round" />
+                {/* Horizontal line to ASGID */}
+                <line x1="30" y1="50" x2="60" y2="50" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray="2,3" strokeLinecap="round" />
+              </svg>
+              
+              {/* ASGID Box */}
+              <motion.div 
+                className="absolute"
+                style={{ left: 'calc(100% + 60px)', top: '50px' }}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-2xl">
+                  <div className="bg-[#1a1a1a] rounded-2xl px-5 py-4 text-center w-[240px]">
+                    <p className="text-white font-semibold text-xs leading-tight mb-2 h-[32px] flex items-center justify-center">
+                      Assessoria Técnica e Jurídica para Gestão da Informação Documental
+                    </p>
+                    <span className="inline-block bg-[#3B82F6] rounded-lg px-3 py-1 text-white text-[11px] font-bold mb-1">
+                      ASGID
+                    </span>
+                    <p className="text-white text-xs h-[14px]">André Borges Ribeiro</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
