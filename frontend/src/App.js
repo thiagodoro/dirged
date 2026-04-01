@@ -368,7 +368,7 @@ const OrganogaramaSection = () => {
             <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-2xl">
               <div className="bg-[#1a1a1a] rounded-2xl px-5 py-4 text-center w-[240px]">
                 <p className="text-white font-semibold text-xs leading-tight mb-2 h-[32px] flex items-center justify-center">
-                  Assessoria Técnica para a Gestão da Informação Documental
+                  Assessoria Técnica e Jurídica para Gestão da Informação Documental
                 </p>
                 <span className="inline-block bg-[#3B82F6] rounded-lg px-3 py-1 text-white text-[11px] font-bold mb-1">
                   ASGID
