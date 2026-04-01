@@ -219,18 +219,33 @@ const HeroSection = () => {
 
 // Competencias Section
 const CompetenciasSection = () => {
-  const competencias = [
-    { icon: FileSearch, title: "Gestão Documental", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
-    { icon: Database, title: "Preservação Digital", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
-    { icon: Archive, title: "Arquivamento", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla." },
-    { icon: Shield, title: "Segurança da Informação", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim." },
-    { icon: BarChart3, title: "Análise de Dados", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt." },
-    { icon: Clock, title: "Eficiência Processual", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip commodo." },
+  const tagCloudDocumental = [
+    "Tabelas Processuais Unificadas", "Fase Corrente", "Fase Intermediária",
+    "Fase Permanente", "Organização in loco", "Digitalização de documentos",
+    "Documentos Eletrônicos", "Plano de Classificação e Tabela de temporalidade",
+    "Eliminação de Documentos", "Gestão de sinistros", "Arquivo (DENGEP)",
   ];
+  const tagCloudInformacao = [
+    "Gestão do Conhecimento", "Publicações Técnicas", "Boletins de informação jurídica",
+    "Pesquisa Jurídica", "Base de Atos Normativos", "Revisão de Textos",
+    "Divulgação da Jurisprudência", "Acervo bibliográfico impresso",
+    "Acervo bibliográfico digital", "Bases de dados de informação técnica", "Jurisprudência (DIRTEC)",
+  ];
+
+  // Shuffle and merge tags
+  const allTags = [
+    ...tagCloudDocumental.map(t => ({ text: t, type: "documental" })),
+    ...tagCloudInformacao.map(t => ({ text: t, type: "informacao" })),
+  ].sort(() => Math.random() - 0.5);
+
+  // Duplicate for seamless loop
+  const marqueeRow1 = [...allTags.slice(0, 11), ...allTags.slice(0, 11)];
+  const marqueeRow2 = [...allTags.slice(11), ...allTags.slice(11)];
 
   return (
     <section id="competencias" data-testid="competencias-section" className="py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -245,30 +260,132 @@ const CompetenciasSection = () => {
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Nossas <span className="text-gradient-purple">Competências</span>
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <p className="text-white/60 max-w-2xl mx-auto text-lg">
+            O que fazemos? Qual o nosso negócio?
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {competencias.map((item, index) => (
-            <motion.div
-              key={index}
-              data-testid={`competencia-card-${index}`}
-              className="group p-6 rounded-2xl bg-[#121212] border border-white/10 card-hover"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FF007F]/20 to-[#9D00FF]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <item.icon className="w-7 h-7 text-[#FF007F]" />
+        {/* Resolution + Boxes Grid */}
+        <div className="grid lg:grid-cols-2 gap-10 mb-20">
+          {/* Left: Resolution text */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center"
+          >
+            <div className="bg-gradient-to-br from-[#9D00FF]/10 to-[#FF007F]/5 border border-white/10 rounded-3xl p-8 md:p-10 w-full">
+              <h3 className="font-outfit font-bold text-2xl md:text-3xl text-[#FFE600] mb-6">RESOLUÇÃO N° 1137/2026</h3>
+              <p className="text-white text-lg md:text-xl leading-relaxed font-medium">
+                <span className="text-white/90">Art. 44.</span> A Diretoria Executiva de Gestão da
+                Informação Documental - <span className="text-[#FF007F] font-bold">DIRGED</span> integra a EJEF e tem como objetivo assegurar a
+                efetividade na organização,
+                preservação e acessibilidade das informações
+                documentais e bibliográficas e na
+                divulgação da jurisprudência e das publicações
+                técnicas e jurídicas.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right: 2 Boxes */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-6"
+          >
+            {/* Box Gestão Documental */}
+            <div className="bg-[#121212] border border-[#FF007F]/30 rounded-2xl p-6" data-testid="box-gestao-documental">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#FF007F]/20 flex items-center justify-center">
+                  <FolderOpen className="w-5 h-5 text-[#FF007F]" />
+                </div>
+                <h3 className="font-outfit font-bold text-xl text-[#FF007F]">Gestão Documental</h3>
               </div>
-              <h3 className="font-outfit font-semibold text-xl text-white mb-2">{item.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
-            </motion.div>
-          ))}
+              <div className="space-y-3 pl-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[#FF007F]" />
+                  <span className="text-white/80 text-sm">Arquivo da 1ª Instância</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[#FF007F]" />
+                  <span className="text-white/80 text-sm">Arquivo da 2ª Instância e Permanente</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[#FF007F]" />
+                  <span className="text-white/80 text-sm">Documentos Eletrônicos</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Box Gestão da Informação */}
+            <div className="bg-[#121212] border border-[#00D4FF]/30 rounded-2xl p-6" data-testid="box-gestao-informacao">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#00D4FF]/20 flex items-center justify-center">
+                  <Database className="w-5 h-5 text-[#00D4FF]" />
+                </div>
+                <h3 className="font-outfit font-bold text-xl text-[#00D4FF]">Gestão da Informação</h3>
+              </div>
+              <div className="space-y-3 pl-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+                  <span className="text-white/80 text-sm">Biblioteca</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+                  <span className="text-white/80 text-sm">Jurisprudência</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+                  <span className="text-white/80 text-sm">Publicações Técnicas</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
+
+        {/* Tag Cloud - Rotating Marquee */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="overflow-hidden"
+          data-testid="tag-cloud"
+        >
+          {/* Row 1 - moves left */}
+          <div className="flex gap-4 mb-4 animate-marquee-left">
+            {marqueeRow1.map((tag, i) => (
+              <span
+                key={`r1-${i}`}
+                className="whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium border transition-all hover:scale-105"
+                style={{
+                  backgroundColor: tag.type === "documental" ? "rgba(255,0,127,0.12)" : "rgba(0,212,255,0.12)",
+                  borderColor: tag.type === "documental" ? "rgba(255,0,127,0.3)" : "rgba(0,212,255,0.3)",
+                  color: tag.type === "documental" ? "#FF007F" : "#00D4FF",
+                }}
+              >
+                {tag.text}
+              </span>
+            ))}
+          </div>
+          {/* Row 2 - moves right */}
+          <div className="flex gap-4 animate-marquee-right">
+            {marqueeRow2.map((tag, i) => (
+              <span
+                key={`r2-${i}`}
+                className="whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium border transition-all hover:scale-105"
+                style={{
+                  backgroundColor: tag.type === "documental" ? "rgba(255,0,127,0.12)" : "rgba(0,212,255,0.12)",
+                  borderColor: tag.type === "documental" ? "rgba(255,0,127,0.3)" : "rgba(0,212,255,0.3)",
+                  color: tag.type === "documental" ? "#FF007F" : "#00D4FF",
+                }}
+              >
+                {tag.text}
+              </span>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
