@@ -354,7 +354,7 @@ const CompetenciasSection = () => {
           className="overflow-hidden"
           data-testid="tag-cloud"
         >
-          <h3 className="font-outfit font-bold text-2xl md:text-3xl text-white mb-8 text-center">NOSSOS ASSUNTOS</h3>
+          <h3 className="font-outfit font-bold text-2xl md:text-3xl text-white mb-8 text-left">NOSSOS ASSUNTOS</h3>
           {/* Row 1 - moves left */}
           <div className="flex gap-4 mb-4 animate-marquee-left">
             {marqueeRow1.map((tag, i) => (
