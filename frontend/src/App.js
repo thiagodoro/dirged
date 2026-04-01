@@ -348,23 +348,26 @@ const OrganogaramaSection = () => {
                 <span className="inline-block bg-[#FF007F] rounded-lg px-4 py-1.5 text-white text-sm font-bold mb-2">
                   DIRGED
                 </span>
-                <p className="text-white/60 text-xs h-[16px]">Thiago Israel Simões Doro Pereira</p>
+                <p className="text-white text-xs h-[16px]">Thiago Israel Simões Doro Pereira</p>
               </div>
             </div>
           </motion.div>
 
-          {/* ASGID - Positioned to the right with connecting line */}
+          {/* Dotted line from DIRGED to ASGID */}
+          <div className="absolute right-[280px] top-1/2 -translate-y-1/2">
+            <svg width="100" height="2">
+              <line x1="0" y1="1" x2="100" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+            </svg>
+          </div>
+
+          {/* ASGID - Positioned to the right */}
           <motion.div 
-            className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center"
+            className="absolute right-0 top-1/2 -translate-y-1/2"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            {/* Dotted line connecting to DIRGED - starts from edge */}
-            <svg width="60" height="2" className="flex-shrink-0">
-              <line x1="0" y1="1" x2="60" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
-            </svg>
             <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-2xl">
               <div className="bg-[#1a1a1a] rounded-2xl px-5 py-4 text-center w-[240px]">
                 <p className="text-white font-semibold text-xs leading-tight mb-2 h-[32px] flex items-center justify-center">
@@ -373,7 +376,7 @@ const OrganogaramaSection = () => {
                 <span className="inline-block bg-[#3B82F6] rounded-lg px-3 py-1 text-white text-[11px] font-bold mb-1">
                   ASGID
                 </span>
-                <p className="text-white/50 text-[10px] h-[14px]">André Borges Ribeiro</p>
+                <p className="text-white text-xs h-[14px]">André Borges Ribeiro</p>
               </div>
             </div>
           </motion.div>
@@ -412,7 +415,7 @@ const OrganogaramaSection = () => {
                   <span className="inline-block bg-[#BE185D] rounded-lg px-3 py-1 text-white text-[11px] font-bold">
                     {gerencia.sigla}
                   </span>
-                  <p className="text-white/50 text-[10px] h-[14px]">{gerencia.responsavel}</p>
+                  <p className="text-white text-xs h-[14px]">{gerencia.responsavel}</p>
                 </div>
               </div>
             </motion.div>
@@ -466,7 +469,7 @@ const OrganogaramaSection = () => {
                     <span className="inline-block bg-[#F59E0B] rounded-lg px-2 py-0.5 text-white text-[9px] font-bold">
                       {coord.sigla}
                     </span>
-                    <p className="text-white/40 text-[8px] h-[24px] flex items-center justify-center">{coord.responsavel}</p>
+                    <p className="text-white text-xs h-[24px] flex items-center justify-center">{coord.responsavel}</p>
                   </div>
                 </motion.div>
               ))}
