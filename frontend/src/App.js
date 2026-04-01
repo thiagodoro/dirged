@@ -302,6 +302,9 @@ const OrganogaramaSection = () => {
     }
   ];
 
+  // Dotted line style
+  const dottedLine = "border-white/40 border-dashed";
+
   return (
     <section id="organograma" data-testid="organograma-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212]">
       <div className="max-w-6xl mx-auto">
@@ -348,22 +351,37 @@ const OrganogaramaSection = () => {
           </div>
         </motion.div>
 
-        {/* Vertical line from DIRGED to horizontal line */}
+        {/* Vertical dotted line from DIRGED */}
         <div className="flex justify-center">
-          <div className="w-[2px] h-10 bg-white/40"></div>
+          <div className={`border-l ${dottedLine} h-10`}></div>
         </div>
 
-        {/* Main horizontal connector */}
-        <div className="relative mx-auto" style={{ width: '85%' }}>
-          <div className="h-[2px] bg-white/40 w-full"></div>
-          {/* Three vertical lines down to gerências */}
-          <div className="absolute left-[16.67%] top-0 w-[2px] h-10 bg-white/40 -translate-x-1/2"></div>
-          <div className="absolute left-[50%] top-0 w-[2px] h-10 bg-white/40 -translate-x-1/2"></div>
-          <div className="absolute left-[83.33%] top-0 w-[2px] h-10 bg-white/40 -translate-x-1/2"></div>
+        {/* Horizontal connector - only between first and last gerência centers */}
+        <div className="grid grid-cols-3 gap-6">
+          <div className="flex justify-center">
+            <div className="w-1/2 ml-auto border-t border-dashed border-white/40"></div>
+          </div>
+          <div className="border-t border-dashed border-white/40"></div>
+          <div className="flex justify-center">
+            <div className="w-1/2 mr-auto border-t border-dashed border-white/40"></div>
+          </div>
+        </div>
+
+        {/* Vertical lines down to gerências */}
+        <div className="grid grid-cols-3 gap-6">
+          <div className="flex justify-center">
+            <div className={`border-l ${dottedLine} h-8`}></div>
+          </div>
+          <div className="flex justify-center">
+            <div className={`border-l ${dottedLine} h-8`}></div>
+          </div>
+          <div className="flex justify-center">
+            <div className={`border-l ${dottedLine} h-8`}></div>
+          </div>
         </div>
 
         {/* Gerências Row */}
-        <div className="grid grid-cols-3 gap-6 mt-10 mb-0">
+        <div className="grid grid-cols-3 gap-6 mb-0">
           {gerenciasComCoord.map((gerencia, gIndex) => (
             <motion.div 
               key={gIndex}
@@ -389,39 +407,46 @@ const OrganogaramaSection = () => {
           ))}
         </div>
 
-        {/* Vertical lines from gerências to horizontal connectors */}
+        {/* Vertical dotted lines from gerências */}
         <div className="grid grid-cols-3 gap-6">
           {gerenciasComCoord.map((_, gIndex) => (
             <div key={gIndex} className="flex justify-center">
-              <div className="w-[2px] h-8 bg-white/40"></div>
+              <div className={`border-l ${dottedLine} h-6`}></div>
             </div>
           ))}
         </div>
 
-        {/* Horizontal lines for each gerência's coordenações */}
+        {/* Horizontal lines for coordenações - trimmed to fit between first and last coord */}
         <div className="grid grid-cols-3 gap-6">
           {gerenciasComCoord.map((gerencia, gIndex) => (
-            <div key={gIndex} className="relative">
-              <div className="h-[2px] bg-white/40 w-full"></div>
-              {/* Vertical lines down to coordenações */}
+            <div key={gIndex} className="flex justify-center">
               {gerencia.coordenacoes.length === 2 ? (
-                <>
-                  <div className="absolute left-[25%] top-0 w-[2px] h-8 bg-white/40 -translate-x-1/2"></div>
-                  <div className="absolute left-[75%] top-0 w-[2px] h-8 bg-white/40 -translate-x-1/2"></div>
-                </>
+                <div className="w-1/2 border-t border-dashed border-white/40"></div>
               ) : (
-                <>
-                  <div className="absolute left-[16.67%] top-0 w-[2px] h-8 bg-white/40 -translate-x-1/2"></div>
-                  <div className="absolute left-[50%] top-0 w-[2px] h-8 bg-white/40 -translate-x-1/2"></div>
-                  <div className="absolute left-[83.33%] top-0 w-[2px] h-8 bg-white/40 -translate-x-1/2"></div>
-                </>
+                <div className="w-2/3 border-t border-dashed border-white/40"></div>
               )}
             </div>
           ))}
         </div>
 
+        {/* Vertical dotted lines to coordenações */}
+        <div className="grid grid-cols-3 gap-6">
+          {gerenciasComCoord.map((gerencia, gIndex) => (
+            <div 
+              key={gIndex} 
+              className={`grid ${gerencia.coordenacoes.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-2`}
+            >
+              {gerencia.coordenacoes.map((_, cIndex) => (
+                <div key={cIndex} className="flex justify-center">
+                  <div className={`border-l ${dottedLine} h-6`}></div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
         {/* Coordenações Row */}
-        <div className="grid grid-cols-3 gap-6 mt-8">
+        <div className="grid grid-cols-3 gap-6">
           {gerenciasComCoord.map((gerencia, gIndex) => (
             <div 
               key={gIndex} 
@@ -451,15 +476,21 @@ const OrganogaramaSection = () => {
           ))}
         </div>
 
-        {/* ASGID - Below DIRGED, left aligned */}
-        <div className="mt-16 relative">
-          {/* Connecting structure */}
-          <div className="absolute left-[8%] -top-16 flex flex-col items-center">
-            <div className="w-[2px] h-16 bg-white/30"></div>
+        {/* ASGID - Connected to DIRGED */}
+        <div className="mt-12 relative">
+          {/* Connection from DIRGED */}
+          <div className="absolute left-1/2 -top-12 -translate-x-1/2 flex flex-col items-center">
+            <div className={`border-l ${dottedLine} h-12`}></div>
+          </div>
+          
+          {/* Horizontal line to ASGID */}
+          <div className="flex items-start">
+            <div className="w-[calc(50%-130px)] border-t border-dashed border-white/40 mt-0"></div>
+            <div className={`border-l ${dottedLine} h-8 -mt-0`}></div>
           </div>
           
           <motion.div 
-            className="ml-0 md:ml-[2%]"
+            className="mt-0 ml-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
