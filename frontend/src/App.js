@@ -724,14 +724,81 @@ const OrganogaramaSection = () => {
 
 // Atos Normativos Section
 const AtosNormativosSection = () => {
-  const atos = [
-    { tipo: "Resolução", numero: "001/2024", titulo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", data: "15/03/2024", cor: "#FF007F" },
-    { tipo: "Portaria", numero: "045/2024", titulo: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", data: "22/04/2024", cor: "#9D00FF" },
-    { tipo: "Instrução Normativa", numero: "012/2024", titulo: "Ut enim ad minim veniam, quis nostrud exercitation ullamco", data: "10/05/2024", cor: "#FFE600" },
-    { tipo: "Resolução", numero: "003/2024", titulo: "Duis aute irure dolor in reprehenderit in voluptate velit esse", data: "01/06/2024", cor: "#FF007F" },
-    { tipo: "Portaria", numero: "078/2024", titulo: "Excepteur sint occaecat cupidatat non proident sunt in culpa", data: "18/07/2024", cor: "#9D00FF" },
-    { tipo: "Instrução Normativa", numero: "025/2024", titulo: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur", data: "05/08/2024", cor: "#FFE600" },
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const categorias = [
+    {
+      titulo: "Normas Fundamentais",
+      cor: "#FF007F",
+      atos: [
+        { tipo: "Resolução", id: "nº 1137/2026", desc: "Dispõe sobre a estrutura organizacional e o funcionamento das Diretorias Executivas que compõem a Escola Judicial Desembargador Edésio Fernandes – EJEF." },
+        { tipo: "Resolução", id: "nº 1080/2024", desc: "Institui o Regulamento da Escola Judicial Desembargador Edésio Fernandes – EJEF." },
+      ],
+    },
+    {
+      titulo: "Gestão da Informação",
+      cor: "#10B981",
+      atos: [
+        { tipo: "Portaria Conjunta", id: "nº 888/PR/2019", desc: "Dispõe sobre normas gerais de administração das obras que compõem o acervo bibliográfico do Tribunal de Justiça do Estado de Minas Gerais." },
+        { tipo: "Portaria", id: "nº 6629/PR/2024", desc: "Designa os integrantes da Comissão de Divulgação da Jurisprudência de que trata a alínea \"c\" do inciso IX do art. 9º do Regimento Interno do TJMG." },
+        { tipo: "Portaria", id: "nº 171/2VP/2023", desc: "Dispõe sobre a editoração de produção intelectual técnico-jurídica que guarde identidade com o interesse institucional do TJMG." },
+        { tipo: "Portaria", id: "nº 164/2VP/2022", desc: "Regulamenta a editoração da Revista EJEF." },
+        { tipo: "Portaria", id: "nº 64/2012 (2ª VP)", desc: "Estabelece normas para desenvolvimento e avaliação dos acervos das bibliotecas do TJMG." },
+        { tipo: "Portaria", id: "nº 108/2VP/2018", desc: "Institui o Regulamento da Biblioteca do Tribunal de Justiça do Estado de Minas Gerais." },
+      ],
+    },
+    {
+      titulo: "Gestão Documental",
+      cor: "#3B82F6",
+      atos: [
+        { tipo: "Resolução", id: "nº 749/2013", desc: "Dispõe sobre o Programa de Gestão Documental do Tribunal de Justiça do Estado de Minas Gerais." },
+        { tipo: "Resolução", id: "nº 731/2013", desc: "Regulamenta o acesso à informação e a aplicação da Lei nº 12.527/2011, no âmbito do TJMG." },
+        { tipo: "Portaria Conjunta", id: "nº 728/PR/2018", desc: "Institui a Política de Manutenção de Documentos Eletrônicos no TJMG." },
+        { tipo: "Portaria Conjunta", id: "nº 616/PR/2017", desc: "Dispõe sobre a locação de imóvel para armazenamento de documentos de arquivo ou guarda de bens apreendidos no TJMG." },
+        { tipo: "Portaria Conjunta", id: "nº 131/2008", desc: "Institui o Manual de Gestão dos Documentos Administrativos da Secretaria do TJMG." },
+        { tipo: "Portaria", id: "nº 162/2VP/2022", desc: "Institui o Manual de Gestão Documental do Tribunal de Justiça do Estado de Minas Gerais." },
+        { tipo: "Portaria", id: "nº 6915/PR/2024", desc: "Dispõe sobre a Comissão Técnica de Avaliação Documental do TJMG." },
+        { tipo: "Recomendação Conjunta", id: "nº 1/2ªVP/CGJ/2015", desc: "Dispõe sobre a destinação dos Títulos de Crédito acautelados em cofre nas Secretarias de Juízo." },
+      ],
+    },
+    {
+      titulo: "Arquivos Corrente e Intermediário",
+      cor: "#9D00FF",
+      atos: [
+        { tipo: "Portaria Conjunta", id: "nº 1448/PR/2023", desc: "Regulamenta o acesso, por terceiros interessados, aos processos judiciais findos tramitados no TJMG." },
+        { tipo: "Portaria Conjunta", id: "nº 27/CGJ/2019", desc: "Disciplina o destino dos autos dos agravos de instrumento no âmbito das Turmas Recursais do Estado de Minas Gerais." },
+        { tipo: "Portaria Conjunta", id: "nº 796/PR/2018", desc: "Disciplina a transferência de processos judiciais para o Arquivo Central do TJMG." },
+        { tipo: "Portaria Conjunta", id: "nº 417/PR/2015", desc: "Institui Plano de Classificação e Tabela de Temporalidade – PCTT dos documentos administrativos da justiça de 1º e 2º graus de MG." },
+        { tipo: "Portaria Conjunta", id: "nº 330/2014", desc: "Institui Plano de Classificação e Tabela de Temporalidade (PCTT) dos processos judiciais da justiça de 1º e 2º graus de MG." },
+        { tipo: "Aviso Conjunto", id: "nº 2/CGJ/2019", desc: "Avisa sobre os procedimentos afetos à separação e ao envio de processos judiciais para avaliação documental." },
+      ],
+    },
+    {
+      titulo: "Arquivo Permanente",
+      cor: "#FFE600",
+      atos: [
+        { tipo: "Portaria Conjunta", id: "nº 6/2VP/2022", desc: "Atualiza a regulamentação do marcador \"Tema Relevante\" para documentos e processos indicados à guarda permanente." },
+        { tipo: "Portaria", id: "nº 154/2VP/2022", desc: "Regulamenta o funcionamento da Coordenação de Arquivo Permanente do TJMG." },
+        { tipo: "Aviso Conjunto", id: "nº 01/2VP/CGJ/2018", desc: "Aviso aos Juízes Diretores de Foro sobre a transferência e cessão de documentos administrativos e/ou judiciais para instituições de ensino e pesquisa." },
+      ],
+    },
+    {
+      titulo: "Normas Externas Gerais",
+      cor: "#00D4FF",
+      atos: [
+        { tipo: "Lei", id: "nº 12.527/2011", desc: "Regula o acesso a informações." },
+        { tipo: "Lei", id: "nº 8.159/1991", desc: "Dispõe sobre a política nacional de arquivos públicos e privados e dá outras providências." },
+        { tipo: "Decreto", id: "nº 4.073/2002", desc: "Regulamenta a Lei nº 8.159/1991, que dispõe sobre a política nacional de arquivos públicos e privados." },
+        { tipo: "CNJ – Resolução", id: "nº 324/2020", desc: "Institui diretrizes e normas de Gestão de Memória e de Gestão Documental e dispõe sobre o Proname." },
+        { tipo: "CNJ – Resolução", id: "nº 215/2015", desc: "Dispõe, no âmbito do Poder Judiciário, sobre o acesso à informação e a aplicação da Lei 12.527/2011." },
+        { tipo: "CNJ – Portaria", id: "nº 295/2020", desc: "Institui o Manual de Gestão Documental do Poder Judiciário e o Manual de Gestão de Memória do Poder Judiciário." },
+        { tipo: "CNJ – Recomendação", id: "nº 37/2011", desc: "Recomenda aos Tribunais a observância das normas de funcionamento do Proname e de seus instrumentos." },
+      ],
+    },
   ];
+
+  const totalPages = categorias.length;
+  const categoria = categorias[currentPage];
 
   return (
     <section id="atos-normativos" data-testid="atos-normativos-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#0A0A0A]">
@@ -751,39 +818,99 @@ const AtosNormativosSection = () => {
             Atos <span className="text-[#00D4FF]">Normativos</span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Principais atos normativos da DIRGED.
+            Principais atos normativos que orientam a gestão documental e da informação no TJMG.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {atos.map((ato, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              data-testid={`ato-normativo-${index}`}
-              className="group"
+        {/* Category tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {categorias.map((cat, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i)}
+              data-testid={`atos-tab-${i}`}
+              className="px-4 py-2 rounded-full text-xs font-semibold transition-all"
+              style={{
+                backgroundColor: currentPage === i ? cat.cor : 'transparent',
+                color: currentPage === i ? (cat.cor === '#FFE600' ? '#000' : '#fff') : 'rgba(255,255,255,0.5)',
+                border: currentPage === i ? 'none' : '1px solid rgba(255,255,255,0.15)',
+              }}
             >
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 h-full hover:border-white/20 transition-all hover:bg-white/[0.07]">
-                <div className="flex items-center gap-3 mb-4">
-                  <span
-                    className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-lg"
-                    style={{ backgroundColor: `${ato.cor}20`, color: ato.cor }}
-                  >
-                    {ato.tipo}
-                  </span>
-                  <span className="text-white/40 text-xs font-mono">{ato.numero}</span>
-                </div>
-                <p className="text-white font-medium text-sm leading-relaxed mb-4">{ato.titulo}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-white/40 text-xs">{ato.data}</span>
-                  <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-white/60 transition-colors" />
-                </div>
-              </div>
-            </motion.div>
+              {cat.titulo}
+            </button>
           ))}
+        </div>
+
+        {/* Category content */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPage}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -30 }}
+            transition={{ duration: 0.3 }}
+          >
+            <h3 className="font-outfit font-bold text-2xl text-white mb-6" style={{ color: categoria.cor }}>
+              {categoria.titulo}
+            </h3>
+            <div className="space-y-3">
+              {categoria.atos.map((ato, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  data-testid={`ato-normativo-${currentPage}-${index}`}
+                  className="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-white/20 transition-all hover:bg-white/[0.07] group"
+                >
+                  <div className="flex items-start gap-4">
+                    <span
+                      className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shrink-0 mt-0.5"
+                      style={{ backgroundColor: `${categoria.cor}20`, color: categoria.cor }}
+                    >
+                      {ato.tipo}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-white font-semibold text-sm mb-1">
+                        {ato.tipo} {ato.id}
+                      </p>
+                      <p className="text-white/60 text-sm leading-relaxed">{ato.desc}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Page navigation */}
+        <div className="flex items-center justify-center gap-4 mt-10">
+          <button
+            onClick={() => setCurrentPage(p => Math.max(0, p - 1))}
+            disabled={currentPage === 0}
+            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            data-testid="atos-prev"
+          >
+            <ChevronDown className="w-5 h-5 text-white rotate-90" />
+          </button>
+          <div className="flex gap-2">
+            {categorias.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i)}
+                className="w-2.5 h-2.5 rounded-full transition-all"
+                style={{ backgroundColor: currentPage === i ? categorias[currentPage].cor : 'rgba(255,255,255,0.2)' }}
+              />
+            ))}
+          </div>
+          <button
+            onClick={() => setCurrentPage(p => Math.min(totalPages - 1, p + 1))}
+            disabled={currentPage === totalPages - 1}
+            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            data-testid="atos-next"
+          >
+            <ChevronDown className="w-5 h-5 text-white -rotate-90" />
+          </button>
         </div>
       </div>
     </section>
