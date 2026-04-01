@@ -37,6 +37,7 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 
 **Date: Abril 2026**
 - ✅ Linha pontilhada em L conectando DIRGED e ASGID (SVG com coordenadas precisas baseadas em medições reais)
+- ✅ Alterada para linha reta horizontal entre DIRGED e ASGID (centros verticais alinhados, sem formato L)
 
 ## Architecture
 - **Frontend**: React 19 + Tailwind CSS + Framer Motion

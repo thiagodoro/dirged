@@ -331,7 +331,7 @@ const OrganogaramaSection = () => {
           </p>
         </motion.div>
 
-        {/* DIRGED (centered) with ASGID connected via L-shape */}
+        {/* DIRGED (centered) with ASGID connected via straight line */}
         <div className="relative mb-8">
           {/* DIRGED - Centered */}
           <motion.div 
@@ -353,20 +353,15 @@ const OrganogaramaSection = () => {
                 </div>
               </div>
               
-              {/* L-shaped SVG connector from DIRGED to ASGID */}
-              <svg className="absolute overflow-visible" data-testid="dirged-asgid-connector" style={{ left: '100%', top: '0', width: '320px', height: '200px', pointerEvents: 'none' }}>
-                {/* Horizontal from DIRGED right border at vertical center */}
-                <line x1="-2" y1="80" x2="60" y2="80" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeDasharray="2,3" strokeLinecap="round" />
-                {/* Vertical down to ASGID vertical center */}
-                <line x1="60" y1="80" x2="60" y2="140" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeDasharray="2,3" strokeLinecap="round" />
-                {/* Horizontal to ASGID left border */}
-                <line x1="60" y1="140" x2="122" y2="140" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeDasharray="2,3" strokeLinecap="round" />
+              {/* Straight horizontal SVG connector from DIRGED to ASGID */}
+              <svg className="absolute overflow-visible" data-testid="dirged-asgid-connector" style={{ left: '100%', top: '0', width: '90px', height: '160px', pointerEvents: 'none' }}>
+                <line x1="-2" y1="80" x2="92" y2="80" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeDasharray="2,3" strokeLinecap="round" />
               </svg>
               
-              {/* ASGID Box */}
+              {/* ASGID Box - aligned vertically with DIRGED center */}
               <motion.div 
                 className="absolute"
-                style={{ left: 'calc(100% + 120px)', top: '80px' }}
+                style={{ left: 'calc(100% + 90px)', top: '20px' }}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
