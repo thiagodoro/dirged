@@ -242,9 +242,6 @@ const CompetenciasSection = () => {
               <Briefcase className="w-8 h-8 text-[#9D00FF]" />
             </div>
           </div>
-          <Badge className="mb-4 bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-            O que fazemos
-          </Badge>
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Nossas <span className="text-gradient-purple">Competências</span>
           </h2>
@@ -329,9 +326,6 @@ const OrganogaramaSection = () => {
               <Network className="w-8 h-8 text-[#FF007F]" />
             </div>
           </div>
-          <Badge className="mb-4 bg-[#FF007F]/10 text-[#FF007F] border-[#FF007F]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-            Estrutura
-          </Badge>
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             <span className="text-gradient-pink">Organograma</span>
           </h2>
@@ -517,9 +511,6 @@ const AtosNormativosSection = () => {
               <FileText className="w-8 h-8 text-[#00D4FF]" />
             </div>
           </div>
-          <Badge className="mb-4 bg-[#00D4FF]/10 text-[#00D4FF] border-[#00D4FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-            Normas
-          </Badge>
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Atos <span className="text-[#00D4FF]">Normativos</span>
           </h2>
@@ -601,9 +592,6 @@ const CapitalHumanoSection = () => {
               <div className="w-14 h-14 rounded-xl bg-[#FFE600]/20 flex items-center justify-center">
                 <Users className="w-7 h-7 text-[#FFE600]" />
               </div>
-              <Badge className="bg-[#FFE600]/10 text-[#FFE600] border-[#FFE600]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-                Nossa Equipe
-              </Badge>
             </div>
             <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
               Capital <span className="text-gradient-yellow">Humano</span>
@@ -655,9 +643,6 @@ const OrcamentoSection = () => {
               <DollarSign className="w-8 h-8 text-[#9D00FF]" />
             </div>
           </div>
-          <Badge className="mb-4 bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-            Recursos
-          </Badge>
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             <span className="text-gradient-purple">Orçamento</span>
           </h2>
@@ -771,9 +756,6 @@ const MapaSection = () => {
               <MapPin className="w-8 h-8 text-[#FF007F]" />
             </div>
           </div>
-          <Badge className="mb-4 bg-[#FF007F]/10 text-[#FF007F] border-[#FF007F]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-            Localização
-          </Badge>
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Onde <span className="text-gradient-pink">Estamos</span>
           </h2>
@@ -992,9 +974,6 @@ const GestaoDocumentalSection = () => {
               <FolderOpen className="w-8 h-8 text-[#FFE600]" />
             </div>
           </div>
-          <Badge className="mb-4 bg-[#FFE600]/10 text-[#FFE600] border-[#FFE600]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-            Documentos
-          </Badge>
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Gestão <span className="text-gradient-yellow">Documental</span>
           </h2>
@@ -1052,9 +1031,6 @@ const GestaoInformacaoSection = () => {
               <div className="w-14 h-14 rounded-xl bg-[#9D00FF]/20 flex items-center justify-center">
                 <Database className="w-7 h-7 text-[#9D00FF]" />
               </div>
-              <Badge className="bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-                Informação
-              </Badge>
             </div>
             <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
               Gestão da <span className="text-gradient-purple">Informação</span>
@@ -1122,9 +1098,6 @@ const IniciativasSection = () => {
               <Lightbulb className="w-8 h-8 text-[#FF007F]" />
             </div>
           </div>
-          <Badge className="mb-4 bg-[#FF007F]/10 text-[#FF007F] border-[#FF007F]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-            Novidades
-          </Badge>
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Últimas <span className="text-gradient-pink">Iniciativas</span>
           </h2>
@@ -1215,9 +1188,6 @@ const PremiosSection = () => {
               <Award className="w-8 h-8 text-[#FFE600]" />
             </div>
           </div>
-          <Badge className="mb-4 bg-[#FFE600]/10 text-[#FFE600] border-[#FFE600]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-            Reconhecimento
-          </Badge>
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Nossos <span className="text-gradient-yellow">Prêmios</span>
           </h2>
@@ -1273,9 +1243,6 @@ const ProjetosFuturosSection = () => {
               <Sparkles className="w-8 h-8 text-[#9D00FF]" />
             </div>
           </div>
-          <Badge className="mb-4 bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-            Futuro
-          </Badge>
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Projetos <span className="text-gradient-purple">Futuros</span>
           </h2>
