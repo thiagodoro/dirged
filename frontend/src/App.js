@@ -175,7 +175,7 @@ const HeroSection = () => {
             <img 
               src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
               alt="EJEF | TJMG" 
-              className="h-16 md:h-20 mx-auto mb-6 object-contain hover:opacity-80 transition-opacity cursor-pointer"
+              className="h-12 md:h-16 mx-auto mb-6 object-contain hover:opacity-80 transition-opacity cursor-pointer"
             />
           </a>
           
@@ -950,7 +950,7 @@ const Footer = () => {
             <img 
               src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
               alt="EJEF | TJMG" 
-              className="h-10 object-contain hover:opacity-80 transition-opacity cursor-pointer"
+              className="h-12 object-contain hover:opacity-80 transition-opacity cursor-pointer"
             />
           </a>
         </div>
