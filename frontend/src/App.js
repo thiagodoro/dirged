@@ -472,8 +472,9 @@ const OrganogaramaSection = () => {
                   <span className="inline-block bg-[#FF007F] rounded-lg px-4 py-1.5 text-white text-sm font-bold mb-2">
                     DIRGED
                   </span>
+                  <br />
                   <p
-                    className="text-white text-xs h-[16px] inline-block cursor-pointer rounded px-2 mx-auto transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]"
+                    className="text-white text-xs inline-block cursor-pointer rounded px-2 mx-auto transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]"
                     onClick={() => setShowDirectorModal(true)}
                     data-testid="thiago-doro-link"
                   >Thiago Doro</p>
