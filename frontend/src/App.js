@@ -69,12 +69,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo with separator */}
           <motion.div 
-            className="hidden lg:flex items-center gap-6"
+            className="hidden lg:flex items-center gap-3"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
           >
             <span className="font-outfit font-bold text-xl text-white">DIRGED</span>
-            <div className="w-px h-8 bg-white/20" />
+            <div className="w-px h-6 bg-white/30" />
           </motion.div>
 
           {/* Mobile Logo */}
@@ -87,13 +87,13 @@ const Navbar = () => {
           </motion.div>
 
           {/* Desktop Navigation - Icons with text below on hover */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
                 data-testid={`nav-${item.id}-link`}
                 onClick={() => scrollToSection(item.id)}
-                className={`group relative px-3 py-2 text-sm font-medium transition-all rounded-xl min-w-[48px] flex flex-col items-center justify-center ${
+                className={`group relative w-12 h-12 flex items-center justify-center rounded-xl transition-all ${
                   activeSection === item.id 
                     ? "text-[#FF007F] bg-[#FF007F]/10" 
                     : "text-white/70 hover:text-white hover:bg-white/5"
@@ -103,7 +103,7 @@ const Navbar = () => {
                 transition={{ delay: index * 0.05 }}
               >
                 <item.icon className="w-5 h-5" />
-                <span className="text-[10px] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">{item.label}</span>
+                <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap bg-black/80 px-2 py-1 rounded text-white">{item.label}</span>
               </motion.button>
             ))}
           </div>
