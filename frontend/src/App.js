@@ -67,23 +67,33 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {/* Logo with separator */}
           <motion.div 
-            className="flex items-center gap-3"
+            className="hidden lg:flex items-center gap-6"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+          >
+            <span className="font-outfit font-bold text-xl text-white">DIRGED</span>
+            <div className="w-px h-8 bg-white/20" />
+          </motion.div>
+
+          {/* Mobile Logo */}
+          <motion.div 
+            className="lg:hidden flex items-center"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
           >
             <span className="font-outfit font-bold text-xl text-white">DIRGED</span>
           </motion.div>
 
-          {/* Desktop Navigation - Icons only, text on hover */}
+          {/* Desktop Navigation - Icons with text below on hover */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
                 data-testid={`nav-${item.id}-link`}
                 onClick={() => scrollToSection(item.id)}
-                className={`group relative px-4 py-2 text-sm font-medium transition-all rounded-full min-w-[44px] h-[44px] flex items-center justify-center ${
+                className={`group relative px-3 py-2 text-sm font-medium transition-all rounded-xl min-w-[48px] flex flex-col items-center justify-center ${
                   activeSection === item.id 
                     ? "text-[#FF007F] bg-[#FF007F]/10" 
                     : "text-white/70 hover:text-white hover:bg-white/5"
@@ -92,8 +102,8 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
               >
-                <item.icon className="w-5 h-5 group-hover:hidden transition-all" />
-                <span className="hidden group-hover:block whitespace-nowrap text-sm">{item.label}</span>
+                <item.icon className="w-5 h-5" />
+                <span className="text-[10px] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">{item.label}</span>
               </motion.button>
             ))}
           </div>
