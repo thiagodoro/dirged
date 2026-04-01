@@ -238,9 +238,9 @@ const CompetenciasSection = () => {
     ...tagCloudInformacao.map(t => ({ text: t, type: "informacao" })),
   ].sort(() => Math.random() - 0.5);
 
-  // Duplicate for seamless loop
-  const marqueeRow1 = [...allTags.slice(0, 11), ...allTags.slice(0, 11)];
-  const marqueeRow2 = [...allTags.slice(11), ...allTags.slice(11)];
+  // Duplicate for seamless loop - Row 1: Documental, Row 2: Informação
+  const marqueeRow1 = [...tagCloudDocumental, ...tagCloudDocumental];
+  const marqueeRow2 = [...tagCloudInformacao, ...tagCloudInformacao];
 
   return (
     <section id="competencias" data-testid="competencias-section" className="py-24 md:py-32 px-6 md:px-12">
@@ -297,49 +297,49 @@ const CompetenciasSection = () => {
             className="flex flex-col justify-between h-full"
           >
             {/* Box Gestão Documental */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6" data-testid="box-gestao-documental">
+            <div className="bg-[#121212] border border-[#FF007F]/30 rounded-2xl p-6" data-testid="box-gestao-documental">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#FF007F]/10 flex items-center justify-center">
-                  <FolderOpen className="w-5 h-5 text-[#FF007F]/70" />
+                <div className="w-10 h-10 rounded-xl bg-[#FF007F]/20 flex items-center justify-center">
+                  <FolderOpen className="w-5 h-5 text-[#FF007F]" />
                 </div>
-                <h3 className="font-outfit font-bold text-xl text-white/90">Gestão Documental</h3>
+                <h3 className="font-outfit font-bold text-xl text-[#FF007F]">Gestão Documental</h3>
               </div>
               <div className="space-y-3 pl-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#FF007F]/50" />
-                  <span className="text-white/60 text-sm">Arquivo da 1ª Instância</span>
+                  <div className="w-2 h-2 rounded-full bg-[#FF007F]" />
+                  <span className="text-white/80 text-sm">Arquivo da 1ª Instância</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#FF007F]/50" />
-                  <span className="text-white/60 text-sm">Arquivo da 2ª Instância e Permanente</span>
+                  <div className="w-2 h-2 rounded-full bg-[#FF007F]" />
+                  <span className="text-white/80 text-sm">Arquivo da 2ª Instância e Permanente</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#FF007F]/50" />
-                  <span className="text-white/60 text-sm">Documentos Eletrônicos</span>
+                  <div className="w-2 h-2 rounded-full bg-[#FF007F]" />
+                  <span className="text-white/80 text-sm">Documentos Eletrônicos</span>
                 </div>
               </div>
             </div>
 
             {/* Box Gestão da Informação */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6" data-testid="box-gestao-informacao">
+            <div className="bg-[#121212] border border-[#00D4FF]/30 rounded-2xl p-6" data-testid="box-gestao-informacao">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#9D00FF]/10 flex items-center justify-center">
-                  <Database className="w-5 h-5 text-[#9D00FF]/70" />
+                <div className="w-10 h-10 rounded-xl bg-[#00D4FF]/20 flex items-center justify-center">
+                  <Database className="w-5 h-5 text-[#00D4FF]" />
                 </div>
-                <h3 className="font-outfit font-bold text-xl text-white/90">Gestão da Informação</h3>
+                <h3 className="font-outfit font-bold text-xl text-[#00D4FF]">Gestão da Informação</h3>
               </div>
               <div className="space-y-3 pl-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF]/50" />
-                  <span className="text-white/60 text-sm">Biblioteca</span>
+                  <div className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+                  <span className="text-white/80 text-sm">Biblioteca</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF]/50" />
-                  <span className="text-white/60 text-sm">Jurisprudência</span>
+                  <div className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+                  <span className="text-white/80 text-sm">Jurisprudência</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF]/50" />
-                  <span className="text-white/60 text-sm">Publicações Técnicas</span>
+                  <div className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+                  <span className="text-white/80 text-sm">Publicações Técnicas</span>
                 </div>
               </div>
             </div>
@@ -355,35 +355,35 @@ const CompetenciasSection = () => {
           data-testid="tag-cloud"
         >
           <h3 className="font-outfit font-bold text-2xl md:text-3xl text-white mb-8 lg:pl-12">NOSSOS ASSUNTOS</h3>
-          {/* Row 1 - moves left */}
+          {/* Row 1 - Gestão Documental */}
           <div className="flex gap-4 mb-4 animate-marquee-left">
             {marqueeRow1.map((tag, i) => (
               <span
                 key={`r1-${i}`}
                 className="whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium border transition-all hover:scale-105"
                 style={{
-                  backgroundColor: tag.type === "documental" ? "rgba(255,0,127,0.12)" : "rgba(0,212,255,0.12)",
-                  borderColor: tag.type === "documental" ? "rgba(255,0,127,0.3)" : "rgba(0,212,255,0.3)",
-                  color: tag.type === "documental" ? "#FF007F" : "#00D4FF",
+                  backgroundColor: "rgba(255,0,127,0.12)",
+                  borderColor: "rgba(255,0,127,0.3)",
+                  color: "#FF007F",
                 }}
               >
-                {tag.text}
+                {tag}
               </span>
             ))}
           </div>
-          {/* Row 2 - moves right */}
+          {/* Row 2 - Gestão da Informação */}
           <div className="flex gap-4 animate-marquee-right">
             {marqueeRow2.map((tag, i) => (
               <span
                 key={`r2-${i}`}
                 className="whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium border transition-all hover:scale-105"
                 style={{
-                  backgroundColor: tag.type === "documental" ? "rgba(255,0,127,0.12)" : "rgba(0,212,255,0.12)",
-                  borderColor: tag.type === "documental" ? "rgba(255,0,127,0.3)" : "rgba(0,212,255,0.3)",
-                  color: tag.type === "documental" ? "#FF007F" : "#00D4FF",
+                  backgroundColor: "rgba(0,212,255,0.12)",
+                  borderColor: "rgba(0,212,255,0.3)",
+                  color: "#00D4FF",
                 }}
               >
-                {tag.text}
+                {tag}
               </span>
             ))}
           </div>
