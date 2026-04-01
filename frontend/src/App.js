@@ -184,9 +184,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="font-outfit font-bold text-4xl sm:text-5xl lg:text-7xl text-white leading-tight mb-6">
-            Diretoria Executiva de{" "}
-            <span className="text-gradient-pink">Gestão da Informação</span>{" "}
-            Documental
+            Diretoria Executiva de Gestão da{" "}
+            <span className="text-gradient-pink">Informação Documental</span>
           </h1>
           
           <p className="font-satoshi text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-10">
