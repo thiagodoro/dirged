@@ -1,0 +1,78 @@
+{
+  "theme": "dark",
+  "archetype": "Archetype 7: Electric & Neon",
+  "colors": {
+    "background": "#0A0A0A",
+    "surface": "#121212",
+    "surface_glass": "rgba(255, 255, 255, 0.05)",
+    "primary": "#FF007F",
+    "primary_hover": "#FF3399",
+    "secondary": "#FFE600",
+    "accent": "#9D00FF",
+    "text_main": "#FFFFFF",
+    "text_muted": "rgba(255, 255, 255, 0.6)",
+    "border": "rgba(255, 255, 255, 0.1)"
+  },
+  "typography": {
+    "headings": "Outfit",
+    "body": "Satoshi",
+    "banned_fonts": ["Inter", "Roboto", "Open Sans", "Lato"],
+    "heading_classes": "font-outfit tracking-tight",
+    "body_classes": "font-satoshi leading-relaxed"
+  },
+  "layout": {
+    "spacing_scale": "generous",
+    "grid_system": "Bento Grid Protocol (Mode A)",
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-24 md:py-32"
+  },
+  "surfaces": {
+    "header": "Crystal Glass (bg-black/60 backdrop-blur-xl border-b border-white/10)",
+    "cards": "Solid flat with 1px border-white/10, hover:border-pink-500/50 hover:shadow-[0_0_15px_rgba(255,0,127,0.3)] transition-all",
+    "hero_overlay": "bg-gradient-to-r from-black/80 via-black/50 to-transparent"
+  },
+  "media": {
+    "hero_bg": {
+      "url": "https://images.unsplash.com/photo-1764258560286-b3aa856c8ff0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMG5lb24lMjBwdXJwbGUlMjBwaW5rJTIweWVsbG93JTIwZGFyayUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzc1MDA5NDUxfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract glowing lines of yellow and pink on black"
+    },
+    "gestao_informacao": {
+      "url": "https://images.unsplash.com/photo-1762279388988-3f8abcc7dca2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwZGF0YSUyMHZpc3VhbGl6YXRpb24lMjBkYXJrfGVufDB8fHx8MTc3NTAwOTQ1M3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract neon lines forming a futuristic landscape"
+    },
+    "capital_humano": {
+      "url": "https://images.unsplash.com/photo-1758518731468-98e90ffd7430?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwZGF0YSUyMHZpc3VhbGl6YXRpb24lMjBkYXJrfGVufDB8fHx8MTc3NTAwOTQ1M3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Four professionals in business attire stand together."
+    },
+    "premios": {
+      "url": "https://images.pexels.com/photos/28551568/pexels-photo-28551568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "A vibrant geometric artwork showcasing a cube with gradient colors and abstract lighting."
+    }
+  },
+  "components": {
+    "buttons": "Rounded-full, bold, bg-pink-600 hover:bg-pink-500 text-white font-bold px-8 py-3 transition-colors",
+    "badges": "Uppercase, tracking-[0.2em], text-xs, border border-yellow-400/50 text-yellow-400 bg-yellow-400/10 rounded-full px-3 py-1",
+    "icons": "lucide-react (stroke-width 1.5)"
+  },
+  "sections_instructions": {
+    "navbar": "Sticky at top, crystal glass background, logo on left, 8 navigation links (Home, Competências, Capital Humano, Mapa, Gestão Documental, Gestão da Informação, Iniciativas, Prêmios, Projetos). Must use smooth scrolling to section IDs.",
+    "home_hero": "Massive H1 (text-5xl to text-7xl), electric pink accent words. Subtitle in text-xl text-white/60. Primary CTA 'Explore'. Background uses hero_bg with black overlay.",
+    "competencias": "Bento Grid Layout. Cards with 1px border, dark background, hovering reveals purple/pink glow. Use Lucide icons. Title 'Nossas Competências'.",
+    "capital_humano": "Two-column layout. Left: large image of capital_humano. Right: stats and descriptive text about the team and culture.",
+    "mapa": "Full width dark section. Title 'Onde Estamos'. Visual map representation with two distinct points for Belo Horizonte/MG and Contagem/MG. Build an SVG map layout or use lucide map-pin icons positioned relatively on a stylized dark background container to represent the two cities. Add a clear legend (e.g. Yellow pin = BH, Pink pin = Contagem).",
+    "gestao_documental": "Feature showcase. Alternating text/image layout or a sleek grid highlighting document tracking, archiving, and digitization.",
+    "gestao_informacao": "Use gestao_informacao background image with heavy overlay. Focus on data flow, analytics, and modern information security.",
+    "ultimas_iniciativas": "Use a marquee (react-fast-marquee or framer-motion) for initiative tags or a horizontal scroll of initiative cards.",
+    "premios": "Dark section with glowing cards. Use premios image for visual flair. Emphasize awards with neon borders.",
+    "projetos_futuros": "Timeline layout or floating glassmorphic cards describing upcoming tech upgrades."
+  },
+  "testing": {
+    "data_testid_rules": "All links, buttons, and section wrappers MUST have data-testid attributes (e.g., data-testid='nav-home-link', data-testid='hero-explore-button')."
+  },
+  "packages_to_install": [
+    "lucide-react",
+    "framer-motion",
+    "clsx",
+    "tailwind-merge"
+  ]
+}
