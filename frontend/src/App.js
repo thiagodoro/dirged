@@ -192,7 +192,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="font-satoshi text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-10">
-            Transformando a gestão documental e a gestão da informação através da inovação, eficiência e excelência no serviço público.
+            Transformando a gestão documental e a gestão da informação do TJMG através da inovação, eficiência e excelência no serviço público.
           </p>
 
           <div className="flex justify-center gap-4">
