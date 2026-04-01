@@ -473,7 +473,7 @@ const OrganogaramaSection = () => {
                     DIRGED
                   </span>
                   <p
-                    className="text-white text-xs h-[16px] cursor-pointer hover:text-[#FFE600] transition-colors underline underline-offset-2"
+                    className="text-white text-xs h-[16px] cursor-pointer rounded px-1 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]"
                     onClick={() => setShowDirectorModal(true)}
                     data-testid="thiago-doro-link"
                   >Thiago Doro</p>
@@ -503,7 +503,7 @@ const OrganogaramaSection = () => {
                     <span className="inline-block bg-[#3B82F6] rounded-lg px-3 py-1 text-white text-[11px] font-bold mb-1">
                       ASGID
                     </span>
-                    <p className="text-white text-xs h-[14px]">André Borges Ribeiro</p>
+                    <p className="text-white text-xs h-[14px] cursor-pointer rounded px-1 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">André Borges Ribeiro</p>
                   </div>
                 </div>
               </motion.div>
@@ -544,7 +544,7 @@ const OrganogaramaSection = () => {
                   <span className="inline-block bg-[#BE185D] rounded-lg px-3 py-1 text-white text-[11px] font-bold">
                     {gerencia.sigla}
                   </span>
-                  <p className="text-white text-xs h-[14px]">{gerencia.responsavel}</p>
+                  <p className="text-white text-xs h-[14px] cursor-pointer rounded px-1 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">{gerencia.responsavel}</p>
                 </div>
               </div>
             </motion.div>
@@ -598,7 +598,7 @@ const OrganogaramaSection = () => {
                     <span className="inline-block bg-[#F59E0B] rounded-lg px-2 py-0.5 text-white text-[9px] font-bold">
                       {coord.sigla}
                     </span>
-                    <p className="text-white text-xs h-[24px] flex items-center justify-center">{coord.responsavel}</p>
+                    <p className="text-white text-xs h-[24px] flex items-center justify-center cursor-pointer rounded px-1 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">{coord.responsavel}</p>
                   </div>
                 </motion.div>
               ))}
