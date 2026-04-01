@@ -302,6 +302,9 @@ const OrganogaramaSection = () => {
     }
   ];
 
+  // Dotted line style (small dots)
+  const dotStyle = "1,4";
+
   return (
     <section id="organograma" data-testid="organograma-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212]">
       <div className="max-w-6xl mx-auto">
@@ -328,16 +331,17 @@ const OrganogaramaSection = () => {
           </p>
         </motion.div>
 
-        {/* DIRGED + ASGID Row */}
-        <div className="flex justify-center items-start gap-8 mb-0">
-          {/* DIRGED */}
+        {/* DIRGED (centered) with ASGID to the right */}
+        <div className="relative">
+          {/* DIRGED - Centered */}
           <motion.div 
+            className="flex justify-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <div className="bg-gradient-to-r from-[#FF007F] to-[#9D00FF] p-[2px] rounded-2xl">
-              <div className="bg-[#1a1a1a] rounded-2xl px-10 py-6 text-center">
+              <div className="bg-[#1a1a1a] rounded-2xl px-10 py-6 text-center min-w-[380px]">
                 <p className="text-white font-bold text-base leading-tight mb-3">
                   Diretoria Executiva de Gestão da Informação Documental
                 </p>
@@ -349,50 +353,45 @@ const OrganogaramaSection = () => {
             </div>
           </motion.div>
 
-          {/* Horizontal dotted line connecting DIRGED to ASGID */}
-          <div className="flex items-center self-center">
-            <svg width="60" height="2" className="overflow-visible">
-              <line x1="0" y1="1" x2="60" y2="1" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
-            </svg>
-          </div>
-
-          {/* ASGID */}
+          {/* ASGID - Positioned to the right */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="absolute right-0 top-1/2 -translate-y-1/2"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-xl">
-              <div className="bg-[#1a1a1a] rounded-xl px-6 py-4 text-center w-[260px]">
-                <p className="text-white font-semibold text-xs leading-tight mb-2">
-                  Assessoria Técnica para a Gestão da Informação Documental
-                </p>
-                <span className="inline-block bg-[#3B82F6] rounded px-3 py-1 text-white text-[11px] font-bold mb-1">
-                  ASGID
-                </span>
-                <p className="text-white/50 text-[10px]">André Borges Ribeiro</p>
+            <div className="flex items-center">
+              {/* Dotted line connecting to DIRGED */}
+              <svg width="40" height="2" className="mr-2">
+                <line x1="0" y1="1" x2="40" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+              </svg>
+              <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-xl">
+                <div className="bg-[#1a1a1a] rounded-xl px-5 py-4 text-center w-[240px]">
+                  <p className="text-white font-semibold text-xs leading-tight mb-2">
+                    Assessoria Técnica para a Gestão da Informação Documental
+                  </p>
+                  <span className="inline-block bg-[#3B82F6] rounded px-3 py-1 text-white text-[11px] font-bold mb-1">
+                    ASGID
+                  </span>
+                  <p className="text-white/50 text-[10px]">André Borges Ribeiro</p>
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Vertical line from DIRGED center */}
-        <div className="flex justify-center" style={{ marginLeft: '-160px' }}>
-          <svg width="2" height="40" className="overflow-visible">
-            <line x1="1" y1="0" x2="1" y2="40" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
-          </svg>
-        </div>
-
-        {/* Horizontal line connecting to 3 gerências - using SVG for continuous line */}
-        <div className="flex justify-center" style={{ marginLeft: '-160px' }}>
-          <svg width="800" height="50" className="overflow-visible">
-            {/* Main horizontal line */}
-            <line x1="133" y1="0" x2="667" y2="0" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
-            {/* Three vertical lines down */}
-            <line x1="133" y1="0" x2="133" y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
-            <line x1="400" y1="0" x2="400" y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
-            <line x1="667" y1="0" x2="667" y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+        {/* SVG lines from DIRGED to Gerências */}
+        <div className="flex justify-center">
+          <svg width="800" height="90" className="overflow-visible">
+            {/* Vertical line from DIRGED */}
+            <line x1="400" y1="0" x2="400" y2="40" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+            {/* Horizontal line */}
+            <line x1="133" y1="40" x2="667" y2="40" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+            {/* Three vertical lines down to gerências */}
+            <line x1="133" y1="40" x2="133" y2="90" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+            <line x1="400" y1="40" x2="400" y2="90" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+            <line x1="667" y1="40" x2="667" y2="90" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
           </svg>
         </div>
 
@@ -407,7 +406,6 @@ const OrganogaramaSection = () => {
               viewport={{ once: true }}
               transition={{ delay: gIndex * 0.1 }}
             >
-              {/* Gerência Card - Fixed height */}
               <div className="bg-gradient-to-r from-[#BE185D] to-[#9D174D] p-[2px] rounded-xl w-full h-[140px]">
                 <div className="bg-[#1a1a1a] rounded-xl p-4 text-center h-full flex flex-col justify-center">
                   <p className="text-white font-semibold text-xs leading-tight mb-2 line-clamp-3">
@@ -423,23 +421,23 @@ const OrganogaramaSection = () => {
           ))}
         </div>
 
-        {/* Lines from gerências to coordenações - using SVG */}
+        {/* SVG lines from Gerências to Coordenações */}
         <div className="grid grid-cols-3 gap-6">
           {gerenciasComCoord.map((gerencia, gIndex) => {
             const numCoords = gerencia.coordenacoes.length;
-            const width = numCoords === 2 ? 200 : 280;
-            const positions = numCoords === 2 ? [50, 150] : [40, 140, 240];
+            const width = 280;
+            const positions = numCoords === 2 ? [70, 210] : [47, 140, 233];
             
             return (
               <div key={gIndex} className="flex justify-center">
                 <svg width={width} height="50" className="overflow-visible">
                   {/* Vertical line from gerência */}
-                  <line x1={width/2} y1="0" x2={width/2} y2="20" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
-                  {/* Horizontal line */}
-                  <line x1={positions[0]} y1="20" x2={positions[positions.length-1]} y2="20" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+                  <line x1={width/2} y1="0" x2={width/2} y2="20" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+                  {/* Horizontal line - only between first and last position */}
+                  <line x1={positions[0]} y1="20" x2={positions[positions.length-1]} y2="20" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
                   {/* Vertical lines to coords */}
                   {positions.map((pos, idx) => (
-                    <line key={idx} x1={pos} y1="20" x2={pos} y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+                    <line key={idx} x1={pos} y1="20" x2={pos} y2="50" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
                   ))}
                 </svg>
               </div>
