@@ -171,11 +171,13 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <img 
-            src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
-            alt="EJEF | TJMG" 
-            className="h-10 md:h-12 mx-auto mb-6 object-contain"
-          />
+          <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
+              alt="EJEF | TJMG" 
+              className="h-16 md:h-20 mx-auto mb-6 object-contain hover:opacity-80 transition-opacity cursor-pointer"
+            />
+          </a>
           
           <h1 className="font-outfit font-bold text-4xl sm:text-5xl lg:text-7xl text-white leading-tight mb-6">
             Diretoria Executiva de{" "}
@@ -941,14 +943,16 @@ const Footer = () => {
           <span className="font-outfit font-bold text-xl text-white">DIRGED</span>
           
           <p className="text-white/40 text-sm text-center">
-            © 2024 DIRGED - Tribunal de Justiça do Estado de Minas Gerais. Todos os direitos reservados.
+            R. Raul Pompéia, 101. 12° andar. São Pedro - Belo Horizonte/MG | dirged@tjmg.jus.br | (31) 3289-8615
           </p>
 
-          <img 
-            src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
-            alt="EJEF | TJMG" 
-            className="h-8 object-contain"
-          />
+          <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
+              alt="EJEF | TJMG" 
+              className="h-10 object-contain hover:opacity-80 transition-opacity cursor-pointer"
+            />
+          </a>
         </div>
       </div>
     </footer>
