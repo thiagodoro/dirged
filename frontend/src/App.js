@@ -332,7 +332,7 @@ const OrganogaramaSection = () => {
         </motion.div>
 
         {/* DIRGED (centered) with ASGID connected via straight line */}
-        <div className="relative mb-8">
+        <div className="relative mb-0">
           {/* DIRGED - Centered */}
           <motion.div 
             className="flex justify-center"
@@ -387,8 +387,8 @@ const OrganogaramaSection = () => {
         {/* SVG lines from DIRGED to Gerências */}
         <div className="flex justify-center">
           <svg width="800" height="90" className="overflow-visible">
-            {/* Vertical line from DIRGED */}
-            <line x1="400" y1="0" x2="400" y2="40" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+            {/* Vertical line extending up to touch DIRGED bottom border */}
+            <line x1="400" y1="-6" x2="400" y2="40" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
             {/* Horizontal line */}
             <line x1="133" y1="40" x2="667" y2="40" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
             {/* Three vertical lines down to gerências */}
