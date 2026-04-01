@@ -342,40 +342,38 @@ const OrganogaramaSection = () => {
           >
             <div className="bg-gradient-to-r from-[#FF007F] to-[#9D00FF] p-[2px] rounded-2xl">
               <div className="bg-[#1a1a1a] rounded-2xl px-10 py-6 text-center min-w-[380px]">
-                <p className="text-white font-bold text-base leading-tight mb-3">
+                <p className="text-white font-bold text-base leading-tight mb-3 h-[40px] flex items-center justify-center">
                   Diretoria Executiva de Gestão da Informação Documental
                 </p>
                 <span className="inline-block bg-[#FF007F] rounded-lg px-4 py-1.5 text-white text-sm font-bold mb-2">
                   DIRGED
                 </span>
-                <p className="text-white/60 text-xs">Thiago Israel Simões Doro Pereira</p>
+                <p className="text-white/60 text-xs h-[16px]">Thiago Israel Simões Doro Pereira</p>
               </div>
             </div>
           </motion.div>
 
-          {/* ASGID - Positioned to the right */}
+          {/* ASGID - Positioned to the right with connecting line */}
           <motion.div 
-            className="absolute right-0 top-1/2 -translate-y-1/2"
+            className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <div className="flex items-center">
-              {/* Dotted line connecting to DIRGED */}
-              <svg width="40" height="2" className="mr-2">
-                <line x1="0" y1="1" x2="40" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
-              </svg>
-              <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-xl">
-                <div className="bg-[#1a1a1a] rounded-xl px-5 py-4 text-center w-[240px]">
-                  <p className="text-white font-semibold text-xs leading-tight mb-2">
-                    Assessoria Técnica para a Gestão da Informação Documental
-                  </p>
-                  <span className="inline-block bg-[#3B82F6] rounded px-3 py-1 text-white text-[11px] font-bold mb-1">
-                    ASGID
-                  </span>
-                  <p className="text-white/50 text-[10px]">André Borges Ribeiro</p>
-                </div>
+            {/* Dotted line connecting to DIRGED - starts from edge */}
+            <svg width="60" height="2" className="flex-shrink-0">
+              <line x1="0" y1="1" x2="60" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+            </svg>
+            <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-2xl">
+              <div className="bg-[#1a1a1a] rounded-2xl px-5 py-4 text-center w-[240px]">
+                <p className="text-white font-semibold text-xs leading-tight mb-2 h-[32px] flex items-center justify-center">
+                  Assessoria Técnica para a Gestão da Informação Documental
+                </p>
+                <span className="inline-block bg-[#3B82F6] rounded-lg px-3 py-1 text-white text-[11px] font-bold mb-1">
+                  ASGID
+                </span>
+                <p className="text-white/50 text-[10px] h-[14px]">André Borges Ribeiro</p>
               </div>
             </div>
           </motion.div>
@@ -406,15 +404,15 @@ const OrganogaramaSection = () => {
               viewport={{ once: true }}
               transition={{ delay: gIndex * 0.1 }}
             >
-              <div className="bg-gradient-to-r from-[#BE185D] to-[#9D174D] p-[2px] rounded-xl w-full h-[140px]">
-                <div className="bg-[#1a1a1a] rounded-xl p-4 text-center h-full flex flex-col justify-center">
-                  <p className="text-white font-semibold text-xs leading-tight mb-2 line-clamp-3">
+              <div className="bg-gradient-to-r from-[#BE185D] to-[#9D174D] p-[2px] rounded-2xl w-full h-[150px]">
+                <div className="bg-[#1a1a1a] rounded-2xl p-4 text-center h-full flex flex-col justify-between">
+                  <p className="text-white font-semibold text-xs leading-tight h-[48px] flex items-center justify-center text-center">
                     {gerencia.nome}
                   </p>
-                  <span className="inline-block bg-[#BE185D] rounded px-3 py-1 text-white text-[11px] font-bold mb-1">
+                  <span className="inline-block bg-[#BE185D] rounded-lg px-3 py-1 text-white text-[11px] font-bold">
                     {gerencia.sigla}
                   </span>
-                  <p className="text-white/50 text-[10px] line-clamp-1">{gerencia.responsavel}</p>
+                  <p className="text-white/50 text-[10px] h-[14px]">{gerencia.responsavel}</p>
                 </div>
               </div>
             </motion.div>
@@ -455,20 +453,20 @@ const OrganogaramaSection = () => {
               {gerencia.coordenacoes.map((coord, cIndex) => (
                 <motion.div 
                   key={cIndex} 
-                  className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] p-[1px] rounded-lg h-[130px]"
+                  className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] p-[1px] rounded-2xl h-[140px]"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: (gIndex * 3 + cIndex) * 0.05 }}
                 >
-                  <div className="bg-[#1a1a1a] rounded-lg p-3 text-center h-full flex flex-col justify-center">
-                    <p className="text-white font-medium text-[10px] leading-tight mb-2 line-clamp-3">
+                  <div className="bg-[#1a1a1a] rounded-2xl p-3 text-center h-full flex flex-col justify-between">
+                    <p className="text-white font-medium text-[10px] leading-tight h-[36px] flex items-center justify-center text-center">
                       {coord.nome}
                     </p>
-                    <span className="inline-block bg-[#F59E0B] rounded px-2 py-0.5 text-white text-[9px] font-bold mb-1">
+                    <span className="inline-block bg-[#F59E0B] rounded-lg px-2 py-0.5 text-white text-[9px] font-bold">
                       {coord.sigla}
                     </span>
-                    <p className="text-white/40 text-[8px] line-clamp-2">{coord.responsavel}</p>
+                    <p className="text-white/40 text-[8px] h-[24px] flex items-center justify-center">{coord.responsavel}</p>
                   </div>
                 </motion.div>
               ))}
