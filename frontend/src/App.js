@@ -161,11 +161,11 @@ const HeroSection = () => {
           loop 
           muted 
           playsInline
-          className="w-full h-full object-cover opacity-50"
+          className="w-full h-full object-cover"
         >
           <source src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/q0d9h6zk_video-cortes.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/70 via-[#0A0A0A]/50 to-[#0A0A0A]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/30 via-transparent to-[#0A0A0A]/70" />
       </div>
 
       {/* Content */}
