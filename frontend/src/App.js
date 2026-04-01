@@ -547,7 +547,9 @@ const OrganogaramaSection = () => {
                     {gerencia.sigla}
                   </span>
                   <br />
-                  <span className="text-white text-xs inline-block cursor-pointer rounded px-2 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">{gerencia.responsavel}</span>
+                  <div className="text-center">
+                    <span className="text-white text-xs inline cursor-pointer rounded px-2 py-0.5 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">{gerencia.responsavel}</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
