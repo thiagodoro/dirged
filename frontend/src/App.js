@@ -190,21 +190,13 @@ const HeroSection = () => {
             Comprometidos com a modernização e preservação da informação judicial.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Button 
               data-testid="hero-explore-button"
               onClick={() => document.getElementById('competencias').scrollIntoView({ behavior: 'smooth' })}
               className="bg-[#FF007F] hover:bg-[#FF3399] text-white font-bold px-8 py-6 rounded-full text-lg transition-all hover:scale-105"
             >
-              Explorar <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button 
-              data-testid="hero-contact-button"
-              variant="outline"
-              onClick={() => document.getElementById('mapa').scrollIntoView({ behavior: 'smooth' })}
-              className="border-white/20 text-white hover:bg-white/10 font-bold px-8 py-6 rounded-full text-lg"
-            >
-              Localização
+              Explorar <ChevronDown className="ml-2 w-5 h-5" />
             </Button>
           </div>
         </motion.div>
