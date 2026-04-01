@@ -171,9 +171,11 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Badge className="mb-6 bg-[#FFE600]/10 text-[#FFE600] border-[#FFE600]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-            Tribunal de Justiça de Minas Gerais
-          </Badge>
+          <img 
+            src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
+            alt="EJEF | TJMG" 
+            className="h-10 md:h-12 mx-auto mb-6 object-contain"
+          />
           
           <h1 className="font-outfit font-bold text-4xl sm:text-5xl lg:text-7xl text-white leading-tight mb-6">
             Diretoria Executiva de{" "}
@@ -942,11 +944,11 @@ const Footer = () => {
             © 2024 DIRGED - Tribunal de Justiça do Estado de Minas Gerais. Todos os direitos reservados.
           </p>
 
-          <div className="flex gap-4">
-            <span className="text-white/40 text-sm">EJEF</span>
-            <span className="text-white/20">|</span>
-            <span className="text-white/40 text-sm">TJMG</span>
-          </div>
+          <img 
+            src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
+            alt="EJEF | TJMG" 
+            className="h-8 object-contain"
+          />
         </div>
       </div>
     </footer>
