@@ -91,12 +91,12 @@ const Navbar = () => {
                 <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap bg-black/90 px-2 py-1 rounded text-white pointer-events-none z-50">{item.label}</span>
               </motion.button>
             ))}
-            <div className="w-px h-6 bg-white/30" />
-            <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
+            <div className="w-px h-6 bg-white/30 ml-1" />
+            <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer" className="ml-1">
               <img 
                 src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
                 alt="EJEF | TJMG" 
-                className="h-10 object-contain hover:opacity-80 transition-opacity cursor-pointer"
+                className="h-10 object-contain object-right hover:opacity-80 transition-opacity cursor-pointer"
               />
             </a>
           </motion.div>
