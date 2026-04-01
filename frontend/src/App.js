@@ -91,6 +91,14 @@ const Navbar = () => {
                 <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap bg-black/90 px-2 py-1 rounded text-white pointer-events-none z-50">{item.label}</span>
               </motion.button>
             ))}
+            <div className="w-px h-6 bg-white/30 mx-1" />
+            <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
+                alt="EJEF | TJMG" 
+                className="h-8 object-contain hover:opacity-80 transition-opacity cursor-pointer"
+              />
+            </a>
           </motion.div>
 
           {/* Mobile: Logo left, menu button right */}
@@ -190,8 +198,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="font-satoshi text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-10">
-            Transformando a gestão documental através da inovação, eficiência e excelência no serviço público. 
-            Comprometidos com a modernização e preservação da informação judicial.
+            Transformando a gestão documental e a gestão da informação através da inovação, eficiência e excelência no serviço público.
           </p>
 
           <div className="flex justify-center">
