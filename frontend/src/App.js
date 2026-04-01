@@ -154,14 +154,18 @@ const HeroSection = () => {
       data-testid="hero-section"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background */}
+      {/* Video Background */}
       <div className="absolute inset-0">
-        <img 
-          src="https://images.unsplash.com/photo-1764258560286-b3aa856c8ff0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMG5lb24lMjBwdXJwbGUlMjBwaW5rJTIweWVsbG93JTIwZGFyayUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzc1MDA5NDUxfDA&ixlib=rb-4.1.0&q=85"
-          alt="Abstract background"
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-[#0A0A0A]/60 to-[#0A0A0A]" />
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="w-full h-full object-cover opacity-50"
+        >
+          <source src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/q0d9h6zk_video-cortes.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/70 via-[#0A0A0A]/50 to-[#0A0A0A]" />
       </div>
 
       {/* Content */}
