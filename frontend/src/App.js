@@ -91,12 +91,12 @@ const Navbar = () => {
                 <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap bg-black/90 px-2 py-1 rounded text-white pointer-events-none z-50">{item.label}</span>
               </motion.button>
             ))}
-            <div className="w-px h-6 bg-white/30 mx-1" />
+            <div className="w-px h-6 bg-white/30" />
             <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
               <img 
                 src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
                 alt="EJEF | TJMG" 
-                className="h-8 object-contain hover:opacity-80 transition-opacity cursor-pointer"
+                className="h-10 object-contain hover:opacity-80 transition-opacity cursor-pointer"
               />
             </a>
           </motion.div>
@@ -183,14 +183,6 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
-              alt="EJEF | TJMG" 
-              className="h-12 md:h-16 mx-auto mb-6 object-contain hover:opacity-80 transition-opacity cursor-pointer"
-            />
-          </a>
-          
           <h1 className="font-outfit font-bold text-4xl sm:text-5xl lg:text-7xl text-white leading-tight mb-6">
             Diretoria Executiva de{" "}
             <span className="text-gradient-pink">Gestão da Informação</span>{" "}
