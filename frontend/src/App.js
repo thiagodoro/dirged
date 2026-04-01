@@ -395,6 +395,7 @@ const CompetenciasSection = () => {
 
 // Organograma Section
 const OrganogaramaSection = () => {
+  const [showDirectorModal, setShowDirectorModal] = useState(false);
   const gerenciasComCoord = [
     { 
       nome: "Gerência de Jurisprudência, Biblioteca e Publicações Técnicas", 
@@ -471,7 +472,11 @@ const OrganogaramaSection = () => {
                   <span className="inline-block bg-[#FF007F] rounded-lg px-4 py-1.5 text-white text-sm font-bold mb-2">
                     DIRGED
                   </span>
-                  <p className="text-white text-xs h-[16px]">Thiago Doro</p>
+                  <p
+                    className="text-white text-xs h-[16px] cursor-pointer hover:text-[#FFE600] transition-colors underline underline-offset-2"
+                    onClick={() => setShowDirectorModal(true)}
+                    data-testid="thiago-doro-link"
+                  >Thiago Doro</p>
                 </div>
               </div>
               
@@ -601,6 +606,105 @@ const OrganogaramaSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Modal Thiago Doro */}
+      <AnimatePresence>
+        {showDirectorModal && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowDirectorModal(false)}
+            data-testid="director-modal-overlay"
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
+            
+            {/* Modal Content */}
+            <motion.div
+              className="relative bg-[#1a1a1a] border border-white/10 rounded-3xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              data-testid="director-modal"
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setShowDirectorModal(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                data-testid="director-modal-close"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+
+              {/* Photo */}
+              <div className="md:w-2/5 flex items-center justify-center bg-black p-6">
+                <motion.img
+                  src="https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/mj652azu_WhatsApp_Image_2026-04-01_at_12.18.49-removebg-preview.png"
+                  alt="Thiago Doro"
+                  className="max-h-[420px] object-contain"
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.15 }}
+                />
+              </div>
+
+              {/* Info */}
+              <motion.div
+                className="md:w-3/5 p-8 md:p-10 flex flex-col justify-center"
+                initial={{ x: 30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <h3 className="font-outfit font-bold text-3xl text-white mb-1">Thiago Doro</h3>
+                <p className="text-[#9D00FF] font-semibold text-lg mb-6">Diretor Executivo</p>
+
+                <div className="space-y-4 mb-8">
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Formação</p>
+                    <p className="text-white/90 text-sm">Graduação em Biblioteconomia (UFMG)</p>
+                    <p className="text-white/90 text-sm">Pós-Graduação em Biblioteconomia com enfoque em Bibliotecas Digitais (Signorelli)</p>
+                  </div>
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Cargo de Carreira</p>
+                    <p className="text-white/90 text-sm">Analista Judiciário - Bibliotecário (Desde 7/11/2012)</p>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-white/50 text-xs uppercase tracking-wider mb-3">Carreira</p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                      <div>
+                        <p className="text-white/90 text-sm font-medium">Coordenador de Área - COBIB</p>
+                        <p className="text-white/50 text-xs">24/02/2014 a 30/10/2017</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#9D00FF] mt-1.5 shrink-0" />
+                      <div>
+                        <p className="text-white/90 text-sm font-medium">Gerente - GEJUR</p>
+                        <p className="text-white/50 text-xs">31/10/2017 a 02/06/2024</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#FF007F] mt-1.5 shrink-0" />
+                      <div>
+                        <p className="text-white/90 text-sm font-medium">Diretor Executivo - DIRGED</p>
+                        <p className="text-white/50 text-xs">03/06/2024 - atual</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
