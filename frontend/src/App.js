@@ -731,68 +731,68 @@ const AtosNormativosSection = () => {
       titulo: "Normas Fundamentais",
       cor: "#FF007F",
       atos: [
-        { tipo: "Resolução", id: "nº 1137/2026", desc: "Dispõe sobre a estrutura organizacional e o funcionamento das Diretorias Executivas que compõem a Escola Judicial Desembargador Edésio Fernandes – EJEF." },
-        { tipo: "Resolução", id: "nº 1080/2024", desc: "Institui o Regulamento da Escola Judicial Desembargador Edésio Fernandes – EJEF." },
+        { tipo: "Resolução", id: "nº 1137/2026", desc: "Dispõe sobre a estrutura organizacional e o funcionamento das Diretorias Executivas que compõem a Escola Judicial Desembargador Edésio Fernandes – EJEF.", link: "https://ejef.tjmg.jus.br/wp-content/uploads/2026/01/Resolucao-1137-2026-estruturacao-ejef.pdf" },
+        { tipo: "Resolução", id: "nº 1080/2024", desc: "Institui o Regulamento da Escola Judicial Desembargador Edésio Fernandes – EJEF.", link: "https://www8.tjmg.jus.br/institucional/at/pdf/re10802024.pdf" },
       ],
     },
     {
       titulo: "Gestão da Informação",
       cor: "#10B981",
       atos: [
-        { tipo: "Portaria Conjunta", id: "nº 888/PR/2019", desc: "Dispõe sobre normas gerais de administração das obras que compõem o acervo bibliográfico do Tribunal de Justiça do Estado de Minas Gerais." },
-        { tipo: "Portaria", id: "nº 6629/PR/2024", desc: "Designa os integrantes da Comissão de Divulgação da Jurisprudência de que trata a alínea \"c\" do inciso IX do art. 9º do Regimento Interno do TJMG." },
-        { tipo: "Portaria", id: "nº 171/2VP/2023", desc: "Dispõe sobre a editoração de produção intelectual técnico-jurídica que guarde identidade com o interesse institucional do TJMG." },
-        { tipo: "Portaria", id: "nº 164/2VP/2022", desc: "Regulamenta a editoração da Revista EJEF." },
-        { tipo: "Portaria", id: "nº 64/2012 (2ª VP)", desc: "Estabelece normas para desenvolvimento e avaliação dos acervos das bibliotecas do TJMG." },
-        { tipo: "Portaria", id: "nº 108/2VP/2018", desc: "Institui o Regulamento da Biblioteca do Tribunal de Justiça do Estado de Minas Gerais." },
+        { tipo: "Portaria Conjunta", id: "nº 888/PR/2019", desc: "Dispõe sobre normas gerais de administração das obras que compõem o acervo bibliográfico do Tribunal de Justiça do Estado de Minas Gerais.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pc08882019.pdf" },
+        { tipo: "Portaria", id: "nº 6629/PR/2024", desc: "Designa os integrantes da Comissão de Divulgação da Jurisprudência de que trata a alínea \"c\" do inciso IX do art. 9º do Regimento Interno do TJMG.", link: "https://www8.tjmg.jus.br/institucional/at/pdf/po66292024.pdf" },
+        { tipo: "Portaria", id: "nº 171/2VP/2023", desc: "Dispõe sobre a editoração de produção intelectual técnico-jurídica que guarde identidade com o interesse institucional do TJMG.", link: "http://www8.tjmg.gov.br/institucional/at/pdf/pp01712023.pdf" },
+        { tipo: "Portaria", id: "nº 164/2VP/2022", desc: "Regulamenta a editoração da Revista EJEF.", link: "https://www8.tjmg.jus.br/institucional/at/pdf/pp01642022.pdf" },
+        { tipo: "Portaria", id: "nº 64/2012 (2ª VP)", desc: "Estabelece normas para desenvolvimento e avaliação dos acervos das bibliotecas do TJMG.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pp00642012.PDF" },
+        { tipo: "Portaria", id: "nº 108/2VP/2018", desc: "Institui o Regulamento da Biblioteca do Tribunal de Justiça do Estado de Minas Gerais.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pp01082018.pdf" },
       ],
     },
     {
       titulo: "Gestão Documental",
       cor: "#3B82F6",
       atos: [
-        { tipo: "Resolução", id: "nº 749/2013", desc: "Dispõe sobre o Programa de Gestão Documental do Tribunal de Justiça do Estado de Minas Gerais." },
-        { tipo: "Resolução", id: "nº 731/2013", desc: "Regulamenta o acesso à informação e a aplicação da Lei nº 12.527/2011, no âmbito do TJMG." },
-        { tipo: "Portaria Conjunta", id: "nº 728/PR/2018", desc: "Institui a Política de Manutenção de Documentos Eletrônicos no TJMG." },
-        { tipo: "Portaria Conjunta", id: "nº 616/PR/2017", desc: "Dispõe sobre a locação de imóvel para armazenamento de documentos de arquivo ou guarda de bens apreendidos no TJMG." },
-        { tipo: "Portaria Conjunta", id: "nº 131/2008", desc: "Institui o Manual de Gestão dos Documentos Administrativos da Secretaria do TJMG." },
-        { tipo: "Portaria", id: "nº 162/2VP/2022", desc: "Institui o Manual de Gestão Documental do Tribunal de Justiça do Estado de Minas Gerais." },
-        { tipo: "Portaria", id: "nº 6915/PR/2024", desc: "Dispõe sobre a Comissão Técnica de Avaliação Documental do TJMG." },
-        { tipo: "Recomendação Conjunta", id: "nº 1/2ªVP/CGJ/2015", desc: "Dispõe sobre a destinação dos Títulos de Crédito acautelados em cofre nas Secretarias de Juízo." },
+        { tipo: "Resolução", id: "nº 749/2013", desc: "Dispõe sobre o Programa de Gestão Documental do Tribunal de Justiça do Estado de Minas Gerais.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/re07492013.pdf" },
+        { tipo: "Resolução", id: "nº 731/2013", desc: "Regulamenta o acesso à informação e a aplicação da Lei nº 12.527/2011, no âmbito do TJMG.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/re07312013.pdf" },
+        { tipo: "Portaria Conjunta", id: "nº 728/PR/2018", desc: "Institui a Política de Manutenção de Documentos Eletrônicos no TJMG.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pc07282018.pdf" },
+        { tipo: "Portaria Conjunta", id: "nº 616/PR/2017", desc: "Dispõe sobre a locação de imóvel para armazenamento de documentos de arquivo ou guarda de bens apreendidos no TJMG.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pc06162017.pdf" },
+        { tipo: "Portaria Conjunta", id: "nº 131/2008", desc: "Institui o Manual de Gestão dos Documentos Administrativos da Secretaria do TJMG.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pc01312008.pdf" },
+        { tipo: "Portaria", id: "nº 162/2VP/2022", desc: "Institui o Manual de Gestão Documental do Tribunal de Justiça do Estado de Minas Gerais.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pp01622022.pdf" },
+        { tipo: "Portaria", id: "nº 6915/PR/2024", desc: "Dispõe sobre a Comissão Técnica de Avaliação Documental do TJMG.", link: "https://www8.tjmg.jus.br/institucional/at/pdf/po69152024.pdf" },
+        { tipo: "Recomendação Conjunta", id: "nº 1/2ªVP/CGJ/2015", desc: "Dispõe sobre a destinação dos Títulos de Crédito acautelados em cofre nas Secretarias de Juízo.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/rs00012015.pdf" },
       ],
     },
     {
       titulo: "Arquivos Corrente e Intermediário",
       cor: "#9D00FF",
       atos: [
-        { tipo: "Portaria Conjunta", id: "nº 1448/PR/2023", desc: "Regulamenta o acesso, por terceiros interessados, aos processos judiciais findos tramitados no TJMG." },
-        { tipo: "Portaria Conjunta", id: "nº 27/CGJ/2019", desc: "Disciplina o destino dos autos dos agravos de instrumento no âmbito das Turmas Recursais do Estado de Minas Gerais." },
-        { tipo: "Portaria Conjunta", id: "nº 796/PR/2018", desc: "Disciplina a transferência de processos judiciais para o Arquivo Central do TJMG." },
-        { tipo: "Portaria Conjunta", id: "nº 417/PR/2015", desc: "Institui Plano de Classificação e Tabela de Temporalidade – PCTT dos documentos administrativos da justiça de 1º e 2º graus de MG." },
-        { tipo: "Portaria Conjunta", id: "nº 330/2014", desc: "Institui Plano de Classificação e Tabela de Temporalidade (PCTT) dos processos judiciais da justiça de 1º e 2º graus de MG." },
-        { tipo: "Aviso Conjunto", id: "nº 2/CGJ/2019", desc: "Avisa sobre os procedimentos afetos à separação e ao envio de processos judiciais para avaliação documental." },
+        { tipo: "Portaria Conjunta", id: "nº 1448/PR/2023", desc: "Regulamenta o acesso, por terceiros interessados, aos processos judiciais findos tramitados no TJMG.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pc14482023.pdf" },
+        { tipo: "Portaria Conjunta", id: "nº 27/CGJ/2019", desc: "Disciplina o destino dos autos dos agravos de instrumento no âmbito das Turmas Recursais do Estado de Minas Gerais.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/cpj00272019.pdf" },
+        { tipo: "Portaria Conjunta", id: "nº 796/PR/2018", desc: "Disciplina a transferência de processos judiciais para o Arquivo Central do TJMG.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pc07962018.pdf" },
+        { tipo: "Portaria Conjunta", id: "nº 417/PR/2015", desc: "Institui Plano de Classificação e Tabela de Temporalidade – PCTT dos documentos administrativos da justiça de 1º e 2º graus de MG.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pc04172015.pdf" },
+        { tipo: "Portaria Conjunta", id: "nº 330/2014", desc: "Institui Plano de Classificação e Tabela de Temporalidade (PCTT) dos processos judiciais da justiça de 1º e 2º graus de MG.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pc03302014.pdf" },
+        { tipo: "Aviso Conjunto", id: "nº 2/CGJ/2019", desc: "Avisa sobre os procedimentos afetos à separação e ao envio de processos judiciais para avaliação documental.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/cac00022019.pdf" },
       ],
     },
     {
       titulo: "Arquivo Permanente",
       cor: "#FFE600",
       atos: [
-        { tipo: "Portaria Conjunta", id: "nº 6/2VP/2022", desc: "Atualiza a regulamentação do marcador \"Tema Relevante\" para documentos e processos indicados à guarda permanente." },
-        { tipo: "Portaria", id: "nº 154/2VP/2022", desc: "Regulamenta o funcionamento da Coordenação de Arquivo Permanente do TJMG." },
-        { tipo: "Aviso Conjunto", id: "nº 01/2VP/CGJ/2018", desc: "Aviso aos Juízes Diretores de Foro sobre a transferência e cessão de documentos administrativos e/ou judiciais para instituições de ensino e pesquisa." },
+        { tipo: "Portaria Conjunta", id: "nº 6/2VP/2022", desc: "Atualiza a regulamentação do marcador \"Tema Relevante\" para documentos e processos indicados à guarda permanente.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pw00062022.pdf" },
+        { tipo: "Portaria", id: "nº 154/2VP/2022", desc: "Regulamenta o funcionamento da Coordenação de Arquivo Permanente do TJMG.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/pp01542022.pdf" },
+        { tipo: "Aviso Conjunto", id: "nº 01/2VP/CGJ/2018", desc: "Aviso aos Juízes Diretores de Foro sobre a transferência e cessão de documentos administrativos e/ou judiciais para instituições de ensino e pesquisa.", link: "http://www8.tjmg.jus.br/institucional/at/pdf/av00012018.pdf" },
       ],
     },
     {
       titulo: "Normas Externas Gerais",
       cor: "#00D4FF",
       atos: [
-        { tipo: "Lei", id: "nº 12.527/2011", desc: "Regula o acesso a informações." },
-        { tipo: "Lei", id: "nº 8.159/1991", desc: "Dispõe sobre a política nacional de arquivos públicos e privados e dá outras providências." },
-        { tipo: "Decreto", id: "nº 4.073/2002", desc: "Regulamenta a Lei nº 8.159/1991, que dispõe sobre a política nacional de arquivos públicos e privados." },
-        { tipo: "CNJ – Resolução", id: "nº 324/2020", desc: "Institui diretrizes e normas de Gestão de Memória e de Gestão Documental e dispõe sobre o Proname." },
-        { tipo: "CNJ – Resolução", id: "nº 215/2015", desc: "Dispõe, no âmbito do Poder Judiciário, sobre o acesso à informação e a aplicação da Lei 12.527/2011." },
-        { tipo: "CNJ – Portaria", id: "nº 295/2020", desc: "Institui o Manual de Gestão Documental do Poder Judiciário e o Manual de Gestão de Memória do Poder Judiciário." },
-        { tipo: "CNJ – Recomendação", id: "nº 37/2011", desc: "Recomenda aos Tribunais a observância das normas de funcionamento do Proname e de seus instrumentos." },
+        { tipo: "Lei", id: "nº 12.527/2011", desc: "Regula o acesso a informações.", link: "http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm" },
+        { tipo: "Lei", id: "nº 8.159/1991", desc: "Dispõe sobre a política nacional de arquivos públicos e privados e dá outras providências.", link: "http://www.planalto.gov.br/ccivil_03/leis/L8159.htm" },
+        { tipo: "Decreto", id: "nº 4.073/2002", desc: "Regulamenta a Lei nº 8.159/1991, que dispõe sobre a política nacional de arquivos públicos e privados.", link: "http://www.planalto.gov.br/ccivil_03/decreto/2002/d4073.htm" },
+        { tipo: "CNJ – Resolução", id: "nº 324/2020", desc: "Institui diretrizes e normas de Gestão de Memória e de Gestão Documental e dispõe sobre o Proname.", link: "https://atos.cnj.jus.br/atos/detalhar/3376" },
+        { tipo: "CNJ – Resolução", id: "nº 215/2015", desc: "Dispõe, no âmbito do Poder Judiciário, sobre o acesso à informação e a aplicação da Lei 12.527/2011.", link: "https://atos.cnj.jus.br/atos/detalhar/2236" },
+        { tipo: "CNJ – Portaria", id: "nº 295/2020", desc: "Institui o Manual de Gestão Documental do Poder Judiciário e o Manual de Gestão de Memória do Poder Judiciário.", link: "https://atos.cnj.jus.br/atos/detalhar/3646" },
+        { tipo: "CNJ – Recomendação", id: "nº 37/2011", desc: "Recomenda aos Tribunais a observância das normas de funcionamento do Proname e de seus instrumentos.", link: "https://atos.cnj.jus.br/atos/detalhar/846" },
       ],
     },
   ];
@@ -871,9 +871,9 @@ const AtosNormativosSection = () => {
                       {ato.tipo}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <p className="text-white font-semibold text-sm mb-1">
+                      <a href={ato.link} target="_blank" rel="noopener noreferrer" className="text-white font-semibold text-sm mb-1 hover:underline block" style={{ color: categoria.cor }}>
                         {ato.tipo} {ato.id}
-                      </p>
+                      </a>
                       <p className="text-white/60 text-sm leading-relaxed">{ato.desc}</p>
                     </div>
                   </div>
