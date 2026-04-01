@@ -641,11 +641,11 @@ const OrganogaramaSection = () => {
               </button>
 
               {/* Photo */}
-              <div className="md:w-2/5 flex items-center justify-center bg-black p-6">
+              <div className="md:w-2/5 flex items-end justify-center bg-black p-0 overflow-hidden">
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/g5y30fas_5e3a2da1-ea68-4c8f-813c-f88fd727d683-removebg-preview.png"
                   alt="Thiago Doro"
-                  className="max-h-[546px] object-contain"
+                  className="w-full h-full object-cover object-top"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
