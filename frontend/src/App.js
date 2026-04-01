@@ -272,18 +272,17 @@ const CompetenciasSection = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex items-center"
+            className="flex"
           >
-            <div className="bg-gradient-to-br from-[#9D00FF]/10 to-[#FF007F]/5 border border-white/10 rounded-3xl p-8 md:p-10 w-full">
-              <h3 className="font-outfit font-bold text-2xl md:text-3xl text-[#FFE600] mb-6">RESOLUÇÃO N° 1137/2026</h3>
-              <p className="text-white text-lg md:text-xl leading-relaxed font-medium">
+            <div className="bg-gradient-to-br from-[#9D00FF]/10 to-[#FF007F]/5 border border-white/10 rounded-3xl p-8 md:p-12 w-full flex flex-col justify-center">
+              <h3 className="font-outfit font-bold text-2xl md:text-3xl text-gradient-purple mb-8">RESOLUÇÃO N° 1137/2026</h3>
+              <p className="text-white text-xl md:text-2xl leading-relaxed font-medium">
                 <span className="text-white/90">Art. 44.</span> A Diretoria Executiva de Gestão da
-                Informação Documental - <span className="text-[#FF007F] font-bold">DIRGED</span> integra a EJEF e tem como objetivo assegurar a
-                efetividade na organização,
-                preservação e acessibilidade das informações
+                Informação Documental - DIRGED integra a EJEF e tem como objetivo assegurar a
+                efetividade na <span className="text-[#FF007F] font-bold">organização</span>,
+                <span className="text-[#FF007F] font-bold"> preservação</span> e <span className="text-[#FF007F] font-bold">acessibilidade</span> das informações
                 documentais e bibliográficas e na
-                divulgação da jurisprudência e das publicações
-                técnicas e jurídicas.
+                <span className="text-[#FF007F] font-bold"> divulgação da jurisprudência</span> e das <span className="text-[#FF007F] font-bold">publicações</span> técnicas e jurídicas.
               </p>
             </div>
           </motion.div>
