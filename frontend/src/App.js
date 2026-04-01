@@ -297,48 +297,48 @@ const CompetenciasSection = () => {
             className="flex flex-col justify-between h-full"
           >
             {/* Box Gestão Documental */}
-            <div className="bg-[#121212] border border-[#FF007F]/30 rounded-2xl p-6" data-testid="box-gestao-documental">
+            <div className="bg-[#121212] border border-[#3B82F6]/30 rounded-2xl p-6" data-testid="box-gestao-documental">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#FF007F]/20 flex items-center justify-center">
-                  <FolderOpen className="w-5 h-5 text-[#FF007F]" />
+                <div className="w-10 h-10 rounded-xl bg-[#3B82F6]/20 flex items-center justify-center">
+                  <FolderOpen className="w-5 h-5 text-[#3B82F6]" />
                 </div>
-                <h3 className="font-outfit font-bold text-xl text-[#FF007F]">Gestão Documental</h3>
+                <h3 className="font-outfit font-bold text-xl text-[#3B82F6]">Gestão Documental</h3>
               </div>
               <div className="space-y-3 pl-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#FF007F]" />
+                  <div className="w-2 h-2 rounded-full bg-[#3B82F6]" />
                   <span className="text-white/80 text-sm">Arquivo da 1ª Instância</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#FF007F]" />
+                  <div className="w-2 h-2 rounded-full bg-[#3B82F6]" />
                   <span className="text-white/80 text-sm">Arquivo da 2ª Instância e Permanente</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#FF007F]" />
+                  <div className="w-2 h-2 rounded-full bg-[#3B82F6]" />
                   <span className="text-white/80 text-sm">Documentos Eletrônicos</span>
                 </div>
               </div>
             </div>
 
             {/* Box Gestão da Informação */}
-            <div className="bg-[#121212] border border-[#00D4FF]/30 rounded-2xl p-6" data-testid="box-gestao-informacao">
+            <div className="bg-[#121212] border border-[#10B981]/30 rounded-2xl p-6" data-testid="box-gestao-informacao">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#00D4FF]/20 flex items-center justify-center">
-                  <Database className="w-5 h-5 text-[#00D4FF]" />
+                <div className="w-10 h-10 rounded-xl bg-[#10B981]/20 flex items-center justify-center">
+                  <Database className="w-5 h-5 text-[#10B981]" />
                 </div>
-                <h3 className="font-outfit font-bold text-xl text-[#00D4FF]">Gestão da Informação</h3>
+                <h3 className="font-outfit font-bold text-xl text-[#10B981]">Gestão da Informação</h3>
               </div>
               <div className="space-y-3 pl-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+                  <div className="w-2 h-2 rounded-full bg-[#10B981]" />
                   <span className="text-white/80 text-sm">Biblioteca</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+                  <div className="w-2 h-2 rounded-full bg-[#10B981]" />
                   <span className="text-white/80 text-sm">Jurisprudência</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+                  <div className="w-2 h-2 rounded-full bg-[#10B981]" />
                   <span className="text-white/80 text-sm">Publicações Técnicas</span>
                 </div>
               </div>
@@ -362,9 +362,9 @@ const CompetenciasSection = () => {
                 key={`r1-${i}`}
                 className="whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium border transition-all hover:scale-105"
                 style={{
-                  backgroundColor: "rgba(255,0,127,0.12)",
-                  borderColor: "rgba(255,0,127,0.3)",
-                  color: "#FF007F",
+                  backgroundColor: "rgba(59,130,246,0.12)",
+                  borderColor: "rgba(59,130,246,0.3)",
+                  color: "#3B82F6",
                 }}
               >
                 {tag}
@@ -378,9 +378,9 @@ const CompetenciasSection = () => {
                 key={`r2-${i}`}
                 className="whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium border transition-all hover:scale-105"
                 style={{
-                  backgroundColor: "rgba(0,212,255,0.12)",
-                  borderColor: "rgba(0,212,255,0.3)",
-                  color: "#00D4FF",
+                  backgroundColor: "rgba(16,185,129,0.12)",
+                  borderColor: "rgba(16,185,129,0.3)",
+                  color: "#10B981",
                 }}
               >
                 {tag}
