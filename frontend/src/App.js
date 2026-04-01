@@ -196,7 +196,8 @@ const HeroSection = () => {
           <div className="flex justify-center gap-4">
             <Button 
               data-testid="hero-video-button"
-              className="bg-[#9D00FF] hover:bg-[#B033FF] text-white font-bold px-8 py-6 rounded-full text-lg transition-all hover:scale-105"
+              onClick={() => window.open('https://youtu.be/2tKQnre85Xw', '_blank')}
+              className="bg-black hover:bg-neutral-800 text-white font-bold px-8 py-6 rounded-full text-lg transition-all hover:scale-105 border border-white/20"
             >
               Vídeo institucional
             </Button>
