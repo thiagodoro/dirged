@@ -193,7 +193,13 @@ const HeroSection = () => {
             Transformando a gestão documental e a gestão da informação através da inovação, eficiência e excelência no serviço público.
           </p>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center gap-4">
+            <Button 
+              data-testid="hero-video-button"
+              className="bg-[#9D00FF] hover:bg-[#B033FF] text-white font-bold px-8 py-6 rounded-full text-lg transition-all hover:scale-105"
+            >
+              Vídeo institucional
+            </Button>
             <Button 
               data-testid="hero-explore-button"
               onClick={() => document.getElementById('competencias').scrollIntoView({ behavior: 'smooth' })}
