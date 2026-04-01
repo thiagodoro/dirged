@@ -504,6 +504,7 @@ const OrganogaramaSection = () => {
                     <span className="inline-block bg-[#3B82F6] rounded-lg px-3 py-1 text-white text-[11px] font-bold mb-1">
                       ASGID
                     </span>
+                    <br />
                     <span className="text-white text-xs inline-block cursor-pointer rounded px-2 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">André Borges Ribeiro</span>
                   </div>
                 </div>
