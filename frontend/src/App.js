@@ -15,6 +15,7 @@ const navItems = [
   { id: "home", label: "Home", icon: Home },
   { id: "competencias", label: "Competências", icon: Briefcase },
   { id: "organograma", label: "Organograma", icon: Network },
+  { id: "atos-normativos", label: "Atos Normativos", icon: FileText },
   { id: "capital-humano", label: "Capital Humano", icon: Users },
   { id: "orcamento", label: "Orçamento", icon: DollarSign },
   { id: "mapa", label: "Mapa", icon: MapPin },
@@ -484,6 +485,77 @@ const OrganogaramaSection = () => {
                 </motion.div>
               ))}
             </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Atos Normativos Section
+const AtosNormativosSection = () => {
+  const atos = [
+    { tipo: "Resolução", numero: "001/2024", titulo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", data: "15/03/2024", cor: "#FF007F" },
+    { tipo: "Portaria", numero: "045/2024", titulo: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", data: "22/04/2024", cor: "#9D00FF" },
+    { tipo: "Instrução Normativa", numero: "012/2024", titulo: "Ut enim ad minim veniam, quis nostrud exercitation ullamco", data: "10/05/2024", cor: "#FFE600" },
+    { tipo: "Resolução", numero: "003/2024", titulo: "Duis aute irure dolor in reprehenderit in voluptate velit esse", data: "01/06/2024", cor: "#FF007F" },
+    { tipo: "Portaria", numero: "078/2024", titulo: "Excepteur sint occaecat cupidatat non proident sunt in culpa", data: "18/07/2024", cor: "#9D00FF" },
+    { tipo: "Instrução Normativa", numero: "025/2024", titulo: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur", data: "05/08/2024", cor: "#FFE600" },
+  ];
+
+  return (
+    <section id="atos-normativos" data-testid="atos-normativos-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#0A0A0A]">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#00D4FF]/20 flex items-center justify-center">
+              <FileText className="w-8 h-8 text-[#00D4FF]" />
+            </div>
+          </div>
+          <Badge className="mb-4 bg-[#00D4FF]/10 text-[#00D4FF] border-[#00D4FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
+            Normas
+          </Badge>
+          <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+            Atos <span className="text-[#00D4FF]">Normativos</span>
+          </h2>
+          <p className="text-white/60 max-w-2xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Principais atos normativos da DIRGED.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {atos.map((ato, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              data-testid={`ato-normativo-${index}`}
+              className="group"
+            >
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 h-full hover:border-white/20 transition-all hover:bg-white/[0.07]">
+                <div className="flex items-center gap-3 mb-4">
+                  <span
+                    className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-lg"
+                    style={{ backgroundColor: `${ato.cor}20`, color: ato.cor }}
+                  >
+                    {ato.tipo}
+                  </span>
+                  <span className="text-white/40 text-xs font-mono">{ato.numero}</span>
+                </div>
+                <p className="text-white font-medium text-sm leading-relaxed mb-4">{ato.titulo}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-white/40 text-xs">{ato.data}</span>
+                  <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-white/60 transition-colors" />
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -1287,6 +1359,7 @@ function App() {
         <HeroSection />
         <CompetenciasSection />
         <OrganogaramaSection />
+        <AtosNormativosSection />
         <CapitalHumanoSection />
         <OrcamentoSection />
         <MapaSection />
