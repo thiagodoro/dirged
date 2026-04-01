@@ -332,9 +332,10 @@ const OrganogaramaSection = () => {
         </motion.div>
 
         {/* DIRGED (centered) with ASGID to the right */}
-        <div className="flex justify-center items-center gap-0">
+        <div className="relative">
           {/* DIRGED - Centered */}
           <motion.div 
+            className="flex justify-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -352,18 +353,18 @@ const OrganogaramaSection = () => {
             </div>
           </motion.div>
 
-          {/* Dotted line connecting DIRGED to ASGID */}
-          <svg width="50" height="2" className="flex-shrink-0">
-            <line x1="0" y1="1" x2="50" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
-          </svg>
-
-          {/* ASGID */}
+          {/* ASGID - Absolute positioned to the right */}
           <motion.div 
+            className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
+            {/* Dotted line connecting to DIRGED */}
+            <svg width="40" height="2" className="flex-shrink-0">
+              <line x1="0" y1="1" x2="40" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+            </svg>
             <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-2xl">
               <div className="bg-[#1a1a1a] rounded-2xl px-5 py-4 text-center w-[240px]">
                 <p className="text-white font-semibold text-xs leading-tight mb-2 h-[32px] flex items-center justify-center">
