@@ -294,7 +294,7 @@ const CompetenciasSection = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col gap-6"
+            className="flex flex-col justify-between h-full"
           >
             {/* Box Gestão Documental */}
             <div className="bg-[#121212] border border-[#FF007F]/30 rounded-2xl p-6" data-testid="box-gestao-documental">
@@ -354,6 +354,7 @@ const CompetenciasSection = () => {
           className="overflow-hidden"
           data-testid="tag-cloud"
         >
+          <h3 className="font-outfit font-bold text-2xl md:text-3xl text-white mb-8 text-center">NOSSOS ASSUNTOS</h3>
           {/* Row 1 - moves left */}
           <div className="flex gap-4 mb-4 animate-marquee-left">
             {marqueeRow1.map((tag, i) => (
