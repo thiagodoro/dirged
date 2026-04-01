@@ -274,17 +274,17 @@ const CompetenciasSection = () => {
             viewport={{ once: true }}
             className="flex"
           >
-            <div className="bg-gradient-to-br from-[#9D00FF]/10 to-[#FF007F]/5 rounded-3xl p-8 md:p-12 w-full flex flex-col justify-center">
+            <div className="bg-[#9D00FF] rounded-3xl p-8 md:p-12 w-full flex flex-col justify-center">
               <a href="https://www8.tjmg.jus.br/institucional/at/pdf/re11372026.pdf" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                <h3 className="font-outfit font-bold text-2xl md:text-3xl text-gradient-purple mb-8">RESOLUÇÃO N° 1137/2026</h3>
+                <h3 className="font-outfit font-bold text-2xl md:text-3xl text-white mb-8">RESOLUÇÃO N° 1137/2026</h3>
               </a>
               <p className="text-white text-xl md:text-2xl leading-relaxed font-medium">
                 <span className="text-white/90">Art. 44.</span> A Diretoria Executiva de Gestão da
                 Informação Documental - DIRGED integra a EJEF e tem como objetivo assegurar a
-                efetividade na <span className="text-[#9D00FF] font-bold">organização</span>,
-                <span className="text-[#9D00FF] font-bold"> preservação</span> e <span className="text-[#9D00FF] font-bold">acessibilidade</span> das informações
+                efetividade na <span className="text-[#FFE600] font-bold">organização</span>,
+                <span className="text-[#FFE600] font-bold"> preservação</span> e <span className="text-[#FFE600] font-bold">acessibilidade</span> das informações
                 documentais e bibliográficas e na
-                <span className="text-[#9D00FF] font-bold"> divulgação da jurisprudência</span> e das <span className="text-[#9D00FF] font-bold">publicações</span> técnicas e jurídicas.
+                <span className="text-[#FFE600] font-bold"> divulgação da jurisprudência</span> e das <span className="text-[#FFE600] font-bold">publicações</span> técnicas e jurídicas.
               </p>
             </div>
           </motion.div>
