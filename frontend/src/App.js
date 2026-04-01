@@ -4,22 +4,23 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Menu, X, ChevronDown, FileText, Users, MapPin, Database, 
   Info, Lightbulb, Award, Rocket, ArrowRight, Building2,
-  FileSearch, Archive, Shield, BarChart3, Clock, Target
+  FileSearch, Archive, Shield, BarChart3, Clock, Target,
+  Home, Briefcase, FolderOpen, Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const navItems = [
-  { id: "home", label: "Home" },
-  { id: "competencias", label: "Competências" },
-  { id: "capital-humano", label: "Capital Humano" },
-  { id: "mapa", label: "Mapa" },
-  { id: "gestao-documental", label: "Gestão Documental" },
-  { id: "gestao-informacao", label: "Gestão da Informação" },
-  { id: "iniciativas", label: "Iniciativas" },
-  { id: "premios", label: "Prêmios" },
-  { id: "projetos", label: "Projetos Futuros" },
+  { id: "home", label: "Home", icon: Home },
+  { id: "competencias", label: "Competências", icon: Briefcase },
+  { id: "capital-humano", label: "Capital Humano", icon: Users },
+  { id: "mapa", label: "Mapa", icon: MapPin },
+  { id: "gestao-documental", label: "Gestão Documental", icon: FolderOpen },
+  { id: "gestao-informacao", label: "Gestão da Informação", icon: Database },
+  { id: "iniciativas", label: "Iniciativas", icon: Lightbulb },
+  { id: "premios", label: "Prêmios", icon: Award },
+  { id: "projetos", label: "Projetos Futuros", icon: Sparkles },
 ];
 
 // Navbar Component
@@ -72,20 +73,17 @@ const Navbar = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#FF007F] to-[#9D00FF] flex items-center justify-center">
-              <FileText className="w-5 h-5 text-white" />
-            </div>
             <span className="font-outfit font-bold text-xl text-white">DIRGED</span>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Icons only, text on hover */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
                 data-testid={`nav-${item.id}-link`}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-4 py-2 text-sm font-medium transition-all rounded-full ${
+                className={`group relative px-4 py-2 text-sm font-medium transition-all rounded-full min-w-[44px] h-[44px] flex items-center justify-center ${
                   activeSection === item.id 
                     ? "text-[#FF007F] bg-[#FF007F]/10" 
                     : "text-white/70 hover:text-white hover:bg-white/5"
@@ -94,7 +92,8 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
               >
-                {item.label}
+                <item.icon className="w-5 h-5 group-hover:hidden transition-all" />
+                <span className="hidden group-hover:block whitespace-nowrap text-sm">{item.label}</span>
               </motion.button>
             ))}
           </div>
@@ -126,12 +125,13 @@ const Navbar = () => {
                   key={item.id}
                   data-testid={`mobile-nav-${item.id}-link`}
                   onClick={() => scrollToSection(item.id)}
-                  className={`block w-full text-left px-4 py-3 rounded-lg transition-all ${
+                  className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all ${
                     activeSection === item.id 
                       ? "text-[#FF007F] bg-[#FF007F]/10" 
                       : "text-white/70 hover:text-white hover:bg-white/5"
                   }`}
                 >
+                  <item.icon className="w-5 h-5" />
                   {item.label}
                 </button>
               ))}
@@ -235,6 +235,11 @@ const CompetenciasSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#9D00FF]/20 flex items-center justify-center">
+              <Briefcase className="w-8 h-8 text-[#9D00FF]" />
+            </div>
+          </div>
           <Badge className="mb-4 bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
             O que fazemos
           </Badge>
@@ -304,9 +309,14 @@ const CapitalHumanoSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Badge className="mb-4 bg-[#FFE600]/10 text-[#FFE600] border-[#FFE600]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-              Nossa Equipe
-            </Badge>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-14 h-14 rounded-xl bg-[#FFE600]/20 flex items-center justify-center">
+                <Users className="w-7 h-7 text-[#FFE600]" />
+              </div>
+              <Badge className="bg-[#FFE600]/10 text-[#FFE600] border-[#FFE600]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
+                Nossa Equipe
+              </Badge>
+            </div>
             <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
               Capital <span className="text-gradient-yellow">Humano</span>
             </h2>
@@ -358,6 +368,11 @@ const MapaSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#FF007F]/20 flex items-center justify-center">
+              <MapPin className="w-8 h-8 text-[#FF007F]" />
+            </div>
+          </div>
           <Badge className="mb-4 bg-[#FF007F]/10 text-[#FF007F] border-[#FF007F]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
             Localização
           </Badge>
@@ -574,6 +589,11 @@ const GestaoDocumentalSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
+              <FolderOpen className="w-8 h-8 text-[#FFE600]" />
+            </div>
+          </div>
           <Badge className="mb-4 bg-[#FFE600]/10 text-[#FFE600] border-[#FFE600]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
             Documentos
           </Badge>
@@ -630,9 +650,14 @@ const GestaoInformacaoSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Badge className="mb-4 bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
-              Informação
-            </Badge>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-14 h-14 rounded-xl bg-[#9D00FF]/20 flex items-center justify-center">
+                <Database className="w-7 h-7 text-[#9D00FF]" />
+              </div>
+              <Badge className="bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
+                Informação
+              </Badge>
+            </div>
             <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
               Gestão da <span className="text-gradient-purple">Informação</span>
             </h2>
@@ -694,6 +719,11 @@ const IniciativasSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#FF007F]/20 flex items-center justify-center">
+              <Lightbulb className="w-8 h-8 text-[#FF007F]" />
+            </div>
+          </div>
           <Badge className="mb-4 bg-[#FF007F]/10 text-[#FF007F] border-[#FF007F]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
             Novidades
           </Badge>
@@ -782,6 +812,11 @@ const PremiosSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
+              <Award className="w-8 h-8 text-[#FFE600]" />
+            </div>
+          </div>
           <Badge className="mb-4 bg-[#FFE600]/10 text-[#FFE600] border-[#FFE600]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
             Reconhecimento
           </Badge>
@@ -835,6 +870,11 @@ const ProjetosFuturosSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#9D00FF]/20 flex items-center justify-center">
+              <Sparkles className="w-8 h-8 text-[#9D00FF]" />
+            </div>
+          </div>
           <Badge className="mb-4 bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
             Futuro
           </Badge>
@@ -893,12 +933,7 @@ const Footer = () => {
     <footer data-testid="footer" className="py-12 px-6 md:px-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#FF007F] to-[#9D00FF] flex items-center justify-center">
-              <FileText className="w-5 h-5 text-white" />
-            </div>
-            <span className="font-outfit font-bold text-xl text-white">DIRGED</span>
-          </div>
+          <span className="font-outfit font-bold text-xl text-white">DIRGED</span>
           
           <p className="text-white/40 text-sm text-center">
             © 2024 DIRGED - Tribunal de Justiça do Estado de Minas Gerais. Todos os direitos reservados.
