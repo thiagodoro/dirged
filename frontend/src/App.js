@@ -94,7 +94,7 @@ const Navbar = () => {
             <div className="w-px h-6 bg-white/30 ml-1" />
             <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer" className="ml-1">
               <img 
-                src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/eduw9sv5_logo%20ejef.png" 
+                src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/x45fyd6l_logo%20ejef.png" 
                 alt="EJEF | TJMG" 
                 className="h-10 object-contain object-right hover:opacity-80 transition-opacity cursor-pointer"
               />
