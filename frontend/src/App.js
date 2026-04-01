@@ -450,7 +450,7 @@ const OrganogaramaSection = () => {
             <span className="text-gradient-pink">Organograma</span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Estrutura organizacional da Diretoria Executiva de Gestão da Informação Documental.
+            A estrutura organizacional da DIRGED e o time de gestores.
           </p>
         </motion.div>
 
