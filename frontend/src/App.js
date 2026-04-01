@@ -473,7 +473,7 @@ const OrganogaramaSection = () => {
                     DIRGED
                   </span>
                   <p
-                    className="text-white text-xs h-[16px] cursor-pointer rounded px-1 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]"
+                    className="text-white text-xs h-[16px] inline-block cursor-pointer rounded px-2 mx-auto transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]"
                     onClick={() => setShowDirectorModal(true)}
                     data-testid="thiago-doro-link"
                   >Thiago Doro</p>
@@ -503,7 +503,7 @@ const OrganogaramaSection = () => {
                     <span className="inline-block bg-[#3B82F6] rounded-lg px-3 py-1 text-white text-[11px] font-bold mb-1">
                       ASGID
                     </span>
-                    <p className="text-white text-xs h-[14px] cursor-pointer rounded px-1 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">André Borges Ribeiro</p>
+                    <span className="text-white text-xs inline-block cursor-pointer rounded px-2 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">André Borges Ribeiro</span>
                   </div>
                 </div>
               </motion.div>
@@ -544,7 +544,7 @@ const OrganogaramaSection = () => {
                   <span className="inline-block bg-[#BE185D] rounded-lg px-3 py-1 text-white text-[11px] font-bold">
                     {gerencia.sigla}
                   </span>
-                  <p className="text-white text-xs h-[14px] cursor-pointer rounded px-1 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">{gerencia.responsavel}</p>
+                  <span className="text-white text-xs inline-block cursor-pointer rounded px-2 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">{gerencia.responsavel}</span>
                 </div>
               </div>
             </motion.div>
@@ -598,7 +598,7 @@ const OrganogaramaSection = () => {
                     <span className="inline-block bg-[#F59E0B] rounded-lg px-2 py-0.5 text-white text-[9px] font-bold">
                       {coord.sigla}
                     </span>
-                    <p className="text-white text-xs h-[24px] flex items-center justify-center cursor-pointer rounded px-1 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">{coord.responsavel}</p>
+                    <span className="text-white text-xs inline-block cursor-pointer rounded px-2 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">{coord.responsavel}</span>
                   </div>
                 </motion.div>
               ))}
@@ -664,9 +664,17 @@ const OrganogaramaSection = () => {
 
                 <div className="space-y-4 mb-8">
                   <div>
-                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Formação</p>
-                    <p className="text-white/90 text-sm">Graduação em Biblioteconomia (UFMG)</p>
-                    <p className="text-white/90 text-sm">Pós-Graduação em Biblioteconomia com enfoque em Bibliotecas Digitais (Signorelli)</p>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Formação</p>
+                    <div className="space-y-1.5">
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Graduação em Biblioteconomia (UFMG)</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Pós-Graduação em Biblioteconomia com enfoque em Bibliotecas Digitais (Signorelli)</p>
+                      </div>
+                    </div>
                   </div>
                   <div>
                     <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Cargo de Carreira</p>
