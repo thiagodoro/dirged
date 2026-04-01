@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Menu, X, ChevronDown, FileText, Users, MapPin, Database, 
   Info, Lightbulb, Award, Rocket, ArrowRight, Building2,
-  FileSearch, Archive, Shield, BarChart3, Clock, Target, Coins,
+  FileSearch, Archive, Shield, BarChart3, Clock, Target, Banknote,
   Home, Briefcase, FolderOpen, Sparkles, GitBranch, Network
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,7 @@ const navItems = [
   { id: "competencias", label: "Competências", icon: Briefcase },
   { id: "organograma", label: "Organograma", icon: Network },
   { id: "capital-humano", label: "Capital Humano", icon: Users },
-  { id: "orcamento", label: "Orçamento", icon: Coins },
+  { id: "orcamento", label: "Orçamento", icon: Banknote },
   { id: "mapa", label: "Mapa", icon: MapPin },
   { id: "gestao-documental", label: "Gestão Documental", icon: FolderOpen },
   { id: "gestao-informacao", label: "Gestão da Informação", icon: Database },
@@ -580,7 +580,7 @@ const OrcamentoSection = () => {
         >
           <div className="flex justify-center mb-4">
             <div className="w-16 h-16 rounded-2xl bg-[#9D00FF]/20 flex items-center justify-center">
-              <Coins className="w-8 h-8 text-[#9D00FF]" />
+              <Banknote className="w-8 h-8 text-[#9D00FF]" />
             </div>
           </div>
           <Badge className="mb-4 bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
