@@ -302,9 +302,6 @@ const OrganogaramaSection = () => {
     }
   ];
 
-  // Dotted line style
-  const dottedLine = "border-white/40 border-dashed";
-
   return (
     <section id="organograma" data-testid="organograma-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212]">
       <div className="max-w-6xl mx-auto">
@@ -331,53 +328,72 @@ const OrganogaramaSection = () => {
           </p>
         </motion.div>
 
-        {/* DIRGED - Top */}
-        <motion.div 
-          className="flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="bg-gradient-to-r from-[#FF007F] to-[#9D00FF] p-[2px] rounded-2xl">
-            <div className="bg-[#1a1a1a] rounded-2xl px-10 py-6 text-center">
-              <p className="text-white font-bold text-base leading-tight mb-3">
-                Diretoria Executiva de Gestão da Informação Documental
-              </p>
-              <span className="inline-block bg-[#FF007F] rounded-lg px-4 py-1.5 text-white text-sm font-bold mb-2">
-                DIRGED
-              </span>
-              <p className="text-white/60 text-xs">Thiago Israel Simões Doro Pereira</p>
+        {/* DIRGED + ASGID Row */}
+        <div className="flex justify-center items-start gap-8 mb-0">
+          {/* DIRGED */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gradient-to-r from-[#FF007F] to-[#9D00FF] p-[2px] rounded-2xl">
+              <div className="bg-[#1a1a1a] rounded-2xl px-10 py-6 text-center">
+                <p className="text-white font-bold text-base leading-tight mb-3">
+                  Diretoria Executiva de Gestão da Informação Documental
+                </p>
+                <span className="inline-block bg-[#FF007F] rounded-lg px-4 py-1.5 text-white text-sm font-bold mb-2">
+                  DIRGED
+                </span>
+                <p className="text-white/60 text-xs">Thiago Israel Simões Doro Pereira</p>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Vertical dotted line from DIRGED */}
-        <div className="flex justify-center">
-          <div className={`border-l ${dottedLine} h-10`}></div>
+          {/* Horizontal dotted line connecting DIRGED to ASGID */}
+          <div className="flex items-center self-center">
+            <svg width="60" height="2" className="overflow-visible">
+              <line x1="0" y1="1" x2="60" y2="1" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+            </svg>
+          </div>
+
+          {/* ASGID */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-xl">
+              <div className="bg-[#1a1a1a] rounded-xl px-6 py-4 text-center w-[260px]">
+                <p className="text-white font-semibold text-xs leading-tight mb-2">
+                  Assessoria Técnica para a Gestão da Informação Documental
+                </p>
+                <span className="inline-block bg-[#3B82F6] rounded px-3 py-1 text-white text-[11px] font-bold mb-1">
+                  ASGID
+                </span>
+                <p className="text-white/50 text-[10px]">André Borges Ribeiro</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Horizontal connector - only between first and last gerência centers */}
-        <div className="grid grid-cols-3 gap-6">
-          <div className="flex justify-center">
-            <div className="w-1/2 ml-auto border-t border-dashed border-white/40"></div>
-          </div>
-          <div className="border-t border-dashed border-white/40"></div>
-          <div className="flex justify-center">
-            <div className="w-1/2 mr-auto border-t border-dashed border-white/40"></div>
-          </div>
+        {/* Vertical line from DIRGED center */}
+        <div className="flex justify-center" style={{ marginLeft: '-160px' }}>
+          <svg width="2" height="40" className="overflow-visible">
+            <line x1="1" y1="0" x2="1" y2="40" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+          </svg>
         </div>
 
-        {/* Vertical lines down to gerências */}
-        <div className="grid grid-cols-3 gap-6">
-          <div className="flex justify-center">
-            <div className={`border-l ${dottedLine} h-8`}></div>
-          </div>
-          <div className="flex justify-center">
-            <div className={`border-l ${dottedLine} h-8`}></div>
-          </div>
-          <div className="flex justify-center">
-            <div className={`border-l ${dottedLine} h-8`}></div>
-          </div>
+        {/* Horizontal line connecting to 3 gerências - using SVG for continuous line */}
+        <div className="flex justify-center" style={{ marginLeft: '-160px' }}>
+          <svg width="800" height="50" className="overflow-visible">
+            {/* Main horizontal line */}
+            <line x1="133" y1="0" x2="667" y2="0" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+            {/* Three vertical lines down */}
+            <line x1="133" y1="0" x2="133" y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+            <line x1="400" y1="0" x2="400" y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+            <line x1="667" y1="0" x2="667" y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+          </svg>
         </div>
 
         {/* Gerências Row */}
@@ -407,42 +423,28 @@ const OrganogaramaSection = () => {
           ))}
         </div>
 
-        {/* Vertical dotted lines from gerências */}
+        {/* Lines from gerências to coordenações - using SVG */}
         <div className="grid grid-cols-3 gap-6">
-          {gerenciasComCoord.map((_, gIndex) => (
-            <div key={gIndex} className="flex justify-center">
-              <div className={`border-l ${dottedLine} h-6`}></div>
-            </div>
-          ))}
-        </div>
-
-        {/* Horizontal lines for coordenações - trimmed to fit between first and last coord */}
-        <div className="grid grid-cols-3 gap-6">
-          {gerenciasComCoord.map((gerencia, gIndex) => (
-            <div key={gIndex} className="flex justify-center">
-              {gerencia.coordenacoes.length === 2 ? (
-                <div className="w-1/2 border-t border-dashed border-white/40"></div>
-              ) : (
-                <div className="w-2/3 border-t border-dashed border-white/40"></div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Vertical dotted lines to coordenações */}
-        <div className="grid grid-cols-3 gap-6">
-          {gerenciasComCoord.map((gerencia, gIndex) => (
-            <div 
-              key={gIndex} 
-              className={`grid ${gerencia.coordenacoes.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-2`}
-            >
-              {gerencia.coordenacoes.map((_, cIndex) => (
-                <div key={cIndex} className="flex justify-center">
-                  <div className={`border-l ${dottedLine} h-6`}></div>
-                </div>
-              ))}
-            </div>
-          ))}
+          {gerenciasComCoord.map((gerencia, gIndex) => {
+            const numCoords = gerencia.coordenacoes.length;
+            const width = numCoords === 2 ? 200 : 280;
+            const positions = numCoords === 2 ? [50, 150] : [40, 140, 240];
+            
+            return (
+              <div key={gIndex} className="flex justify-center">
+                <svg width={width} height="50" className="overflow-visible">
+                  {/* Vertical line from gerência */}
+                  <line x1={width/2} y1="0" x2={width/2} y2="20" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+                  {/* Horizontal line */}
+                  <line x1={positions[0]} y1="20" x2={positions[positions.length-1]} y2="20" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+                  {/* Vertical lines to coords */}
+                  {positions.map((pos, idx) => (
+                    <line key={idx} x1={pos} y1="20" x2={pos} y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeDasharray="4,4" />
+                  ))}
+                </svg>
+              </div>
+            );
+          })}
         </div>
 
         {/* Coordenações Row */}
@@ -474,39 +476,6 @@ const OrganogaramaSection = () => {
               ))}
             </div>
           ))}
-        </div>
-
-        {/* ASGID - Connected to DIRGED */}
-        <div className="mt-12 relative">
-          {/* Connection from DIRGED */}
-          <div className="absolute left-1/2 -top-12 -translate-x-1/2 flex flex-col items-center">
-            <div className={`border-l ${dottedLine} h-12`}></div>
-          </div>
-          
-          {/* Horizontal line to ASGID */}
-          <div className="flex items-start">
-            <div className="w-[calc(50%-130px)] border-t border-dashed border-white/40 mt-0"></div>
-            <div className={`border-l ${dottedLine} h-8 -mt-0`}></div>
-          </div>
-          
-          <motion.div 
-            className="mt-0 ml-0"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-xl inline-block">
-              <div className="bg-[#1a1a1a] rounded-xl px-6 py-4 text-center w-[260px]">
-                <p className="text-white font-semibold text-xs leading-tight mb-2">
-                  Assessoria Técnica para a Gestão da Informação Documental
-                </p>
-                <span className="inline-block bg-[#3B82F6] rounded px-3 py-1 text-white text-[11px] font-bold mb-1">
-                  ASGID
-                </span>
-                <p className="text-white/50 text-[10px]">André Borges Ribeiro</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
