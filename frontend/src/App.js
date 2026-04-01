@@ -362,8 +362,8 @@ const OrganogaramaSection = () => {
             transition={{ delay: 0.1 }}
           >
             {/* Dotted line connecting to DIRGED */}
-            <svg width="80" height="2" className="flex-shrink-0">
-              <line x1="0" y1="1" x2="80" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
+            <svg width="38" height="2" className="flex-shrink-0">
+              <line x1="0" y1="1" x2="38" y2="1" stroke="rgba(255,255,255,0.5)" strokeWidth="1" strokeDasharray={dotStyle} strokeLinecap="round" />
             </svg>
             <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[2px] rounded-2xl">
               <div className="bg-[#1a1a1a] rounded-2xl px-5 py-4 text-center w-[240px]">
