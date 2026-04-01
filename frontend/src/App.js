@@ -16,6 +16,7 @@ const navItems = [
   { id: "competencias", label: "Competências", icon: Briefcase },
   { id: "organograma", label: "Organograma", icon: Network },
   { id: "capital-humano", label: "Capital Humano", icon: Users },
+  { id: "orcamento", label: "Orçamento", icon: BarChart3 },
   { id: "mapa", label: "Mapa", icon: MapPin },
   { id: "gestao-documental", label: "Gestão Documental", icon: FolderOpen },
   { id: "gestao-informacao", label: "Gestão da Informação", icon: Database },
@@ -172,7 +173,7 @@ const HeroSection = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/q0d9h6zk_video-cortes.mp4" type="video/mp4" />
+          <source src="https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/4u9ji9jo_video-cortes-2.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/30 via-transparent to-[#0A0A0A]/70" />
       </div>
@@ -550,6 +551,116 @@ const CapitalHumanoSection = () => {
                   <div className="text-white/50 text-sm">{stat.label}</div>
                 </div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Orcamento Section
+const OrcamentoSection = () => {
+  const orcamentoItems = [
+    { label: "Gestão Documental", valor: "R$ 2.500.000", percent: 35, color: "#FF007F" },
+    { label: "Tecnologia da Informação", valor: "R$ 1.800.000", percent: 25, color: "#9D00FF" },
+    { label: "Capacitação e Treinamento", valor: "R$ 900.000", percent: 12, color: "#FFE600" },
+    { label: "Infraestrutura", valor: "R$ 1.200.000", percent: 17, color: "#00D4FF" },
+    { label: "Projetos Especiais", valor: "R$ 800.000", percent: 11, color: "#3B82F6" },
+  ];
+
+  return (
+    <section id="orcamento" data-testid="orcamento-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#0A0A0A]">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#9D00FF]/20 flex items-center justify-center">
+              <BarChart3 className="w-8 h-8 text-[#9D00FF]" />
+            </div>
+          </div>
+          <Badge className="mb-4 bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 uppercase tracking-[0.2em] text-xs px-4 py-2">
+            Recursos
+          </Badge>
+          <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+            <span className="text-gradient-purple">Orçamento</span>
+          </h2>
+          <p className="text-white/60 max-w-2xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Distribuição dos recursos da DIRGED.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Barras de orçamento */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            {orcamentoItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                data-testid={`orcamento-item-${index}`}
+              >
+                <div className="flex justify-between mb-2">
+                  <span className="text-white font-medium text-sm">{item.label}</span>
+                  <span className="text-white/70 text-sm font-mono">{item.valor}</span>
+                </div>
+                <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full rounded-full"
+                    style={{ backgroundColor: item.color }}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${item.percent}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: index * 0.15, ease: "easeOut" }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Card resumo */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gradient-to-br from-[#9D00FF]/20 to-[#FF007F]/10 border border-white/10 rounded-3xl p-8">
+              <h3 className="font-outfit font-bold text-2xl text-white mb-6">Resumo Orçamentário</h3>
+              <div className="space-y-4 mb-8">
+                <div className="flex justify-between items-center py-3 border-b border-white/10">
+                  <span className="text-white/60">Orçamento Total</span>
+                  <span className="text-white font-bold text-xl font-mono">R$ 7.200.000</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-white/10">
+                  <span className="text-white/60">Executado</span>
+                  <span className="text-[#00D4FF] font-bold font-mono">R$ 5.400.000</span>
+                </div>
+                <div className="flex justify-between items-center py-3">
+                  <span className="text-white/60">Disponível</span>
+                  <span className="text-[#FFE600] font-bold font-mono">R$ 1.800.000</span>
+                </div>
+              </div>
+              <div className="w-full h-4 bg-white/10 rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full rounded-full bg-gradient-to-r from-[#9D00FF] to-[#FF007F]"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "75%" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                />
+              </div>
+              <p className="text-white/50 text-sm mt-3 text-center">75% do orçamento executado</p>
             </div>
           </motion.div>
         </div>
@@ -1177,6 +1288,7 @@ function App() {
         <CompetenciasSection />
         <OrganogaramaSection />
         <CapitalHumanoSection />
+        <OrcamentoSection />
         <MapaSection />
         <GestaoDocumentalSection />
         <GestaoInformacaoSection />
