@@ -217,6 +217,87 @@ const HeroSection = () => {
   );
 };
 
+// Carousel Resolução Component
+const CarouselResolucao = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const carouselImages = [
+    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/b15hxtgn_img1.jpg",
+    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/fhj7htsl_img2.jpg",
+    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/x6e930jb_img3.jpg",
+    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/ri1wkhd7_img4.jpg",
+    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/x1u2c3nh_img4.png",
+  ];
+
+  const totalSlides = 1 + carouselImages.length;
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide(prev => (prev + 1) % totalSlides);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [totalSlides]);
+
+  return (
+    <div className="w-full rounded-3xl overflow-hidden relative" style={{ minHeight: '380px' }} data-testid="carousel-resolucao">
+      <AnimatePresence mode="wait">
+        {activeSlide === 0 ? (
+          <motion.div
+            key="resolucao"
+            className="bg-[#9D00FF] rounded-3xl p-8 md:p-12 w-full h-full flex flex-col justify-center absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <a href="https://www8.tjmg.jus.br/institucional/at/pdf/re11372026.pdf" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+              <h3 className="font-outfit font-bold text-2xl md:text-3xl text-white mb-8">RESOLUÇÃO N° 1137/2026</h3>
+            </a>
+            <p className="text-white text-xl md:text-2xl leading-relaxed font-medium">
+              <span className="text-white/90">Art. 44.</span> A Diretoria Executiva de Gestão da
+              Informação Documental - DIRGED integra a EJEF e tem como objetivo assegurar a
+              efetividade na <span className="text-[#FFE600] font-bold">organização</span>,
+              <span className="text-[#FFE600] font-bold"> preservação</span> e <span className="text-[#FFE600] font-bold">acessibilidade</span> das informações
+              documentais e bibliográficas e na
+              <span className="text-[#FFE600] font-bold"> divulgação da jurisprudência</span> e das <span className="text-[#FFE600] font-bold">publicações</span> técnicas e jurídicas.
+            </p>
+          </motion.div>
+        ) : (
+          <motion.div
+            key={`img-${activeSlide}`}
+            className="absolute inset-0 rounded-3xl overflow-hidden bg-black flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <img
+              src={carouselImages[activeSlide - 1]}
+              alt={`DIRGED ${activeSlide}`}
+              className="w-full h-full object-cover rounded-3xl"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Dots indicator */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {Array.from({ length: totalSlides }).map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveSlide(i)}
+            className="w-2 h-2 rounded-full transition-all"
+            style={{
+              backgroundColor: activeSlide === i ? '#fff' : 'rgba(255,255,255,0.4)',
+              transform: activeSlide === i ? 'scale(1.3)' : 'scale(1)',
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // Competencias Section
 const CompetenciasSection = () => {
   const tagCloudDocumental = [
@@ -267,26 +348,14 @@ const CompetenciasSection = () => {
 
         {/* Resolution + Boxes Grid */}
         <div className="grid lg:grid-cols-2 gap-10 mb-20" data-testid="resolution-grid">
-          {/* Left: Resolution text */}
+          {/* Left: Resolution carousel */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="flex"
           >
-            <div className="bg-[#9D00FF] rounded-3xl p-8 md:p-12 w-full flex flex-col justify-center">
-              <a href="https://www8.tjmg.jus.br/institucional/at/pdf/re11372026.pdf" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                <h3 className="font-outfit font-bold text-2xl md:text-3xl text-white mb-8">RESOLUÇÃO N° 1137/2026</h3>
-              </a>
-              <p className="text-white text-xl md:text-2xl leading-relaxed font-medium">
-                <span className="text-white/90">Art. 44.</span> A Diretoria Executiva de Gestão da
-                Informação Documental - DIRGED integra a EJEF e tem como objetivo assegurar a
-                efetividade na <span className="text-[#FFE600] font-bold">organização</span>,
-                <span className="text-[#FFE600] font-bold"> preservação</span> e <span className="text-[#FFE600] font-bold">acessibilidade</span> das informações
-                documentais e bibliográficas e na
-                <span className="text-[#FFE600] font-bold"> divulgação da jurisprudência</span> e das <span className="text-[#FFE600] font-bold">publicações</span> técnicas e jurídicas.
-              </p>
-            </div>
+            <CarouselResolucao />
           </motion.div>
 
           {/* Right: 2 Boxes */}
