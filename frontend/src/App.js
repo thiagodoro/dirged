@@ -231,6 +231,7 @@ const CarouselResolucao = () => {
     { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/z734d7rb_img7.png", title: "Editora EJEF: produção de livros técnicos" },
     { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/ejkirkmh_img8.png", title: "Recolhimento de Acervo do Corte Cronológico do CNJ" },
     { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/t1yl3ha4_img10.png", title: "Contingências: Restauração de Processos" },
+    { src: "https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/s2ostm4p_card10.png", title: "Correios: Expedição de Documentos do TJMG" },
   ];
 
   const totalSlides = carouselSlides.length;
@@ -238,7 +239,7 @@ const CarouselResolucao = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide(prev => (prev + 1) % totalSlides);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(timer);
   }, [totalSlides]);
 
@@ -262,7 +263,7 @@ const CarouselResolucao = () => {
           <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-b-3xl" />
           {/* Title */}
           <div className="absolute bottom-10 left-5 z-10 max-w-[80%]">
-            <span className="text-white font-outfit font-semibold text-sm md:text-base leading-tight drop-shadow-lg px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-sm">
+            <span className="text-white font-outfit font-semibold text-base md:text-lg leading-tight drop-shadow-lg px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-sm">
               {carouselSlides[activeSlide].title}
             </span>
           </div>
@@ -1763,3 +1764,4 @@ function App() {
 }
 
 export default App;
+ App;
