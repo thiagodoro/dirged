@@ -491,7 +491,7 @@ const OrganogaramaSection = () => {
   const dotStyle = "1,4";
 
   return (
-    <section id="organograma" data-testid="organograma-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212]">
+    <section id="organograma" data-testid="organograma-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#1A1A1A]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div 
@@ -986,7 +986,7 @@ const CapitalHumanoSection = () => {
   ];
 
   return (
-    <section id="capital-humano" data-testid="capital-humano-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212]">
+    <section id="capital-humano" data-testid="capital-humano-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#1A1A1A]">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
@@ -1165,7 +1165,7 @@ const MapaSection = () => {
   };
 
   return (
-    <section id="mapa" data-testid="mapa-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212]">
+    <section id="mapa" data-testid="mapa-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#1A1A1A]">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-16"
@@ -1431,7 +1431,7 @@ const GestaoDocumentalSection = () => {
 // Gestão da Informação Section
 const GestaoInformacaoSection = () => {
   return (
-    <section id="gestao-informacao" data-testid="gestao-informacao-section" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden bg-[#121212]">
+    <section id="gestao-informacao" data-testid="gestao-informacao-section" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden bg-[#1A1A1A]">
       {/* Background */}
       <div className="absolute inset-0">
         <img 
@@ -1587,7 +1587,7 @@ const PremiosSection = () => {
   ];
 
   return (
-    <section id="premios" data-testid="premios-section" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden bg-[#121212]">
+    <section id="premios" data-testid="premios-section" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden bg-[#1A1A1A]">
       {/* Background */}
       <div className="absolute inset-0">
         <img 
