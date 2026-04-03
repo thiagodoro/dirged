@@ -860,7 +860,7 @@ const AtosNormativosSection = () => {
   const categoria = categorias[currentPage];
 
   return (
-    <section id="atos-normativos" data-testid="atos-normativos-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#0A0A0A]">
+    <section id="atos-normativos" data-testid="atos-normativos-section" className="py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -1052,7 +1052,7 @@ const OrcamentoSection = () => {
   ];
 
   return (
-    <section id="orcamento" data-testid="orcamento-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#0A0A0A]">
+    <section id="orcamento" data-testid="orcamento-section" className="py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -1165,7 +1165,7 @@ const MapaSection = () => {
   };
 
   return (
-    <section id="mapa" data-testid="mapa-section" className="py-24 md:py-32 px-6 md:px-12">
+    <section id="mapa" data-testid="mapa-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212]">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-16"
@@ -1383,7 +1383,7 @@ const GestaoDocumentalSection = () => {
   ];
 
   return (
-    <section id="gestao-documental" data-testid="gestao-documental-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212]">
+    <section id="gestao-documental" data-testid="gestao-documental-section" className="py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-16"
@@ -1431,7 +1431,7 @@ const GestaoDocumentalSection = () => {
 // Gestão da Informação Section
 const GestaoInformacaoSection = () => {
   return (
-    <section id="gestao-informacao" data-testid="gestao-informacao-section" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+    <section id="gestao-informacao" data-testid="gestao-informacao-section" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden bg-[#121212]">
       {/* Background */}
       <div className="absolute inset-0">
         <img 
@@ -1507,7 +1507,7 @@ const IniciativasSection = () => {
   ];
 
   return (
-    <section id="iniciativas" data-testid="iniciativas-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212] overflow-hidden">
+    <section id="iniciativas" data-testid="iniciativas-section" className="py-24 md:py-32 px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-16"
@@ -1587,7 +1587,7 @@ const PremiosSection = () => {
   ];
 
   return (
-    <section id="premios" data-testid="premios-section" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+    <section id="premios" data-testid="premios-section" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden bg-[#121212]">
       {/* Background */}
       <div className="absolute inset-0">
         <img 
@@ -1652,7 +1652,7 @@ const ProjetosFuturosSection = () => {
   ];
 
   return (
-    <section id="projetos" data-testid="projetos-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#121212]">
+    <section id="projetos" data-testid="projetos-section" className="py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-16"
