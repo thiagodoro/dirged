@@ -19,25 +19,31 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 
 ## What's Been Implemented
 **Date: December 2024**
-- ✅ Hero section com título, subtítulo e CTAs
-- ✅ Navbar sticky com 9 links de navegação
-- ✅ Seção Competências com 6 cards
-- ✅ Seção Capital Humano com stats e imagem
-- ✅ Seção Mapa com visualização estilizada de BH e Contagem
-- ✅ 7 localizações com marcadores coloridos e legenda
-- ✅ Seção Gestão Documental com 4 cards
-- ✅ Seção Gestão da Informação com stats
-- ✅ Seção Últimas Iniciativas com marquee e cards
-- ✅ Seção Prêmios com 4 cards de premiações
-- ✅ Seção Projetos Futuros com timeline
-- ✅ Footer com logo e créditos
-- ✅ Menu mobile funcional
-- ✅ Animações com Framer Motion
-- ✅ Design responsivo completo
+- Hero section com título, subtítulo e CTAs
+- Navbar sticky com 9 links de navegação
+- Seção Competências com 6 cards
+- Seção Capital Humano com stats e imagem
+- Seção Mapa com visualização estilizada de BH e Contagem
+- 7 localizações com marcadores coloridos e legenda
+- Seção Gestão Documental com 4 cards
+- Seção Gestão da Informação com stats
+- Seção Últimas Iniciativas com marquee e cards
+- Seção Prêmios com 4 cards de premiações
+- Seção Projetos Futuros com timeline
+- Footer com logo e créditos
+- Menu mobile funcional
+- Animações com Framer Motion
+- Design responsivo completo
 
 **Date: Abril 2026**
-- ✅ Linha pontilhada em L conectando DIRGED e ASGID (SVG com coordenadas precisas baseadas em medições reais)
-- ✅ Alterada para linha reta horizontal entre DIRGED e ASGID (centros verticais alinhados, sem formato L)
+- Linha reta horizontal entre DIRGED e ASGID no Organograma SVG
+- Seção "Orçamento" com barras de progresso
+- Seção "Atos Normativos" com carrossel categorizado e links
+- Remoção de 11 badges de subtítulo
+- Seção "Competências" com carrossel de imagens auto-play e tag cloud rotativo
+- Modal interativo para diretor Thiago Doro
+- Vídeo de fundo na hero section substituído
+- Carrossel Competências com 9 imagens e títulos descritivos em cada card
 
 ## Architecture
 - **Frontend**: React 19 + Tailwind CSS + Framer Motion

@@ -221,19 +221,19 @@ const HeroSection = () => {
 const CarouselResolucao = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
-  const carouselImages = [
-    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/z2bcaxm2_img1.png",
-    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/3222aoma_img2.jpg",
-    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/0rl67exw_img3.png",
-    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/nxij0h58_img4.png",
-    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/jmmr927l_img5.png",
-    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/6m2gdhku_img6.png",
-    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/z734d7rb_img7.png",
-    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/ejkirkmh_img8.png",
-    "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/t1yl3ha4_img10.png",
+  const carouselSlides = [
+    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/z2bcaxm2_img1.png", title: "Gestão de Arquivos: 51 Comarcas" },
+    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/3222aoma_img2.jpg", title: "Revista EJEF e outros periódicos" },
+    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/0rl67exw_img3.png", title: "Rede de Bibliotecas Físicas" },
+    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/nxij0h58_img4.png", title: "Avaliação e Descarte de Processos" },
+    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/jmmr927l_img5.png", title: "Digitalização e Disponibilização do Arquivo Permanente" },
+    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/6m2gdhku_img6.png", title: "Biblioteca Digital e Bases de Dados aos setores do TJMG" },
+    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/z734d7rb_img7.png", title: "Editora EJEF: produção de livros técnicos" },
+    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/ejkirkmh_img8.png", title: "Recolhimento de Acervo do Corte Cronológico do CNJ" },
+    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/t1yl3ha4_img10.png", title: "Contingências: Restauração de Processos" },
   ];
 
-  const totalSlides = carouselImages.length;
+  const totalSlides = carouselSlides.length;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -254,10 +254,18 @@ const CarouselResolucao = () => {
           transition={{ duration: 0.5 }}
         >
           <img
-            src={carouselImages[activeSlide]}
-            alt={`DIRGED ${activeSlide + 1}`}
+            src={carouselSlides[activeSlide].src}
+            alt={carouselSlides[activeSlide].title}
             className="w-full h-full object-cover rounded-3xl"
           />
+          {/* Bottom gradient overlay for title */}
+          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-b-3xl" />
+          {/* Title */}
+          <div className="absolute bottom-10 left-5 z-10 max-w-[80%]">
+            <span className="text-white font-outfit font-semibold text-sm md:text-base leading-tight drop-shadow-lg px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-sm">
+              {carouselSlides[activeSlide].title}
+            </span>
+          </div>
         </motion.div>
       </AnimatePresence>
 
