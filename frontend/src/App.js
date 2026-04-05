@@ -1078,7 +1078,7 @@ const CapitalHumanoSection = () => {
           <img
             src="https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/zor913of_54293936614_4429e80f69_o.jpg"
             alt="Equipe DIRGED"
-            className="w-full h-[400px] object-cover object-top"
+            className="w-full h-[400px] object-cover object-bottom"
             data-testid="capital-humano-foto"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-transparent to-transparent" />
