@@ -1153,23 +1153,22 @@ const CapitalHumanoSection = () => {
 const OrcamentoSection = () => {
   const [showRubricas, setShowRubricas] = useState(false);
 
-  const rubricas = [
-    { nome: "Diárias - Civil (3.14.01)", executado: "0,00", disponibilizado: "5.000,00", disponivel: "5.000,00", percent: "0,00%" },
-    { nome: "Art. Confec., Vestuário, Cama (3.30.01)", executado: "0,00", disponibilizado: "0,00", disponivel: "0,00", percent: "0,00%" },
-    { nome: "Material Gráfico e Impressos (3.30.04)", executado: "0,00", disponibilizado: "100.000,00", disponivel: "100.000,00", percent: "0,00%" },
-    { nome: "Materiais para Escritório (3.30.05)", executado: "0,00", disponibilizado: "49.000,00", disponivel: "49.000,00", percent: "0,00%" },
-    { nome: "Mat. de Lab. e Prod. Químicos (3.30.13)", executado: "2.079,25", disponibilizado: "4.000,00", disponivel: "1.920,75", percent: "51,90%", destaque: true },
-    { nome: "Artigos p/ Higiene e Limpeza (3.30.17)", executado: "243,20", disponibilizado: "0,00", disponivel: "-243,20", percent: "0,00%" },
-    { nome: "Livros Técnicos (3.30.31)", executado: "0,00", disponibilizado: "21.200,00", disponivel: "21.200,00", percent: "0,00%" },
-    { nome: "Serviços de Consultoria (3.35.02)", executado: "0,00", disponibilizado: "0,00", disponivel: "0,00", percent: "0,00%" },
-    { nome: "Loc. de Serv. de Apoio Adm (3.37.02)", executado: "0,00", disponibilizado: "196.482,00", disponivel: "196.482,00", percent: "0,00%" },
-    { nome: "Ass. de Jorn., Rev. e Period. (3.39.11)", executado: "65.165,37", disponibilizado: "979.018,00", disponivel: "913.852,63", percent: "6,66%", destaque: true },
-    { nome: "Serviço Postal-Telegráfico (3.39.15)", executado: "0,00", disponibilizado: "45.000.000,00", disponivel: "45.000.000,00", percent: "0,00%" },
-    { nome: "Loc. de Máq. e Equipamentos (3.39.19)", executado: "43.050,32", disponibilizado: "131.240,00", disponivel: "88.189,68", percent: "32,90%", destaque: true },
-    { nome: "Serviço de Digitalização (3.39.99)", executado: "0,00", disponibilizado: "343,00", disponivel: "343,00", percent: "0,00%" },
-    { nome: "Serviços de Tec. da Informação (3.40.02)", executado: "0,00", disponibilizado: "58.508,00", disponivel: "58.508,00", percent: "0,00%" },
-    { nome: "Mobiliário (4.52.14)", executado: "0,00", disponibilizado: "169.600,00", disponivel: "169.600,00", percent: "0,00%" },
-    { nome: "Coleção e Mat. Bibliográf. (4.52.18)", executado: "0,00", disponibilizado: "169.600,00", disponivel: "169.600,00", percent: "0,00%" },
+  const rubricasConsumo = [
+    { nome: "Diárias - Civil (3.14.01)", valor: "5.000" },
+    { nome: "Material Gráfico e Impressos (3.30.04)", valor: "100.000" },
+    { nome: "Materiais para Escritório (3.30.05)", valor: "49.000" },
+    { nome: "Mat. de Lab. e Prod. Químicos (3.30.13)", valor: "4.000" },
+    { nome: "Livros Técnicos (3.30.31)", valor: "21.200" },
+    { nome: "Loc. de Serv. de Apoio Adm. (3.37.02)", valor: "196.482" },
+    { nome: "Ass. de Jorn., Rev. e Periód. (3.39.11)", valor: "979.018" },
+    { nome: "Serviço Postal-Telegráfico (3.39.15)", valor: "45.000.000" },
+    { nome: "Loc. de Máq. e Equipamentos (3.39.19)", valor: "131.240" },
+    { nome: "Serviço de Digitalização, Index. (3.39.99)", valor: "343" },
+    { nome: "Serviços de Tec. da Informação (3.40.02)", valor: "58.508" },
+  ];
+
+  const rubricasInvestimento = [
+    { nome: "Coleção e Mat. Bibliográf. (4.52.18)", valor: "169.600" },
   ];
 
   return (
@@ -1218,45 +1217,6 @@ const OrcamentoSection = () => {
           </motion.div>
         </div>
 
-        {/* Resumo total */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-gradient-to-br from-[#9D00FF]/10 to-[#FF007F]/5 border border-white/10 rounded-2xl p-6 mb-10"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <p className="text-white/50 text-xs uppercase mb-1">Total Executado</p>
-              <p className="font-outfit font-bold text-lg text-[#FF007F]">R$ 110.538,14</p>
-            </div>
-            <div>
-              <p className="text-white/50 text-xs uppercase mb-1">Total Disponibilizado</p>
-              <p className="font-outfit font-bold text-lg text-[#9D00FF]">R$ 46.714.391,00</p>
-            </div>
-            <div>
-              <p className="text-white/50 text-xs uppercase mb-1">Total Disponível</p>
-              <p className="font-outfit font-bold text-lg text-[#10B981]">R$ 46.603.852,86</p>
-            </div>
-            <div>
-              <p className="text-white/50 text-xs uppercase mb-1">% Executado</p>
-              <p className="font-outfit font-bold text-lg text-[#FFE600]">0,24%</p>
-            </div>
-          </div>
-          <div className="mt-4">
-            <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
-              <motion.div
-                className="h-full rounded-full bg-gradient-to-r from-[#9D00FF] to-[#FF007F]"
-                initial={{ width: 0 }}
-                whileInView={{ width: "0.24%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                style={{ minWidth: '6px' }}
-              />
-            </div>
-          </div>
-        </motion.div>
-
         {/* Rubricas detalhadas */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -1268,7 +1228,7 @@ const OrcamentoSection = () => {
             className="flex items-center gap-2 mx-auto text-white/50 hover:text-white/80 transition-colors text-sm mb-6"
             data-testid="toggle-rubricas"
           >
-            <span>{showRubricas ? '[-] Ocultar' : '[+] Ver'} Execução Orçamentária por Rubrica</span>
+            <span>{showRubricas ? '[-] Ocultar' : '[+] Ver'} Especificação por Rubrica</span>
             <ChevronDown className={`w-4 h-4 transition-transform ${showRubricas ? 'rotate-180' : ''}`} />
           </button>
 
@@ -1279,32 +1239,42 @@ const OrcamentoSection = () => {
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="overflow-hidden"
+                className="overflow-hidden space-y-6"
               >
-                <div className="bg-black/30 border border-white/10 rounded-2xl overflow-hidden">
-                  {/* Header */}
-                  <div className="grid grid-cols-5 gap-2 p-4 bg-white/5 text-xs text-white/50 uppercase font-semibold border-b border-white/10">
-                    <span className="col-span-1">Rubrica</span>
-                    <span className="text-right">Executado</span>
-                    <span className="text-right">Disponibilizado</span>
-                    <span className="text-right">Disponível</span>
-                    <span className="text-right">% Exec.</span>
+                {/* Consumo */}
+                <div className="bg-black/30 border border-[#10B981]/20 rounded-2xl overflow-hidden">
+                  <div className="flex items-center justify-between p-4 bg-[#10B981]/10 border-b border-[#10B981]/20">
+                    <span className="text-[#10B981] font-outfit font-bold text-sm uppercase tracking-wider">Consumo</span>
+                    <span className="text-[#10B981]/70 font-mono text-xs">R$ 46.544.791,00</span>
                   </div>
-                  {/* Rows */}
-                  <ScrollArea className="max-h-[400px]">
-                    {rubricas.map((r, i) => (
-                      <div
-                        key={i}
-                        className={`grid grid-cols-5 gap-2 px-4 py-3 text-xs border-b border-white/5 ${r.destaque ? 'bg-[#FFE600]/5' : ''}`}
-                      >
-                        <span className="col-span-1 text-white/70 truncate" title={r.nome}>{r.nome}</span>
-                        <span className={`text-right font-mono ${r.destaque ? 'text-[#FFE600]' : 'text-white/50'}`}>{r.executado}</span>
-                        <span className="text-right font-mono text-white/50">{r.disponibilizado}</span>
-                        <span className="text-right font-mono text-white/50">{r.disponivel}</span>
-                        <span className={`text-right font-mono ${r.destaque ? 'text-[#10B981]' : 'text-white/40'}`}>{r.percent}</span>
-                      </div>
-                    ))}
-                  </ScrollArea>
+                  <div className="grid grid-cols-2 gap-2 p-4 bg-white/5 text-xs text-white/50 uppercase font-semibold border-b border-white/10">
+                    <span>Rubrica</span>
+                    <span className="text-right">Valor (R$)</span>
+                  </div>
+                  {rubricasConsumo.map((r, i) => (
+                    <div key={i} className="grid grid-cols-2 gap-2 px-4 py-3 text-xs border-b border-white/5">
+                      <span className="text-white/70">{r.nome}</span>
+                      <span className="text-right font-mono text-white/60">{r.valor}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Investimento */}
+                <div className="bg-black/30 border border-[#FFE600]/20 rounded-2xl overflow-hidden">
+                  <div className="flex items-center justify-between p-4 bg-[#FFE600]/10 border-b border-[#FFE600]/20">
+                    <span className="text-[#FFE600] font-outfit font-bold text-sm uppercase tracking-wider">Investimento</span>
+                    <span className="text-[#FFE600]/70 font-mono text-xs">R$ 169.600,00</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 p-4 bg-white/5 text-xs text-white/50 uppercase font-semibold border-b border-white/10">
+                    <span>Rubrica</span>
+                    <span className="text-right">Valor (R$)</span>
+                  </div>
+                  {rubricasInvestimento.map((r, i) => (
+                    <div key={i} className="grid grid-cols-2 gap-2 px-4 py-3 text-xs border-b border-white/5">
+                      <span className="text-white/70">{r.nome}</span>
+                      <span className="text-right font-mono text-white/60">{r.valor}</span>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             )}
