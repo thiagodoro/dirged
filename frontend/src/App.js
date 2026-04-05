@@ -1151,12 +1151,25 @@ const CapitalHumanoSection = () => {
 
 // Orcamento Section
 const OrcamentoSection = () => {
-  const orcamentoItems = [
-    { label: "Gestão Documental", valor: "R$ 2.500.000", percent: 35, color: "#FF007F" },
-    { label: "Tecnologia da Informação", valor: "R$ 1.800.000", percent: 25, color: "#9D00FF" },
-    { label: "Capacitação e Treinamento", valor: "R$ 900.000", percent: 12, color: "#FFE600" },
-    { label: "Infraestrutura", valor: "R$ 1.200.000", percent: 17, color: "#00D4FF" },
-    { label: "Projetos Especiais", valor: "R$ 800.000", percent: 11, color: "#3B82F6" },
+  const [showRubricas, setShowRubricas] = useState(false);
+
+  const rubricas = [
+    { nome: "Diárias - Civil (3.14.01)", executado: "0,00", disponibilizado: "5.000,00", disponivel: "5.000,00", percent: "0,00%" },
+    { nome: "Art. Confec., Vestuário, Cama (3.30.01)", executado: "0,00", disponibilizado: "0,00", disponivel: "0,00", percent: "0,00%" },
+    { nome: "Material Gráfico e Impressos (3.30.04)", executado: "0,00", disponibilizado: "100.000,00", disponivel: "100.000,00", percent: "0,00%" },
+    { nome: "Materiais para Escritório (3.30.05)", executado: "0,00", disponibilizado: "49.000,00", disponivel: "49.000,00", percent: "0,00%" },
+    { nome: "Mat. de Lab. e Prod. Químicos (3.30.13)", executado: "2.079,25", disponibilizado: "4.000,00", disponivel: "1.920,75", percent: "51,90%", destaque: true },
+    { nome: "Artigos p/ Higiene e Limpeza (3.30.17)", executado: "243,20", disponibilizado: "0,00", disponivel: "-243,20", percent: "0,00%" },
+    { nome: "Livros Técnicos (3.30.31)", executado: "0,00", disponibilizado: "21.200,00", disponivel: "21.200,00", percent: "0,00%" },
+    { nome: "Serviços de Consultoria (3.35.02)", executado: "0,00", disponibilizado: "0,00", disponivel: "0,00", percent: "0,00%" },
+    { nome: "Loc. de Serv. de Apoio Adm (3.37.02)", executado: "0,00", disponibilizado: "196.482,00", disponivel: "196.482,00", percent: "0,00%" },
+    { nome: "Ass. de Jorn., Rev. e Period. (3.39.11)", executado: "65.165,37", disponibilizado: "979.018,00", disponivel: "913.852,63", percent: "6,66%", destaque: true },
+    { nome: "Serviço Postal-Telegráfico (3.39.15)", executado: "0,00", disponibilizado: "45.000.000,00", disponivel: "45.000.000,00", percent: "0,00%" },
+    { nome: "Loc. de Máq. e Equipamentos (3.39.19)", executado: "43.050,32", disponibilizado: "131.240,00", disponivel: "88.189,68", percent: "32,90%", destaque: true },
+    { nome: "Serviço de Digitalização (3.39.99)", executado: "0,00", disponibilizado: "343,00", disponivel: "343,00", percent: "0,00%" },
+    { nome: "Serviços de Tec. da Informação (3.40.02)", executado: "0,00", disponibilizado: "58.508,00", disponivel: "58.508,00", percent: "0,00%" },
+    { nome: "Mobiliário (4.52.14)", executado: "0,00", disponibilizado: "169.600,00", disponivel: "169.600,00", percent: "0,00%" },
+    { nome: "Coleção e Mat. Bibliográf. (4.52.18)", executado: "0,00", disponibilizado: "169.600,00", disponivel: "169.600,00", percent: "0,00%" },
   ];
 
   return (
@@ -1174,83 +1187,129 @@ const OrcamentoSection = () => {
             </div>
           </div>
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-            <span className="text-gradient-purple">Orçamento</span>
+            Orçamento <span className="text-gradient-purple">Resumido (2026)</span>
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Distribuição dos recursos da DIRGED.
-          </p>
+          <p className="text-white/50 text-sm">* Valores apurados em 24/3/2026 pelo Qlik Sense</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Barras de orçamento */}
+        {/* Cards Consumo e Investimento */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="bg-black/40 border border-[#10B981]/30 rounded-2xl p-8 text-center"
+            data-testid="orcamento-consumo"
           >
-            {orcamentoItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                data-testid={`orcamento-item-${index}`}
-              >
-                <div className="flex justify-between mb-2">
-                  <span className="text-white font-medium text-sm">{item.label}</span>
-                  <span className="text-white/70 text-sm font-mono">{item.valor}</span>
-                </div>
-                <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full rounded-full"
-                    style={{ backgroundColor: item.color }}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${item.percent}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: index * 0.15, ease: "easeOut" }}
-                  />
-                </div>
-              </motion.div>
-            ))}
+            <p className="text-white/60 text-sm mb-2 uppercase tracking-wider">Consumo autorizado em 2026</p>
+            <p className="font-outfit font-bold text-3xl md:text-4xl text-[#10B981]">R$ 46.544.791,00</p>
           </motion.div>
 
-          {/* Card resumo */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="bg-black/40 border border-[#FFE600]/30 rounded-2xl p-8 text-center"
+            data-testid="orcamento-investimento"
           >
-            <div className="bg-gradient-to-br from-[#9D00FF]/20 to-[#FF007F]/10 border border-white/10 rounded-3xl p-8">
-              <h3 className="font-outfit font-bold text-2xl text-white mb-6">Resumo Orçamentário</h3>
-              <div className="space-y-4 mb-8">
-                <div className="flex justify-between items-center py-3 border-b border-white/10">
-                  <span className="text-white/60">Orçamento Total</span>
-                  <span className="text-white font-bold text-xl font-mono">R$ 7.200.000</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-white/10">
-                  <span className="text-white/60">Executado</span>
-                  <span className="text-[#00D4FF] font-bold font-mono">R$ 5.400.000</span>
-                </div>
-                <div className="flex justify-between items-center py-3">
-                  <span className="text-white/60">Disponível</span>
-                  <span className="text-[#FFE600] font-bold font-mono">R$ 1.800.000</span>
-                </div>
-              </div>
-              <div className="w-full h-4 bg-white/10 rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full rounded-full bg-gradient-to-r from-[#9D00FF] to-[#FF007F]"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "75%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
-                />
-              </div>
-              <p className="text-white/50 text-sm mt-3 text-center">75% do orçamento executado</p>
-            </div>
+            <p className="text-white/60 text-sm mb-2 uppercase tracking-wider">Investimento autorizado em 2026</p>
+            <p className="font-outfit font-bold text-3xl md:text-4xl text-[#FFE600]">R$ 169.600,00</p>
           </motion.div>
         </div>
+
+        {/* Resumo total */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-br from-[#9D00FF]/10 to-[#FF007F]/5 border border-white/10 rounded-2xl p-6 mb-10"
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+              <p className="text-white/50 text-xs uppercase mb-1">Total Executado</p>
+              <p className="font-outfit font-bold text-lg text-[#FF007F]">R$ 110.538,14</p>
+            </div>
+            <div>
+              <p className="text-white/50 text-xs uppercase mb-1">Total Disponibilizado</p>
+              <p className="font-outfit font-bold text-lg text-[#9D00FF]">R$ 46.714.391,00</p>
+            </div>
+            <div>
+              <p className="text-white/50 text-xs uppercase mb-1">Total Disponível</p>
+              <p className="font-outfit font-bold text-lg text-[#10B981]">R$ 46.603.852,86</p>
+            </div>
+            <div>
+              <p className="text-white/50 text-xs uppercase mb-1">% Executado</p>
+              <p className="font-outfit font-bold text-lg text-[#FFE600]">0,24%</p>
+            </div>
+          </div>
+          <div className="mt-4">
+            <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full rounded-full bg-gradient-to-r from-[#9D00FF] to-[#FF007F]"
+                initial={{ width: 0 }}
+                whileInView={{ width: "0.24%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                style={{ minWidth: '6px' }}
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Rubricas detalhadas */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <button
+            onClick={() => setShowRubricas(!showRubricas)}
+            className="flex items-center gap-2 mx-auto text-white/50 hover:text-white/80 transition-colors text-sm mb-6"
+            data-testid="toggle-rubricas"
+          >
+            <span>{showRubricas ? '[-] Ocultar' : '[+] Ver'} Execução Orçamentária por Rubrica</span>
+            <ChevronDown className={`w-4 h-4 transition-transform ${showRubricas ? 'rotate-180' : ''}`} />
+          </button>
+
+          <AnimatePresence>
+            {showRubricas && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="bg-black/30 border border-white/10 rounded-2xl overflow-hidden">
+                  {/* Header */}
+                  <div className="grid grid-cols-5 gap-2 p-4 bg-white/5 text-xs text-white/50 uppercase font-semibold border-b border-white/10">
+                    <span className="col-span-1">Rubrica</span>
+                    <span className="text-right">Executado</span>
+                    <span className="text-right">Disponibilizado</span>
+                    <span className="text-right">Disponível</span>
+                    <span className="text-right">% Exec.</span>
+                  </div>
+                  {/* Rows */}
+                  <ScrollArea className="max-h-[400px]">
+                    {rubricas.map((r, i) => (
+                      <div
+                        key={i}
+                        className={`grid grid-cols-5 gap-2 px-4 py-3 text-xs border-b border-white/5 ${r.destaque ? 'bg-[#FFE600]/5' : ''}`}
+                      >
+                        <span className="col-span-1 text-white/70 truncate" title={r.nome}>{r.nome}</span>
+                        <span className={`text-right font-mono ${r.destaque ? 'text-[#FFE600]' : 'text-white/50'}`}>{r.executado}</span>
+                        <span className="text-right font-mono text-white/50">{r.disponibilizado}</span>
+                        <span className="text-right font-mono text-white/50">{r.disponivel}</span>
+                        <span className={`text-right font-mono ${r.destaque ? 'text-[#10B981]' : 'text-white/40'}`}>{r.percent}</span>
+                      </div>
+                    ))}
+                  </ScrollArea>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );
