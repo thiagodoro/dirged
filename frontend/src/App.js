@@ -1081,7 +1081,7 @@ const CapitalHumanoSection = () => {
             className="w-full h-[400px] object-cover object-top"
             data-testid="capital-humano-foto"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-transparent to-transparent" />
         </motion.div>
 
         {/* Total destaque */}
