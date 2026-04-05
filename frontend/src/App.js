@@ -978,63 +978,152 @@ const AtosNormativosSection = () => {
 
 // Capital Humano Section
 const CapitalHumanoSection = () => {
-  const stats = [
-    { value: "150+", label: "Colaboradores" },
-    { value: "25", label: "Anos de Experiência" },
-    { value: "98%", label: "Satisfação" },
-    { value: "7", label: "Unidades" },
+  const categorias = [
+    {
+      titulo: "Gestores",
+      total: 13,
+      color: "#FFE600",
+      itens: [
+        "1 Diretor Executivo",
+        "1 Assessor Técnico",
+        "3 Gerentes",
+        "8 Coordenadores de Área",
+      ],
+    },
+    {
+      titulo: "Servidores",
+      total: 31,
+      color: "#3B82F6",
+      itens: [
+        "5 Analistas Judiciários – Bibliotecários",
+        "8 Analistas Judiciários – Analista Judiciários",
+        "3 Analistas Judiciários – Revisores Judiciários",
+        "12 Oficiais Judiciários",
+        "3 Agentes Judiciários",
+      ],
+    },
+    {
+      titulo: "Terceirizados",
+      total: 82,
+      color: "#9D00FF",
+      itens: [
+        "1 Assistente Especializado",
+        "12 Assistentes de Apoio Administrativo",
+        "16 Mensageiros",
+        "6 Arquivistas",
+        "3 Assistentes de Direção Superior",
+        "3 Assistentes Executivos",
+        "2 Conservadores / Restauradores",
+        "1 Designer Gráfico",
+        "10 Encarregados de Serviço",
+        "1 Historiador",
+        "9 Supervisores",
+        "4 Colaboradores de Acesso (Externo)",
+      ],
+    },
+    {
+      titulo: "Estagiários",
+      total: 14,
+      color: "#10B981",
+      itens: [
+        "1 Pós-Graduação em Letras",
+        "1 Pós-Graduação em Direito",
+        "1 Graduação em Direito",
+        "3 Graduação em Letras",
+        "2 Graduação em Biblioteconomia",
+        "1 Graduação em Conservação/Restauro",
+        "5 Graduação em Arquivologia",
+      ],
+    },
+    {
+      titulo: "Menor Aprendiz",
+      total: 5,
+      color: "#FF007F",
+      itens: [],
+    },
   ];
+
+  const [expandido, setExpandido] = useState(null);
 
   return (
     <section id="capital-humano" data-testid="capital-humano-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#1A1A1A]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <motion.div
-            className="relative rounded-3xl overflow-hidden"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1758518731468-98e90ffd7430?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwZGF0YSUyMHZpc3VhbGl6YXRpb24lMjBkYXJrfGVufDB8fHx8MTc3NTAwOTQ1M3ww&ixlib=rb-4.1.0&q=85"
-              alt="Nossa equipe"
-              className="w-full h-[500px] object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent" />
-          </motion.div>
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
+              <Users className="w-8 h-8 text-[#FFE600]" />
+            </div>
+          </div>
+          <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+            Capital <span className="text-gradient-yellow">Humano</span>
+          </h2>
+          <p className="text-white/60 max-w-2xl mx-auto text-lg">
+            Nosso time é composto por profissionais de diversas especialidades
+          </p>
+        </motion.div>
 
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 rounded-xl bg-[#FFE600]/20 flex items-center justify-center">
-                <Users className="w-7 h-7 text-[#FFE600]" />
+        {/* Total destaque */}
+        <motion.div
+          className="text-center mb-14"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="inline-flex items-baseline gap-3 bg-white/5 border border-white/10 rounded-2xl px-8 py-5">
+            <span className="font-outfit font-bold text-5xl md:text-6xl text-[#FFE600]">145</span>
+            <span className="text-white/70 text-lg font-medium">colaboradores</span>
+          </div>
+        </motion.div>
+
+        {/* Cards por categoria */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+          {categorias.map((cat, idx) => (
+            <motion.div
+              key={cat.titulo}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.08 }}
+              className="bg-black/40 border border-white/10 rounded-2xl p-5 cursor-pointer hover:border-white/20 transition-all"
+              style={{ borderTopColor: cat.color, borderTopWidth: '3px' }}
+              onClick={() => setExpandido(expandido === idx ? null : idx)}
+              data-testid={`capital-card-${idx}`}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-outfit font-bold text-3xl" style={{ color: cat.color }}>{cat.total}</span>
+                {cat.itens.length > 0 && (
+                  <ChevronDown
+                    className={`w-5 h-5 text-white/40 transition-transform ${expandido === idx ? 'rotate-180' : ''}`}
+                  />
+                )}
               </div>
-            </div>
-            <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
-              Capital <span className="text-gradient-yellow">Humano</span>
-            </h2>
-            <p className="text-white/60 mb-8 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p className="text-white/60 mb-10 leading-relaxed">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-            </p>
+              <h3 className="font-outfit font-semibold text-white text-sm mb-2">{cat.titulo}</h3>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center md:text-left">
-                  <div className="font-outfit font-bold text-3xl text-[#FF007F] mb-1">{stat.value}</div>
-                  <div className="text-white/50 text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+              <AnimatePresence>
+                {expandido === idx && cat.itens.length > 0 && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pt-3 border-t border-white/10 space-y-1.5">
+                      {cat.itens.map((item, i) => (
+                        <p key={i} className="text-white/50 text-xs leading-relaxed">{item}</p>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
