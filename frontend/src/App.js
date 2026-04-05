@@ -1068,6 +1068,22 @@ const CapitalHumanoSection = () => {
           </p>
         </motion.div>
 
+        {/* Foto da equipe */}
+        <motion.div
+          className="relative rounded-3xl overflow-hidden mb-14 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <img
+            src="https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/zor913of_54293936614_4429e80f69_o.jpg"
+            alt="Equipe DIRGED"
+            className="w-full h-[400px] object-cover object-top"
+            data-testid="capital-humano-foto"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
+        </motion.div>
+
         {/* Total destaque */}
         <motion.div
           className="text-center mb-14"
