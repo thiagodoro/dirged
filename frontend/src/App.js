@@ -1004,11 +1004,11 @@ const CapitalHumanoSection = () => {
     },
     {
       titulo: "Terceirizados",
-      total: 82,
+      total: 182,
       color: "#9D00FF",
       itens: [
         "1 Assistente Especializado",
-        "12 Assistentes de Apoio Administrativo",
+        "126 Assistentes de Apoio Administrativo",
         "16 Mensageiros",
         "6 Arquivistas",
         "3 Assistentes de Direção Superior",
@@ -1076,7 +1076,7 @@ const CapitalHumanoSection = () => {
           viewport={{ once: true }}
         >
           <div className="inline-flex items-baseline gap-3 bg-white/5 border border-white/10 rounded-2xl px-8 py-5">
-            <span className="font-outfit font-bold text-5xl md:text-6xl text-[#FFE600]">145</span>
+            <span className="font-outfit font-bold text-5xl md:text-6xl text-[#FFE600]">245</span>
             <span className="text-white/70 text-lg font-medium">colaboradores</span>
           </div>
         </motion.div>
