@@ -1036,7 +1036,7 @@ const CapitalHumanoSection = () => {
       ],
     },
     {
-      titulo: "Menor Aprendiz",
+      titulo: "Menores Aprendizes",
       total: 5,
       color: "#FF007F",
       itens: [],
@@ -1092,18 +1092,21 @@ const CapitalHumanoSection = () => {
               transition={{ delay: idx * 0.08 }}
               className="bg-black/40 border border-white/10 rounded-2xl p-5 cursor-pointer hover:border-white/20 transition-all"
               style={{ borderTopColor: cat.color, borderTopWidth: '3px' }}
-              onClick={() => setExpandido(expandido === idx ? null : idx)}
               data-testid={`capital-card-${idx}`}
             >
               <div className="flex items-center justify-between mb-3">
                 <span className="font-outfit font-bold text-3xl" style={{ color: cat.color }}>{cat.total}</span>
-                {cat.itens.length > 0 && (
-                  <ChevronDown
-                    className={`w-5 h-5 text-white/40 transition-transform ${expandido === idx ? 'rotate-180' : ''}`}
-                  />
-                )}
               </div>
-              <h3 className="font-outfit font-semibold text-white text-sm mb-2">{cat.titulo}</h3>
+              <h3 className="font-outfit font-semibold text-white text-sm">{cat.titulo}</h3>
+
+              {cat.itens.length > 0 && (
+                <button
+                  className="flex items-center gap-1 mt-2 text-xs text-white/40 hover:text-white/70 transition-colors"
+                  onClick={(e) => { e.stopPropagation(); setExpandido(expandido === idx ? null : idx); }}
+                >
+                  <span>{expandido === idx ? '[-] Ocultar' : '[+] Ver especificação'}</span>
+                </button>
+              )}
 
               <AnimatePresence>
                 {expandido === idx && cat.itens.length > 0 && (
@@ -1853,4 +1856,3 @@ function App() {
 }
 
 export default App;
- App;
