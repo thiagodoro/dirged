@@ -1157,18 +1157,18 @@ const OrcamentoSection = () => {
     { nome: "Diárias - Civil (3.14.01)", valor: "5.000" },
     { nome: "Material Gráfico e Impressos (3.30.04)", valor: "100.000" },
     { nome: "Materiais para Escritório (3.30.05)", valor: "49.000" },
-    { nome: "Mat. de Lab. e Prod. Químicos (3.30.13)", valor: "4.000" },
+    { nome: "Materiais de Laboratório e Produtos Químicos em Geral (3.30.13)", valor: "4.000" },
     { nome: "Livros Técnicos (3.30.31)", valor: "21.200" },
-    { nome: "Loc. de Serv. de Apoio Adm. (3.37.02)", valor: "196.482" },
-    { nome: "Ass. de Jorn., Rev. e Periód. (3.39.11)", valor: "979.018" },
+    { nome: "Locação de Serviços de Apoio Administrativo (3.37.02)", valor: "196.482" },
+    { nome: "Assinatura de Jornais, Revistas e Periódicos (3.39.11)", valor: "979.018" },
     { nome: "Serviço Postal-Telegráfico (3.39.15)", valor: "45.000.000" },
-    { nome: "Loc. de Máq. e Equipamentos (3.39.19)", valor: "131.240" },
-    { nome: "Serviço de Digitalização, Index. (3.39.99)", valor: "343" },
-    { nome: "Serviços de Tec. da Informação (3.40.02)", valor: "58.508" },
+    { nome: "Locação de Máquinas e Equipamentos (3.39.19)", valor: "131.240" },
+    { nome: "Serviço de Digitalização e Indexação (3.39.99)", valor: "343" },
+    { nome: "Serviços de Tecnologia da Informação (3.40.02)", valor: "58.508" },
   ];
 
   const rubricasInvestimento = [
-    { nome: "Coleção e Mat. Bibliográf. (4.52.18)", valor: "169.600" },
+    { nome: "Coleção e Material Bibliográfico (4.52.18)", valor: "169.600" },
   ];
 
   return (
