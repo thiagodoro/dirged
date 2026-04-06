@@ -1151,8 +1151,7 @@ const CapitalHumanoSection = () => {
 
 // Orcamento Section
 const OrcamentoSection = () => {
-  const [showConsumo, setShowConsumo] = useState(false);
-  const [showInvestimento, setShowInvestimento] = useState(false);
+  const [openBox, setOpenBox] = useState(null);
 
   const rubricasConsumo = [
     { nome: "Diárias - Civil (3.14.01)", valor: "5.000" },
@@ -1224,15 +1223,15 @@ const OrcamentoSection = () => {
             </div>
             <div className="px-8 pb-4">
               <button
-                onClick={() => setShowConsumo(!showConsumo)}
+                onClick={() => setOpenBox(openBox === 'consumo' ? null : 'consumo')}
                 className="flex items-center gap-1 mx-auto text-xs text-white/40 hover:text-white/70 transition-colors"
                 data-testid="toggle-consumo"
               >
-                <span>{showConsumo ? '[-] Ocultar' : '[+] Ver especificação'}</span>
+                <span>{openBox === 'consumo' ? '[-] Ocultar' : '[+] Ver especificação'}</span>
               </button>
             </div>
             <AnimatePresence>
-              {showConsumo && (
+              {openBox === 'consumo' && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
@@ -1268,15 +1267,15 @@ const OrcamentoSection = () => {
             </div>
             <div className="px-8 pb-4">
               <button
-                onClick={() => setShowInvestimento(!showInvestimento)}
+                onClick={() => setOpenBox(openBox === 'investimento' ? null : 'investimento')}
                 className="flex items-center gap-1 mx-auto text-xs text-white/40 hover:text-white/70 transition-colors"
                 data-testid="toggle-investimento"
               >
-                <span>{showInvestimento ? '[-] Ocultar' : '[+] Ver especificação'}</span>
+                <span>{openBox === 'investimento' ? '[-] Ocultar' : '[+] Ver especificação'}</span>
               </button>
             </div>
             <AnimatePresence>
-              {showInvestimento && (
+              {openBox === 'investimento' && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
