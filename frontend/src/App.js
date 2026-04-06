@@ -1151,7 +1151,8 @@ const CapitalHumanoSection = () => {
 
 // Orcamento Section
 const OrcamentoSection = () => {
-  const [showRubricas, setShowRubricas] = useState(false);
+  const [showConsumo, setShowConsumo] = useState(false);
+  const [showInvestimento, setShowInvestimento] = useState(false);
 
   const rubricasConsumo = [
     { nome: "Diárias - Civil (3.14.01)", valor: "5.000" },
@@ -1192,94 +1193,94 @@ const OrcamentoSection = () => {
         </motion.div>
 
         {/* Cards Consumo e Investimento */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Consumo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-black/40 border border-[#10B981]/30 rounded-2xl p-8 text-center"
+            className="bg-black/40 border border-[#10B981]/30 rounded-2xl overflow-hidden"
             data-testid="orcamento-consumo"
           >
-            <p className="text-white/60 text-sm mb-2 uppercase tracking-wider">Consumo autorizado em 2026</p>
-            <p className="font-outfit font-bold text-3xl md:text-4xl text-[#10B981]">R$ 46.544.791,00</p>
+            <div className="p-8 text-center">
+              <p className="text-white/60 text-sm mb-2 uppercase tracking-wider">Consumo autorizado em 2026</p>
+              <p className="font-outfit font-bold text-3xl md:text-4xl text-[#10B981]">R$ 46.544.791,00</p>
+            </div>
+            <div className="px-8 pb-4">
+              <button
+                onClick={() => setShowConsumo(!showConsumo)}
+                className="flex items-center gap-1 mx-auto text-xs text-white/40 hover:text-white/70 transition-colors"
+                data-testid="toggle-consumo"
+              >
+                <span>{showConsumo ? '[-] Ocultar' : '[+] Ver especificação'}</span>
+              </button>
+            </div>
+            <AnimatePresence>
+              {showConsumo && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="overflow-hidden"
+                >
+                  <div className="border-t border-[#10B981]/20">
+                    {rubricasConsumo.map((r, i) => (
+                      <div key={i} className="flex justify-between px-6 py-2.5 text-xs border-b border-white/5">
+                        <span className="text-white/60">{r.nome}</span>
+                        <span className="font-mono text-white/50 ml-2 shrink-0">{r.valor}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
+          {/* Investimento */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="bg-black/40 border border-[#FFE600]/30 rounded-2xl p-8 text-center"
+            className="bg-black/40 border border-[#FFE600]/30 rounded-2xl overflow-hidden"
             data-testid="orcamento-investimento"
           >
-            <p className="text-white/60 text-sm mb-2 uppercase tracking-wider">Investimento autorizado em 2026</p>
-            <p className="font-outfit font-bold text-3xl md:text-4xl text-[#FFE600]">R$ 169.600,00</p>
+            <div className="p-8 text-center">
+              <p className="text-white/60 text-sm mb-2 uppercase tracking-wider">Investimento autorizado em 2026</p>
+              <p className="font-outfit font-bold text-3xl md:text-4xl text-[#FFE600]">R$ 169.600,00</p>
+            </div>
+            <div className="px-8 pb-4">
+              <button
+                onClick={() => setShowInvestimento(!showInvestimento)}
+                className="flex items-center gap-1 mx-auto text-xs text-white/40 hover:text-white/70 transition-colors"
+                data-testid="toggle-investimento"
+              >
+                <span>{showInvestimento ? '[-] Ocultar' : '[+] Ver especificação'}</span>
+              </button>
+            </div>
+            <AnimatePresence>
+              {showInvestimento && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="overflow-hidden"
+                >
+                  <div className="border-t border-[#FFE600]/20">
+                    {rubricasInvestimento.map((r, i) => (
+                      <div key={i} className="flex justify-between px-6 py-2.5 text-xs border-b border-white/5">
+                        <span className="text-white/60">{r.nome}</span>
+                        <span className="font-mono text-white/50 ml-2 shrink-0">{r.valor}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
-
-        {/* Rubricas detalhadas */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <button
-            onClick={() => setShowRubricas(!showRubricas)}
-            className="flex items-center gap-2 mx-auto text-white/50 hover:text-white/80 transition-colors text-sm mb-6"
-            data-testid="toggle-rubricas"
-          >
-            <span>{showRubricas ? '[-] Ocultar' : '[+] Ver'} Especificação por Rubrica</span>
-            <ChevronDown className={`w-4 h-4 transition-transform ${showRubricas ? 'rotate-180' : ''}`} />
-          </button>
-
-          <AnimatePresence>
-            {showRubricas && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden space-y-6"
-              >
-                {/* Consumo */}
-                <div className="bg-black/30 border border-[#10B981]/20 rounded-2xl overflow-hidden">
-                  <div className="flex items-center justify-between p-4 bg-[#10B981]/10 border-b border-[#10B981]/20">
-                    <span className="text-[#10B981] font-outfit font-bold text-sm uppercase tracking-wider">Consumo</span>
-                    <span className="text-[#10B981]/70 font-mono text-xs">R$ 46.544.791,00</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 p-4 bg-white/5 text-xs text-white/50 uppercase font-semibold border-b border-white/10">
-                    <span>Rubrica</span>
-                    <span className="text-right">Valor (R$)</span>
-                  </div>
-                  {rubricasConsumo.map((r, i) => (
-                    <div key={i} className="grid grid-cols-2 gap-2 px-4 py-3 text-xs border-b border-white/5">
-                      <span className="text-white/70">{r.nome}</span>
-                      <span className="text-right font-mono text-white/60">{r.valor}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Investimento */}
-                <div className="bg-black/30 border border-[#FFE600]/20 rounded-2xl overflow-hidden">
-                  <div className="flex items-center justify-between p-4 bg-[#FFE600]/10 border-b border-[#FFE600]/20">
-                    <span className="text-[#FFE600] font-outfit font-bold text-sm uppercase tracking-wider">Investimento</span>
-                    <span className="text-[#FFE600]/70 font-mono text-xs">R$ 169.600,00</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 p-4 bg-white/5 text-xs text-white/50 uppercase font-semibold border-b border-white/10">
-                    <span>Rubrica</span>
-                    <span className="text-right">Valor (R$)</span>
-                  </div>
-                  {rubricasInvestimento.map((r, i) => (
-                    <div key={i} className="grid grid-cols-2 gap-2 px-4 py-3 text-xs border-b border-white/5">
-                      <span className="text-white/70">{r.nome}</span>
-                      <span className="text-right font-mono text-white/60">{r.valor}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
       </div>
     </section>
   );
