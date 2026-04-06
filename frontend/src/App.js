@@ -1,4 +1,5 @@
 import "@/App.css";
+import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -10,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 
 const navItems = [
   { id: "home", label: "Home", icon: Home },
@@ -1304,19 +1306,21 @@ const OrcamentoSection = () => {
 
 // Mapa Section
 const MapaSection = () => {
-  const locations = {
-    bh: [
-      { id: 1, name: "São Pedro", color: "#FF007F", units: "DIRGED, ASGID, GEDAN, GEDOC, GEIJR, COJUR, COGEDE" },
-      { id: 2, name: "R. Goiás", color: "#FFE600", units: "COBIB, COMEX" },
-      { id: 3, name: "CEOP", color: "#9D00FF", units: "COARQ, COMEX" },
-      { id: 4, name: "Sede", color: "#00D4FF", units: "COBIB, COMEX" },
-    ],
-    contagem: [
-      { id: 5, name: "CINÇÃO", color: "#FF007F", units: "COARPE, CORCEN, CORAV" },
-      { id: 6, name: "AP 1500", color: "#FFE600", units: "COMEX" },
-      { id: 7, name: "PMC", color: "#9D00FF", units: "COMEX" },
-    ],
-  };
+  const [mapReady, setMapReady] = useState(false);
+
+  const locations = [
+    { id: 1, lat: -19.9392, lng: -43.9458, color: "#FF007F", units: "DIRGED, ASGID, GEJUR, GEDAN, GEDOC, COJUR, COGEDE", address: "R. Raul Pompeia, 101 - São Pedro" },
+    { id: 2, lat: -19.9197, lng: -43.9378, color: "#FFE600", units: "COBIB, COMEX", address: "R. Goiás, 229 - Centro" },
+    { id: 3, lat: -19.9225, lng: -43.9425, color: "#9D00FF", units: "COARQ, COMEX", address: "Av. do Contorno, 629 - Centro" },
+    { id: 4, lat: -19.9312, lng: -43.9302, color: "#00D4FF", units: "COBIB, COMEX", address: "Av. Afonso Pena, 4001" },
+    { id: 5, lat: -19.9318, lng: -44.0538, color: "#FF007F", units: "CORCEN, CORAV, COARPE", address: "Av. Ápio Cardoso, 577 - Cincão - Contagem" },
+    { id: 6, lat: -19.9195, lng: -43.9345, color: "#FFE600", units: "COMEX", address: "Av. Afonso Pena, 1500 - Centro" },
+    { id: 7, lat: -19.9410, lng: -43.9340, color: "#10B981", units: "COMEX", address: "Praça Milton Campos, 16 - Cruzeiro" },
+  ];
+
+  useEffect(() => {
+    setMapReady(true);
+  }, []);
 
   return (
     <section id="mapa" data-testid="mapa-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#1A1A1A]">
@@ -1335,193 +1339,68 @@ const MapaSection = () => {
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Onde <span className="text-gradient-pink">Estamos</span>
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
-            A DIRGED está presente em diversas localidades em Belo Horizonte e Contagem, 
-            garantindo atendimento eficiente em toda a região metropolitana.
+          <p className="text-white/60 max-w-2xl mx-auto text-sm md:text-base">
+            A DIRGED ocupa <strong className="text-white">7 endereços</strong> em Belo Horizonte e Região Metropolitana.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Belo Horizonte */}
-          <motion.div
-            className="rounded-2xl bg-[#121212] border border-white/10 p-6 overflow-hidden"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-[#FF007F]/20 flex items-center justify-center">
-                <Building2 className="w-5 h-5 text-[#FF007F]" />
-              </div>
-              <h3 className="font-outfit font-semibold text-xl text-white">Belo Horizonte/MG</h3>
-            </div>
-
-            {/* Stylized Map */}
-            <div className="relative h-64 rounded-xl bg-[#0A0A0A] mb-6 overflow-hidden">
-              <div className="absolute inset-0 opacity-30">
-                <svg className="w-full h-full" viewBox="0 0 400 250" fill="none">
-                  {/* Grid lines */}
-                  {[...Array(10)].map((_, i) => (
-                    <line key={`h-${i}`} x1="0" y1={i * 25} x2="400" y2={i * 25} stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-                  ))}
-                  {[...Array(16)].map((_, i) => (
-                    <line key={`v-${i}`} x1={i * 25} y1="0" x2={i * 25} y2="250" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-                  ))}
-                  {/* Roads */}
-                  <path d="M0 125 Q 200 125 400 100" stroke="rgba(255,255,255,0.2)" strokeWidth="3" fill="none" />
-                  <path d="M200 0 Q 200 125 180 250" stroke="rgba(255,255,255,0.2)" strokeWidth="3" fill="none" />
-                </svg>
-              </div>
-              
-              {/* Location markers */}
-              <div className="absolute top-[60%] left-[35%]">
-                <motion.div 
-                  className="relative"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <MapPin className="w-8 h-8 text-[#FF007F] drop-shadow-lg" fill="#FF007F" />
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#0A0A0A] rounded-full flex items-center justify-center text-xs font-bold text-white">1</span>
-                </motion.div>
-              </div>
-              <div className="absolute top-[40%] left-[45%]">
-                <motion.div 
-                  className="relative"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
-                >
-                  <MapPin className="w-8 h-8 text-[#FFE600] drop-shadow-lg" fill="#FFE600" />
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#0A0A0A] rounded-full flex items-center justify-center text-xs font-bold text-white">2</span>
-                </motion.div>
-              </div>
-              <div className="absolute top-[20%] left-[55%]">
-                <motion.div 
-                  className="relative"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
-                >
-                  <MapPin className="w-8 h-8 text-[#9D00FF] drop-shadow-lg" fill="#9D00FF" />
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#0A0A0A] rounded-full flex items-center justify-center text-xs font-bold text-white">3</span>
-                </motion.div>
-              </div>
-              <div className="absolute top-[70%] left-[60%]">
-                <motion.div 
-                  className="relative"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.9 }}
-                >
-                  <MapPin className="w-8 h-8 text-[#00D4FF] drop-shadow-lg" fill="#00D4FF" />
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#0A0A0A] rounded-full flex items-center justify-center text-xs font-bold text-white">4</span>
-                </motion.div>
-              </div>
-            </div>
-
-            {/* Locations list */}
-            <div className="space-y-3">
-              {locations.bh.map((loc) => (
-                <div key={loc.id} data-testid={`location-bh-${loc.id}`} className="flex items-start gap-3 p-3 rounded-lg bg-[#0A0A0A] hover:bg-white/5 transition-colors">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: loc.color }}>
-                    {loc.id}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-white text-sm">{loc.name}</div>
-                    <div className="text-white/50 text-xs">{loc.units}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Contagem */}
-          <motion.div
-            className="rounded-2xl bg-[#121212] border border-white/10 p-6 overflow-hidden"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-[#9D00FF]/20 flex items-center justify-center">
-                <Building2 className="w-5 h-5 text-[#9D00FF]" />
-              </div>
-              <h3 className="font-outfit font-semibold text-xl text-white">Contagem/MG</h3>
-            </div>
-
-            {/* Stylized Map */}
-            <div className="relative h-64 rounded-xl bg-[#0A0A0A] mb-6 overflow-hidden">
-              <div className="absolute inset-0 opacity-30">
-                <svg className="w-full h-full" viewBox="0 0 400 250" fill="none">
-                  {[...Array(10)].map((_, i) => (
-                    <line key={`h-${i}`} x1="0" y1={i * 25} x2="400" y2={i * 25} stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-                  ))}
-                  {[...Array(16)].map((_, i) => (
-                    <line key={`v-${i}`} x1={i * 25} y1="0" x2={i * 25} y2="250" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-                  ))}
-                  <path d="M0 150 Q 200 120 400 140" stroke="rgba(255,255,255,0.2)" strokeWidth="3" fill="none" />
-                  <path d="M150 0 Q 180 125 160 250" stroke="rgba(255,255,255,0.2)" strokeWidth="3" fill="none" />
-                </svg>
-              </div>
-              
-              <div className="absolute top-[50%] left-[40%]">
-                <motion.div 
-                  className="relative"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <MapPin className="w-8 h-8 text-[#FF007F] drop-shadow-lg" fill="#FF007F" />
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#0A0A0A] rounded-full flex items-center justify-center text-xs font-bold text-white">5</span>
-                </motion.div>
-              </div>
-              <div className="absolute top-[30%] left-[55%]">
-                <motion.div 
-                  className="relative"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
-                >
-                  <MapPin className="w-8 h-8 text-[#FFE600] drop-shadow-lg" fill="#FFE600" />
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#0A0A0A] rounded-full flex items-center justify-center text-xs font-bold text-white">6</span>
-                </motion.div>
-              </div>
-              <div className="absolute top-[65%] left-[65%]">
-                <motion.div 
-                  className="relative"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
-                >
-                  <MapPin className="w-8 h-8 text-[#9D00FF] drop-shadow-lg" fill="#9D00FF" />
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#0A0A0A] rounded-full flex items-center justify-center text-xs font-bold text-white">7</span>
-                </motion.div>
-              </div>
-            </div>
-
-            {/* Locations list */}
-            <div className="space-y-3">
-              {locations.contagem.map((loc) => (
-                <div key={loc.id} data-testid={`location-contagem-${loc.id}`} className="flex items-start gap-3 p-3 rounded-lg bg-[#0A0A0A] hover:bg-white/5 transition-colors">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ backgroundColor: loc.color }}>
-                    {loc.id}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-white text-sm">{loc.name}</div>
-                    <div className="text-white/50 text-xs">{loc.units}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* TJMG Logo reference */}
-        <motion.div 
-          className="mt-12 flex items-center justify-center gap-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        {/* Leaflet Map */}
+        <motion.div
+          className="rounded-2xl overflow-hidden border border-white/10 mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          style={{ height: '480px' }}
+          data-testid="mapa-leaflet"
         >
-          <div className="text-white/40 text-sm font-outfit">EJEF - Escola Judicial</div>
-          <div className="w-px h-6 bg-white/20" />
-          <div className="text-white/40 text-sm font-outfit">TJMG - Tribunal de Justiça de Minas Gerais</div>
+          {mapReady && (
+            <MapContainer center={[-19.932, -43.975]} zoom={13} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
+              <TileLayer
+                attribution='&copy; <a href="https://carto.com/">CARTO</a>'
+                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+              />
+              {locations.map((loc) => (
+                <CircleMarker
+                  key={loc.id}
+                  center={[loc.lat, loc.lng]}
+                  radius={10}
+                  pathOptions={{ color: loc.color, fillColor: loc.color, fillOpacity: 0.8, weight: 2 }}
+                >
+                  <Popup>
+                    <div style={{ minWidth: '180px' }}>
+                      <strong style={{ fontSize: '13px' }}>{loc.units}</strong>
+                      <br />
+                      <span style={{ fontSize: '11px', color: '#666' }}>{loc.address}</span>
+                    </div>
+                  </Popup>
+                </CircleMarker>
+              ))}
+            </MapContainer>
+          )}
         </motion.div>
+
+        {/* Legenda */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {locations.map((loc) => (
+            <motion.div
+              key={loc.id}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: loc.id * 0.05 }}
+              className="flex items-start gap-3 p-3 rounded-xl bg-black/30 border border-white/5"
+              data-testid={`location-${loc.id}`}
+            >
+              <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0" style={{ backgroundColor: loc.color }}>
+                {loc.id}
+              </div>
+              <div>
+                <p className="text-white text-xs font-semibold leading-tight">{loc.units}</p>
+                <p className="text-white/40 text-xs mt-1">{loc.address}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
