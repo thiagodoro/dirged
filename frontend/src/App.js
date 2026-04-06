@@ -925,12 +925,6 @@ const AtosNormativosSection = () => {
                   className="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-white/20 transition-all hover:bg-white/[0.07] group"
                 >
                   <div className="flex items-start gap-4">
-                    <span
-                      className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shrink-0 mt-0.5"
-                      style={{ backgroundColor: `${categoria.cor}20`, color: categoria.cor }}
-                    >
-                      {ato.tipo}
-                    </span>
                     <div className="flex-1 min-w-0">
                       <a href={ato.link} target="_blank" rel="noopener noreferrer" className="text-white font-semibold text-sm mb-1 hover:underline block" style={{ color: categoria.cor }}>
                         {ato.tipo} {ato.id}
