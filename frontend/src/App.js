@@ -1409,345 +1409,99 @@ const MapaSection = () => {
 };
 
 // Gestão Documental Section
-const GestaoDocumentalSection = () => {
-  const features = [
-    { icon: FileText, title: "Digitalização", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod." },
-    { icon: Archive, title: "Arquivamento", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris." },
-    { icon: Target, title: "Rastreamento", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum." },
-    { icon: Shield, title: "Preservação", desc: "Excepteur sint occaecat cupidatat non proident sunt in culpa." },
-  ];
-
-  return (
-    <section id="gestao-documental" data-testid="gestao-documental-section" className="py-24 md:py-32 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
-              <FolderOpen className="w-8 h-8 text-[#FFE600]" />
-            </div>
+const GestaoDocumentalSection = () => (
+  <section id="gestao-documental" data-testid="gestao-documental-section" className="py-24 md:py-32 px-6 md:px-12">
+    <div className="max-w-7xl mx-auto text-center">
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <div className="flex justify-center mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
+            <FolderOpen className="w-8 h-8 text-[#FFE600]" />
           </div>
-          <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-            Gestão <span className="text-gradient-yellow">Documental</span>
-          </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((item, index) => (
-            <motion.div
-              key={index}
-              data-testid={`gestao-doc-card-${index}`}
-              className="text-center p-8 rounded-2xl bg-[#0A0A0A] border border-white/10 card-hover"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-[#FFE600]/20 to-[#FF007F]/20 flex items-center justify-center mb-4">
-                <item.icon className="w-8 h-8 text-[#FFE600]" />
-              </div>
-              <h3 className="font-outfit font-semibold text-lg text-white mb-2">{item.title}</h3>
-              <p className="text-white/50 text-sm">{item.desc}</p>
-            </motion.div>
-          ))}
         </div>
-      </div>
-    </section>
-  );
-};
+        <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+          Gestão <span className="text-gradient-yellow">Documental</span>
+        </h2>
+        <p className="text-white/40 text-lg italic">Em construção...</p>
+      </motion.div>
+    </div>
+  </section>
+);
 
 // Gestão da Informação Section
-const GestaoInformacaoSection = () => {
-  return (
-    <section id="gestao-informacao" data-testid="gestao-informacao-section" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden bg-[#1A1A1A]">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img 
-          src="https://images.unsplash.com/photo-1762279388988-3f8abcc7dca2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwZGF0YSUyMHZpc3VhbGl6YXRpb24lMjBkYXJrfGVufDB8fHx8MTc3NTAwOTQ1M3ww&ixlib=rb-4.1.0&q=85"
-          alt="Technology background"
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 to-[#0A0A0A]/70" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 rounded-xl bg-[#9D00FF]/20 flex items-center justify-center">
-                <Database className="w-7 h-7 text-[#9D00FF]" />
-              </div>
-            </div>
-            <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
-              Gestão da <span className="text-gradient-purple">Informação</span>
-            </h2>
-            <p className="text-white/60 mb-6 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-            </p>
-            <p className="text-white/60 mb-8 leading-relaxed">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-            </p>
-            
-            <div className="flex flex-wrap gap-3">
-              <Badge className="bg-[#FF007F]/10 text-[#FF007F] border-[#FF007F]/30 px-4 py-2">Análise de Dados</Badge>
-              <Badge className="bg-[#FFE600]/10 text-[#FFE600] border-[#FFE600]/30 px-4 py-2">Segurança</Badge>
-              <Badge className="bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30 px-4 py-2">Integração</Badge>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-2 gap-4"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            {[
-              { value: "99.9%", label: "Disponibilidade" },
-              { value: "500K+", label: "Documentos Digitais" },
-              { value: "24/7", label: "Monitoramento" },
-              { value: "ISO", label: "Certificação" },
-            ].map((stat, index) => (
-              <div key={index} className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 text-center">
-                <div className="font-outfit font-bold text-2xl md:text-3xl text-[#9D00FF] mb-1">{stat.value}</div>
-                <div className="text-white/50 text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
+const GestaoInformacaoSection = () => (
+  <section id="gestao-informacao" data-testid="gestao-informacao-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#1A1A1A]">
+    <div className="max-w-7xl mx-auto text-center">
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <div className="flex justify-center mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-[#9D00FF]/20 flex items-center justify-center">
+            <Database className="w-8 h-8 text-[#9D00FF]" />
+          </div>
         </div>
-      </div>
-    </section>
-  );
-};
+        <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+          Gestão da <span className="text-gradient-purple">Informação</span>
+        </h2>
+        <p className="text-white/40 text-lg italic">Em construção...</p>
+      </motion.div>
+    </div>
+  </section>
+);
 
 // Últimas Iniciativas Section
-const IniciativasSection = () => {
-  const iniciativas = [
-    "Digitalização de Processos Antigos",
-    "Sistema de Gestão Eletrônica",
-    "Programa de Capacitação",
-    "Integração de Sistemas",
-    "Automação de Workflows",
-    "Portal de Transparência",
-  ];
-
-  return (
-    <section id="iniciativas" data-testid="iniciativas-section" className="py-24 md:py-32 px-6 md:px-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 rounded-2xl bg-[#FF007F]/20 flex items-center justify-center">
-              <Lightbulb className="w-8 h-8 text-[#FF007F]" />
-            </div>
-          </div>
-          <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-            Últimas <span className="text-gradient-pink">Iniciativas</span>
-          </h2>
-        </motion.div>
-
-        {/* Marquee effect */}
-        <div className="relative">
-          <div className="flex gap-4 animate-marquee whitespace-nowrap">
-            {[...iniciativas, ...iniciativas].map((item, index) => (
-              <div
-                key={index}
-                data-testid={`iniciativa-${index}`}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0A0A0A] border border-white/10 text-white/80 hover:border-[#FF007F]/50 hover:text-[#FF007F] transition-all cursor-default"
-              >
-                <Lightbulb className="w-4 h-4" />
-                <span className="text-sm font-medium">{item}</span>
-              </div>
-            ))}
+const IniciativasSection = () => (
+  <section id="iniciativas" data-testid="iniciativas-section" className="py-24 md:py-32 px-6 md:px-12">
+    <div className="max-w-7xl mx-auto text-center">
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <div className="flex justify-center mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-[#FF007F]/20 flex items-center justify-center">
+            <Lightbulb className="w-8 h-8 text-[#FF007F]" />
           </div>
         </div>
-
-        {/* Initiative cards */}
-        <div className="grid md:grid-cols-3 gap-6 mt-16">
-          {[
-            { title: "Projeto Alpha", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.", date: "Dez 2024" },
-            { title: "Sistema Beta", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.", date: "Nov 2024" },
-            { title: "Programa Gamma", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.", date: "Out 2024" },
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              className="p-6 rounded-2xl bg-[#0A0A0A] border border-white/10 card-hover"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Badge className="mb-4 bg-[#FF007F]/10 text-[#FF007F] border-[#FF007F]/30 text-xs">{item.date}</Badge>
-              <h3 className="font-outfit font-semibold text-xl text-white mb-2">{item.title}</h3>
-              <p className="text-white/50 text-sm">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-      `}</style>
-    </section>
-  );
-};
+        <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+          Últimas <span className="text-gradient-pink">Iniciativas</span>
+        </h2>
+        <p className="text-white/40 text-lg italic">Em construção...</p>
+      </motion.div>
+    </div>
+  </section>
+);
 
 // Prêmios Section
-const PremiosSection = () => {
-  const premios = [
-    { year: "2024", title: "Excelência em Gestão", org: "CNPJ" },
-    { year: "2023", title: "Inovação Digital", org: "TJMG" },
-    { year: "2022", title: "Melhor Práticas", org: "CNJ" },
-    { year: "2021", title: "Transformação Digital", org: "TJMG" },
-  ];
-
-  return (
-    <section id="premios" data-testid="premios-section" className="relative py-24 md:py-32 px-6 md:px-12 overflow-hidden bg-[#1A1A1A]">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img 
-          src="https://images.pexels.com/photos/28551568/pexels-photo-28551568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Awards background"
-          className="w-full h-full object-cover opacity-15"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/90 to-[#0A0A0A]" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
-              <Award className="w-8 h-8 text-[#FFE600]" />
-            </div>
+const PremiosSection = () => (
+  <section id="premios" data-testid="premios-section" className="py-24 md:py-32 px-6 md:px-12 bg-[#1A1A1A]">
+    <div className="max-w-7xl mx-auto text-center">
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <div className="flex justify-center mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
+            <Award className="w-8 h-8 text-[#FFE600]" />
           </div>
-          <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-            Nossos <span className="text-gradient-yellow">Prêmios</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {premios.map((premio, index) => (
-            <motion.div
-              key={index}
-              data-testid={`premio-card-${index}`}
-              className="group relative p-6 rounded-2xl bg-[#121212]/80 backdrop-blur-sm border border-white/10 text-center overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-[#FFE600]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              
-              <div className="relative z-10">
-                <Award className="w-12 h-12 mx-auto text-[#FFE600] mb-4" />
-                <div className="font-outfit font-bold text-3xl text-white mb-2">{premio.year}</div>
-                <h3 className="font-semibold text-lg text-white mb-1">{premio.title}</h3>
-                <p className="text-white/50 text-sm">{premio.org}</p>
-              </div>
-            </motion.div>
-          ))}
         </div>
-      </div>
-    </section>
-  );
-};
+        <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+          Nossos <span className="text-gradient-yellow">Prêmios</span>
+        </h2>
+        <p className="text-white/40 text-lg italic">Em construção...</p>
+      </motion.div>
+    </div>
+  </section>
+);
 
 // Projetos Futuros Section
-const ProjetosFuturosSection = () => {
-  const projetos = [
-    { icon: Rocket, title: "IA para Análise de Documentos", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", status: "Em Planejamento" },
-    { icon: Database, title: "Migração para Cloud", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco.", status: "2025" },
-    { icon: Shield, title: "Blockchain para Autenticidade", desc: "Duis aute irure dolor in reprehenderit in voluptate velit.", status: "2026" },
-  ];
-
-  return (
-    <section id="projetos" data-testid="projetos-section" className="py-24 md:py-32 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 rounded-2xl bg-[#9D00FF]/20 flex items-center justify-center">
-              <Sparkles className="w-8 h-8 text-[#9D00FF]" />
-            </div>
-          </div>
-          <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-            Projetos <span className="text-gradient-purple">Futuros</span>
-          </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vislumbrando o futuro da gestão documental.
-          </p>
-        </motion.div>
-
-        {/* Timeline */}
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#9D00FF] via-[#FF007F] to-[#FFE600] hidden lg:block" />
-
-          <div className="space-y-12">
-            {projetos.map((projeto, index) => (
-              <motion.div
-                key={index}
-                data-testid={`projeto-card-${index}`}
-                className={`flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex-1 w-full">
-                  <div className={`p-8 rounded-2xl bg-[#0A0A0A] border border-white/10 card-hover ${index % 2 === 1 ? 'lg:text-right' : ''}`}>
-                    <div className={`flex items-center gap-4 mb-4 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#9D00FF]/20 to-[#FF007F]/20 flex items-center justify-center">
-                        <projeto.icon className="w-7 h-7 text-[#9D00FF]" />
-                      </div>
-                      <Badge className="bg-[#9D00FF]/10 text-[#9D00FF] border-[#9D00FF]/30">{projeto.status}</Badge>
-                    </div>
-                    <h3 className="font-outfit font-semibold text-xl text-white mb-2">{projeto.title}</h3>
-                    <p className="text-white/50">{projeto.desc}</p>
-                  </div>
-                </div>
-
-                {/* Timeline dot */}
-                <div className="w-4 h-4 rounded-full bg-[#9D00FF] ring-4 ring-[#9D00FF]/30 hidden lg:block" />
-
-                <div className="flex-1 hidden lg:block" />
-              </motion.div>
-            ))}
+const ProjetosFuturosSection = () => (
+  <section id="projetos" data-testid="projetos-section" className="py-24 md:py-32 px-6 md:px-12">
+    <div className="max-w-7xl mx-auto text-center">
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <div className="flex justify-center mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-[#9D00FF]/20 flex items-center justify-center">
+            <Sparkles className="w-8 h-8 text-[#9D00FF]" />
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
+        <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+          Projetos <span className="text-gradient-purple">Futuros</span>
+        </h2>
+        <p className="text-white/40 text-lg italic">Em construção...</p>
+      </motion.div>
+    </div>
+  </section>
+);
 
 // Footer
 const Footer = () => {
