@@ -1189,7 +1189,23 @@ const OrcamentoSection = () => {
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Orçamento <span className="text-gradient-purple">Resumido (2026)</span>
           </h2>
-          <p className="text-white/50 text-sm">* Valores apurados em 24/3/2026 pelo Qlik Sense</p>
+          <p className="text-white/60 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+            O orçamento da DIRGED é utilizado para custear serviços de correio a todo o TJMG, aquisição de bases de dados de informação técnica a todos os setores do Tribunal, acervo bibliográfico, insumos de conservação e restauro, locação de empilhadeiras e plataformas elevatórias, entre outros. Atualmente, a DIRGED gerencia <strong className="text-white">36 contratos</strong> com fornecedores.
+          </p>
+        </motion.div>
+
+        {/* Valor global */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="inline-flex items-baseline gap-3 bg-white/5 border border-white/10 rounded-2xl px-8 py-5">
+            <span className="text-white/50 text-lg">R$</span>
+            <span className="font-outfit font-bold text-5xl md:text-6xl text-white">46.714.391</span>
+          </div>
+          <p className="text-white/40 text-xs mt-3 uppercase tracking-wider">Orçamento total (Consumo + Investimento)</p>
         </motion.div>
 
         {/* Cards Consumo e Investimento */}
