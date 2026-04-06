@@ -1309,13 +1309,13 @@ const MapaSection = () => {
   const [mapReady, setMapReady] = useState(false);
 
   const locations = [
-    { id: 1, lat: -19.9392, lng: -43.9458, color: "#FF007F", units: "DIRGED, ASGID, GEJUR, GEDAN, GEDOC, COJUR, COGEDE", address: "R. Raul Pompeia, 101 - São Pedro" },
-    { id: 2, lat: -19.9197, lng: -43.9378, color: "#FFE600", units: "COBIB, COMEX", address: "R. Goiás, 229 - Centro" },
-    { id: 3, lat: -19.9225, lng: -43.9425, color: "#9D00FF", units: "COARQ, COMEX", address: "Av. do Contorno, 629 - Centro" },
-    { id: 4, lat: -19.9312, lng: -43.9302, color: "#00D4FF", units: "COBIB, COMEX", address: "Av. Afonso Pena, 4001" },
-    { id: 5, lat: -19.9318, lng: -44.0538, color: "#FF6B35", units: "CORCEN, CORAV, COARPE", address: "Av. Ápio Cardoso, 577 - Cincão - Contagem" },
-    { id: 6, lat: -19.9195, lng: -43.9345, color: "#10B981", units: "COMEX", address: "Av. Afonso Pena, 1500 - Centro" },
-    { id: 7, lat: -19.9410, lng: -43.9340, color: "#3B82F6", units: "COMEX", address: "Praça Milton Campos, 16 - Cruzeiro" },
+    { id: 1, lat: -19.9421534, lng: -43.9372424, color: "#FF007F", units: "DIRGED, ASGID, GEJUR, GEDAN, GEDOC, COJUR, COGEDE", address: "R. Raul Pompeia, 101 - São Pedro" },
+    { id: 2, lat: -19.9251272, lng: -43.9359763, color: "#FFE600", units: "COBIB, COMEX", address: "R. Goiás, 229 - Centro" },
+    { id: 3, lat: -19.9140383, lng: -43.9365185, color: "#9D00FF", units: "COARQ, COMEX", address: "Av. do Contorno, 629 - Centro" },
+    { id: 4, lat: -19.9445719, lng: -43.9222717, color: "#00D4FF", units: "COBIB, COMEX", address: "Av. Afonso Pena, 4001" },
+    { id: 5, lat: -19.9117456, lng: -44.0462546, color: "#FF6B35", units: "CORCEN, CORAV, COARPE", address: "Av. Ápio Cardoso, 577 - Cincão - Contagem" },
+    { id: 6, lat: -19.9256585, lng: -43.9349312, color: "#10B981", units: "COMEX", address: "Av. Afonso Pena, 1500 - Centro" },
+    { id: 7, lat: -19.9397822, lng: -43.9267442, color: "#3B82F6", units: "COMEX", address: "Praça Milton Campos, 16 - Cruzeiro" },
   ];
 
   useEffect(() => {
@@ -1354,7 +1354,7 @@ const MapaSection = () => {
           data-testid="mapa-leaflet"
         >
           {mapReady && (
-            <MapContainer center={[-19.932, -43.975]} zoom={13} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
+            <MapContainer center={[-19.928, -43.980]} zoom={12} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/">OSM</a>'
                 url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
