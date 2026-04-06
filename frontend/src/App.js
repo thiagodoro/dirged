@@ -1189,7 +1189,7 @@ const OrcamentoSection = () => {
             Orçamento <span className="text-gradient-purple">Resumido (2026)</span>
           </h2>
           <p className="text-white/60 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
-            O orçamento da DIRGED é utilizado para custear serviços de correio a todo o TJMG, aquisição de bases de dados de informação técnica a todos os setores do Tribunal, acervo bibliográfico, insumos de conservação e restauro, locação de empilhadeiras e plataformas elevatórias, entre outros. Atualmente, a DIRGED gerencia <strong className="text-white">36 contratos</strong> com fornecedores.
+            O orçamento da DIRGED é utilizado para custear serviços de correio a todo o TJMG, aquisição de bases de dados de informação técnica a todos os setores do Tribunal, acervo bibliográfico, insumos de conservação e restauro, locação de empilhadeiras e plataformas elevatórias, entre outros. Atualmente, a DIRGED gerencia <strong className="text-[#9D00FF]">36 contratos</strong> com fornecedores.
           </p>
         </motion.div>
 
