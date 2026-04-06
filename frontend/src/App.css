@@ -60,3 +60,12 @@ img {
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
+
+
+/* Leaflet map: brighten roads/lines while keeping dark background */
+.leaflet-container {
+  background: #0a0a0a;
+}
+.leaflet-tile-pane .leaflet-layer:first-child img {
+  filter: brightness(1.6) contrast(1.1);
+}
