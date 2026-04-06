@@ -1357,7 +1357,10 @@ const MapaSection = () => {
             <MapContainer center={[-19.932, -43.975]} zoom={13} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/">OSM</a>'
-                url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
+              />
+              <TileLayer
+                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png"
               />
               {locations.map((loc) => (
                 <CircleMarker
