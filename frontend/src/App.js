@@ -11,7 +11,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
 
 const navItems = [
   { id: "home", label: "Home", icon: Home },
@@ -1357,11 +1358,15 @@ const MapaSection = () => {
                 url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png"
               />
               {locations.map((loc) => (
-                <CircleMarker
+                <Marker
                   key={loc.id}
-                  center={[loc.lat, loc.lng]}
-                  radius={10}
-                  pathOptions={{ color: loc.color, fillColor: loc.color, fillOpacity: 0.8, weight: 2 }}
+                  position={[loc.lat, loc.lng]}
+                  icon={L.divIcon({
+                    className: '',
+                    html: `<div style="background:${loc.color};width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.4);">${loc.id}</div>`,
+                    iconSize: [28, 28],
+                    iconAnchor: [14, 14],
+                  })}
                 >
                   <Popup>
                     <div style={{ minWidth: '180px' }}>
@@ -1370,7 +1375,7 @@ const MapaSection = () => {
                       <span style={{ fontSize: '11px', color: '#666' }}>{loc.address}</span>
                     </div>
                   </Popup>
-                </CircleMarker>
+                </Marker>
               ))}
             </MapContainer>
           )}
