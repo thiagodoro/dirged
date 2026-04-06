@@ -1356,12 +1356,8 @@ const MapaSection = () => {
           {mapReady && (
             <MapContainer center={[-19.932, -43.975]} zoom={13} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
               <TileLayer
-                attribution='&copy; <a href="https://carto.com/">CARTO</a>'
-                url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
-              />
-              <TileLayer
-                url="https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png"
-                opacity={0.7}
+                attribution='&copy; <a href="https://www.openstreetmap.org/">OSM</a>'
+                url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               {locations.map((loc) => (
                 <CircleMarker

@@ -62,10 +62,7 @@ img {
 }
 
 
-/* Leaflet map: brighten roads/lines while keeping dark background */
+/* Leaflet map */
 .leaflet-container {
-  background: #0a0a0a;
-}
-.leaflet-tile-pane .leaflet-layer:first-child img {
-  filter: brightness(2.5) contrast(1.2);
+  background: #e8e8e8;
 }
