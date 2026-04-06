@@ -1313,9 +1313,9 @@ const MapaSection = () => {
     { id: 2, lat: -19.9197, lng: -43.9378, color: "#FFE600", units: "COBIB, COMEX", address: "R. Goiás, 229 - Centro" },
     { id: 3, lat: -19.9225, lng: -43.9425, color: "#9D00FF", units: "COARQ, COMEX", address: "Av. do Contorno, 629 - Centro" },
     { id: 4, lat: -19.9312, lng: -43.9302, color: "#00D4FF", units: "COBIB, COMEX", address: "Av. Afonso Pena, 4001" },
-    { id: 5, lat: -19.9318, lng: -44.0538, color: "#FF007F", units: "CORCEN, CORAV, COARPE", address: "Av. Ápio Cardoso, 577 - Cincão - Contagem" },
-    { id: 6, lat: -19.9195, lng: -43.9345, color: "#FFE600", units: "COMEX", address: "Av. Afonso Pena, 1500 - Centro" },
-    { id: 7, lat: -19.9410, lng: -43.9340, color: "#10B981", units: "COMEX", address: "Praça Milton Campos, 16 - Cruzeiro" },
+    { id: 5, lat: -19.9318, lng: -44.0538, color: "#FF6B35", units: "CORCEN, CORAV, COARPE", address: "Av. Ápio Cardoso, 577 - Cincão - Contagem" },
+    { id: 6, lat: -19.9195, lng: -43.9345, color: "#10B981", units: "COMEX", address: "Av. Afonso Pena, 1500 - Centro" },
+    { id: 7, lat: -19.9410, lng: -43.9340, color: "#3B82F6", units: "COMEX", address: "Praça Milton Campos, 16 - Cruzeiro" },
   ];
 
   useEffect(() => {
