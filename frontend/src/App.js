@@ -1595,6 +1595,26 @@ const GestaoDocumentalSection = () => {
           </div>
           <p className="text-white/30 text-xs mt-4 text-center">Critério: sinistro ou risco de sua ocorrência (Portaria 796/PR/2018)</p>
         </motion.div>
+
+        {/* Vídeo Gestão Documental */}
+        <motion.div
+          className="relative rounded-2xl overflow-hidden mt-14"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          style={{ height: '480px' }}
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/otaotlen_video-gd.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+        </motion.div>
       </div>
     </section>
   );
