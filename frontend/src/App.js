@@ -1304,7 +1304,7 @@ const MapaSection = () => {
   const [mapReady, setMapReady] = useState(false);
 
   const locations = [
-    { id: 1, lat: -19.9408891, lng: -43.9369040, color: "#FF007F", units: "DIRGED, ASGID, GEJUR, GEDAN, GEDOC, COJUR, COGEDE", address: "R. Raul Pompeia, 101 - São Pedro" },
+    { id: 1, lat: -19.9409, lng: -43.9369, color: "#FF007F", units: "DIRGED, ASGID, GEJUR, GEDAN, GEDOC, COJUR, COGEDE", address: "R. Raul Pompeia, 101 - São Pedro" },
     { id: 2, lat: -19.9251272, lng: -43.9359763, color: "#FFE600", units: "COBIB, COMEX", address: "R. Goiás, 229 - Centro" },
     { id: 3, lat: -19.9140383, lng: -43.9365185, color: "#9D00FF", units: "COARQ, COMEX", address: "Av. do Contorno, 629 - Centro" },
     { id: 4, lat: -19.9445719, lng: -43.9222717, color: "#00D4FF", units: "COBIB, COMEX", address: "Av. Afonso Pena, 4001" },
