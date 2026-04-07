@@ -1409,23 +1409,235 @@ const MapaSection = () => {
 };
 
 // Gestão Documental Section
-const GestaoDocumentalSection = () => (
-  <section id="gestao-documental" data-testid="gestao-documental-section" className="py-24 md:py-32 px-6 md:px-12">
-    <div className="max-w-7xl mx-auto text-center">
-      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-        <div className="flex justify-center mb-4">
-          <div className="w-16 h-16 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
-            <FolderOpen className="w-8 h-8 text-[#FFE600]" />
+const GestaoDocumentalSection = () => {
+  const [showComarcas, setShowComarcas] = useState(false);
+
+  const comarcas = [
+    "Açucena", "Almenara", "Barão de Cocais", "Belo Horizonte", "Betim", "Boa Esperança",
+    "Bocaiúva", "Buenópolis", "Caeté", "Camanducaia", "Campina Verde", "Carangola",
+    "Cássia", "Cataguases", "Contagem", "Coração de Jesus", "Coronel Fabriciano",
+    "Elói Mendes", "Governador Valadares", "Grão Mogol", "Guanhães", "Ibirité",
+    "Inhapim", "Ipanema", "Ipatinga", "Itambacuri", "Itapecerica", "Itaúna",
+    "Juiz de Fora", "Lagoa Santa", "Lavras", "Machado", "Mariana", "Minas Novas",
+    "Nova Lima", "Novo Cruzeiro", "Ouro Preto", "Palma", "Pará de Minas", "Paraopeba",
+    "Passos", "Pedro Leopoldo", "Ribeirão das Neves", "Rio Pardo de Minas", "Sabará",
+    "Santa Luzia", "São Domingos do Prata", "São João del-Rei", "Teófilo Otoni",
+    "Uberaba", "Vespasiano"
+  ];
+
+  return (
+    <section id="gestao-documental" data-testid="gestao-documental-section" className="py-24 md:py-32 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
+              <FolderOpen className="w-8 h-8 text-[#FFE600]" />
+            </div>
           </div>
+          <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+            Gestão <span className="text-gradient-yellow">Documental</span>
+          </h2>
+          <p className="text-white/60 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+            Orientação às 298 comarcas do estado, organização de acervos, mudanças em parceria com DENGEP e DIRCONT, coleta de processos para eliminação e recolhimento de processos históricos.
+          </p>
+        </motion.div>
+
+        {/* Stats destaque */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+          {[
+            { value: "9,2 mi", label: "Processos no Arquivo Central", color: "#FFE600" },
+            { value: "51", label: "Comarcas atendidas", color: "#FF007F" },
+            { value: "320 mi", label: "Documentos eletrônicos", color: "#9D00FF" },
+            { value: "84%", label: "Ocupação dos galpões", color: "#10B981" },
+          ].map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center"
+              data-testid={`gestao-stat-${i}`}
+            >
+              <p className="font-outfit font-bold text-2xl md:text-3xl" style={{ color: stat.color }}>{stat.value}</p>
+              <p className="text-white/50 text-xs mt-1">{stat.label}</p>
+            </motion.div>
+          ))}
         </div>
-        <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-          Gestão <span className="text-gradient-yellow">Documental</span>
-        </h2>
-        <p className="text-white/40 text-lg italic">Em construção...</p>
-      </motion.div>
-    </div>
-  </section>
-);
+
+        {/* Cards principais */}
+        <div className="grid md:grid-cols-2 gap-6 mb-10">
+          {/* Arquivo Central */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-black/40 border border-[#FFE600]/20 rounded-2xl p-7"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-[#FFE600]/20 flex items-center justify-center">
+                <Archive className="w-5 h-5 text-[#FFE600]" />
+              </div>
+              <h3 className="font-outfit font-bold text-lg text-white">Arquivo Central (Contagem)</h3>
+            </div>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#FFE600] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm">Aprox. <strong className="text-white">9.200.000 processos</strong> armazenados</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#FFE600] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm"><strong className="text-white">5 galpões</strong> (Cincão: G1, G6, G7, G8 + Barreiro)</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#FFE600] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm"><strong className="text-white">264.252 caixas-arquivo</strong> (20kg cada)</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#FFE600] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm">Documentos históricos: aprox. <strong className="text-white">550 mil processos</strong></p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#FFE600] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm">70% dos processos eliminados são oriundos do interior</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Documentos Eletrônicos */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="bg-black/40 border border-[#9D00FF]/20 rounded-2xl p-7"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-[#9D00FF]/20 flex items-center justify-center">
+                <Database className="w-5 h-5 text-[#9D00FF]" />
+              </div>
+              <h3 className="font-outfit font-bold text-lg text-white">Gestão de Documentos Eletrônicos</h3>
+            </div>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm"><strong className="text-white">320 milhões</strong> de documentos digitais</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm"><strong className="text-white">7,6 milhões</strong> de documentos no PJe</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm"><strong className="text-white">3 TB</strong> de armazenamento</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm">Projudi: <strong className="text-white">1 milhão de processos</strong></p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm">Pioneirismo na preservação e eliminação de documentos eletrônicos (Projudi): Edital nº 1/2024</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
+                <p className="text-white/60 text-sm">Contratação do <strong className="text-white">IBICT</strong> (Instituto Brasileiro de Ciência e Tecnologia)</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Eliminação e Sustentabilidade */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-black/40 border border-[#10B981]/20 rounded-2xl p-7 mb-10"
+        >
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-10 h-10 rounded-xl bg-[#10B981]/20 flex items-center justify-center">
+              <Target className="w-5 h-5 text-[#10B981]" />
+            </div>
+            <h3 className="font-outfit font-bold text-lg text-white">Eliminação e Sustentabilidade</h3>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { value: "449.509", label: "Processos eliminados em 2025", color: "#10B981" },
+              { value: "163 t", label: "Papel doado à ASMARE em 2025", color: "#10B981" },
+              { value: "11,3 mi", label: "Processos eliminados desde 2014", color: "#FFE600" },
+              { value: "2.928 t", label: "Papel doado desde 2014", color: "#FFE600" },
+            ].map((item, i) => (
+              <div key={i} className="text-center p-4 rounded-xl bg-white/5">
+                <p className="font-outfit font-bold text-xl" style={{ color: item.color }}>{item.value}</p>
+                <p className="text-white/50 text-xs mt-1">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Temas relevantes */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap gap-3 justify-center mb-10"
+        >
+          {[
+            "Portaria nº 6/2VP/2022",
+            "Resolução CNJ nº 324/2020 (Corte Cronológico)",
+            "Portaria 796/PR/2018",
+            "Preservação da Memória",
+          ].map((tag, i) => (
+            <span key={i} className="px-4 py-2 rounded-full text-xs font-medium bg-[#FFE600]/10 text-[#FFE600] border border-[#FFE600]/20">
+              {tag}
+            </span>
+          ))}
+        </motion.div>
+
+        {/* Comarcas atendidas */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <button
+            onClick={() => setShowComarcas(!showComarcas)}
+            className="flex items-center gap-1 mx-auto text-xs text-white/40 hover:text-white/70 transition-colors mb-4"
+            data-testid="toggle-comarcas"
+          >
+            <span>{showComarcas ? '[-] Ocultar' : '[+] Ver'} as 51 comarcas atendidas</span>
+          </button>
+          <AnimatePresence>
+            {showComarcas && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="overflow-hidden"
+              >
+                <div className="bg-black/30 border border-white/10 rounded-2xl p-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+                    {comarcas.map((c, i) => (
+                      <span key={i} className="text-white/50 text-xs py-1.5 px-3 rounded-lg bg-white/5">{c}</span>
+                    ))}
+                  </div>
+                  <p className="text-white/30 text-xs mt-4 text-center">Critério: sinistro ou risco de sua ocorrência (Portaria 796/PR/2018)</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 // Gestão da Informação Section
 const GestaoInformacaoSection = () => (
