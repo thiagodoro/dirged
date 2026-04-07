@@ -1410,7 +1410,6 @@ const MapaSection = () => {
 
 // Gestão Documental Section
 const GestaoDocumentalSection = () => {
-  const [showComarcas, setShowComarcas] = useState(false);
 
   const comarcas = [
     "Açucena", "Almenara", "Barão de Cocais", "Belo Horizonte", "Betim", "Boa Esperança",
@@ -1581,58 +1580,20 @@ const GestaoDocumentalSection = () => {
           </div>
         </motion.div>
 
-        {/* Temas relevantes */}
+        {/* Comarcas atendidas */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-wrap gap-3 justify-center mb-10"
+          className="bg-black/30 border border-white/10 rounded-2xl p-6"
         >
-          {[
-            "Portaria nº 6/2VP/2022",
-            "Resolução CNJ nº 324/2020 (Corte Cronológico)",
-            "Portaria 796/PR/2018",
-            "Preservação da Memória",
-          ].map((tag, i) => (
-            <span key={i} className="px-4 py-2 rounded-full text-xs font-medium bg-[#FFE600]/10 text-[#FFE600] border border-[#FFE600]/20">
-              {tag}
-            </span>
-          ))}
-        </motion.div>
-
-        {/* Comarcas atendidas */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <button
-            onClick={() => setShowComarcas(!showComarcas)}
-            className="flex items-center gap-1 mx-auto text-xs text-white/40 hover:text-white/70 transition-colors mb-4"
-            data-testid="toggle-comarcas"
-          >
-            <span>{showComarcas ? '[-] Ocultar' : '[+] Ver'} as 51 comarcas atendidas</span>
-          </button>
-          <AnimatePresence>
-            {showComarcas && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.25 }}
-                className="overflow-hidden"
-              >
-                <div className="bg-black/30 border border-white/10 rounded-2xl p-6">
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-                    {comarcas.map((c, i) => (
-                      <span key={i} className="text-white/50 text-xs py-1.5 px-3 rounded-lg bg-white/5">{c}</span>
-                    ))}
-                  </div>
-                  <p className="text-white/30 text-xs mt-4 text-center">Critério: sinistro ou risco de sua ocorrência (Portaria 796/PR/2018)</p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <h3 className="font-outfit font-semibold text-white text-sm mb-4 text-center">51 comarcas atendidas pelo Arquivo Central</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+            {comarcas.map((c, i) => (
+              <span key={i} className="text-white/60 text-sm py-2 px-3 rounded-lg bg-white/5">{c}</span>
+            ))}
+          </div>
+          <p className="text-white/30 text-xs mt-4 text-center">Critério: sinistro ou risco de sua ocorrência (Portaria 796/PR/2018)</p>
         </motion.div>
       </div>
     </section>
