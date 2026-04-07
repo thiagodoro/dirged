@@ -1531,11 +1531,11 @@ const GestaoDocumentalSection = () => {
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
-                <p className="text-white/60 text-sm"><strong className="text-white">7,6 milhões</strong> de documentos no PJe</p>
+                <p className="text-white/60 text-sm"><strong className="text-white">7,6 milhões</strong> de documentos no PJe/eProc</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
-                <p className="text-white/60 text-sm"><strong className="text-white">3 TB</strong> de armazenamento</p>
+                <p className="text-white/60 text-sm"><strong className="text-white">3 TB</strong> de documentos do Diário do Judiciário Eletrônico (PJe)</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
@@ -1547,7 +1547,7 @@ const GestaoDocumentalSection = () => {
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
-                <p className="text-white/60 text-sm">Contratação do <strong className="text-white">IBICT</strong> (Instituto Brasileiro de Ciência e Tecnologia)</p>
+                <p className="text-white/60 text-sm">Contratação do <strong className="text-white">IBICT</strong> - Instituto Brasileiro de Ciência e Tecnologia (Contrato nº 57/2022) para desenvolver o projeto de preservação do acervo arquivístico do TJMG utilizando o modelo Hipátia</p>
               </div>
             </div>
           </motion.div>
