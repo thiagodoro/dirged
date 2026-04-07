@@ -1527,7 +1527,7 @@ const GestaoDocumentalSection = () => {
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
-                <p className="text-white/60 text-sm"><strong className="text-white">320 milhões</strong> de documentos digitais</p>
+                <p className="text-white/60 text-sm"><strong className="text-white">320 milhões</strong> de documentos administrativos digitais pelo sistema SEI!</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#9D00FF] mt-2 shrink-0" />
