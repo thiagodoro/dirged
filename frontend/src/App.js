@@ -735,7 +735,12 @@ const OrganogaramaSection = () => {
                 <h3 className="font-outfit font-bold text-3xl text-white mb-1">Thiago Doro</h3>
                 <p className="text-[#9D00FF] font-semibold text-lg mb-6">Diretor Executivo</p>
 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Cargo de Carreira</p>
+                    <p className="text-white/90 text-sm">Analista Judiciário - Bibliotecário (Desde 7/11/2012)</p>
+                  </div>
+
                   <div>
                     <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Formação</p>
                     <div className="space-y-1.5">
@@ -749,34 +754,30 @@ const OrganogaramaSection = () => {
                       </div>
                     </div>
                   </div>
-                  <div>
-                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Cargo de Carreira</p>
-                    <p className="text-white/90 text-sm">Analista Judiciário - Bibliotecário (Desde 7/11/2012)</p>
-                  </div>
-                </div>
 
-                <div>
-                  <p className="text-white/50 text-xs uppercase tracking-wider mb-3">Carreira</p>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
-                      <div>
-                        <p className="text-white/90 text-sm font-medium">Coordenador de Área - COBIB</p>
-                        <p className="text-white/50 text-xs">24/02/2014 a 30/10/2017</p>
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-3">Carreira</p>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Coordenador de Área - COBIB</p>
+                          <p className="text-white/50 text-xs">24/02/2014 a 30/10/2017</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#9D00FF] mt-1.5 shrink-0" />
-                      <div>
-                        <p className="text-white/90 text-sm font-medium">Gerente - GEJUR</p>
-                        <p className="text-white/50 text-xs">31/10/2017 a 02/06/2024</p>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#9D00FF] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Gerente - GEJUR</p>
+                          <p className="text-white/50 text-xs">31/10/2017 a 02/06/2024</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#FF007F] mt-1.5 shrink-0" />
-                      <div>
-                        <p className="text-white/90 text-sm font-medium">Diretor Executivo - DIRGED</p>
-                        <p className="text-white/50 text-xs">03/06/2024 - atual</p>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#FF007F] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Diretor Executivo - DIRGED</p>
+                          <p className="text-white/50 text-xs">03/06/2024 - atual</p>
+                        </div>
                       </div>
                     </div>
                   </div>
