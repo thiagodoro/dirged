@@ -1593,7 +1593,7 @@ const GestaoDocumentalSection = () => {
               <div className="w-10 h-10 rounded-xl bg-[#FFE600]/20 flex items-center justify-center">
                 <Archive className="w-5 h-5 text-[#FFE600]" />
               </div>
-              <h3 className="font-outfit font-bold text-lg text-white">Arquivo Central (Contagem)</h3>
+              <h3 className="font-outfit font-bold text-lg text-white">Gestão de Acervos Processuais</h3>
             </div>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
@@ -1602,7 +1602,7 @@ const GestaoDocumentalSection = () => {
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#FFE600] mt-2 shrink-0" />
-                <p className="text-white/60 text-sm"><strong className="text-white">5 galpões</strong> (Cincão: G1, G6, G7, G8 + Barreiro)</p>
+                <p className="text-white/60 text-sm"><strong className="text-white">6 galpões</strong> (Cincão: G1, G6, G7, G8 + Barreiro + CEOPE)</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#FFE600] mt-2 shrink-0" />
