@@ -458,6 +458,7 @@ const CompetenciasSection = () => {
 // Organograma Section
 const OrganogaramaSection = () => {
   const [showDirectorModal, setShowDirectorModal] = useState(false);
+  const [showSimoneModal, setShowSimoneModal] = useState(false);
   const gerenciasComCoord = [
     { 
       nome: "Gerência de Jurisprudência, Biblioteca e Publicações Técnicas", 
@@ -610,7 +611,12 @@ const OrganogaramaSection = () => {
                   </span>
                   <br />
                   <div className="text-center">
-                    <span className="text-white text-xs inline cursor-pointer rounded px-2 py-0.5 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">{gerencia.responsavel}</span>
+                    <span
+                      className="text-white text-xs inline cursor-pointer rounded px-2 py-0.5 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]"
+                      onClick={() => {
+                        if (gerencia.sigla === 'GEDOC') setShowSimoneModal(true);
+                      }}
+                    >{gerencia.responsavel}</span>
                   </div>
                 </div>
               </div>
@@ -771,6 +777,101 @@ const OrganogaramaSection = () => {
                       <div>
                         <p className="text-white/90 text-sm font-medium">Diretor Executivo - DIRGED</p>
                         <p className="text-white/50 text-xs">03/06/2024 - atual</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Modal Simone Meireles */}
+      <AnimatePresence>
+        {showSimoneModal && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowSimoneModal(false)}
+            data-testid="simone-modal-overlay"
+          >
+            <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
+            <motion.div
+              className="relative bg-[#1a1a1a] border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              data-testid="simone-modal"
+            >
+              <button
+                onClick={() => setShowSimoneModal(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                data-testid="simone-modal-close"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+
+              <motion.div
+                className="p-8 md:p-10"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.15 }}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
+                    <Users className="w-7 h-7 text-[#FFE600]" />
+                  </div>
+                  <div>
+                    <h3 className="font-outfit font-bold text-2xl text-white">Simone Meireles</h3>
+                    <p className="text-[#FFE600] font-semibold text-sm">Gerente - GEDOC</p>
+                  </div>
+                </div>
+
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Cargo de Carreira</p>
+                    <p className="text-white/90 text-sm">Oficial Judiciário B (Desde 11/02/2008)</p>
+                  </div>
+
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Formação</p>
+                    <div className="space-y-1.5">
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#FFE600] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Graduação em Pedagogia pela UFMG</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#FFE600] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Graduação em Arquivologia pela UNIASSELVI</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#FFE600] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Pós-graduação em Gestão de Documentos e Informações e em Gestão Eletrônica de Documentos: Organizações Públicas pela UNYLEYA</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-3">Carreira</p>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Coordenadora da COARQ</p>
+                          <p className="text-white/50 text-xs">02/08/2012 - 13/02/2019</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#FF007F] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Gerente da GEDOC</p>
+                          <p className="text-white/50 text-xs">14/02/2019 - atual</p>
+                        </div>
                       </div>
                     </div>
                   </div>
