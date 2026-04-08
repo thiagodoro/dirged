@@ -800,7 +800,7 @@ const OrganogaramaSection = () => {
           >
             <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
             <motion.div
-              className="relative bg-[#1a1a1a] border border-white/10 rounded-3xl max-w-2xl w-full overflow-hidden"
+              className="relative bg-[#1a1a1a] border border-white/10 rounded-3xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -816,20 +816,28 @@ const OrganogaramaSection = () => {
                 <X className="w-5 h-5 text-white" />
               </button>
 
+              {/* Photo */}
+              <div className="md:w-2/5 flex items-end justify-center bg-black p-0 overflow-hidden">
+                <motion.img
+                  src="https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/9omrbmjn_simone-removebg-preview.png"
+                  alt="Simone Meireles"
+                  className="w-full h-full object-cover object-top"
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.15 }}
+                />
+              </div>
+
+              {/* Info */}
               <motion.div
-                className="p-8 md:p-10"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.15 }}
+                className="md:w-3/5 p-8 md:p-10 flex flex-col justify-center"
+                initial={{ x: 30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
               >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-[#FFE600]/20 flex items-center justify-center">
-                    <Users className="w-7 h-7 text-[#FFE600]" />
-                  </div>
-                  <div>
-                    <h3 className="font-outfit font-bold text-2xl text-white">Simone Meireles</h3>
-                    <p className="text-[#FFE600] font-semibold text-sm">Gerente - GEDOC</p>
-                  </div>
+                <div>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Simone Meireles</h3>
+                    <p className="text-[#FFE600] font-semibold text-lg mb-6">Gerente - GEDOC</p>
                 </div>
 
                 <div className="space-y-5">
