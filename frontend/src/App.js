@@ -459,6 +459,7 @@ const CompetenciasSection = () => {
 const OrganogaramaSection = () => {
   const [showDirectorModal, setShowDirectorModal] = useState(false);
   const [showSimoneModal, setShowSimoneModal] = useState(false);
+  const [showAndreModal, setShowAndreModal] = useState(false);
   const gerenciasComCoord = [
     { 
       nome: "Gerência de Jurisprudência, Biblioteca e Publicações Técnicas", 
@@ -568,7 +569,7 @@ const OrganogaramaSection = () => {
                       ASGID
                     </span>
                     <br />
-                    <span className="text-white text-xs inline-block cursor-pointer rounded px-2 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]">André Borges Ribeiro</span>
+                    <span className="text-white text-xs inline-block cursor-pointer rounded px-2 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]" onClick={() => setShowAndreModal(true)}>André Borges Ribeiro</span>
                   </div>
                 </div>
               </motion.div>
@@ -880,6 +881,126 @@ const OrganogaramaSection = () => {
                         <div>
                           <p className="text-white/90 text-sm font-medium">Gerente da GEDOC</p>
                           <p className="text-white/50 text-xs">14/02/2019 - atual</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Modal André Borges Ribeiro */}
+      <AnimatePresence>
+        {showAndreModal && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowAndreModal(false)}
+            data-testid="andre-modal-overlay"
+          >
+            <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
+            <motion.div
+              className="relative bg-[#1a1a1a] border border-white/10 rounded-3xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              data-testid="andre-modal"
+            >
+              <button
+                onClick={() => setShowAndreModal(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                data-testid="andre-modal-close"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+
+              {/* Photo */}
+              <div className="md:w-2/5 flex items-end justify-center bg-black p-0 overflow-hidden">
+                <motion.img
+                  src="https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/dn4gsuqq_Andre-removebg-preview.png"
+                  alt="André Borges Ribeiro"
+                  className="w-full h-full object-cover object-top"
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.15 }}
+                />
+              </div>
+
+              {/* Info */}
+              <motion.div
+                className="md:w-3/5 p-8 md:p-10 flex flex-col justify-center"
+                initial={{ x: 30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <div>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">André Borges Ribeiro</h3>
+                    <p className="text-[#10B981] font-semibold text-lg mb-6">Assessor Técnico - ASGID</p>
+                </div>
+
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Cargo de Carreira</p>
+                    <p className="text-white/90 text-sm">Analista Judiciário (Desde 15/09/2006)</p>
+                  </div>
+
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Formação</p>
+                    <div className="space-y-1.5">
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#10B981] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Direito (Centro Universitário de Patos de Minas)</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#10B981] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm italic">Pós-graduação: a informar</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-3">Carreira</p>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Assessor Técnico - ASGID</p>
+                          <p className="text-white/50 text-xs">2007 - 2012</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#9D00FF] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Diretor Executivo - DIRGED</p>
+                          <p className="text-white/50 text-xs">2012 - 2015</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#FFE600] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Diretor Executivo - DIRDEP</p>
+                          <p className="text-white/50 text-xs">2015 - 2016</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#9D00FF] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Diretor Executivo - DIRGED</p>
+                          <p className="text-white/50 text-xs">2016 - 2018</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#FF007F] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Assessor Técnico - ASGID</p>
+                          <p className="text-white/50 text-xs">2018 - atual</p>
                         </div>
                       </div>
                     </div>
