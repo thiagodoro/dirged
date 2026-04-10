@@ -9,71 +9,97 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 - **Pesquisadores**: Pessoas buscando dados sobre gestão documental judicial
 
 ## Core Requirements (Static)
-- Landing page moderna com fundo preto
-- Paleta de cores: branco, roxo, rosa, amarelo
-- Navegação sticky com smooth scroll
-- 9 seções: Home, Competências, Capital Humano, Mapa, Gestão Documental, Gestão da Informação, Últimas Iniciativas, Prêmios, Projetos Futuros
-- Mapa mostrando localizações em BH e Contagem com legenda
+- Landing page moderna com tema escuro alternando (preto #000 e cinza escuro #1A1A1A)
+- Paleta de cores: branco, roxo, rosa, amarelo, azul, verde
+- Navegação sticky com smooth scroll e 12 seções
+- Vídeo de fundo na hero section
+- Organograma interativo com modais de perfil (foto + currículo)
+- Mapa Leaflet interativo com 7 marcadores geolocalizados
+- Carrosséis de imagens com auto-play
+- Acordeões expansíveis para Capital Humano e Orçamento
+- Atos Normativos com tabs navegáveis
 - Design responsivo (desktop e mobile)
-- Textos placeholder (Lorem Ipsum) para edição posterior
-
-## What's Been Implemented
-**Date: December 2024**
-- Hero section com título, subtítulo e CTAs
-- Navbar sticky com 9 links de navegação
-- Seção Competências com 6 cards
-- Seção Capital Humano com stats e imagem
-- Seção Mapa com visualização estilizada de BH e Contagem
-- 7 localizações com marcadores coloridos e legenda
-- Seção Gestão Documental com 4 cards
-- Seção Gestão da Informação com stats
-- Seção Últimas Iniciativas com marquee e cards
-- Seção Prêmios com 4 cards de premiações
-- Seção Projetos Futuros com timeline
-- Footer com logo e créditos
-- Menu mobile funcional
-- Animações com Framer Motion
-- Design responsivo completo
-
-**Date: Abril 2026**
-- Linha reta horizontal entre DIRGED e ASGID no Organograma SVG
-- Seção "Orçamento" com barras de progresso
-- Seção "Atos Normativos" com carrossel categorizado e links
-- Remoção de 11 badges de subtítulo
-- Seção "Competências" com carrossel de imagens auto-play e tag cloud rotativo
-- Modal interativo para diretor Thiago Doro
-- Vídeo de fundo na hero section substituído
-- Carrossel Competências com 9 imagens e títulos descritivos em cada card
 
 ## Architecture
 - **Frontend**: React 19 + Tailwind CSS + Framer Motion
-- **Components**: Shadcn UI components
+- **Components**: Shadcn UI + Modular section components
 - **Icons**: Lucide React
+- **Map**: react-leaflet + Leaflet
 - **Fonts**: Outfit (headings) + Satoshi (body)
+
+## File Structure (Post-Refactoring)
+```
+/app/frontend/src/
+├── App.js (slim ~38 lines - composition only)
+├── App.css (custom CSS + Leaflet styles)
+├── data/
+│   └── navItems.js (shared navigation data)
+├── components/
+│   ├── ui/ (Shadcn components)
+│   └── sections/
+│       ├── Navbar.jsx
+│       ├── HeroSection.jsx
+│       ├── CompetenciasSection.jsx (includes CarouselResolucao)
+│       ├── OrganogaramaSection.jsx (includes 6 profile modals)
+│       ├── AtosNormativosSection.jsx
+│       ├── CapitalHumanoSection.jsx
+│       ├── OrcamentoSection.jsx
+│       ├── MapaSection.jsx (Leaflet integration)
+│       ├── GestaoDocumentalSection.jsx
+│       ├── GestaoInformacaoSection.jsx (placeholder)
+│       ├── IniciativasSection.jsx (placeholder)
+│       ├── PremiosSection.jsx (placeholder)
+│       ├── ProjetosFuturosSection.jsx (placeholder)
+│       └── Footer.jsx
+```
+
+## What's Been Implemented
+
+### Phase 1 (December 2024)
+- [x] Hero section com título, subtítulo e CTAs
+- [x] Navbar sticky com links de navegação
+- [x] Todas as 12 seções criadas
+- [x] Design responsivo completo
+- [x] Animações com Framer Motion
+
+### Phase 2 (Abril 2026)
+- [x] Vídeo de fundo na hero section
+- [x] Organograma interativo com SVG lines
+- [x] 6 Modais de perfil (Thiago, Simone, André, Daniela, Marianna, Giselle)
+- [x] Seção Competências com carrossel auto-play e tag cloud
+- [x] Seção Capital Humano com dados reais (245 colaboradores)
+- [x] Seção Orçamento com dados XLSX (R$ 46.714.391)
+- [x] Mapa Leaflet com 7 marcadores geolocalizados
+- [x] Seção Gestão Documental com stats e vídeo
+- [x] Atos Normativos com 6 categorias e links
+
+### Phase 3 (Abril 2026)
+- [x] REFATORAÇÃO: App.js de 2292 linhas para 38 linhas
+- [x] 15 componentes modulares extraídos
+- [x] 100% dos testes passando (testing agent)
 
 ## Prioritized Backlog
 
-### P0 (Critical) - COMPLETED
+### P0 (Critical) - ALL COMPLETED
 - [x] Todas as seções implementadas
 - [x] Navegação funcional
 - [x] Design responsivo
+- [x] Refatoração do App.js
 
-### P1 (High Priority) - Future
-- [ ] Substituir Lorem Ipsum por conteúdo real
-- [ ] Adicionar imagens reais da equipe
-- [ ] Integrar mapa real (Google Maps ou similar)
+### P1 (High Priority) - Pending
+- [ ] Substituir "Em construção..." por conteúdo real (4 seções: Gestão da Informação, Iniciativas, Prêmios, Projetos Futuros)
+- [ ] Adicionar fotos/modais para membros restantes (GEJUR, etc.)
 
 ### P2 (Medium Priority) - Future
-- [ ] Adicionar formulário de contato
+- [ ] Formulário de contato
 - [ ] SEO meta tags
 - [ ] Performance optimization (lazy loading)
 
 ### P3 (Low Priority) - Future
 - [ ] Modo claro/escuro toggle
-- [ ] Animações de scroll mais elaboradas
 - [ ] Analytics integration
 
 ## Next Tasks
-1. Substituir textos placeholder por conteúdo real
-2. Adicionar fotos reais da equipe na seção Capital Humano
-3. Considerar integração com API de mapas real
+1. Aguardar conteúdo do usuário para as 4 seções placeholder
+2. Adicionar modais de perfil para membros restantes se fornecidos
+3. Considerar formulário de contato
