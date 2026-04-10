@@ -462,6 +462,7 @@ const OrganogaramaSection = () => {
   const [showAndreModal, setShowAndreModal] = useState(false);
   const [showDanielaModal, setShowDanielaModal] = useState(false);
   const [showMariannaModal, setShowMariannaModal] = useState(false);
+  const [showGiselleModal, setShowGiselleModal] = useState(false);
   const gerenciasComCoord = [
     { 
       nome: "Gerência de Jurisprudência, Biblioteca e Publicações Técnicas", 
@@ -679,6 +680,7 @@ const OrganogaramaSection = () => {
                       className="text-white text-xs inline-block cursor-pointer rounded px-2 transition-all hover:ring-2 hover:ring-[#FFE600] hover:text-[#FFE600]"
                       onClick={() => {
                         if (coord.sigla === 'CORCEN') setShowMariannaModal(true);
+                        if (coord.sigla === 'COARQ') setShowGiselleModal(true);
                       }}
                     >{coord.responsavel}</span>
                   </div>
@@ -1218,6 +1220,99 @@ const OrganogaramaSection = () => {
                         <div>
                           <p className="text-white/90 text-sm font-medium">Coordenadora de Área - CORCEN</p>
                           <p className="text-white/50 text-xs">06/05/2025 - atual</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Modal Giselle Cesário da Costa */}
+      <AnimatePresence>
+        {showGiselleModal && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowGiselleModal(false)}
+            data-testid="giselle-modal-overlay"
+          >
+            <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
+            <motion.div
+              className="relative bg-[#1a1a1a] border border-white/10 rounded-3xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              data-testid="giselle-modal"
+            >
+              <button
+                onClick={() => setShowGiselleModal(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+
+              <div className="md:w-2/5 flex items-end justify-center bg-black p-0 overflow-hidden">
+                <motion.img
+                  src="https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/roavrudl_Giselle-removebg-preview.png"
+                  alt="Giselle Cesário da Costa"
+                  className="w-full h-full object-cover object-top"
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.15 }}
+                />
+              </div>
+
+              <motion.div
+                className="md:w-3/5 p-8 md:p-10 flex flex-col justify-center"
+                initial={{ x: 30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <div>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Giselle Cesário da Costa</h3>
+                    <p className="text-[#00D4FF] font-semibold text-lg mb-6">Coordenadora - COARQ</p>
+                </div>
+
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Cargo de Carreira</p>
+                    <p className="text-white/90 text-sm">Oficial Judiciário (Desde 29/01/2014)</p>
+                  </div>
+
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Formação</p>
+                    <div className="space-y-1.5">
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Graduação em Arquivologia (UFMG)</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Graduação em Geografia (UFMG)</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Pós-graduação em Direito das Mulheres, de Família, Administrativo e Processual Civil</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-3">Carreira</p>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#FF007F] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Coordenadora de Área - COARQ</p>
+                          <p className="text-white/50 text-xs">14/02/2019 - atual</p>
                         </div>
                       </div>
                     </div>
