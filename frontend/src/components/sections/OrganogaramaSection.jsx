@@ -609,7 +609,7 @@ const OrganogaramaSection = () => {
                 transition={{ delay: 0.2 }}
               >
                 <div>
-                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Daniela Fernanda da Silva Castro Santos</h3>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Daniela Santos</h3>
                     <p className="text-[#FF007F] font-semibold text-lg mb-6">Gerente - GEDAN</p>
                 </div>
 
@@ -728,7 +728,7 @@ const OrganogaramaSection = () => {
                 transition={{ delay: 0.2 }}
               >
                 <div>
-                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Marianna Levenhagen Moura Dias</h3>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Marianna Levenhagen</h3>
                     <p className="text-[#FF6B35] font-semibold text-lg mb-6">Coordenadora - CORCEN</p>
                 </div>
 
@@ -820,7 +820,7 @@ const OrganogaramaSection = () => {
                 transition={{ delay: 0.2 }}
               >
                 <div>
-                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Giselle Santos Cesário da Costa</h3>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Giselle Cesário</h3>
                     <p className="text-[#00D4FF] font-semibold text-lg mb-6">Coordenadora - COARQ</p>
                 </div>
 
@@ -914,7 +914,7 @@ const OrganogaramaSection = () => {
                 transition={{ delay: 0.2 }}
               >
                 <div>
-                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Rafaela Giboschi Carvalho</h3>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Rafaela Giboschi</h3>
                     <p className="text-[#F59E0B] font-semibold text-lg mb-6">Coordenadora - COBIB</p>
                 </div>
 
@@ -1012,7 +1012,7 @@ const OrganogaramaSection = () => {
                 transition={{ delay: 0.2 }}
               >
                 <div>
-                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Bárbara Maria Wacha de Melo</h3>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Bárbara Wacha</h3>
                     <p className="text-[#A78BFA] font-semibold text-lg mb-6">Coordenadora - COGEDE</p>
                 </div>
 
@@ -1115,7 +1115,7 @@ const OrganogaramaSection = () => {
                 transition={{ delay: 0.2 }}
               >
                 <div>
-                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Mauricio Tobias de Lacerda</h3>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Mauricio Lacerda</h3>
                     <p className="text-[#38BDF8] font-semibold text-lg mb-6">Coordenador - COJUR</p>
                 </div>
 
@@ -1216,7 +1216,7 @@ const OrganogaramaSection = () => {
                 transition={{ delay: 0.2 }}
               >
                 <div>
-                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Márcio Charles da Silva</h3>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Márcio Silva</h3>
                     <p className="text-[#F472B6] font-semibold text-lg mb-6">Coordenador - COMEX</p>
                 </div>
 
@@ -1310,7 +1310,7 @@ const OrganogaramaSection = () => {
                 transition={{ delay: 0.2 }}
               >
                 <div>
-                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Sônia da Conceição A. dos Santos</h3>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Sônia Santos</h3>
                     <p className="text-[#14B8A6] font-semibold text-lg mb-6">Coordenadora - COARPE</p>
                 </div>
 
@@ -1389,4 +1389,4 @@ const OrganogaramaSection = () => {
   );
 };
 
-export default OrganogaramaSection;
+export default OrganogaramaSection;on;
