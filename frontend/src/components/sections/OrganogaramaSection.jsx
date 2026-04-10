@@ -1333,15 +1333,15 @@ const OrganogaramaSection = () => {
                       </div>
                       <div className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#14B8A6] mt-1.5 shrink-0" />
-                        <p className="text-white/90 text-sm">Pós-Graduação em Direito Constitucional (Faculdade Única/Grupo Prominas)</p>
+                        <p className="text-white/90 text-sm">Pós-Graduação em Direito Constitucional (Faculdade Única)</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#14B8A6] mt-1.5 shrink-0" />
-                        <p className="text-white/90 text-sm">Pós-Graduação em Direito Administrativo (Faculdade Única/Grupo Prominas)</p>
+                        <p className="text-white/90 text-sm">Pós-Graduação em Direito Administrativo (Faculdade Única)</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#14B8A6] mt-1.5 shrink-0" />
-                        <p className="text-white/90 text-sm">Pós-Graduação em Direito do Consumidor (Faculdade Única/Grupo Prominas)</p>
+                        <p className="text-white/90 text-sm">Pós-Graduação em Direito do Consumidor (Faculdade Única)</p>
                       </div>
                     </div>
                   </div>
