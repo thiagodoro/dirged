@@ -288,7 +288,7 @@ const OrganogaramaSection = () => {
                 transition={{ delay: 0.2 }}
               >
                 <h3 className="font-outfit font-bold text-3xl text-white mb-1">Thiago Doro</h3>
-                <p className="text-[#9D00FF] font-semibold text-lg mb-6">Diretor Executivo</p>
+                <p className="text-[#9D00FF] font-semibold text-lg mb-6">Diretor - DIRGED</p>
 
                 <div className="space-y-5">
                   <div>
