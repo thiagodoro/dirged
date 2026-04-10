@@ -177,7 +177,7 @@ const HeroSection = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/4u9ji9jo_video-cortes-2.mp4" type="video/mp4" />
+          <source src="https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/r3yyp8p7_video-geral-4.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/30 via-transparent to-[#0A0A0A]/70" />
       </div>
@@ -233,7 +233,7 @@ const CarouselResolucao = () => {
     { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/6m2gdhku_img6.png", title: "Biblioteca Digital e Bases de Dados aos setores do TJMG" },
     { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/z734d7rb_img7.png", title: "Editora EJEF: produção de livros técnicos" },
     { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/ejkirkmh_img8.png", title: "Recolhimento de Acervo do Corte Cronológico do CNJ" },
-    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/t1yl3ha4_img10.png", title: "Contingências: Restauração de Processos" },
+    { src: "https://customer-assets.emergentagent.com/job_4414bca2-0b1b-4096-8a74-e44ca9d41e54/artifacts/t1yl3ha4_img10.png", title: "Contingências: Tratamento e Recuperação de Processos" },
     { src: "https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/s2ostm4p_card10.png", title: "Correios: Expedição de Documentos do TJMG" },
   ];
 
