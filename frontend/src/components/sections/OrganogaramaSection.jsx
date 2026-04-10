@@ -11,6 +11,7 @@ const OrganogaramaSection = () => {
   const [showGiselleModal, setShowGiselleModal] = useState(false);
   const [showRafaelaModal, setShowRafaelaModal] = useState(false);
   const [showBarbaraModal, setShowBarbaraModal] = useState(false);
+  const [showMauricioModal, setShowMauricioModal] = useState(false);
   const gerenciasComCoord = [
     { 
       nome: "Gerência de Jurisprudência, Biblioteca e Publicações Técnicas", 
@@ -225,6 +226,7 @@ const OrganogaramaSection = () => {
                         if (coord.sigla === 'COARQ') setShowGiselleModal(true);
                         if (coord.sigla === 'COBIB') setShowRafaelaModal(true);
                         if (coord.sigla === 'COGEDE') setShowBarbaraModal(true);
+                        if (coord.sigla === 'COJUR') setShowMauricioModal(true);
                       }}
                     >{coord.responsavel}</span>
                   </div>
@@ -1052,6 +1054,107 @@ const OrganogaramaSection = () => {
                         <div>
                           <p className="text-white/90 text-sm font-medium">Coordenadora de Área - COGEDE</p>
                           <p className="text-white/50 text-xs">08/06/2024 - atual</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Modal Maurício Lacerda */}
+      <AnimatePresence>
+        {showMauricioModal && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowMauricioModal(false)}
+            data-testid="mauricio-modal-overlay"
+          >
+            <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
+            <motion.div
+              className="relative bg-[#1a1a1a] border border-white/10 rounded-3xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              data-testid="mauricio-modal"
+            >
+              <button
+                onClick={() => setShowMauricioModal(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                data-testid="mauricio-modal-close"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+
+              <div className="md:w-2/5 flex items-end justify-center bg-black p-0 overflow-hidden">
+                <motion.img
+                  src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/1yykq6ou_mauricio-removebg-preview.png"
+                  alt="Maurício Lacerda"
+                  className="w-full h-full object-cover object-top"
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.15 }}
+                />
+              </div>
+
+              <motion.div
+                className="md:w-3/5 p-8 md:p-10 flex flex-col justify-center"
+                initial={{ x: 30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <div>
+                    <h3 className="font-outfit font-bold text-3xl text-white mb-1">Maurício Lacerda</h3>
+                    <p className="text-[#38BDF8] font-semibold text-lg mb-6">Coordenador - COJUR</p>
+                </div>
+
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Cargo de Carreira</p>
+                    <p className="text-white/90 text-sm">Analista Judiciário - Analista Judiciário (Desde 09/08/2010)</p>
+                  </div>
+
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Formação</p>
+                    <div className="space-y-1.5">
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Graduação em Direito (UFMG)</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Pós-Graduação em Direito Público (Faculdade Arnaldo)</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Pós-Graduação em Direito Privado (Faculdade Arnaldo)</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-3">Carreira</p>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Assistente Judiciário - 3ª Câmara Criminal</p>
+                          <p className="text-white/50 text-xs">21/10/2010 - 20/02/2011</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#FF007F] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Coordenador de Área - COJUR</p>
+                          <p className="text-white/50 text-xs">01/09/2025 - atual</p>
                         </div>
                       </div>
                     </div>
