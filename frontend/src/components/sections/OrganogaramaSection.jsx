@@ -746,6 +746,13 @@ const OrganogaramaSection = () => {
                     <p className="text-white/50 text-xs uppercase tracking-wider mb-3">Carreira</p>
                     <div className="space-y-3">
                       <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Estagiária TJMG - 19ª Câmara Cível</p>
+                          <p className="text-white/50 text-xs">Fevereiro/2019 - Outubro/2020</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-[#FF007F] mt-1.5 shrink-0" />
                         <div>
                           <p className="text-white/90 text-sm font-medium">Coordenadora de Área - CORCEN</p>
