@@ -27,7 +27,7 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 - **Map**: react-leaflet + Leaflet
 - **Fonts**: Outfit (headings) + Satoshi (body)
 
-## File Structure (Post-Refactoring)
+## File Structure
 ```
 /app/frontend/src/
 ├── App.js (slim ~38 lines - composition only)
@@ -40,7 +40,7 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 │       ├── Navbar.jsx
 │       ├── HeroSection.jsx
 │       ├── CompetenciasSection.jsx (includes CarouselResolucao)
-│       ├── OrganogaramaSection.jsx (includes 6 profile modals)
+│       ├── OrganogaramaSection.jsx (includes 7 profile modals)
 │       ├── AtosNormativosSection.jsx
 │       ├── CapitalHumanoSection.jsx
 │       ├── OrcamentoSection.jsx
@@ -76,7 +76,17 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 ### Phase 3 (Abril 2026)
 - [x] REFATORAÇÃO: App.js de 2292 linhas para 38 linhas
 - [x] 15 componentes modulares extraídos
-- [x] 100% dos testes passando (testing agent)
+- [x] Modal de perfil: Rafaela Carvalho (COBIB) adicionado
+- [x] Total: 7 modais de perfil interativos
+
+## Modais de Perfil Implementados
+1. Thiago Doro - Diretor Executivo (DIRGED)
+2. Simone Meireles - Gerente (GEDOC)
+3. André Borges Ribeiro - Assessor Técnico (ASGID)
+4. Daniela Fernanda Santos - Gerente (GEDAN)
+5. Marianna Levenhagen - Coordenadora (CORCEN)
+6. Giselle Cesário da Costa - Coordenadora (COARQ)
+7. Rafaela Carvalho - Coordenadora (COBIB)
 
 ## Prioritized Backlog
 
@@ -87,8 +97,8 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 - [x] Refatoração do App.js
 
 ### P1 (High Priority) - Pending
-- [ ] Substituir "Em construção..." por conteúdo real (4 seções: Gestão da Informação, Iniciativas, Prêmios, Projetos Futuros)
-- [ ] Adicionar fotos/modais para membros restantes (GEJUR, etc.)
+- [ ] Substituir "Em construção..." por conteúdo real (4 seções)
+- [ ] Adicionar fotos/modais para membros restantes (Claudiciano, Mauricio, Vantuir, Márcio, Sônia, Bárbara)
 
 ### P2 (Medium Priority) - Future
 - [ ] Formulário de contato
@@ -98,8 +108,3 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 ### P3 (Low Priority) - Future
 - [ ] Modo claro/escuro toggle
 - [ ] Analytics integration
-
-## Next Tasks
-1. Aguardar conteúdo do usuário para as 4 seções placeholder
-2. Adicionar modais de perfil para membros restantes se fornecidos
-3. Considerar formulário de contato
