@@ -593,8 +593,8 @@ const OrganogaramaSection = () => {
 
               <div className="md:w-2/5 flex items-end justify-center bg-black p-0 overflow-hidden">
                 <motion.img
-                  src="https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/tty2qt7i_daniela-removebg-preview.png"
-                  alt="Daniela Fernanda Santos"
+                  src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/lixws7wq_WhatsApp_Image_2026-04-10_at_15.00.18-removebg-preview.png"
+                  alt="Daniela Santos"
                   className="w-full h-full object-cover object-top"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
