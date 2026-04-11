@@ -1449,11 +1449,7 @@ const OrganogaramaSection = () => {
                     <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Formação</p>
                     <div className="space-y-1.5">
                       {[
-                        "Graduação em Direito",
-                        "Graduação em História",
-                        "Graduação em Letras",
-                        "Graduação em Matemática",
-                        "Graduação em Pedagogia",
+                        "Graduações em: Direito, História, Letras, Matemática e Pedagogia",
                         "Pós-graduação em Direito Administrativo",
                         "Pós-graduação em Direito do Trabalho e Processual do Trabalho",
                         "Pós-graduação em Direito Eleitoral",
