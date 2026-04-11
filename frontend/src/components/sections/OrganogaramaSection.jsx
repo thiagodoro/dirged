@@ -998,7 +998,7 @@ const OrganogaramaSection = () => {
 
               <div className="md:w-2/5 flex items-end justify-center bg-black p-0 overflow-hidden">
                 <motion.img
-                  src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/85gm43of_barbara-removebg-preview.png"
+                  src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/ivb5txpm_Gemini_Generated_Image_w2nnnqw2nnnqw2nn.png"
                   alt="Bárbara Wacha"
                   className="w-full h-full object-cover object-top"
                   initial={{ x: -30, opacity: 0 }}
