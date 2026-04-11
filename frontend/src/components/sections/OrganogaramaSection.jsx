@@ -1469,7 +1469,7 @@ const OrganogaramaSection = () => {
                         <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
                         <div>
                           <p className="text-white/90 text-sm font-medium">Analista Judiciário - GERNOT/CGJ</p>
-                          <p className="text-white/50 text-xs">25/05/2011 - 12/09/2017</p>
+                          <p className="text-white/50 text-xs">25/02/2011 - 12/09/2017</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
