@@ -1,6 +1,7 @@
 import "@/App.css";
 import "leaflet/dist/leaflet.css";
 
+import PasswordGate from "@/components/sections/PasswordGate";
 import Navbar from "@/components/sections/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import CompetenciasSection from "@/components/sections/CompetenciasSection";
@@ -18,24 +19,26 @@ import Footer from "@/components/sections/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <CompetenciasSection />
-        <OrganogaramaSection />
-        <AtosNormativosSection />
-        <CapitalHumanoSection />
-        <OrcamentoSection />
-        <MapaSection />
-        <GestaoDocumentalSection />
-        <GestaoInformacaoSection />
-        <IniciativasSection />
-        <PremiosSection />
-        <ProjetosFuturosSection />
-      </main>
-      <Footer />
-    </div>
+    <PasswordGate>
+      <div className="min-h-screen bg-[#0A0A0A]">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <CompetenciasSection />
+          <OrganogaramaSection />
+          <AtosNormativosSection />
+          <CapitalHumanoSection />
+          <OrcamentoSection />
+          <MapaSection />
+          <GestaoDocumentalSection />
+          <GestaoInformacaoSection />
+          <IniciativasSection />
+          <PremiosSection />
+          <ProjetosFuturosSection />
+        </main>
+        <Footer />
+      </div>
+    </PasswordGate>
   );
 }
 
