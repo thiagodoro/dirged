@@ -1450,16 +1450,7 @@ const OrganogaramaSection = () => {
                     <div className="space-y-1.5">
                       {[
                         "Graduações em: Direito, História, Letras, Matemática e Pedagogia",
-                        "Pós-graduação em Direito Administrativo",
-                        "Pós-graduação em Direito do Trabalho e Processual do Trabalho",
-                        "Pós-graduação em Direito Eleitoral",
-                        "Pós-graduação em Direito Notarial e Registral",
-                        "Pós-graduação em Direito Penal e Processual Penal",
-                        "Pós-graduação em Direito Público",
-                        "Pós-graduação em Educação Matemática",
-                        "Pós-graduação em Gestão Escolar",
-                        "Pós-graduação em Gestão Pública",
-                        "Pós-graduação em Língua Portuguesa e Literatura Brasileira",
+                        "Pós-graduações em: Direito Administrativo, Direito do Trabalho e Processual do Trabalho, Direito Eleitoral, Direito Notarial e Registral, Direito Penal e Processual Penal, Direito Público, Educação Matemática, Gestão Escolar, Gestão Pública, Língua Portuguesa e Literatura Brasileira",
                         "Mestrado em Direito Público",
                         "Mestrado em Letras - Literaturas de Língua Portuguesa",
                       ].map((f, i) => (
