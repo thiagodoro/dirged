@@ -14,11 +14,13 @@ const competenciasData = [
     color: "#9D00FF",
     desc: "Pesquisa técnico-científica e jurídica por demanda e de ofício",
     items: [
-      "Pesquisa por demanda para magistrados e servidores",
+      "Pesquisa por demanda de doutrina, legislação e jurisprudência para gabinetes e setores do TJMG",
       "Pesquisa de ofício para elaboração de boletins periódicos",
+      "Pesquisa para informação em ADI's e Incidentes de Inconstitucionalidade",
+      "Pesquisa para projetos editoriais, curadoria de exposições, preservação de memória e homenagens",
     ],
-    tags: ["Livros", "Periódicos técnicos", "Bases de dados", "E-books"],
-    tagsLabel: "Fontes de informação",
+    tags: [],
+    tagsLabel: "",
   },
   {
     icon: FolderOpen,
