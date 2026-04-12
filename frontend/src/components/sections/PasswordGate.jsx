@@ -68,7 +68,7 @@ const PasswordGate = ({ children }) => {
             animate={{ opacity: exitAnimation ? 0 : 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="fixed inset-0 z-[9999] flex items-start pt-12 justify-center sm:items-center sm:pt-0 sm:justify-end sm:pr-8 md:pr-16 lg:pr-24"
+            className="fixed inset-0 z-[9999] flex items-start pt-8 justify-center sm:items-center sm:pt-0 sm:justify-end sm:pr-8 md:pr-16 lg:pr-24"
           >
             {/* Background image */}
             <div
@@ -94,7 +94,7 @@ const PasswordGate = ({ children }) => {
                 duration: shake ? 0.5 : 0.5,
                 ease: "easeOut",
               }}
-              className="relative w-full max-w-[300px] sm:max-w-xs overflow-hidden rounded-2xl z-10 mx-4 sm:mx-0"
+              className="relative w-full max-w-[340px] sm:max-w-xs overflow-hidden rounded-2xl z-10 mx-4 sm:mx-0"
               style={{
                 background: "linear-gradient(145deg, rgba(10,10,10,0.88), rgba(0,0,0,0.92))",
                 border: "1px solid rgba(255,255,255,0.1)",
@@ -106,7 +106,7 @@ const PasswordGate = ({ children }) => {
               {/* Top decorative line */}
               <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#FF007F]/50 to-transparent" />
 
-              <div className="px-7 pt-8 pb-6">
+              <div className="px-8 pt-9 pb-7">
                 {/* Icon */}
                 <motion.div
                   className="flex justify-center mb-5"
@@ -115,8 +115,8 @@ const PasswordGate = ({ children }) => {
                   transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                 >
                   <div className="relative">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#FF007F]/20 to-[#9D00FF]/20 flex items-center justify-center border border-white/10">
-                      <Lock className="w-6 h-6 text-white/80" />
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#FF007F]/20 to-[#9D00FF]/20 flex items-center justify-center border border-white/10">
+                      <Lock className="w-7 h-7 text-white/80" />
                     </div>
                     <div className="absolute -inset-1 rounded-full bg-[#FF007F]/10 blur-lg -z-10" />
                   </div>
@@ -129,10 +129,10 @@ const PasswordGate = ({ children }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <h2 className="font-outfit text-lg font-semibold text-white tracking-wide">
+                  <h2 className="font-outfit text-xl font-semibold text-white tracking-wide">
                     DIRGED/EJEF
                   </h2>
-                  <p className="text-white/40 text-xs mt-0.5 font-satoshi">
+                  <p className="text-white/40 text-sm mt-1 font-satoshi">
                     Área de acesso restrito
                   </p>
                 </motion.div>
@@ -140,7 +140,7 @@ const PasswordGate = ({ children }) => {
                 {/* Form */}
                 <motion.form
                   onSubmit={handleSubmit}
-                  className="mt-5 space-y-3"
+                  className="mt-6 space-y-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
