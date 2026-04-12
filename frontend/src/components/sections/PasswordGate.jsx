@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, Eye, EyeOff, ShieldCheck } from "lucide-react";
+import { Lock, Eye, EyeOff, ShieldCheck, Loader2 } from "lucide-react";
 
 const PASSWORD = "transicao2026";
 
@@ -17,54 +17,78 @@ const PasswordGate = ({ children }) => {
   const [shake, setShake] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);
   const [pageReady, setPageReady] = useState(false);
+  const [passwordCorrect, setPasswordCorrect] = useState(false);
   const [exitAnimation, setExitAnimation] = useState(false);
-  const [videosReady, setVideosReady] = useState(0);
   const inputRef = useRef(null);
-  const progressInterval = useRef(null);
   const preloadVideosRef = useRef([]);
+  const progressRef = useRef(0);
+  const intervalRef = useRef(null);
+  const domReadyRef = useRef(false);
+  const videosLoadedRef = useRef(0);
 
-  // Preload videos in hidden elements so browser caches them
+  // Unified loading: DOM (weight 20%) + Videos (weight 80%)
   useEffect(() => {
-    let mounted = true;
     const totalVideos = VIDEO_URLS.length;
-    let loadedCount = 0;
 
+    // Track DOM ready
+    const checkDom = () => {
+      if (document.readyState === "complete") {
+        domReadyRef.current = true;
+      }
+    };
+    checkDom();
+    if (!domReadyRef.current) {
+      window.addEventListener("load", () => { domReadyRef.current = true; });
+    }
+
+    // Preload videos
     VIDEO_URLS.forEach((url) => {
       const video = document.createElement("video");
       video.preload = "auto";
       video.muted = true;
       video.playsInline = true;
-      video.style.position = "absolute";
-      video.style.width = "1px";
-      video.style.height = "1px";
-      video.style.opacity = "0";
-      video.style.pointerEvents = "none";
+      video.style.cssText = "position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;";
       video.src = url;
       document.body.appendChild(video);
       preloadVideosRef.current.push(video);
-
-      // Start loading
       video.load();
 
-      const onCanPlay = () => {
-        loadedCount++;
-        if (mounted) {
-          setVideosReady(loadedCount);
-        }
-      };
-
-      video.addEventListener("canplaythrough", onCanPlay, { once: true });
-      // Fallback timeout - mark as ready after 15s even if not fully buffered
-      setTimeout(() => {
-        if (loadedCount < totalVideos && mounted) {
-          loadedCount = totalVideos;
-          setVideosReady(totalVideos);
-        }
-      }, 15000);
+      video.addEventListener("canplaythrough", () => {
+        videosLoadedRef.current = Math.min(videosLoadedRef.current + 1, totalVideos);
+      }, { once: true });
     });
 
+    // Fallback: after 20s force all videos as loaded
+    const fallbackTimer = setTimeout(() => {
+      videosLoadedRef.current = totalVideos;
+    }, 20000);
+
+    // Single continuous progress interval
+    intervalRef.current = setInterval(() => {
+      const domTarget = domReadyRef.current ? 20 : (document.readyState === "interactive" ? 12 : 5);
+      const videoTarget = totalVideos > 0 ? (videosLoadedRef.current / totalVideos) * 80 : 80;
+      const realTarget = Math.min(domTarget + videoTarget, 100);
+
+      // Smooth increment toward real target
+      const current = progressRef.current;
+      if (current < realTarget) {
+        const gap = realTarget - current;
+        const step = Math.max(0.3, gap * 0.06);
+        progressRef.current = Math.min(current + step, realTarget);
+      }
+
+      const rounded = Math.round(progressRef.current);
+      setLoadProgress(rounded);
+
+      if (rounded >= 100) {
+        clearInterval(intervalRef.current);
+        setPageReady(true);
+      }
+    }, 60);
+
     return () => {
-      mounted = false;
+      clearInterval(intervalRef.current);
+      clearTimeout(fallbackTimer);
       preloadVideosRef.current.forEach((v) => {
         v.pause();
         v.removeAttribute("src");
@@ -75,38 +99,15 @@ const PasswordGate = ({ children }) => {
     };
   }, []);
 
-  // Progress bar: tracks DOM readyState + video preloading
+  // When both password correct AND page ready → reveal
   useEffect(() => {
-    let progress = 0;
-    const totalVideos = VIDEO_URLS.length;
-
-    const targetProgress = () => {
-      // DOM loading accounts for 0-40%, videos for 40-100%
-      let domPart = 0;
-      if (document.readyState === "complete") domPart = 40;
-      else if (document.readyState === "interactive") domPart = 25;
-      else domPart = 10;
-
-      const videoPart = totalVideos > 0 ? (videosReady / totalVideos) * 60 : 60;
-      return Math.min(domPart + videoPart, 100);
-    };
-
-    progressInterval.current = setInterval(() => {
-      const target = targetProgress();
-      const increment = target > progress ? Math.random() * 2 + 0.5 : 0.1;
-      progress = Math.min(progress + increment, target);
-      setLoadProgress(Math.round(progress));
-
-      if (progress >= 100) {
-        clearInterval(progressInterval.current);
-        setPageReady(true);
-      }
-    }, 80);
-
-    return () => {
-      clearInterval(progressInterval.current);
-    };
-  }, [videosReady]);
+    if (passwordCorrect && pageReady && !isAuthenticated) {
+      setExitAnimation(true);
+      setTimeout(() => {
+        setIsAuthenticated(true);
+      }, 700);
+    }
+  }, [passwordCorrect, pageReady, isAuthenticated]);
 
   // Auto-focus input
   useEffect(() => {
@@ -121,10 +122,8 @@ const PasswordGate = ({ children }) => {
       e.preventDefault();
       if (password === PASSWORD) {
         setError(false);
-        setExitAnimation(true);
-        setTimeout(() => {
-          setIsAuthenticated(true);
-        }, 700);
+        setPasswordCorrect(true);
+        // Page will only be revealed when pageReady is also true
       } else {
         setError(true);
         setShake(true);
@@ -143,7 +142,7 @@ const PasswordGate = ({ children }) => {
 
   return (
     <>
-      {/* Page content always renders behind the modal */}
+      {/* Page content always renders behind */}
       <div
         style={{
           filter: isAuthenticated ? "none" : "blur(8px)",
@@ -165,7 +164,7 @@ const PasswordGate = ({ children }) => {
             transition={{ duration: 0.6, ease: "easeInOut" }}
             className="fixed inset-0 z-[9999] flex items-center justify-end pr-8 md:pr-16 lg:pr-24"
           >
-            {/* Background image - fully visible */}
+            {/* Background image */}
             <div
               className="absolute inset-0"
               style={{
@@ -176,7 +175,7 @@ const PasswordGate = ({ children }) => {
               }}
             />
 
-            {/* Modal Card - right side, smaller */}
+            {/* Modal Card */}
             <motion.div
               initial={{ opacity: 0, x: 40, scale: 0.95 }}
               animate={{
@@ -251,19 +250,23 @@ const PasswordGate = ({ children }) => {
                       }}
                       onKeyDown={handleKeyDown}
                       placeholder="Digite a senha de acesso"
+                      disabled={passwordCorrect}
                       className={`w-full bg-white/5 border ${
                         error
                           ? "border-red-500/60 focus:border-red-500"
+                          : passwordCorrect
+                          ? "border-green-500/40"
                           : "border-white/10 focus:border-[#FF007F]/50"
                       } rounded-lg px-3 py-2.5 pr-10 text-white placeholder-white/30 font-satoshi text-xs outline-none transition-all duration-300 focus:bg-white/[0.07] focus:ring-1 ${
                         error ? "focus:ring-red-500/30" : "focus:ring-[#FF007F]/20"
-                      }`}
+                      } disabled:opacity-50 disabled:cursor-not-allowed`}
                       autoComplete="off"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white/60 transition-colors"
+                      disabled={passwordCorrect}
                     >
                       {showPassword ? (
                         <EyeOff className="w-4 h-4" />
@@ -287,20 +290,31 @@ const PasswordGate = ({ children }) => {
                     )}
                   </AnimatePresence>
 
-                  {/* Submit button */}
-                  <button
-                    type="submit"
-                    className="w-full py-2.5 rounded-lg font-satoshi text-xs font-medium text-white transition-all duration-300 relative overflow-hidden group"
-                    style={{
-                      background: "linear-gradient(135deg, #FF007F, #9D00FF)",
-                    }}
-                  >
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      <ShieldCheck className="w-4 h-4" />
-                      Acessar
-                    </span>
-                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </button>
+                  {/* Submit button or waiting state */}
+                  {passwordCorrect && !pageReady ? (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="flex items-center justify-center gap-2 py-2.5 text-white/60"
+                    >
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span className="font-satoshi text-xs">Aguardando carregamento...</span>
+                    </motion.div>
+                  ) : !passwordCorrect ? (
+                    <button
+                      type="submit"
+                      className="w-full py-2.5 rounded-lg font-satoshi text-xs font-medium text-white transition-all duration-300 relative overflow-hidden group"
+                      style={{
+                        background: "linear-gradient(135deg, #FF007F, #9D00FF)",
+                      }}
+                    >
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        <ShieldCheck className="w-4 h-4" />
+                        Acessar
+                      </span>
+                      <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </button>
+                  ) : null}
                 </motion.form>
               </div>
 
@@ -308,9 +322,9 @@ const PasswordGate = ({ children }) => {
               <div className="px-6 pb-4 pt-3">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] text-white/25 font-satoshi tracking-wider uppercase">
-                    {loadProgress < 40 ? "Carregando página" : loadProgress < 100 ? "Carregando vídeos" : "Tudo pronto"}
+                    Carregando conteúdo
                   </span>
-                  <span className="text-[10px] text-white/25 font-satoshi">
+                  <span className={`text-[10px] font-satoshi font-medium ${pageReady ? "text-green-400/60" : "text-white/30"}`}>
                     {loadProgress}%
                   </span>
                 </div>
@@ -327,15 +341,6 @@ const PasswordGate = ({ children }) => {
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   />
                 </div>
-                {pageReady && (
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-[10px] text-green-500/50 font-satoshi mt-1.5 text-center"
-                  >
-                    Página pronta
-                  </motion.p>
-                )}
               </div>
 
               {/* Bottom decorative line */}
