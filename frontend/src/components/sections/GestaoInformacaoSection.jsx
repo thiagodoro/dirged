@@ -223,7 +223,7 @@ const atosNormativos = [
 ];
 
 const servicosProdutos = [
-  { nome: "NAT-JUS", valor: "1.323", desc: "Notas Técnicas em Saúde na Biblioteca Digital" },
+  { nome: "NAT-JUS", valor: "1.323", desc: "Catalogação e Indexação de Notas Técnicas em Saúde na Biblioteca Digital" },
   { nome: "Gotas da Língua Portuguesa", valor: "47", desc: "Edições publicadas" },
   { nome: "Boletim de Jurisprudência", valor: "47", desc: "Edições publicadas" },
   { nome: "Pesquisas Atendidas", valor: "1.634", desc: "Pesquisas jurídicas realizadas" },
