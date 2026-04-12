@@ -68,7 +68,7 @@ const PasswordGate = ({ children }) => {
             animate={{ opacity: exitAnimation ? 0 : 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="fixed inset-0 z-[9999] flex items-start pt-24 justify-center sm:items-center sm:pt-0 sm:justify-end sm:pr-8 md:pr-16 lg:pr-24"
+            className="fixed inset-0 z-[9999] flex items-start pt-12 justify-center sm:items-center sm:pt-0 sm:justify-end sm:pr-8 md:pr-16 lg:pr-24"
           >
             {/* Background image */}
             <div
@@ -94,7 +94,7 @@ const PasswordGate = ({ children }) => {
                 duration: shake ? 0.5 : 0.5,
                 ease: "easeOut",
               }}
-              className="relative w-full max-w-[280px] sm:max-w-xs overflow-hidden rounded-2xl z-10 mx-4 sm:mx-0"
+              className="relative w-full max-w-[300px] sm:max-w-xs overflow-hidden rounded-2xl z-10 mx-4 sm:mx-0"
               style={{
                 background: "linear-gradient(145deg, rgba(10,10,10,0.88), rgba(0,0,0,0.92))",
                 border: "1px solid rgba(255,255,255,0.1)",
@@ -106,17 +106,17 @@ const PasswordGate = ({ children }) => {
               {/* Top decorative line */}
               <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#FF007F]/50 to-transparent" />
 
-              <div className="px-6 pt-7 pb-6">
+              <div className="px-7 pt-8 pb-6">
                 {/* Icon */}
                 <motion.div
-                  className="flex justify-center mb-4"
+                  className="flex justify-center mb-5"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                 >
                   <div className="relative">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF007F]/20 to-[#9D00FF]/20 flex items-center justify-center border border-white/10">
-                      <Lock className="w-5 h-5 text-white/80" />
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#FF007F]/20 to-[#9D00FF]/20 flex items-center justify-center border border-white/10">
+                      <Lock className="w-6 h-6 text-white/80" />
                     </div>
                     <div className="absolute -inset-1 rounded-full bg-[#FF007F]/10 blur-lg -z-10" />
                   </div>
@@ -160,7 +160,7 @@ const PasswordGate = ({ children }) => {
                         error
                           ? "border-red-500/60 focus:border-red-500"
                           : "border-white/10 focus:border-[#FF007F]/50"
-                      } rounded-lg px-3 py-2.5 pr-10 text-white placeholder-white/30 font-satoshi text-xs outline-none transition-all duration-300 focus:bg-white/[0.07] focus:ring-1 ${
+                      } rounded-lg px-4 py-3 pr-10 text-white placeholder-white/30 font-satoshi text-sm outline-none transition-all duration-300 focus:bg-white/[0.07] focus:ring-1 ${
                         error ? "focus:ring-red-500/30" : "focus:ring-[#FF007F]/20"
                       }`}
                       autoComplete="off"
@@ -195,7 +195,7 @@ const PasswordGate = ({ children }) => {
                   {/* Submit button */}
                   <button
                     type="submit"
-                    className="w-full py-2.5 rounded-lg font-satoshi text-xs font-medium text-white transition-all duration-300 relative overflow-hidden group"
+                    className="w-full py-3 rounded-lg font-satoshi text-sm font-medium text-white transition-all duration-300 relative overflow-hidden group"
                     style={{
                       background: "linear-gradient(135deg, #FF007F, #9D00FF)",
                     }}
