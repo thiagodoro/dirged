@@ -52,12 +52,12 @@ const OrcamentoSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-baseline gap-3 bg-white/5 border border-white/10 rounded-2xl px-8 py-5">
-            <span className="text-white/50 text-lg">R$</span>
-            <span className="font-outfit font-bold text-6xl md:text-7xl text-white">46.714.391</span>
+          <div className="inline-flex items-baseline gap-2 sm:gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 sm:px-8 py-4 sm:py-5">
+            <span className="text-white/50 text-base sm:text-lg">R$</span>
+            <span className="font-outfit font-bold text-4xl sm:text-6xl md:text-7xl text-white">46.714.391</span>
           </div>
-          <p className="text-white/40 text-sm mt-3">Quarenta e seis milhões, setecentos e quatorze mil, trezentos e noventa e um reais</p>
-          <p className="text-white/30 text-xs mt-1 uppercase tracking-wider">Orçamento total (Consumo + Investimento)</p>
+          <p className="text-white/40 text-xs sm:text-sm mt-3 px-4">Quarenta e seis milhões, setecentos e quatorze mil, trezentos e noventa e um reais</p>
+          <p className="text-white/30 text-[10px] sm:text-xs mt-1 uppercase tracking-wider">Orçamento total (Consumo + Investimento)</p>
         </motion.div>
 
         {/* Cards Consumo e Investimento */}
