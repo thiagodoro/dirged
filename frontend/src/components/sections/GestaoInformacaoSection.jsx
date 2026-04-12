@@ -109,6 +109,7 @@ const GestaoInformacaoSection = () => {
         </SectionBlock>
 
         {/* ── 4 Objetivos ── */}
+        <p className="text-center text-white/40 text-sm uppercase tracking-widest font-satoshi mb-5">Principais competências</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
           {objetivos.map((obj, i) => (
             <motion.div
