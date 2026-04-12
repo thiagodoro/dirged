@@ -3,16 +3,172 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Database, Search, FolderOpen, BookOpen, Eye, EyeOff,
   Calendar, Library, Globe, Monitor, Smartphone,
-  Scale, FileText, Award, ChevronDown, ChevronUp,
+  Scale, FileText, Award, ChevronDown, ChevronUp, ChevronRight, ChevronLeft,
   BookMarked, Newspaper, GraduationCap, Gavel
 } from "lucide-react";
 
-const objetivos = [
-  { icon: Search, label: "Pesquisar", color: "#9D00FF" },
-  { icon: FolderOpen, label: "Organizar", color: "#3B82F6" },
-  { icon: BookOpen, label: "Publicar", color: "#FF007F" },
-  { icon: Database, label: "Fornecer", color: "#10B981" },
+const competenciasData = [
+  {
+    icon: Search,
+    label: "Pesquisar",
+    color: "#9D00FF",
+    desc: "Pesquisa técnico-científica e jurídica por demanda e de ofício",
+    items: [
+      "Pesquisa por demanda para magistrados e servidores",
+      "Pesquisa de ofício para elaboração de boletins periódicos",
+    ],
+    tags: ["Livros", "Periódicos técnicos", "Bases de dados", "E-books"],
+    tagsLabel: "Fontes de informação",
+  },
+  {
+    icon: FolderOpen,
+    label: "Organizar",
+    color: "#3B82F6",
+    desc: "Tratamento técnico da informação para recuperação eficiente",
+    items: [
+      "Catalogação — Registro bibliográfico padronizado",
+      "Classificação — Organização por área temática",
+      "Indexação — Descritores para recuperação da informação",
+    ],
+    tags: [],
+    tagsLabel: "",
+  },
+  {
+    icon: BookOpen,
+    label: "Publicar",
+    color: "#FF007F",
+    desc: "Editoração e apoio a publicações técnicas e jurídicas",
+    items: [
+      "Editoração de livros técnicos da EJEF",
+      "Revisão de textos e apresentações",
+      "Adequação às normas da ABNT",
+      "Confecção de fichas catalográficas",
+    ],
+    tags: [],
+    tagsLabel: "",
+  },
+  {
+    icon: Database,
+    label: "Fornecer",
+    color: "#10B981",
+    desc: "Disponibilização de informação e acesso a bases de dados",
+    items: [
+      "Biblioteca Digital com acervo público e restrito",
+      "Bases contratadas: Minha Biblioteca, RT, Fórum, Del Rey",
+      "Empréstimos de livros e periódicos técnicos",
+      "Acesso aos atos normativos do Tribunal",
+    ],
+    tags: [],
+    tagsLabel: "",
+  },
 ];
+
+const CompetenciasCarousel = () => {
+  const [current, setCurrent] = useState(0);
+  const total = competenciasData.length;
+  const comp = competenciasData[current];
+
+  const next = () => setCurrent((prev) => (prev + 1) % total);
+  const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
+
+  return (
+    <div className="mb-20">
+      <p className="text-center text-[#FFE600] font-outfit font-bold text-lg mb-5">Principais competências</p>
+
+      {/* Indicator dots */}
+      <div className="flex justify-center gap-2 mb-5">
+        {competenciasData.map((c, i) => (
+          <button
+            key={c.label}
+            onClick={() => setCurrent(i)}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+              i === current
+                ? "bg-white/10 border border-white/20 text-white"
+                : "text-white/30 hover:text-white/60"
+            }`}
+          >
+            <c.icon className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">{c.label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Card */}
+      <div className="relative">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -40 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="bg-black/30 border rounded-2xl p-6 sm:p-8 relative overflow-hidden"
+            style={{ borderColor: `${comp.color}30` }}
+          >
+            {/* Color accent line */}
+            <div className="absolute top-0 left-0 w-full h-[3px]" style={{ background: `linear-gradient(90deg, ${comp.color}, transparent)` }} />
+
+            <div className="flex flex-col sm:flex-row items-start gap-6">
+              {/* Left: icon + title */}
+              <div className="flex items-center gap-4 sm:w-64 shrink-0">
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ background: `${comp.color}20` }}>
+                  <comp.icon className="w-7 h-7" style={{ color: comp.color }} />
+                </div>
+                <div>
+                  <h3 className="font-outfit font-bold text-white text-xl">{comp.label}</h3>
+                  <p className="text-white/40 text-xs mt-0.5">{comp.desc}</p>
+                </div>
+              </div>
+
+              {/* Right: details */}
+              <div className="flex-1 w-full">
+                <ul className="space-y-2">
+                  {comp.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5 bg-white/[0.03] rounded-lg px-4 py-2.5">
+                      <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: comp.color }} />
+                      <span className="text-white/60 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                {comp.tags.length > 0 && (
+                  <div className="mt-4 pt-3 border-t border-white/5">
+                    <p className="text-white/25 text-[10px] uppercase tracking-wider mb-2">{comp.tagsLabel}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {comp.tags.map(t => (
+                        <span key={t} className="text-[10px] px-2.5 py-1 rounded-full border" style={{ background: `${comp.color}10`, color: `${comp.color}cc`, borderColor: `${comp.color}30` }}>
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Arrow right */}
+              <button
+                onClick={next}
+                className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all self-center shrink-0"
+              >
+                <ChevronRight className="w-5 h-5 text-white/60" />
+              </button>
+            </div>
+
+            {/* Mobile navigation */}
+            <div className="flex sm:hidden justify-between mt-5 pt-4 border-t border-white/5">
+              <button onClick={prev} className="flex items-center gap-1 text-xs text-white/40 hover:text-white/70 transition-colors">
+                <ChevronLeft className="w-4 h-4" /> Anterior
+              </button>
+              <span className="text-white/20 text-xs">{current + 1} / {total}</span>
+              <button onClick={next} className="flex items-center gap-1 text-xs text-white/40 hover:text-white/70 transition-colors">
+                Próximo <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+};
 
 const trabVisivel = [
   "Publicações de livros",
@@ -108,89 +264,8 @@ const GestaoInformacaoSection = () => {
           </div>
         </SectionBlock>
 
-        {/* ── 4 Objetivos ── */}
-        <p className="text-center text-[#FFE600] font-outfit font-bold text-lg mb-5">Principais competências</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
-          {objetivos.map((obj, i) => (
-            <motion.div
-              key={obj.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-black/40 border border-white/10 rounded-2xl p-6 text-center group hover:border-white/20 transition-all"
-              style={{ borderTopColor: obj.color, borderTopWidth: "3px" }}
-            >
-              <div className="w-12 h-12 mx-auto mb-3 rounded-xl flex items-center justify-center" style={{ background: `${obj.color}20` }}>
-                <obj.icon className="w-6 h-6" style={{ color: obj.color }} />
-              </div>
-              <span className="font-outfit font-semibold text-white text-sm">{obj.label}</span>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* ── Pilares: Pesquisa, Organização, Publicação ── */}
-        <SectionBlock className="mb-20">
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Pesquisa */}
-            <div className="bg-black/30 border border-white/10 rounded-2xl p-6 hover:border-[#9D00FF]/30 transition-all">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-[#9D00FF]/20 flex items-center justify-center">
-                  <Search className="w-5 h-5 text-[#9D00FF]" />
-                </div>
-                <h3 className="font-outfit font-bold text-white text-lg">Pesquisa</h3>
-              </div>
-              <ul className="space-y-2">
-                <li className="text-white/50 text-sm flex items-start gap-2"><span className="text-[#9D00FF] mt-1">•</span>Pesquisa por demanda</li>
-                <li className="text-white/50 text-sm flex items-start gap-2"><span className="text-[#9D00FF] mt-1">•</span>Pesquisa de ofício para boletins</li>
-              </ul>
-              <div className="mt-4 pt-4 border-t border-white/5">
-                <p className="text-white/30 text-xs uppercase tracking-wider mb-2">Fontes</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {["Livros", "Periódicos", "Bases de dados", "E-books"].map(f => (
-                    <span key={f} className="text-[10px] px-2 py-1 rounded-full bg-[#9D00FF]/10 text-[#9D00FF]/80 border border-[#9D00FF]/20">{f}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            {/* Organização */}
-            <div className="bg-black/30 border border-white/10 rounded-2xl p-6 hover:border-[#3B82F6]/30 transition-all">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-[#3B82F6]/20 flex items-center justify-center">
-                  <FolderOpen className="w-5 h-5 text-[#3B82F6]" />
-                </div>
-                <h3 className="font-outfit font-bold text-white text-lg">Organização</h3>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { label: "Catalogação", desc: "Registro bibliográfico padronizado" },
-                  { label: "Classificação", desc: "Organização por área temática" },
-                  { label: "Indexação", desc: "Descritores para recuperação" },
-                ].map(item => (
-                  <div key={item.label} className="bg-white/5 rounded-lg p-3">
-                    <p className="text-white font-medium text-sm">{item.label}</p>
-                    <p className="text-white/40 text-xs mt-0.5">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Publicação */}
-            <div className="bg-black/30 border border-white/10 rounded-2xl p-6 hover:border-[#FF007F]/30 transition-all">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-[#FF007F]/20 flex items-center justify-center">
-                  <BookOpen className="w-5 h-5 text-[#FF007F]" />
-                </div>
-                <h3 className="font-outfit font-bold text-white text-lg">Publicação</h3>
-              </div>
-              <ul className="space-y-2">
-                <li className="text-white/50 text-sm flex items-start gap-2"><span className="text-[#FF007F] mt-1">•</span>Editoração de livros técnicos da EJEF</li>
-                <li className="text-white/50 text-sm flex items-start gap-2"><span className="text-[#FF007F] mt-1">•</span>Revisão de textos e apresentações</li>
-                <li className="text-white/50 text-sm flex items-start gap-2"><span className="text-[#FF007F] mt-1">•</span>Adequação às normas da ABNT</li>
-                <li className="text-white/50 text-sm flex items-start gap-2"><span className="text-[#FF007F] mt-1">•</span>Confecção de fichas catalográficas</li>
-              </ul>
-            </div>
-          </div>
-        </SectionBlock>
+        {/* ── Competências Carousel ── */}
+        <CompetenciasCarousel />
 
         {/* ── Trabalho Visível vs Invisível ── */}
         <SectionBlock className="mb-20">
