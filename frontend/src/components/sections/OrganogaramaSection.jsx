@@ -1202,7 +1202,7 @@ const OrganogaramaSection = () => {
 
               <div className="md:w-2/5 flex items-end justify-center bg-black p-0 overflow-hidden">
                 <motion.img
-                  src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/jn2kumcu_Marcio-removebg-preview.png"
+                  src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/n1o7c0n5_Gemini_Generated_Image_thzyr3thzyr3thzy.png"
                   alt="Márcio Charles da Silva"
                   className="w-full h-full object-cover object-top"
                   initial={{ x: -30, opacity: 0 }}
