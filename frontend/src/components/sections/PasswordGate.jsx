@@ -4,6 +4,11 @@ import { Lock, Eye, EyeOff, ShieldCheck } from "lucide-react";
 
 const PASSWORD = "transicao2026";
 
+const VIDEO_URLS = [
+  "https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/r3yyp8p7_video-geral-4.mp4",
+  "https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/otaotlen_video-gd.mp4",
+];
+
 const PasswordGate = ({ children }) => {
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -13,21 +18,82 @@ const PasswordGate = ({ children }) => {
   const [loadProgress, setLoadProgress] = useState(0);
   const [pageReady, setPageReady] = useState(false);
   const [exitAnimation, setExitAnimation] = useState(false);
+  const [videosReady, setVideosReady] = useState(0);
   const inputRef = useRef(null);
   const progressInterval = useRef(null);
+  const preloadVideosRef = useRef([]);
 
-  // Simulate + track page loading progress
+  // Preload videos in hidden elements so browser caches them
+  useEffect(() => {
+    let mounted = true;
+    const totalVideos = VIDEO_URLS.length;
+    let loadedCount = 0;
+
+    VIDEO_URLS.forEach((url) => {
+      const video = document.createElement("video");
+      video.preload = "auto";
+      video.muted = true;
+      video.playsInline = true;
+      video.style.position = "absolute";
+      video.style.width = "1px";
+      video.style.height = "1px";
+      video.style.opacity = "0";
+      video.style.pointerEvents = "none";
+      video.src = url;
+      document.body.appendChild(video);
+      preloadVideosRef.current.push(video);
+
+      // Start loading
+      video.load();
+
+      const onCanPlay = () => {
+        loadedCount++;
+        if (mounted) {
+          setVideosReady(loadedCount);
+        }
+      };
+
+      video.addEventListener("canplaythrough", onCanPlay, { once: true });
+      // Fallback timeout - mark as ready after 15s even if not fully buffered
+      setTimeout(() => {
+        if (loadedCount < totalVideos && mounted) {
+          loadedCount = totalVideos;
+          setVideosReady(totalVideos);
+        }
+      }, 15000);
+    });
+
+    return () => {
+      mounted = false;
+      preloadVideosRef.current.forEach((v) => {
+        v.pause();
+        v.removeAttribute("src");
+        v.load();
+        if (v.parentNode) v.parentNode.removeChild(v);
+      });
+      preloadVideosRef.current = [];
+    };
+  }, []);
+
+  // Progress bar: tracks DOM readyState + video preloading
   useEffect(() => {
     let progress = 0;
+    const totalVideos = VIDEO_URLS.length;
+
     const targetProgress = () => {
-      if (document.readyState === "complete") return 100;
-      if (document.readyState === "interactive") return 70;
-      return 30;
+      // DOM loading accounts for 0-40%, videos for 40-100%
+      let domPart = 0;
+      if (document.readyState === "complete") domPart = 40;
+      else if (document.readyState === "interactive") domPart = 25;
+      else domPart = 10;
+
+      const videoPart = totalVideos > 0 ? (videosReady / totalVideos) * 60 : 60;
+      return Math.min(domPart + videoPart, 100);
     };
 
     progressInterval.current = setInterval(() => {
       const target = targetProgress();
-      const increment = target > progress ? Math.random() * 3 + 0.5 : 0.1;
+      const increment = target > progress ? Math.random() * 2 + 0.5 : 0.1;
       progress = Math.min(progress + increment, target);
       setLoadProgress(Math.round(progress));
 
@@ -37,31 +103,10 @@ const PasswordGate = ({ children }) => {
       }
     }, 80);
 
-    const handleLoad = () => {
-      // Fast-forward to 100%
-      clearInterval(progressInterval.current);
-      let current = progress;
-      const finishInterval = setInterval(() => {
-        current = Math.min(current + 4, 100);
-        setLoadProgress(Math.round(current));
-        if (current >= 100) {
-          clearInterval(finishInterval);
-          setPageReady(true);
-        }
-      }, 30);
-    };
-
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-    }
-
     return () => {
       clearInterval(progressInterval.current);
-      window.removeEventListener("load", handleLoad);
     };
-  }, []);
+  }, [videosReady]);
 
   // Auto-focus input
   useEffect(() => {
@@ -263,7 +308,7 @@ const PasswordGate = ({ children }) => {
               <div className="px-6 pb-4 pt-3">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] text-white/25 font-satoshi tracking-wider uppercase">
-                    Carregando página
+                    {loadProgress < 40 ? "Carregando página" : loadProgress < 100 ? "Carregando vídeos" : "Tudo pronto"}
                   </span>
                   <span className="text-[10px] text-white/25 font-satoshi">
                     {loadProgress}%
