@@ -39,7 +39,7 @@ const HeroSection = () => {
             Transformando a gestão documental e a gestão da informação do TJMG através da inovação, eficiência e excelência no serviço público.
           </p>
 
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button 
               data-testid="hero-video-button"
               onClick={() => window.open('https://youtu.be/2tKQnre85Xw', '_blank')}

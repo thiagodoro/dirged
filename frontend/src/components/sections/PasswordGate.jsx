@@ -1,13 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, Eye, EyeOff, ShieldCheck, Loader2 } from "lucide-react";
+import { Lock, Eye, EyeOff, ShieldCheck } from "lucide-react";
 
 const PASSWORD = "transicao2026";
-
-const VIDEO_URLS = [
-  "https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/r3yyp8p7_video-geral-4.mp4",
-  "https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/otaotlen_video-gd.mp4",
-];
 
 const PasswordGate = ({ children }) => {
   const [password, setPassword] = useState("");
@@ -15,99 +10,8 @@ const PasswordGate = ({ children }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
   const [shake, setShake] = useState(false);
-  const [loadProgress, setLoadProgress] = useState(0);
-  const [pageReady, setPageReady] = useState(false);
-  const [passwordCorrect, setPasswordCorrect] = useState(false);
   const [exitAnimation, setExitAnimation] = useState(false);
   const inputRef = useRef(null);
-  const preloadVideosRef = useRef([]);
-  const progressRef = useRef(0);
-  const intervalRef = useRef(null);
-  const domReadyRef = useRef(false);
-  const videosLoadedRef = useRef(0);
-
-  // Unified loading: DOM (weight 20%) + Videos (weight 80%)
-  useEffect(() => {
-    const totalVideos = VIDEO_URLS.length;
-
-    // Track DOM ready
-    const checkDom = () => {
-      if (document.readyState === "complete") {
-        domReadyRef.current = true;
-      }
-    };
-    checkDom();
-    if (!domReadyRef.current) {
-      window.addEventListener("load", () => { domReadyRef.current = true; });
-    }
-
-    // Preload videos
-    VIDEO_URLS.forEach((url) => {
-      const video = document.createElement("video");
-      video.preload = "auto";
-      video.muted = true;
-      video.playsInline = true;
-      video.style.cssText = "position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;";
-      video.src = url;
-      document.body.appendChild(video);
-      preloadVideosRef.current.push(video);
-      video.load();
-
-      video.addEventListener("canplaythrough", () => {
-        videosLoadedRef.current = Math.min(videosLoadedRef.current + 1, totalVideos);
-      }, { once: true });
-    });
-
-    // Fallback: after 20s force all videos as loaded
-    const fallbackTimer = setTimeout(() => {
-      videosLoadedRef.current = totalVideos;
-    }, 20000);
-
-    // Single continuous progress interval
-    intervalRef.current = setInterval(() => {
-      const domTarget = domReadyRef.current ? 20 : (document.readyState === "interactive" ? 12 : 5);
-      const videoTarget = totalVideos > 0 ? (videosLoadedRef.current / totalVideos) * 80 : 80;
-      const realTarget = Math.min(domTarget + videoTarget, 100);
-
-      // Smooth increment toward real target
-      const current = progressRef.current;
-      if (current < realTarget) {
-        const gap = realTarget - current;
-        const step = Math.max(0.3, gap * 0.06);
-        progressRef.current = Math.min(current + step, realTarget);
-      }
-
-      const rounded = Math.round(progressRef.current);
-      setLoadProgress(rounded);
-
-      if (rounded >= 100) {
-        clearInterval(intervalRef.current);
-        setPageReady(true);
-      }
-    }, 60);
-
-    return () => {
-      clearInterval(intervalRef.current);
-      clearTimeout(fallbackTimer);
-      preloadVideosRef.current.forEach((v) => {
-        v.pause();
-        v.removeAttribute("src");
-        v.load();
-        if (v.parentNode) v.parentNode.removeChild(v);
-      });
-      preloadVideosRef.current = [];
-    };
-  }, []);
-
-  // When both password correct AND page ready → reveal
-  useEffect(() => {
-    if (passwordCorrect && pageReady && !isAuthenticated) {
-      setExitAnimation(true);
-      setTimeout(() => {
-        setIsAuthenticated(true);
-      }, 700);
-    }
-  }, [passwordCorrect, pageReady, isAuthenticated]);
 
   // Auto-focus input
   useEffect(() => {
@@ -122,8 +26,10 @@ const PasswordGate = ({ children }) => {
       e.preventDefault();
       if (password === PASSWORD) {
         setError(false);
-        setPasswordCorrect(true);
-        // Page will only be revealed when pageReady is also true
+        setExitAnimation(true);
+        setTimeout(() => {
+          setIsAuthenticated(true);
+        }, 700);
       } else {
         setError(true);
         setShake(true);
@@ -142,7 +48,7 @@ const PasswordGate = ({ children }) => {
 
   return (
     <>
-      {/* Page content always renders behind */}
+      {/* Page content always renders and loads naturally behind */}
       <div
         style={{
           filter: isAuthenticated ? "none" : "blur(8px)",
@@ -162,7 +68,7 @@ const PasswordGate = ({ children }) => {
             animate={{ opacity: exitAnimation ? 0 : 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="fixed inset-0 z-[9999] flex items-center justify-end pr-8 md:pr-16 lg:pr-24"
+            className="fixed inset-0 z-[9999] flex items-center justify-center sm:justify-end sm:pr-8 md:pr-16 lg:pr-24"
           >
             {/* Background image */}
             <div
@@ -188,7 +94,7 @@ const PasswordGate = ({ children }) => {
                 duration: shake ? 0.5 : 0.5,
                 ease: "easeOut",
               }}
-              className="relative w-full max-w-xs overflow-hidden rounded-2xl z-10"
+              className="relative w-full max-w-[280px] sm:max-w-xs overflow-hidden rounded-2xl z-10 mx-4 sm:mx-0"
               style={{
                 background: "linear-gradient(145deg, rgba(10,10,10,0.88), rgba(0,0,0,0.92))",
                 border: "1px solid rgba(255,255,255,0.1)",
@@ -200,7 +106,7 @@ const PasswordGate = ({ children }) => {
               {/* Top decorative line */}
               <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#FF007F]/50 to-transparent" />
 
-              <div className="px-6 pt-7 pb-3">
+              <div className="px-6 pt-7 pb-6">
                 {/* Icon */}
                 <motion.div
                   className="flex justify-center mb-4"
@@ -250,23 +156,19 @@ const PasswordGate = ({ children }) => {
                       }}
                       onKeyDown={handleKeyDown}
                       placeholder="Digite a senha de acesso"
-                      disabled={passwordCorrect}
                       className={`w-full bg-white/5 border ${
                         error
                           ? "border-red-500/60 focus:border-red-500"
-                          : passwordCorrect
-                          ? "border-green-500/40"
                           : "border-white/10 focus:border-[#FF007F]/50"
                       } rounded-lg px-3 py-2.5 pr-10 text-white placeholder-white/30 font-satoshi text-xs outline-none transition-all duration-300 focus:bg-white/[0.07] focus:ring-1 ${
                         error ? "focus:ring-red-500/30" : "focus:ring-[#FF007F]/20"
-                      } disabled:opacity-50 disabled:cursor-not-allowed`}
+                      }`}
                       autoComplete="off"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white/60 transition-colors"
-                      disabled={passwordCorrect}
                     >
                       {showPassword ? (
                         <EyeOff className="w-4 h-4" />
@@ -290,57 +192,21 @@ const PasswordGate = ({ children }) => {
                     )}
                   </AnimatePresence>
 
-                  {/* Submit button or waiting state */}
-                  {passwordCorrect && !pageReady ? (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="flex items-center justify-center gap-2 py-2.5 text-white/60"
-                    >
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      <span className="font-satoshi text-xs">Aguardando carregamento...</span>
-                    </motion.div>
-                  ) : !passwordCorrect ? (
-                    <button
-                      type="submit"
-                      className="w-full py-2.5 rounded-lg font-satoshi text-xs font-medium text-white transition-all duration-300 relative overflow-hidden group"
-                      style={{
-                        background: "linear-gradient(135deg, #FF007F, #9D00FF)",
-                      }}
-                    >
-                      <span className="relative z-10 flex items-center justify-center gap-2">
-                        <ShieldCheck className="w-4 h-4" />
-                        Acessar
-                      </span>
-                      <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </button>
-                  ) : null}
-                </motion.form>
-              </div>
-
-              {/* Progress bar area */}
-              <div className="px-6 pb-4 pt-3">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] text-white/25 font-satoshi tracking-wider uppercase">
-                    Carregando conteúdo
-                  </span>
-                  <span className={`text-[10px] font-satoshi font-medium ${pageReady ? "text-green-400/60" : "text-white/30"}`}>
-                    {loadProgress}%
-                  </span>
-                </div>
-                <div className="w-full h-[3px] bg-white/5 rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full rounded-full"
+                  {/* Submit button */}
+                  <button
+                    type="submit"
+                    className="w-full py-2.5 rounded-lg font-satoshi text-xs font-medium text-white transition-all duration-300 relative overflow-hidden group"
                     style={{
-                      background: pageReady
-                        ? "linear-gradient(90deg, #22c55e, #16a34a)"
-                        : "linear-gradient(90deg, #FF007F, #9D00FF)",
+                      background: "linear-gradient(135deg, #FF007F, #9D00FF)",
                     }}
-                    initial={{ width: "0%" }}
-                    animate={{ width: `${loadProgress}%` }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  />
-                </div>
+                  >
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      <ShieldCheck className="w-4 h-4" />
+                      Acessar
+                    </span>
+                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </button>
+                </motion.form>
               </div>
 
               {/* Bottom decorative line */}
