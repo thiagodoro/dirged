@@ -68,7 +68,7 @@ const PasswordGate = ({ children }) => {
             animate={{ opacity: exitAnimation ? 0 : 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center sm:justify-end sm:pr-8 md:pr-16 lg:pr-24"
+            className="fixed inset-0 z-[9999] flex items-start pt-24 justify-center sm:items-center sm:pt-0 sm:justify-end sm:pr-8 md:pr-16 lg:pr-24"
           >
             {/* Background image */}
             <div
