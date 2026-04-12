@@ -4,7 +4,7 @@ import {
   Database, Search, FolderOpen, BookOpen, Eye, EyeOff,
   Calendar, Library, Globe, Monitor, Smartphone,
   Scale, FileText, Award, ChevronDown, ChevronUp, ChevronRight, ChevronLeft,
-  BookMarked, Newspaper, GraduationCap, Gavel
+  BookMarked, Newspaper, GraduationCap, Gavel, Send
 } from "lucide-react";
 
 const competenciasData = [
@@ -51,7 +51,7 @@ const competenciasData = [
     tagsLabel: "",
   },
   {
-    icon: Database,
+    icon: Send,
     label: "Fornecer",
     color: "#10B981",
     desc: "Disponibilização de informação e acesso a bases de dados",
