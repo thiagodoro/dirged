@@ -42,9 +42,10 @@ const competenciasData = [
     desc: "Editoração e apoio a publicações técnicas e jurídicas",
     items: [
       "Editoração de livros técnicos da EJEF",
-      "Revisão de textos e apresentações",
-      "Adequação às normas da ABNT",
+      "Elaboração de boletins técnicos periódicos",
+      "Revisão de documentos de setores e adequação às normas da ABNT",
       "Confecção de fichas catalográficas",
+      "Avaliação de artigos submetidos para a Revista EJEF, Coleção de Artigos (Biblioteca Digital) e Concursos de Artigos da EJEF",
     ],
     tags: [],
     tagsLabel: "",
