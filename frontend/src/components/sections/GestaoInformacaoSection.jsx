@@ -183,15 +183,15 @@ const trabVisivel = [
 ];
 
 const trabInvisivel = [
-  "Pesquisa de doutrina, jurisprudência e legislação",
-  "Revisão de textos para publicação",
-  "Gestão e fiscalização de ~20 contratos",
-  "Manutenção de espaços da biblioteca",
+  "Pesquisa de doutrina, jurisprudência e legislação para magistrados e servidores",
+  "Revisão de textos para publicação de setores do TJMG",
+  "Gestão e fiscalização de 20 contratos",
+  "Manutenção de espaços de biblioteca",
   "Controle de logística de malotes",
   "Cobranças de fornecedores e usuários em atraso",
-  "Controle patrimonial (inventário anual)",
+  "Controle patrimonial (inventário bibliográfico anual)",
   "Organização dos acervos impresso e digital",
-  "Conservação de ~5.000 obras raras",
+  "Conservação e restauração de acervo de 5.000 obras raras",
 ];
 
 const plantaoEjef = [
@@ -309,7 +309,7 @@ const GestaoInformacaoSection = () => {
                 <h4 className="font-outfit font-bold text-white/50 text-lg">Trabalho Invisível</h4>
               </div>
               <div className="space-y-2.5">
-                {trabInvisivel.slice(0, showInvisivel ? trabInvisivel.length : 4).map((item, i) => (
+                {trabInvisivel.map((item, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, x: 10 }}
@@ -323,15 +323,6 @@ const GestaoInformacaoSection = () => {
                   </motion.div>
                 ))}
               </div>
-              {trabInvisivel.length > 4 && (
-                <button
-                  onClick={() => setShowInvisivel(!showInvisivel)}
-                  className="mt-3 flex items-center gap-1 text-xs text-white/30 hover:text-white/60 transition-colors mx-auto"
-                >
-                  {showInvisivel ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-                  {showInvisivel ? "Ocultar" : `Ver mais ${trabInvisivel.length - 4} itens`}
-                </button>
-              )}
             </div>
           </div>
         </SectionBlock>
