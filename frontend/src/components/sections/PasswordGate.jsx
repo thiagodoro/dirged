@@ -224,7 +224,7 @@ const PasswordGate = ({ children }) => {
                   transition={{ delay: 0.3 }}
                 >
                   <h2 className="font-outfit text-lg font-semibold text-white tracking-wide">
-                    DIRGED
+                    DIRGED/EJEF
                   </h2>
                   <p className="text-white/40 text-xs mt-0.5 font-satoshi">
                     Área de acesso restrito
