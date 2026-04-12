@@ -118,9 +118,9 @@ const PasswordGate = ({ children }) => {
             animate={{ opacity: exitAnimation ? 0 : 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center"
+            className="fixed inset-0 z-[9999] flex items-center justify-end pr-8 md:pr-16 lg:pr-24"
           >
-            {/* Background image */}
+            {/* Background image - fully visible */}
             <div
               className="absolute inset-0"
               style={{
@@ -130,48 +130,43 @@ const PasswordGate = ({ children }) => {
                 backgroundRepeat: "no-repeat",
               }}
             />
-            {/* Dark overlay for readability */}
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-            {/* Subtle animated accent glows */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#FF007F]/5 rounded-full blur-[120px] animate-pulse" />
-              <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#9D00FF]/5 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
-            </div>
 
-            {/* Modal Card */}
+            {/* Modal Card - right side, smaller */}
             <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              initial={{ opacity: 0, x: 40, scale: 0.95 }}
               animate={{
                 opacity: exitAnimation ? 0 : 1,
-                y: exitAnimation ? -20 : 0,
-                scale: exitAnimation ? 1.02 : 1,
-                x: shake ? [0, -10, 10, -10, 10, -5, 5, 0] : 0,
+                x: exitAnimation ? 40 : 0,
+                scale: exitAnimation ? 0.98 : 1,
+                ...(shake ? { x: [0, -8, 8, -8, 8, -4, 4, 0] } : {}),
               }}
               transition={{
                 duration: shake ? 0.5 : 0.5,
                 ease: "easeOut",
               }}
-              className="relative w-full max-w-md mx-4 overflow-hidden rounded-2xl"
+              className="relative w-full max-w-xs overflow-hidden rounded-2xl z-10"
               style={{
-                background: "linear-gradient(145deg, rgba(26,26,26,0.95), rgba(10,10,10,0.98))",
-                border: "1px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 25px 60px rgba(0,0,0,0.5), 0 0 40px rgba(255,0,127,0.05)",
+                background: "linear-gradient(145deg, rgba(10,10,10,0.88), rgba(0,0,0,0.92))",
+                border: "1px solid rgba(255,255,255,0.1)",
+                boxShadow: "0 25px 60px rgba(0,0,0,0.6), 0 0 80px rgba(0,0,0,0.3)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
               }}
             >
               {/* Top decorative line */}
               <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#FF007F]/50 to-transparent" />
 
-              <div className="px-8 pt-10 pb-4">
+              <div className="px-6 pt-7 pb-3">
                 {/* Icon */}
                 <motion.div
-                  className="flex justify-center mb-6"
+                  className="flex justify-center mb-4"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                 >
                   <div className="relative">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#FF007F]/20 to-[#9D00FF]/20 flex items-center justify-center border border-white/10">
-                      <Lock className="w-7 h-7 text-white/80" />
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF007F]/20 to-[#9D00FF]/20 flex items-center justify-center border border-white/10">
+                      <Lock className="w-5 h-5 text-white/80" />
                     </div>
                     <div className="absolute -inset-1 rounded-full bg-[#FF007F]/10 blur-lg -z-10" />
                   </div>
@@ -179,15 +174,15 @@ const PasswordGate = ({ children }) => {
 
                 {/* Title */}
                 <motion.div
-                  className="text-center mb-2"
+                  className="text-center mb-1"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <h2 className="font-outfit text-xl font-semibold text-white tracking-wide">
+                  <h2 className="font-outfit text-lg font-semibold text-white tracking-wide">
                     DIRGED
                   </h2>
-                  <p className="text-white/40 text-sm mt-1 font-satoshi">
+                  <p className="text-white/40 text-xs mt-0.5 font-satoshi">
                     Área de acesso restrito
                   </p>
                 </motion.div>
@@ -195,7 +190,7 @@ const PasswordGate = ({ children }) => {
                 {/* Form */}
                 <motion.form
                   onSubmit={handleSubmit}
-                  className="mt-8 space-y-4"
+                  className="mt-5 space-y-3"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
@@ -215,7 +210,7 @@ const PasswordGate = ({ children }) => {
                         error
                           ? "border-red-500/60 focus:border-red-500"
                           : "border-white/10 focus:border-[#FF007F]/50"
-                      } rounded-xl px-4 py-3.5 pr-12 text-white placeholder-white/30 font-satoshi text-sm outline-none transition-all duration-300 focus:bg-white/[0.07] focus:ring-1 ${
+                      } rounded-lg px-3 py-2.5 pr-10 text-white placeholder-white/30 font-satoshi text-xs outline-none transition-all duration-300 focus:bg-white/[0.07] focus:ring-1 ${
                         error ? "focus:ring-red-500/30" : "focus:ring-[#FF007F]/20"
                       }`}
                       autoComplete="off"
@@ -250,7 +245,7 @@ const PasswordGate = ({ children }) => {
                   {/* Submit button */}
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl font-satoshi text-sm font-medium text-white transition-all duration-300 relative overflow-hidden group"
+                    className="w-full py-2.5 rounded-lg font-satoshi text-xs font-medium text-white transition-all duration-300 relative overflow-hidden group"
                     style={{
                       background: "linear-gradient(135deg, #FF007F, #9D00FF)",
                     }}
@@ -265,7 +260,7 @@ const PasswordGate = ({ children }) => {
               </div>
 
               {/* Progress bar area */}
-              <div className="px-8 pb-6 pt-4">
+              <div className="px-6 pb-4 pt-3">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] text-white/25 font-satoshi tracking-wider uppercase">
                     Carregando página
