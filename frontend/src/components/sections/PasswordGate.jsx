@@ -119,11 +119,20 @@ const PasswordGate = ({ children }) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
             className="fixed inset-0 z-[9999] flex items-center justify-center"
-            style={{
-              background: "radial-gradient(ellipse at center, rgba(15,15,15,0.97) 0%, rgba(0,0,0,0.99) 100%)",
-            }}
           >
-            {/* Subtle animated background particles */}
+            {/* Background image */}
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url("https://customer-assets.emergentagent.com/job_github-import-65/artifacts/czp6f2w0_dji_export_20230819_143336_1692466416441_sphere_screenshot%20%281%29.jpg")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
+            {/* Dark overlay for readability */}
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+            {/* Subtle animated accent glows */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#FF007F]/5 rounded-full blur-[120px] animate-pulse" />
               <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#9D00FF]/5 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
