@@ -28,9 +28,9 @@ const competenciasData = [
     color: "#3B82F6",
     desc: "Tratamento técnico da informação para recuperação eficiente",
     items: [
-      "Catalogação — Registro bibliográfico padronizado",
-      "Classificação — Organização por área temática",
-      "Indexação — Descritores para recuperação da informação",
+      "Catalogação: Elaboração de representação descritiva para materiais bibliográficos (físicos e digitais) e documentação normativa.",
+      "Classificação: Estruturação sistemática do acervo por áreas do conhecimento.",
+      "Indexação: Aplicação de vocabulário controlado e descritores específicos para garantir agilidade na busca e recuperação de dados.",
     ],
     tags: [],
     tagsLabel: "",
