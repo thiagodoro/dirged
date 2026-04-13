@@ -431,9 +431,9 @@ const GestaoInformacaoSection = () => {
           {/* Espaços de Biblioteca */}
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
-              { icon: Library, label: "Biblioteca Des. Amílcar de Castro (Matriz)", sub: "Subsolo – Anexo I (R. Goiás, 229)" },
-              { icon: BookMarked, label: "Centro de Leitura e Informação - CLI", sub: "Edifício Sede – 14º Andar (Av. Afonso Pena, 4001)" },
-              { icon: Globe, label: "Biblioteca Digital", sub: "bd.tjmg.jus.br" },
+              { icon: Library, label: "Biblioteca Des. Amílcar de Castro (Matriz)", sub: "Subsolo – Anexo I (R. Goiás, 229)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/nphghews_image.png" },
+              { icon: BookMarked, label: "Centro de Leitura e Informação - CLI", sub: "Edifício Sede – 14º Andar (Av. Afonso Pena, 4001)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/7a94chjl_image.png" },
+              { icon: Globe, label: "Biblioteca Digital", sub: "bd.tjmg.jus.br", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/hefcbrf7_image.png" },
             ].map((esp, i) => (
               <motion.div
                 key={esp.label}
@@ -441,11 +441,15 @@ const GestaoInformacaoSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06 }}
-                className="bg-white/[0.03] border border-white/5 rounded-xl p-4 text-center"
+                className="bg-white/[0.03] border border-white/5 rounded-xl overflow-hidden"
               >
-                <esp.icon className="w-5 h-5 text-[#3B82F6]/70 mx-auto mb-2" />
-                <p className="text-white/70 text-xs font-medium">{esp.label}</p>
-                <p className="text-white/30 text-[10px] mt-0.5">{esp.sub}</p>
+                <div className="h-36 overflow-hidden">
+                  <img src={esp.img} alt={esp.label} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-4 text-center">
+                  <p className="text-white/70 text-xs font-medium">{esp.label}</p>
+                  <p className="text-white/30 text-[10px] mt-0.5">{esp.sub}</p>
+                </div>
               </motion.div>
             ))}
           </div>
