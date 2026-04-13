@@ -500,7 +500,7 @@ const GestaoInformacaoSection = () => {
                 </div>
               ))}
             </div>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-1 gap-4 max-w-md mx-auto">
               {atosNormativos.map((a, i) => (
                 <div key={i} className="bg-white/[0.03] rounded-xl p-5 text-center">
                   <span className="font-outfit font-bold text-3xl text-[#FF007F]">{a.valor}</span>
@@ -521,7 +521,7 @@ const GestaoInformacaoSection = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-black/30 border border-[#10B981]/20 rounded-2xl overflow-hidden">
               <div className="h-48 overflow-hidden">
-                <img src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/vw15t9cj_image.png" alt="1º Concurso - 10 anos do CPC" className="w-full h-full object-cover" />
+                <img src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/vw15t9cj_image.png" alt="1º Concurso - 10 anos do CPC" className="w-full h-full object-cover object-top" />
               </div>
               <div className="p-6 relative">
                 <div className="absolute top-0 right-0 w-20 h-20 bg-[#10B981]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -539,7 +539,7 @@ const GestaoInformacaoSection = () => {
             </div>
             <div className="bg-black/30 border border-[#10B981]/20 rounded-2xl overflow-hidden">
               <div className="h-48 overflow-hidden">
-                <img src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/wchm3zd2_image.png" alt="2º Concurso - 10 anos do EPD" className="w-full h-full object-cover" />
+                <img src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/wchm3zd2_image.png" alt="2º Concurso - 10 anos do EPD" className="w-full h-full object-cover object-[center_30%]" />
               </div>
               <div className="p-6 relative">
                 <div className="absolute top-0 right-0 w-20 h-20 bg-[#10B981]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
