@@ -433,7 +433,7 @@ const GestaoInformacaoSection = () => {
             {[
               { icon: Library, label: "Biblioteca Des. Amílcar de Castro (Matriz)", sub: "Subsolo – Anexo I (R. Goiás, 229)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/nphghews_image.png" },
               { icon: BookMarked, label: "Centro de Leitura e Informação - CLI", sub: "Edifício Sede – 14º Andar (Av. Afonso Pena, 4001)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/7a94chjl_image.png" },
-              { icon: Globe, label: "Biblioteca Digital", sub: "bd.tjmg.jus.br", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/hefcbrf7_image.png" },
+              { icon: Globe, label: "Biblioteca Digital", sub: "bd.tjmg.jus.br", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/hefcbrf7_image.png", link: "https://bd.tjmg.jus.br" },
             ].map((esp, i) => (
               <motion.div
                 key={esp.label}
@@ -448,7 +448,11 @@ const GestaoInformacaoSection = () => {
                 </div>
                 <div className="p-4 text-center">
                   <p className="text-white/70 text-xs font-medium">{esp.label}</p>
-                  <p className="text-white/30 text-[10px] mt-0.5">{esp.sub}</p>
+                  {esp.link ? (
+                    <a href={esp.link} target="_blank" rel="noopener noreferrer" className="text-[#3B82F6]/70 hover:text-[#3B82F6] text-[10px] mt-0.5 inline-block transition-colors underline underline-offset-2">{esp.sub}</a>
+                  ) : (
+                    <p className="text-white/30 text-[10px] mt-0.5">{esp.sub}</p>
+                  )}
                 </div>
               </motion.div>
             ))}
