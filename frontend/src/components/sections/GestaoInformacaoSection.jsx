@@ -203,7 +203,7 @@ const plantaoEjef = [
 ];
 
 const biblioDigitalStats = [
-  { valor: "13.258", desc: "Itens disponíveis para acesso público no acervo" },
+  { valor: "14.544", desc: "Itens disponíveis para acesso público no acervo" },
   { valor: "7.620", desc: "E-books de editoras do consórcio Minha Biblioteca, RT, Fórum e Del Rey" },
   { valor: "282.725", desc: "Acessos a itens de bases contratadas (biênio 22-24)" },
   { valor: "R$ 1,3 mi", desc: "Investido em bases de dados para a Biblioteca Digital (22-24)" },
@@ -429,12 +429,11 @@ const GestaoInformacaoSection = () => {
             ))}
           </div>
           {/* Espaços de Biblioteca */}
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
-              { icon: Library, label: "Bibl. Des. Amílcar de Castro", sub: "Subsolo – Anexo I" },
-              { icon: BookMarked, label: "CLI", sub: "Edifício Sede – 14º Andar" },
+              { icon: Library, label: "Biblioteca Des. Amílcar de Castro (Matriz)", sub: "Subsolo – Anexo I (R. Goiás, 229)" },
+              { icon: BookMarked, label: "Centro de Leitura e Informação - CLI", sub: "Edifício Sede – 14º Andar (Av. Afonso Pena, 4001)" },
               { icon: Globe, label: "Biblioteca Digital", sub: "bd.tjmg.jus.br" },
-              { icon: Smartphone, label: "Minha Biblioteca", sub: "Dispositivos móveis" },
             ].map((esp, i) => (
               <motion.div
                 key={esp.label}
