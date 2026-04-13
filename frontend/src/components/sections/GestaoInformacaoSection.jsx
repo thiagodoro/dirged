@@ -218,8 +218,7 @@ const acervoStats = [
 ];
 
 const atosNormativos = [
-  { valor: "13.372", desc: "Atos normativos formatados, catalogados e indexados" },
-  { valor: "15.857", desc: "Atos normativos avaliados e incluídos" },
+  { valor: "13.372", desc: "Atos normativos da 2ª instância formatados, catalogados e indexados" },
 ];
 
 const servicosProdutos = [
