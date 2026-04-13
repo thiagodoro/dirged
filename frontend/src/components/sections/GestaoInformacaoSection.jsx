@@ -519,27 +519,41 @@ const GestaoInformacaoSection = () => {
             </h3>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-black/30 border border-[#10B981]/20 rounded-2xl p-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-[#10B981]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-              <div className="flex items-center gap-2 mb-3">
-                <Award className="w-5 h-5 text-[#10B981]" />
-                <span className="text-[#10B981] font-bold text-xs uppercase tracking-wider">1º Concurso</span>
+            <div className="bg-black/30 border border-[#10B981]/20 rounded-2xl overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/vw15t9cj_image.png" alt="1º Concurso - 10 anos do CPC" className="w-full h-full object-cover" />
               </div>
-              <h4 className="font-outfit font-bold text-white text-lg mb-2">10 anos do CPC</h4>
-              <p className="text-white/50 text-sm leading-relaxed">
-                Cerimônia de premiação dos 10 primeiros colocados realizada em 20/08/2025.
-              </p>
+              <div className="p-6 relative">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-[#10B981]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+                <div className="flex items-center gap-2 mb-3">
+                  <Award className="w-5 h-5 text-[#10B981]" />
+                  <span className="text-[#10B981] font-bold text-xs uppercase tracking-wider">1º Concurso</span>
+                </div>
+                <a href="https://www.tjmg.jus.br/portal-tjmg/noticias/ejef-divulga-vencedores-do-1-concurso-de-artigos-juridicos-8ACC81FA98C891A90198C99B2CC82F6E-00.htm" target="_blank" rel="noopener noreferrer" className="font-outfit font-bold text-white text-lg mb-2 block hover:text-[#10B981] transition-colors">
+                  10 anos do Código de Processo Civil (CPC)
+                </a>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Cerimônia de premiação realizada do dia 20/08/2025.
+                </p>
+              </div>
             </div>
-            <div className="bg-black/30 border border-[#10B981]/20 rounded-2xl p-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-[#10B981]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-              <div className="flex items-center gap-2 mb-3">
-                <Award className="w-5 h-5 text-[#10B981]" />
-                <span className="text-[#10B981] font-bold text-xs uppercase tracking-wider">2º Concurso</span>
+            <div className="bg-black/30 border border-[#10B981]/20 rounded-2xl overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/wchm3zd2_image.png" alt="2º Concurso - 10 anos do EPD" className="w-full h-full object-cover" />
               </div>
-              <h4 className="font-outfit font-bold text-white text-lg mb-2">10 anos do EPD</h4>
-              <p className="text-white/50 text-sm leading-relaxed">
-                Edital publicado em 08/07/25. Recebimento de artigos até 15/10/25. Premiação prevista para 05/02/26.
-              </p>
+              <div className="p-6 relative">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-[#10B981]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+                <div className="flex items-center gap-2 mb-3">
+                  <Award className="w-5 h-5 text-[#10B981]" />
+                  <span className="text-[#10B981] font-bold text-xs uppercase tracking-wider">2º Concurso</span>
+                </div>
+                <a href="https://www.tjmg.jus.br/portal-tjmg/noticias/ejef-entrega-certificados-do-ii-concurso-de-artigos-juridicos-8ACC80D09BC98E10019C33EE31654F16-00.htm" target="_blank" rel="noopener noreferrer" className="font-outfit font-bold text-white text-lg mb-2 block hover:text-[#10B981] transition-colors">
+                  10 anos do Estatuto da Pessoa com Deficiência (EPD)
+                </a>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Premiação realizada em cerimônia no dia 05/02/26.
+                </p>
+              </div>
             </div>
           </div>
         </SectionBlock>
