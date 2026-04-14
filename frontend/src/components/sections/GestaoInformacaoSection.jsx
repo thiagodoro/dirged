@@ -420,41 +420,28 @@ const GestaoInformacaoSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className={`bg-black/40 border border-white/10 rounded-2xl p-6 ${i === 2 ? "sm:col-span-2 lg:col-span-1" : ""}`}
+                className={`bg-black/40 border border-white/10 rounded-2xl p-6`}
               >
                 <span className="font-outfit font-bold text-3xl sm:text-4xl text-[#3B82F6]">{s.valor}</span>
                 <p className="text-white/60 text-sm mt-3 leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
-          </div>
-          {/* Espaços de Biblioteca */}
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {[
-              { icon: Library, label: "Biblioteca Des. Amílcar de Castro (Matriz)", sub: "Subsolo – Anexo I (R. Goiás, 229)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/nphghews_image.png" },
-              { icon: BookMarked, label: "Centro de Leitura e Informação - CLI", sub: "Edifício Sede – 14º Andar (Av. Afonso Pena, 4001)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/7a94chjl_image.png" },
-              { icon: Globe, label: "Biblioteca Digital", sub: "bd.tjmg.jus.br", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/hefcbrf7_image.png", link: "https://bd.tjmg.jus.br" },
-            ].map((esp, i) => (
-              <motion.div
-                key={esp.label}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
-                className="bg-white/[0.03] border border-white/5 rounded-xl overflow-hidden"
-              >
-                <div className="h-36 overflow-hidden">
-                  <img src={esp.img} alt={esp.label} className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4 text-center">
-                  <p className="text-white/70 text-xs font-medium">{esp.label}</p>
-                  {esp.link ? (
-                    <a href={esp.link} target="_blank" rel="noopener noreferrer" className="text-[#3B82F6]/70 hover:text-[#3B82F6] text-[10px] mt-0.5 inline-block transition-colors underline underline-offset-2">{esp.sub}</a>
-                  ) : (
-                    <p className="text-white/30 text-[10px] mt-0.5">{esp.sub}</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+            {/* Biblioteca Digital card with photo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="bg-black/40 border border-white/10 rounded-2xl overflow-hidden"
+            >
+              <div className="h-28 overflow-hidden">
+                <img src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/hefcbrf7_image.png" alt="Biblioteca Digital" className="w-full h-full object-cover" />
+              </div>
+              <div className="p-4 text-center">
+                <p className="text-white/70 text-xs font-medium">Biblioteca Digital</p>
+                <a href="https://bd.tjmg.jus.br" target="_blank" rel="noopener noreferrer" className="text-[#3B82F6]/70 hover:text-[#3B82F6] text-[10px] mt-0.5 inline-block transition-colors underline underline-offset-2">bd.tjmg.jus.br</a>
+              </div>
+            </motion.div>
           </div>
         </SectionBlock>
 
@@ -478,6 +465,30 @@ const GestaoInformacaoSection = () => {
                 <span className="font-outfit font-bold text-2xl sm:text-3xl text-[#FFE600]">{s.valor}</span>
                 <p className="text-white font-medium text-sm mt-2">{s.label}</p>
                 <p className="text-white/30 text-xs mt-1">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+          {/* Unidades Físicas */}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { label: "Biblioteca Des. Amílcar de Castro (Matriz)", sub: "Subsolo – Anexo I (R. Goiás, 229)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/nphghews_image.png" },
+              { label: "Centro de Leitura e Informação - CLI", sub: "Edifício Sede – 14º Andar (Av. Afonso Pena, 4001)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/7a94chjl_image.png" },
+            ].map((esp, i) => (
+              <motion.div
+                key={esp.label}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                className="bg-white/[0.03] border border-white/5 rounded-xl overflow-hidden"
+              >
+                <div className="h-36 overflow-hidden">
+                  <img src={esp.img} alt={esp.label} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-4 text-center">
+                  <p className="text-white/70 text-xs font-medium">{esp.label}</p>
+                  <p className="text-white/30 text-[10px] mt-0.5">{esp.sub}</p>
+                </div>
               </motion.div>
             ))}
           </div>
