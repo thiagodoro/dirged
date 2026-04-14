@@ -15,6 +15,7 @@ const MapaSection = () => {
     { id: 5, lat: -19.9117456, lng: -44.0462546, color: "#FF6B35", units: "CORCEN, CORAV, COARPE", address: "Av. Ápio Cardoso, 577 - Cincão - Contagem" },
     { id: 6, lat: -19.9256585, lng: -43.9349312, color: "#10B981", units: "COMEX", address: "Av. Afonso Pena, 1500 - Centro" },
     { id: 7, lat: -19.9397822, lng: -43.9267442, color: "#3B82F6", units: "COMEX", address: "Praça Milton Campos, 16 - Cruzeiro" },
+    { id: 8, lat: -19.9728, lng: -44.0133, color: "#F472B6", units: "CORCEN", address: "R. Flávio Marques Lisboa, 464 - Barreiro de Baixo" },
   ];
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const MapaSection = () => {
             Onde <span className="text-gradient-pink">Estamos</span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto text-sm md:text-base">
-            A DIRGED ocupa <strong className="text-white">7 endereços</strong> em Belo Horizonte e Região Metropolitana.
+            A DIRGED ocupa <strong className="text-white">8 endereços</strong> em Belo Horizonte e Região Metropolitana.
           </p>
         </motion.div>
 
