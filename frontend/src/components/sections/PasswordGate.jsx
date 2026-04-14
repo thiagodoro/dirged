@@ -86,15 +86,23 @@ const PasswordGate = ({ children }) => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: exitAnimation ? 0 : 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="absolute top-8 left-8 sm:top-12 sm:left-12 md:left-16 z-10 hidden sm:flex items-center gap-4 md:gap-6"
+              className="absolute top-8 left-8 right-8 sm:top-12 sm:left-12 sm:right-12 md:left-16 md:right-16 z-10 hidden sm:flex items-center"
             >
-              <h1 className="font-outfit font-bold text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-lg leading-none">
+              <h1 className="font-outfit font-bold text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-lg leading-none shrink-0">
                 DIRGED
               </h1>
-              <div className="h-10 md:h-12 w-px bg-white/30" />
-              <p className="font-outfit font-light text-xs md:text-sm text-white/70 leading-tight drop-shadow-md max-w-[200px] md:max-w-[240px]">
+              <div className="h-10 md:h-12 w-px bg-white/30 mx-4 md:mx-6 shrink-0" />
+              <p className="font-outfit font-light text-xs md:text-sm lg:text-base text-white/70 leading-none drop-shadow-md whitespace-nowrap">
                 Diretoria Executiva de Gestão da Informação Documental
               </p>
+              <div className="flex-1" />
+              <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer" className="shrink-0">
+                <img
+                  src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/x45fyd6l_logo%20ejef.png"
+                  alt="EJEF | TJMG"
+                  className="h-12 md:h-14 object-contain hover:opacity-80 transition-opacity cursor-pointer drop-shadow-lg"
+                />
+              </a>
             </motion.div>
 
             {/* Modal Card */}
