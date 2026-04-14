@@ -74,6 +74,8 @@ const OrganogaramaSection = () => {
           </p>
         </motion.div>
 
+        {/* ===== DESKTOP ORG CHART ===== */}
+        <div className="hidden md:block">
         {/* DIRGED (centered) with ASGID connected via straight line */}
         <div className="relative mb-0">
           {/* DIRGED - Centered */}
@@ -244,6 +246,97 @@ const OrganogaramaSection = () => {
           ))}
         </div>
       </div>
+      </div>
+      {/* ===== END DESKTOP ORG CHART ===== */}
+
+      {/* ===== MOBILE ORG CHART ===== */}
+      <div className="md:hidden space-y-4">
+        {/* DIRGED */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-[#FF007F] to-[#9D00FF] p-[2px] rounded-xl"
+        >
+          <div className="bg-[#1a1a1a] rounded-xl px-4 py-4 text-center">
+            <span className="inline-block bg-[#FF007F] rounded-lg px-3 py-1 text-white text-xs font-bold mb-2">DIRGED</span>
+            <p className="text-white/60 text-[10px] leading-tight mb-1">Diretoria Executiva de Gestão da Informação Documental</p>
+            <p className="text-white text-xs cursor-pointer hover:text-[#FFE600] transition-colors" onClick={() => setShowDirectorModal(true)}>Thiago Doro</p>
+          </div>
+        </motion.div>
+
+        {/* ASGID */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="ml-4"
+        >
+          <div className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] p-[1px] rounded-xl">
+            <div className="bg-[#1a1a1a] rounded-xl px-4 py-3 text-center">
+              <span className="inline-block bg-[#3B82F6] rounded-lg px-2 py-0.5 text-white text-[10px] font-bold mb-1">ASGID</span>
+              <p className="text-white/60 text-[10px] leading-tight mb-1">Assessoria Técnica e Jurídica</p>
+              <p className="text-white text-xs cursor-pointer hover:text-[#FFE600] transition-colors" onClick={() => setShowAndreModal(true)}>André Borges Ribeiro</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Gerências + Coordenações */}
+        {gerenciasComCoord.map((gerencia, gIndex) => (
+          <motion.div
+            key={gIndex}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: gIndex * 0.05 }}
+            className="space-y-2"
+          >
+            {/* Gerência */}
+            <div className="bg-gradient-to-r from-[#BE185D] to-[#9D174D] p-[1px] rounded-xl">
+              <div className="bg-[#1a1a1a] rounded-xl px-4 py-3 text-center">
+                <span className="inline-block bg-[#BE185D] rounded-lg px-2 py-0.5 text-white text-[10px] font-bold mb-1">{gerencia.sigla}</span>
+                <p className="text-white/60 text-[10px] leading-tight mb-1">{gerencia.nome}</p>
+                <p
+                  className="text-white text-xs cursor-pointer hover:text-[#FFE600] transition-colors"
+                  onClick={() => {
+                    if (gerencia.sigla === 'GEDOC') setShowSimoneModal(true);
+                    if (gerencia.sigla === 'GEDAN') setShowDanielaModal(true);
+                    if (gerencia.sigla === 'GEJUR') setShowClaudicianoModal(true);
+                  }}
+                >{gerencia.responsavel}</p>
+              </div>
+            </div>
+
+            {/* Coordenações */}
+            <div className="grid grid-cols-2 gap-2 ml-4">
+              {gerencia.coordenacoes.map((coord, cIndex) => (
+                <div
+                  key={cIndex}
+                  className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] p-[1px] rounded-xl"
+                >
+                  <div className="bg-[#1a1a1a] rounded-xl px-3 py-2.5 text-center">
+                    <span className="inline-block bg-[#F59E0B] rounded px-1.5 py-0.5 text-white text-[9px] font-bold mb-1">{coord.sigla}</span>
+                    <p
+                      className="text-white text-[10px] cursor-pointer hover:text-[#FFE600] transition-colors leading-tight"
+                      onClick={() => {
+                        if (coord.sigla === 'CORCEN') setShowMariannaModal(true);
+                        if (coord.sigla === 'COARQ') setShowGiselleModal(true);
+                        if (coord.sigla === 'COBIB') setShowRafaelaModal(true);
+                        if (coord.sigla === 'COGEDE') setShowBarbaraModal(true);
+                        if (coord.sigla === 'COJUR') setShowMauricioModal(true);
+                        if (coord.sigla === 'COMEX') setShowMarcioModal(true);
+                        if (coord.sigla === 'COARPE') setShowSoniaModal(true);
+                        if (coord.sigla === 'CORAV') setShowVantuirModal(true);
+                      }}
+                    >{coord.responsavel}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+      {/* ===== END MOBILE ORG CHART ===== */}
 
       {/* Modal Thiago Doro */}
       <AnimatePresence>
