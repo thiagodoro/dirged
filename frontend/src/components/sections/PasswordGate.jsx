@@ -68,7 +68,7 @@ const PasswordGate = ({ children }) => {
             animate={{ opacity: exitAnimation ? 0 : 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="fixed inset-0 z-[9999] flex items-start pt-8 justify-center sm:items-center sm:pt-0 sm:justify-end sm:pr-8 md:pr-16 lg:pr-24"
+            className="fixed inset-0 z-[9999] flex flex-col items-start pt-8 justify-start sm:flex-row sm:items-center sm:pt-0 sm:justify-end sm:pr-8 md:pr-16 lg:pr-24"
           >
             {/* Background image */}
             <div
@@ -80,6 +80,21 @@ const PasswordGate = ({ children }) => {
                 backgroundRepeat: "no-repeat",
               }}
             />
+
+            {/* Title - top left on desktop, top center on mobile */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: exitAnimation ? 0 : 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="absolute top-8 left-8 sm:top-12 sm:left-12 md:left-16 z-10 hidden sm:block"
+            >
+              <h1 className="font-outfit font-bold text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-lg leading-none">
+                DIRGED
+              </h1>
+              <p className="font-outfit font-light text-xs md:text-sm text-white/60 mt-2 tracking-wider drop-shadow-md">
+                Diretoria Executiva de Gestão da Informação Documental
+              </p>
+            </motion.div>
 
             {/* Modal Card */}
             <motion.div
