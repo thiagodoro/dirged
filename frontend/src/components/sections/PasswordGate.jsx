@@ -96,30 +96,6 @@ const PasswordGate = ({ children }) => {
                 Diretoria Executiva de Gestão da Informação Documental
               </p>
               <div className="flex-1" />
-              <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer" className="shrink-0">
-                <img
-                  src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/x45fyd6l_logo%20ejef.png"
-                  alt="EJEF | TJMG"
-                  className="h-12 md:h-14 object-contain hover:opacity-80 transition-opacity cursor-pointer drop-shadow-lg"
-                />
-              </a>
-            </motion.div>
-
-            {/* EJEF Logo centered above modal on right side */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: exitAnimation ? 0 : 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="absolute top-8 sm:top-12 right-8 sm:right-8 md:right-16 lg:right-24 z-10 sm:hidden flex justify-center"
-              style={{ width: "340px" }}
-            >
-              <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/x45fyd6l_logo%20ejef.png"
-                  alt="EJEF | TJMG"
-                  className="h-10 object-contain hover:opacity-80 transition-opacity cursor-pointer drop-shadow-lg"
-                />
-              </a>
             </motion.div>
 
             {/* Footer credit */}
@@ -127,10 +103,28 @@ const PasswordGate = ({ children }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: exitAnimation ? 0 : 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="absolute bottom-4 left-6 sm:bottom-6 sm:left-12 md:left-16 z-10 text-white/30 text-[10px] sm:text-xs font-satoshi drop-shadow-md"
+              className="absolute bottom-4 left-6 sm:bottom-6 sm:left-12 md:left-16 z-10 text-white/40 text-[10px] sm:text-xs font-satoshi drop-shadow-md bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm"
             >
               Foto: Thiago Doro
             </motion.p>
+
+            {/* Modal column: logo + card */}
+            <div className="z-10 flex flex-col items-center gap-4 mx-4 sm:mx-0">
+              {/* EJEF Logo centered with modal */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: exitAnimation ? 0 : 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="hidden sm:block"
+              >
+                <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/x45fyd6l_logo%20ejef.png"
+                    alt="EJEF | TJMG"
+                    className="h-12 md:h-14 object-contain hover:opacity-80 transition-opacity cursor-pointer drop-shadow-lg"
+                  />
+                </a>
+              </motion.div>
 
             {/* Modal Card */}
             <motion.div
@@ -263,6 +257,7 @@ const PasswordGate = ({ children }) => {
               {/* Bottom decorative line */}
               <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/5 to-transparent" />
             </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
