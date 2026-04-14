@@ -30,10 +30,14 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="font-outfit font-bold text-4xl sm:text-5xl lg:text-7xl text-white leading-tight mb-6">
-            Diretoria Executiva de Gestão da{" "}
-            <span className="text-gradient-pink">Informação Documental</span>
-          </h1>
+          <div className="mb-8">
+            <h1 className="font-outfit font-bold text-6xl sm:text-7xl lg:text-9xl text-white leading-none tracking-tight">
+              DIRGED
+            </h1>
+            <p className="font-outfit font-light text-base sm:text-lg lg:text-xl text-white/50 mt-3 tracking-widest uppercase">
+              Diretoria Executiva de Gestão da Informação Documental
+            </p>
+          </div>
           
           <p className="font-satoshi text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-10">
             Transformando a gestão documental e a gestão da informação do TJMG através da inovação, eficiência e excelência no serviço público.
