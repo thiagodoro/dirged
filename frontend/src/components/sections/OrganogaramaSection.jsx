@@ -371,7 +371,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/ays2xooz_WhatsApp%20Image%202026-04-09%20at%2023.46.01.jpeg"
                   alt="Thiago Doro"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -473,7 +473,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/9omrbmjn_simone-removebg-preview.png"
                   alt="Simone Meireles"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -574,7 +574,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/7cqhn3oa_Gemini_Generated_Image_s4umm8s4umm8s4um.png"
                   alt="André Borges"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -688,7 +688,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/lixws7wq_WhatsApp_Image_2026-04-10_at_15.00.18-removebg-preview.png"
                   alt="Daniela Santos"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -807,7 +807,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_fa3179c1-aa4a-4ec6-967a-a49df4dfc88b/artifacts/jz6u7gtw_Mariana-removebg-preview.png"
                   alt="Marianna Levenhagen"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -899,7 +899,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/eirc5xht_Gemini_Generated_Image_u5gqt5u5gqt5u5gq.png"
                   alt="Giselle Cesário"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -993,7 +993,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/bct8up0h_Gemini_Generated_Image_idopc6idopc6idop.png"
                   alt="Rafaela Carvalho"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -1091,7 +1091,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/xt1iyhne_Gemini_Generated_Image_6nw506nw506nw506.png"
                   alt="Bárbara Wacha"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -1194,7 +1194,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/f9wouqjl_Retrato%20elegante%20em%20terno%20preto.png"
                   alt="Mauricio Lacerda"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -1295,7 +1295,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/n1o7c0n5_Gemini_Generated_Image_thzyr3thzyr3thzy.png"
                   alt="Márcio Charles da Silva"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -1389,7 +1389,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/z3xslbvu_sonia.png"
                   alt="Sônia Santos"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -1512,7 +1512,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/wio2a2kt_Gemini_Generated_Image_6grjz86grjz86grj.png"
                   alt="Claudiciano Pereira"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
@@ -1615,7 +1615,7 @@ const OrganogaramaSection = () => {
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/mk7zxroj_vantuir.jpg"
                   alt="Vantuir de O. Machado Júnior"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                   initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.15 }}
