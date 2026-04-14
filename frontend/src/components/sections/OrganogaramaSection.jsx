@@ -1560,22 +1560,41 @@ const OrganogaramaSection = () => {
 
                   <div>
                     <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Carreira</p>
-                    <div className="space-y-1.5">
-                      <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
-                        <p className="text-white/90 text-sm">Estagiário na 4ª Vara Cível da Comarca de Betim (2001/2002)</p>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Estagiário na 4ª Vara Cível da Comarca de Betim</p>
+                          <p className="text-white/50 text-xs">2001/2002</p>
+                        </div>
                       </div>
-                      <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
-                        <p className="text-white/90 text-sm">Oficial de Apoio Judicial na 4ª Vara Cível da Comarca de Betim (2002/2006)</p>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Oficial de Apoio Judicial na 4ª Vara Cível da Comarca de Betim</p>
+                          <p className="text-white/50 text-xs">2002/2006</p>
+                        </div>
                       </div>
-                      <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
-                        <p className="text-white/90 text-sm">Analista Judiciário na GEFIS (2008/2014) e na antiga GESCOM (2015) da Corregedoria Geral de Justiça do Estado de Minas Gerais</p>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Analista Judiciário na GEFIS/CGJ</p>
+                          <p className="text-white/50 text-xs">2008/2014</p>
+                        </div>
                       </div>
-                      <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
-                        <p className="text-white/90 text-sm font-medium">Coordenador da CORAV desde 8/4/2016</p>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#9D00FF] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Analista Judiciário na GESCOM/CGJ</p>
+                          <p className="text-white/50 text-xs">2015</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-[#FF007F] mt-1.5 shrink-0" />
+                        <div>
+                          <p className="text-white/90 text-sm font-medium">Coordenador da CORAV</p>
+                          <p className="text-white/50 text-xs">08/04/2016 - atual</p>
+                        </div>
                       </div>
                     </div>
                   </div>
