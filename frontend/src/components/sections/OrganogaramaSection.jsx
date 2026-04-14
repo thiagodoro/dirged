@@ -15,6 +15,7 @@ const OrganogaramaSection = () => {
   const [showMarcioModal, setShowMarcioModal] = useState(false);
   const [showSoniaModal, setShowSoniaModal] = useState(false);
   const [showClaudicianoModal, setShowClaudicianoModal] = useState(false);
+  const [showVantuirModal, setShowVantuirModal] = useState(false);
   const gerenciasComCoord = [
     { 
       nome: "Gerência de Jurisprudência, Biblioteca e Publicações Técnicas", 
@@ -233,6 +234,7 @@ const OrganogaramaSection = () => {
                         if (coord.sigla === 'COJUR') setShowMauricioModal(true);
                         if (coord.sigla === 'COMEX') setShowMarcioModal(true);
                         if (coord.sigla === 'COARPE') setShowSoniaModal(true);
+                        if (coord.sigla === 'CORAV') setShowVantuirModal(true);
                       }}
                     >{coord.responsavel}</span>
                   </div>
@@ -272,7 +274,7 @@ const OrganogaramaSection = () => {
                 <X className="w-5 h-5 text-white" />
               </button>
 
-              <div className="md:w-2/5 flex items-end justify-center bg-black p-0 overflow-hidden">
+              <div className="md:w-2/5 flex items-stretch justify-center bg-black p-0 overflow-hidden">
                 <motion.img
                   src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/ays2xooz_WhatsApp%20Image%202026-04-09%20at%2023.46.01.jpeg"
                   alt="Thiago Doro"
@@ -509,10 +511,6 @@ const OrganogaramaSection = () => {
                       <div className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#10B981] mt-1.5 shrink-0" />
                         <p className="text-white/90 text-sm">Direito (Centro Universitário de Patos de Minas)</p>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#10B981] mt-1.5 shrink-0" />
-                        <p className="text-white/90 text-sm italic">Pós-graduação: a informar</p>
                       </div>
                     </div>
                   </div>
@@ -1468,7 +1466,7 @@ const OrganogaramaSection = () => {
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
                         <div>
-                          <p className="text-white/90 text-sm font-medium">Analista Judiciário - GERNOT/CGJ</p>
+                          <p className="text-white/90 text-sm font-medium">Analista Judiciário - GENOT/CGJ</p>
                           <p className="text-white/50 text-xs">25/02/2011 - 12/09/2017</p>
                         </div>
                       </div>
@@ -1485,6 +1483,99 @@ const OrganogaramaSection = () => {
                           <p className="text-white/90 text-sm font-medium">Gerente - GEJUR</p>
                           <p className="text-white/50 text-xs">03/06/2024 - atual</p>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Modal Vantuir */}
+      <AnimatePresence>
+        {showVantuirModal && (
+          <motion.div
+            className="fixed inset-0 z-[9999] flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowVantuirModal(false)}
+          >
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+            <motion.div
+              className="relative w-[95%] max-w-4xl bg-[#141414] rounded-3xl overflow-hidden flex flex-col md:flex-row border border-white/10 shadow-2xl max-h-[90vh] md:max-h-[80vh]"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                onClick={() => setShowVantuirModal(false)}
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+
+              <div className="md:w-2/5 flex items-stretch justify-center bg-black p-0 overflow-hidden">
+                <motion.img
+                  src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/mk7zxroj_vantuir.jpg"
+                  alt="Vantuir de O. Machado Júnior"
+                  className="w-full h-full object-cover object-top"
+                  initial={{ x: -30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.15 }}
+                />
+              </div>
+
+              <motion.div
+                className="md:w-3/5 p-8 md:p-10 flex flex-col justify-center overflow-y-auto"
+                initial={{ x: 30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <h3 className="font-outfit font-bold text-3xl text-white mb-1">Vantuir de O. Machado Júnior</h3>
+                <p className="text-[#F59E0B] font-semibold text-lg mb-6">Coordenador - CORAV</p>
+
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Cargo de Carreira</p>
+                    <p className="text-white/90 text-sm">Analista Judiciário - Analista Judiciário (Desde 3/12/2008)</p>
+                  </div>
+
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Formação</p>
+                    <div className="space-y-1.5">
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#10B981] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Direito (PUC Minas)</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#10B981] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Especialização latu sensu em Direito Processual (PUC Minas)</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Carreira</p>
+                    <div className="space-y-1.5">
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Estagiário na 4ª Vara Cível da Comarca de Betim (2001/2002)</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Oficial de Apoio Judicial na 4ª Vara Cível da Comarca de Betim (2002/2006)</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm">Analista Judiciário na GEFIS (2008/2014) e na antiga GESCOM (2015) da Corregedoria Geral de Justiça do Estado de Minas Gerais</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mt-1.5 shrink-0" />
+                        <p className="text-white/90 text-sm font-medium">Coordenador da CORAV desde 8/4/2016</p>
                       </div>
                     </div>
                   </div>
