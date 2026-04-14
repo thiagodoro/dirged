@@ -161,3 +161,12 @@ div:has(> a[href*="emergent"]) {
   animation: marquee-right 35s linear infinite;
 }
 
+@media (max-width: 767px) {
+  .animate-marquee-left {
+    animation: marquee-left 12s linear infinite;
+  }
+  .animate-marquee-right {
+    animation: marquee-right 14s linear infinite;
+  }
+}
+
