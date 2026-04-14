@@ -218,7 +218,9 @@ const acervoStats = [
 ];
 
 const atosNormativos = [
-  { valor: "13.372", desc: "Atos normativos da 2ª instância formatados, catalogados e indexados" },
+  { valor: "15.878", desc: "Atos normativos da 1ª instância - Treinamento da GEINF/CGJ para formatar, catalogar e indexar", instancia: "1ª Instância" },
+  { valor: "13.387", desc: "Atos normativos da 2ª instância formatados, catalogados e indexados", instancia: "2ª Instância" },
+  { valor: "62", desc: "Atos normativos dos Juizados Especiais formatados, catalogados e indexados", instancia: "Juizados Especiais" },
 ];
 
 const servicosProdutos = [
@@ -504,18 +506,12 @@ const GestaoInformacaoSection = () => {
               <h3 className="font-outfit font-bold text-white text-lg">Base de Atos Normativos do TJMG</h3>
             </div>
             <div className="grid sm:grid-cols-3 gap-4 mb-6">
-              {["1ª Instância", "2ª Instância", "Juizados Especiais"].map((inst, i) => (
-                <div key={inst} className="bg-[#FF007F]/5 border border-[#FF007F]/10 rounded-xl px-4 py-3 text-center">
-                  <Scale className="w-4 h-4 text-[#FF007F]/60 mx-auto mb-1" />
-                  <span className="text-white/70 text-sm">{inst}</span>
-                </div>
-              ))}
-            </div>
-            <div className="grid sm:grid-cols-1 gap-4 max-w-md mx-auto">
               {atosNormativos.map((a, i) => (
-                <div key={i} className="bg-white/[0.03] rounded-xl p-5 text-center">
+                <div key={i} className="bg-[#FF007F]/5 border border-[#FF007F]/10 rounded-xl px-4 py-5 text-center">
+                  <Scale className="w-4 h-4 text-[#FF007F]/60 mx-auto mb-2" />
+                  <span className="text-white/70 text-sm font-medium block mb-3">{a.instancia}</span>
                   <span className="font-outfit font-bold text-3xl text-[#FF007F]">{a.valor}</span>
-                  <p className="text-white/50 text-sm mt-2">{a.desc}</p>
+                  <p className="text-white/50 text-xs mt-2">{a.desc}</p>
                 </div>
               ))}
             </div>
