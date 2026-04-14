@@ -98,6 +98,23 @@ const PasswordGate = ({ children }) => {
               <div className="flex-1" />
             </motion.div>
 
+            {/* EJEF Logo - top of page, centered with modal */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: exitAnimation ? 0 : 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="absolute top-8 sm:top-12 right-8 sm:right-8 md:right-16 lg:right-24 z-10 hidden sm:flex justify-center"
+              style={{ width: "340px" }}
+            >
+              <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/x45fyd6l_logo%20ejef.png"
+                  alt="EJEF | TJMG"
+                  className="h-12 md:h-14 object-contain hover:opacity-80 transition-opacity cursor-pointer drop-shadow-lg"
+                />
+              </a>
+            </motion.div>
+
             {/* Footer credit */}
             <motion.p
               initial={{ opacity: 0 }}
@@ -107,24 +124,6 @@ const PasswordGate = ({ children }) => {
             >
               Foto: Thiago Doro
             </motion.p>
-
-            {/* Modal column: logo + card */}
-            <div className="z-10 flex flex-col items-center gap-4 mx-4 sm:mx-0">
-              {/* EJEF Logo centered with modal */}
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: exitAnimation ? 0 : 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="hidden sm:block"
-              >
-                <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
-                  <img
-                    src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/x45fyd6l_logo%20ejef.png"
-                    alt="EJEF | TJMG"
-                    className="h-12 md:h-14 object-contain hover:opacity-80 transition-opacity cursor-pointer drop-shadow-lg"
-                  />
-                </a>
-              </motion.div>
 
             {/* Modal Card */}
             <motion.div
@@ -257,7 +256,6 @@ const PasswordGate = ({ children }) => {
               {/* Bottom decorative line */}
               <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/5 to-transparent" />
             </motion.div>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
