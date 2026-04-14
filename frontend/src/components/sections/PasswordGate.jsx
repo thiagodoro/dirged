@@ -105,6 +105,33 @@ const PasswordGate = ({ children }) => {
               </a>
             </motion.div>
 
+            {/* EJEF Logo centered above modal on right side */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: exitAnimation ? 0 : 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="absolute top-8 sm:top-12 right-8 sm:right-8 md:right-16 lg:right-24 z-10 sm:hidden flex justify-center"
+              style={{ width: "340px" }}
+            >
+              <a href="https://ejef.tjmg.jus.br" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://customer-assets.emergentagent.com/job_dirged-portal/artifacts/x45fyd6l_logo%20ejef.png"
+                  alt="EJEF | TJMG"
+                  className="h-10 object-contain hover:opacity-80 transition-opacity cursor-pointer drop-shadow-lg"
+                />
+              </a>
+            </motion.div>
+
+            {/* Footer credit */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: exitAnimation ? 0 : 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="absolute bottom-4 left-6 sm:bottom-6 sm:left-12 md:left-16 z-10 text-white/30 text-[10px] sm:text-xs font-satoshi drop-shadow-md"
+            >
+              Foto: Thiago Doro
+            </motion.p>
+
             {/* Modal Card */}
             <motion.div
               initial={{ opacity: 0, x: 40, scale: 0.95 }}
