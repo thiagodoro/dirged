@@ -43,7 +43,7 @@ const GestaoDocumentalSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
           {[
             { value: "9,2 mi", label: "Processos no Arquivo Central", color: "#FFE600" },
-            { value: "51", label: "Comarcas atendidas", color: "#FF007F" },
+            { value: "51", label: "Comarcas atendidas", color: "#FF007F", link: "#comarcas-lista" },
             { value: "320 mi", label: "Documentos eletrônicos", color: "#9D00FF" },
             { value: "84%", label: "Ocupação dos galpões", color: "#10B981" },
           ].map((stat, i) => (
@@ -57,7 +57,11 @@ const GestaoDocumentalSection = () => {
               data-testid={`gestao-stat-${i}`}
             >
               <p className="font-outfit font-bold text-2xl md:text-3xl" style={{ color: stat.color }}>{stat.value}</p>
-              <p className="text-white/50 text-xs mt-1">{stat.label}</p>
+              {stat.link ? (
+                <a href={stat.link} className="text-white/50 text-xs mt-1 block hover:text-white/80 underline underline-offset-2 transition-colors">{stat.label}</a>
+              ) : (
+                <p className="text-white/50 text-xs mt-1">{stat.label}</p>
+              )}
             </motion.div>
           ))}
         </div>
@@ -174,6 +178,7 @@ const GestaoDocumentalSection = () => {
 
         {/* Comarcas atendidas */}
         <motion.div
+          id="comarcas-lista"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
