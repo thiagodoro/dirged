@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
-import { FolderOpen, Archive, Database, Target } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FolderOpen, Archive, Database, Target, Info, X } from "lucide-react";
 
 const GestaoDocumentalSection = () => {
+  const [showGalpaoModal, setShowGalpaoModal] = useState(false);
 
   const comarcas = [
     "Açucena", "Almenara", "Barão de Cocais", "Belo Horizonte", "Betim", "Boa Esperança",
@@ -45,7 +47,7 @@ const GestaoDocumentalSection = () => {
             { value: "9,2 mi", label: "Processos no Arquivo Central", color: "#FFE600" },
             { value: "51", label: "Comarcas atendidas", color: "#FF007F", link: "#comarcas-lista" },
             { value: "320 mi", label: "Documentos eletrônicos", color: "#9D00FF" },
-            { value: "84%", label: "Ocupação dos galpões", color: "#10B981" },
+            { value: "84%", label: "Ocupação dos galpões", color: "#10B981", info: true },
           ].map((stat, i) => (
             <motion.div
               key={i}
@@ -53,9 +55,18 @@ const GestaoDocumentalSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center"
+              className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative"
               data-testid={`gestao-stat-${i}`}
             >
+              {stat.info && (
+                <button
+                  onClick={() => setShowGalpaoModal(true)}
+                  className="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                  title="Mais informações"
+                >
+                  <Info className="w-3.5 h-3.5 text-white/50" />
+                </button>
+              )}
               <p className="font-outfit font-bold text-2xl md:text-3xl" style={{ color: stat.color }}>{stat.value}</p>
               {stat.link ? (
                 <a href={stat.link} className="text-white/50 text-xs mt-1 block hover:text-white/80 underline underline-offset-2 transition-colors">{stat.label}</a>
@@ -213,6 +224,56 @@ const GestaoDocumentalSection = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
         </motion.div>
       </div>
+
+      {/* Modal Ocupação dos Galpões */}
+      <AnimatePresence>
+        {showGalpaoModal && (
+          <motion.div
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowGalpaoModal(false)}
+          >
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+            <motion.div
+              className="relative bg-[#141414] border border-white/10 rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                onClick={() => setShowGalpaoModal(false)}
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-[#10B981]/20 flex items-center justify-center">
+                  <Info className="w-5 h-5 text-[#10B981]" />
+                </div>
+                <h3 className="font-outfit font-bold text-white text-lg">Ocupação dos Galpões</h3>
+              </div>
+
+              <div className="space-y-4 text-white/70 text-sm leading-relaxed">
+                <p>
+                  Está em curso um <strong className="text-white">processo de adequação dos galpões</strong> executado pela Diretoria de Engenharia (<strong className="text-[#10B981]">DENGEP</strong>), que está redesenhando o layout da estanteria dos galpões para otimizar sua ocupação.
+                </p>
+                <p>
+                  O processo envolve a <strong className="text-white">desmontagem e remontagem das estantes</strong>, reorganizando os espaços para maior eficiência no armazenamento dos processos.
+                </p>
+                <div className="bg-[#10B981]/10 border border-[#10B981]/20 rounded-xl p-4">
+                  <p className="text-[#10B981] font-medium text-sm mb-1">Previsão de conclusão</p>
+                  <p className="text-white font-outfit font-bold text-lg">2º semestre de 2027</p>
+                  <p className="text-white/50 text-xs mt-1">Com liberação de aproximadamente <strong className="text-white">20% de posições/ocupação</strong></p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
