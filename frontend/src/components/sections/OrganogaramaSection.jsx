@@ -369,7 +369,7 @@ const OrganogaramaSection = () => {
 
               <div className="h-40 md:h-auto md:w-2/5 flex items-stretch justify-center bg-black p-0 overflow-hidden shrink-0">
                 <motion.img
-                  src="https://customer-assets.emergentagent.com/job_8387f5d5-f13d-43a6-9c9c-da5c8be98deb/artifacts/ays2xooz_WhatsApp%20Image%202026-04-09%20at%2023.46.01.jpeg"
+                  src="https://customer-assets.emergentagent.com/job_github-import-65/artifacts/r84svmus_ays2xooz_WhatsApp%20Image%202026-04-09%20at%2023.46.01.jpeg"
                   alt="Thiago Doro"
                   className="w-full h-full object-cover object-[center_20%] md:object-top"
                   initial={{ x: -30, opacity: 0 }}
