@@ -474,7 +474,7 @@ const GestaoInformacaoSection = () => {
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { label: "Biblioteca Des. Amílcar de Castro (Matriz)", sub: "Subsolo – Anexo I (R. Goiás, 229)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/nphghews_image.png" },
-              { label: "Centro de Leitura e Informação - CLI", sub: "Edifício Sede – 14º Andar (Av. Afonso Pena, 4001)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/7a94chjl_image.png" },
+              { label: "Centro de Leitura e Informação - CLI", sub: "Edifício Sede – 5º Andar (Av. Afonso Pena, 4001)", img: "https://customer-assets.emergentagent.com/job_github-import-65/artifacts/7a94chjl_image.png" },
             ].map((esp, i) => (
               <motion.div
                 key={esp.label}
