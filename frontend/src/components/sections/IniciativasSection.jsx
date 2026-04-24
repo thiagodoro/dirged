@@ -55,11 +55,20 @@ const IniciativasSection = () => (
               className="w-full h-auto block"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
+            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex items-end justify-between">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#9D00FF]/30 backdrop-blur-sm border border-[#9D00FF]/30 text-[#9D00FF] text-xs font-bold uppercase tracking-wider">
                 <BookOpen className="w-3.5 h-3.5" />
                 Digitalização de todo o acervo dos diários oficiais Minas Gerais
               </span>
+              <a
+                href="https://www.tjmg.jus.br/portal-tjmg/noticias/tjmg-assina-acordo-de-cooperacao-tecnica-para-digitalizacao-do-diario-oficial-de-minas-gerais.htm#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#9D00FF]/30 backdrop-blur-sm border border-[#9D00FF]/30 text-[#9D00FF] text-xs font-bold uppercase tracking-wider hover:bg-[#9D00FF]/50 transition-colors shrink-0"
+              >
+                Ver Notícia
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
 
