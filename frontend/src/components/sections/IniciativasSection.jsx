@@ -99,8 +99,8 @@ const IniciativasSection = () => (
               {[
                 { valor: "3,5 mi", label: "Páginas a digitalizar", color: "#9D00FF" },
                 { valor: "1943–2010", label: "Período abrangido", color: "#FFE600" },
-                { valor: "Mai/2026", label: "Início previsto", color: "#10B981" },
-                { valor: "Nov/2027", label: "Conclusão prevista", color: "#FF007F" },
+                { valor: "Maio/2026", label: "Início previsto", color: "#10B981" },
+                { valor: "Novembro/2027", label: "Conclusão prevista", color: "#FF007F" },
               ].map((item, i) => (
                 <motion.div
                   key={i}
