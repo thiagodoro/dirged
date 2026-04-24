@@ -188,7 +188,7 @@ const IniciativasSection = () => (
 
             {/* Vídeos do YouTube */}
             <div className="grid md:grid-cols-2 gap-4 mt-8">
-              <div className="rounded-xl overflow-hidden border border-white/10 aspect-video">
+              <div className="rounded-xl overflow-hidden border border-white/30 aspect-video">
                 <iframe
                   src="https://www.youtube.com/embed/eqi_BzuthEA"
                   title="VII Congresso - Vídeo 1"
@@ -197,7 +197,7 @@ const IniciativasSection = () => (
                   className="w-full h-full"
                 />
               </div>
-              <div className="rounded-xl overflow-hidden border border-white/10 aspect-video">
+              <div className="rounded-xl overflow-hidden border border-white/30 aspect-video">
                 <iframe
                   src="https://www.youtube.com/embed/42XlAEquZo8"
                   title="VII Congresso - Vídeo 2"
