@@ -145,8 +145,68 @@ const IniciativasSection = () => (
           </h3>
         </div>
 
-        <div className="bg-black/30 border border-white/10 rounded-2xl p-8 text-center">
-          <p className="text-white/30 text-base italic">Em breve...</p>
+        {/* Iniciativa 1: Congresso Nacional de Arquivos */}
+        <div className="bg-black/40 border border-[#FFE600]/20 rounded-2xl overflow-hidden">
+
+          {/* Imagem de destaque - banner do congresso */}
+          <div className="relative overflow-hidden h-[250px] sm:h-[350px] md:h-[450px]">
+            <img
+              src="https://customer-assets.emergentagent.com/job_c5aeece1-728e-444c-b1ef-931be8b006b4/artifacts/rdo6vtng_image.png"
+              alt="VII Congresso Brasileiro de Arquivos do Poder Judiciário"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex items-end justify-between">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFE600]/30 backdrop-blur-sm border border-[#FFE600]/30 text-[#FFE600] text-xs font-bold uppercase tracking-wider">
+                <FolderOpen className="w-3.5 h-3.5" />
+                Organização de Congresso Nacional de Arquivos em parceria com o CNJ
+              </span>
+            </div>
+          </div>
+
+          {/* Conteúdo */}
+          <div className="p-6 sm:p-8 md:p-10">
+
+            {/* Texto principal */}
+            <div className="space-y-5 text-white/70 text-base sm:text-lg leading-relaxed">
+              <p>
+                O <strong className="text-white">VII Congresso Brasileiro de Arquivos do Poder Judiciário – Arquivos Permanentes: preservação, acesso e difusão</strong> foi organizado pela <strong className="text-[#FFE600]">DIRGED</strong> e realizado nos dias <strong className="text-white">23 e 24 de outubro de 2025</strong> no auditório da EJEF (Rua Manaus, 467).
+              </p>
+              <p>
+                O evento contou com mais de <strong className="text-[#FFE600]">260 participantes</strong> na modalidade presencial, profissionais que atuam na gestão documental de órgãos do Poder Judiciário nacional.
+              </p>
+            </div>
+
+            {/* Dados-chave */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-8">
+              {[
+                { valor: "260+", label: "Participantes presenciais", color: "#FFE600" },
+                { valor: "23–24/Out", label: "Outubro de 2025", color: "#10B981" },
+                { valor: "VII", label: "Edição do Congresso", color: "#FF007F" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="bg-white/5 border border-white/10 rounded-xl p-4 text-center"
+                >
+                  <p className="font-outfit font-bold text-lg sm:text-xl" style={{ color: item.color }}>{item.valor}</p>
+                  <p className="text-white/40 text-[10px] sm:text-xs mt-1">{item.label}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Foto do auditório */}
+            <div className="mt-8 rounded-xl overflow-hidden border border-white/10">
+              <img
+                src="https://customer-assets.emergentagent.com/job_c5aeece1-728e-444c-b1ef-931be8b006b4/artifacts/0bwkd4ti_image.png"
+                alt="Auditório da EJEF durante o VII Congresso"
+                className="w-full h-auto block"
+              />
+            </div>
+          </div>
         </div>
       </SectionBlock>
 
