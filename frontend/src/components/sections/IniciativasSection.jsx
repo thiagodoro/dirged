@@ -186,13 +186,51 @@ const IniciativasSection = () => (
               </p>
             </div>
 
-            {/* Foto do auditório */}
-            <div className="mt-8 rounded-xl overflow-hidden border border-white/10">
-              <img
-                src="https://customer-assets.emergentagent.com/job_c5aeece1-728e-444c-b1ef-931be8b006b4/artifacts/0bwkd4ti_image.png"
-                alt="Auditório da EJEF durante o VII Congresso"
-                className="w-full h-auto block"
-              />
+            {/* Vídeos do YouTube */}
+            <div className="grid md:grid-cols-2 gap-4 mt-8">
+              <div className="rounded-xl overflow-hidden border border-white/10 aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/eqi_BzuthEA"
+                  title="VII Congresso - Vídeo 1"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden border border-white/10 aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/42XlAEquZo8"
+                  title="VII Congresso - Vídeo 2"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+
+            {/* Galeria de fotos */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+              <div className="rounded-xl overflow-hidden border border-white/10">
+                <img
+                  src="https://customer-assets.emergentagent.com/job_c5aeece1-728e-444c-b1ef-931be8b006b4/artifacts/0bwkd4ti_image.png"
+                  alt="Auditório da EJEF durante o VII Congresso"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden border border-white/10">
+                <img
+                  src="https://customer-assets.emergentagent.com/job_c5aeece1-728e-444c-b1ef-931be8b006b4/artifacts/9534rs2d_image.png"
+                  alt="Mesa de palestrantes do VII Congresso"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden border border-white/10">
+                <img
+                  src="https://customer-assets.emergentagent.com/job_c5aeece1-728e-444c-b1ef-931be8b006b4/artifacts/2y0sbs3h_image.png"
+                  alt="Entrega de livro durante o VII Congresso"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
