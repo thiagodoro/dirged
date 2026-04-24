@@ -47,7 +47,7 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 │       ├── MapaSection.jsx (Leaflet integration)
 │       ├── GestaoDocumentalSection.jsx
 │       ├── GestaoInformacaoSection.jsx (placeholder)
-│       ├── IniciativasSection.jsx (placeholder)
+│       ├── IniciativasSection.jsx (Últimas Iniciativas com subseções)
 │       ├── PremiosSection.jsx (placeholder)
 │       ├── ProjetosFuturosSection.jsx (placeholder)
 │       └── Footer.jsx
@@ -88,6 +88,17 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 6. Giselle Cesário da Costa - Coordenadora (COARQ)
 7. Rafaela Carvalho - Coordenadora (COBIB)
 
+### Phase 4 (Abril 2026)
+- [x] PasswordGate.jsx: Modal com senha "transicao2026", imagem de fundo, logo EJEF
+- [x] GestaoInformacaoSection.jsx: Conteúdo completo com carrossel de competências, stats, biblioteca digital
+- [x] OrganogaramaSection.jsx: Layout mobile vertical, modais expandidos (Thiago, Vantuir, Claudiciano, André), fotos ajustadas
+- [x] MapaSection.jsx: 8 localizações com CORCEN e coordenadas precisas
+- [x] CapitalHumanoSection.jsx: Cargos terceirizados em ordem alfabética
+- [x] GestaoDocumentalSection.jsx: Modal informativo 84% ocupação galpões (DENGEP)
+- [x] Mobile: Scroll horizontal desabilitado, zoom desabilitado, valores orçamento reduzidos, marquee acelerado
+- [x] IniciativasSection.jsx: Seção "Últimas Iniciativas" com subseções "Gestão da Informação" e "Gestão Documental"
+  - Iniciativa 1: Digitalização dos diários oficiais MG (1943-2010), acordo cooperação 3 poderes, Iron Mountain, timeline
+
 ## Prioritized Backlog
 
 ### P0 (Critical) - ALL COMPLETED
@@ -97,7 +108,7 @@ Construa uma página sobre a "Diretoria Executiva de Gestão da Informação Doc
 - [x] Refatoração do App.js
 
 ### P1 (High Priority) - Pending
-- [ ] Substituir "Em construção..." por conteúdo real (4 seções)
+- [ ] Substituir "Em construção..." por conteúdo real (3 seções: Prêmios, Projetos Futuros, Gestão Documental sub-iniciativas)
 - [ ] Adicionar fotos/modais para membros restantes (Claudiciano, Mauricio, Vantuir, Márcio, Sônia, Bárbara)
 
 ### P2 (Medium Priority) - Future
