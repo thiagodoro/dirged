@@ -81,7 +81,7 @@ const IniciativasSection = () => (
             {/* Texto principal detalhado */}
             <div className="space-y-5 text-white/70 text-base sm:text-lg leading-relaxed">
               <p>
-                A DIRGED firmou um <strong className="text-white">Acordo de Cooperação Técnica entre os três Poderes</strong>, formalizado em cerimônia com os respectivos chefes em <strong className="text-white">17/02/2025</strong>, com o objetivo de viabilizar a digitalização de <strong className="text-[#9D00FF]">3,5 milhões de páginas</strong> do Diário.
+                A DIRGED conduziu um <strong className="text-white">Acordo de Cooperação Técnica (ACT n° 52/2025) entre os três Poderes</strong>, formalizado em cerimônia com os respectivos chefes em <strong className="text-white">17/02/2025</strong>, com o objetivo de viabilizar a digitalização de <strong className="text-[#9D00FF]">3,5 milhões de páginas</strong> do Diário.
               </p>
               <p>
                 Adicionalmente, conduziu o <strong className="text-white">processo licitatório</strong> para contratação de empresa especializada em digitalização, atualmente em fase final de homologação, após a aprovação da <strong className="text-[#9D00FF]">prova de conceito</strong> apresentada pela empresa licitante <strong className="text-white">Iron Mountain</strong>, realizada em 15/04/2026.
@@ -179,10 +179,10 @@ const IniciativasSection = () => (
             {/* Texto principal */}
             <div className="space-y-5 text-white/70 text-base sm:text-lg leading-relaxed">
               <p>
-                O <strong className="text-white">VII Congresso Brasileiro de Arquivos do Poder Judiciário – Arquivos Permanentes: preservação, acesso e difusão</strong> foi organizado pela <strong className="text-[#FFE600]">DIRGED</strong> e realizado nos dias <strong className="text-white">23 e 24 de outubro de 2025</strong> no auditório da EJEF (Rua Manaus, 467).
+                O <strong className="text-white">VII Congresso Brasileiro de Arquivos do Poder Judiciário – Arquivos Permanentes: preservação, acesso e difusão</strong> foi organizado pela <strong className="text-[#FFE600]">DIRGED</strong> e realizado nos dias <strong className="text-white">23 e 24 de outubro de 2025</strong>, no auditório da EJEF, localizado na Rua Manaus, 467.
               </p>
               <p>
-                O evento contou com mais de <strong className="text-[#FFE600]">260 participantes</strong> na modalidade presencial, profissionais que atuam na gestão documental de órgãos do Poder Judiciário nacional, e com <strong className="text-white">14 palestrantes</strong> distribuídos em <strong className="text-white">6 mesas temáticas</strong>.
+                O evento reuniu mais de <strong className="text-[#FFE600]">260 participantes</strong> na modalidade presencial e mais de <strong className="text-[#FFE600]">130 na modalidade online</strong>, entre profissionais que atuam na gestão documental em órgãos do Poder Judiciário de todo o país, e contou com a participação de <strong className="text-white">14 palestrantes</strong>, distribuídos em <strong className="text-white">seis mesas temáticas</strong>.
               </p>
             </div>
 
