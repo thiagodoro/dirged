@@ -161,6 +161,15 @@ const IniciativasSection = () => (
                 <FolderOpen className="w-3.5 h-3.5" />
                 Organização de Congresso Nacional de Arquivos em parceria com o CNJ
               </span>
+              <a
+                href="https://www.tjmg.jus.br/portal-tjmg/noticias/congresso-debate-preservacao-de-arquivos-e-acesso-a-informacao-8ACC80D09A03B86C019A17795AC602A0-00.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFE600]/30 backdrop-blur-sm border border-[#FFE600]/30 text-[#FFE600] text-xs font-bold uppercase tracking-wider hover:bg-[#FFE600]/50 transition-colors shrink-0"
+              >
+                Ver Notícia
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
 
@@ -173,29 +182,8 @@ const IniciativasSection = () => (
                 O <strong className="text-white">VII Congresso Brasileiro de Arquivos do Poder Judiciário – Arquivos Permanentes: preservação, acesso e difusão</strong> foi organizado pela <strong className="text-[#FFE600]">DIRGED</strong> e realizado nos dias <strong className="text-white">23 e 24 de outubro de 2025</strong> no auditório da EJEF (Rua Manaus, 467).
               </p>
               <p>
-                O evento contou com mais de <strong className="text-[#FFE600]">260 participantes</strong> na modalidade presencial, profissionais que atuam na gestão documental de órgãos do Poder Judiciário nacional.
+                O evento contou com mais de <strong className="text-[#FFE600]">260 participantes</strong> na modalidade presencial, profissionais que atuam na gestão documental de órgãos do Poder Judiciário nacional, e com <strong className="text-white">14 palestrantes</strong> distribuídos em <strong className="text-white">6 mesas temáticas</strong>.
               </p>
-            </div>
-
-            {/* Dados-chave */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-8">
-              {[
-                { valor: "260+", label: "Participantes presenciais", color: "#FFE600" },
-                { valor: "23–24/Out", label: "Outubro de 2025", color: "#10B981" },
-                { valor: "VII", label: "Edição do Congresso", color: "#FF007F" },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-4 text-center"
-                >
-                  <p className="font-outfit font-bold text-lg sm:text-xl" style={{ color: item.color }}>{item.valor}</p>
-                  <p className="text-white/40 text-[10px] sm:text-xs mt-1">{item.label}</p>
-                </motion.div>
-              ))}
             </div>
 
             {/* Foto do auditório */}
