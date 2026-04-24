@@ -48,17 +48,17 @@ const IniciativasSection = () => (
         <div className="bg-black/40 border border-[#9D00FF]/20 rounded-2xl overflow-hidden">
 
           {/* Imagem de destaque */}
-          <div className="relative h-56 sm:h-72 md:h-96 overflow-hidden">
+          <div className="relative overflow-hidden">
             <img
               src="https://customer-assets.emergentagent.com/job_c5aeece1-728e-444c-b1ef-931be8b006b4/artifacts/4tl4k9l2_image.png"
               alt="Acordo de cooperação técnica entre os 3 poderes - TJMG"
-              className="w-full h-full object-cover object-[center_30%]"
+              className="w-full h-auto block"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#9D00FF]/30 backdrop-blur-sm border border-[#9D00FF]/30 text-[#9D00FF] text-xs font-bold uppercase tracking-wider">
                 <BookOpen className="w-3.5 h-3.5" />
-                Gestão da Informação
+                Digitalização de todo o acervo dos diários oficiais Minas Gerais
               </span>
             </div>
           </div>
