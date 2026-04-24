@@ -66,13 +66,11 @@ const IniciativasSection = () => (
           {/* Conteúdo */}
           <div className="p-6 sm:p-8 md:p-10">
 
-            {/* Título */}
-            <h4 className="font-outfit font-bold text-xl sm:text-2xl md:text-3xl text-white mb-6 leading-tight">
-              Conduziu acordo de cooperação técnica entre os 3 poderes, assinado em cerimônia com os chefes de poder em 17/2/2025, para a digitalização de 3,5 milhões de páginas do diário
-            </h4>
-
             {/* Texto principal detalhado */}
             <div className="space-y-5 text-white/70 text-base sm:text-lg leading-relaxed">
+              <p>
+                A DIRGED conduziu acordo de cooperação técnica entre os 3 poderes, assinado em cerimônia com os chefes de poder em 17/2/2025, para a digitalização de 3,5 milhões de páginas do diário.
+              </p>
               <p>
                 Além disso, conduziu a <strong className="text-white">licitação para prestador de serviço de digitalização</strong> em fase final de homologação após <strong className="text-[#9D00FF]">prova de conceito aprovada</strong> da empresa licitante <strong className="text-white">Iron Mountain</strong> realizada em 15/04/26.
               </p>
