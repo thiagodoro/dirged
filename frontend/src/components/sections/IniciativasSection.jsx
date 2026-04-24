@@ -51,11 +51,11 @@ const IniciativasSection = () => (
         <div className="bg-black/40 border border-[#9D00FF]/20 rounded-2xl overflow-hidden">
 
           {/* Imagem de destaque */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden h-[300px] sm:h-[400px] md:h-[500px]">
             <img
               src="https://customer-assets.emergentagent.com/job_c5aeece1-728e-444c-b1ef-931be8b006b4/artifacts/4tl4k9l2_image.png"
               alt="Acordo de cooperação técnica entre os 3 poderes - TJMG"
-              className="w-full h-auto block"
+              className="w-full h-full object-cover object-[center_75%]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex items-end justify-between">
