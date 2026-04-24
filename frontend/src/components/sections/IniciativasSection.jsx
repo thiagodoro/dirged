@@ -29,7 +29,7 @@ const IniciativasSection = () => (
             Últimas <span className="text-gradient-pink">Iniciativas</span>
           </h2>
           <p className="text-white/50 max-w-2xl mx-auto text-lg">
-            Conheça abaixo as últimas ações mais relevantes da Diretoria
+            Conheça abaixo as ações mais relevantes do último biênio (2024/2026)
           </p>
         </div>
       </SectionBlock>
