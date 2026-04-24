@@ -69,16 +69,16 @@ const IniciativasSection = () => (
             {/* Texto principal detalhado */}
             <div className="space-y-5 text-white/70 text-base sm:text-lg leading-relaxed">
               <p>
-                A DIRGED conduziu acordo de cooperação técnica entre os 3 poderes, assinado em cerimônia com os chefes de poder em 17/2/2025, para a digitalização de 3,5 milhões de páginas do diário.
+                A DIRGED firmou um <strong className="text-white">Acordo de Cooperação Técnica entre os três Poderes</strong>, formalizado em cerimônia com os respectivos chefes em <strong className="text-white">17/02/2025</strong>, com o objetivo de viabilizar a digitalização de <strong className="text-[#9D00FF]">3,5 milhões de páginas</strong> do Diário.
               </p>
               <p>
-                Além disso, conduziu a <strong className="text-white">licitação para prestador de serviço de digitalização</strong> em fase final de homologação após <strong className="text-[#9D00FF]">prova de conceito aprovada</strong> da empresa licitante <strong className="text-white">Iron Mountain</strong> realizada em 15/04/26.
+                Adicionalmente, conduziu o <strong className="text-white">processo licitatório</strong> para contratação de empresa especializada em digitalização, atualmente em fase final de homologação, após a aprovação da <strong className="text-[#9D00FF]">prova de conceito</strong> apresentada pela empresa licitante <strong className="text-white">Iron Mountain</strong>, realizada em 15/04/2026.
               </p>
               <p>
-                <strong className="text-white">Início do trabalho de digitalização previsto para maio de 2026</strong> com conclusão em <strong className="text-white">novembro de 2027</strong>.
+                O início dos trabalhos está previsto para <strong className="text-white">maio de 2026</strong>, com conclusão estimada para <strong className="text-white">novembro de 2027</strong>.
               </p>
               <p>
-                Serão digitalizados a integralidade dos diários que compreende o período de <strong className="text-[#FFE600]">1943 a 2010</strong> e encaminhados ao Poder Executivo para inclusão na página oficial de consulta textual aos diários oficiais.
+                Serão digitalizadas todas as edições dos Diários, abrangendo o período de <strong className="text-[#FFE600]">1943 a 2010</strong>, com posterior encaminhamento ao Poder Executivo para disponibilização na página oficial de consulta textual dos Diários Oficiais.
               </p>
             </div>
 
