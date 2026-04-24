@@ -28,6 +28,9 @@ const IniciativasSection = () => (
           <h2 className="font-outfit font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Últimas <span className="text-gradient-pink">Iniciativas</span>
           </h2>
+          <p className="text-white/50 max-w-2xl mx-auto text-lg">
+            Conheça abaixo as últimas ações mais relevantes da Diretoria
+          </p>
         </div>
       </SectionBlock>
 
