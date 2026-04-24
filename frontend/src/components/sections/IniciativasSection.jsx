@@ -182,7 +182,7 @@ const IniciativasSection = () => (
                 O <strong className="text-white">VII Congresso Brasileiro de Arquivos do Poder Judiciário – Arquivos Permanentes: preservação, acesso e difusão</strong> foi organizado pela <strong className="text-[#FFE600]">DIRGED</strong> e realizado nos dias <strong className="text-white">23 e 24 de outubro de 2025</strong>, no auditório da EJEF, localizado na Rua Manaus, 467.
               </p>
               <p>
-                O evento reuniu mais de <strong className="text-[#FFE600]">260 participantes</strong> na modalidade presencial e mais de <strong className="text-[#FFE600]">130 na modalidade online</strong>, entre profissionais que atuam na gestão documental em órgãos do Poder Judiciário de todo o país, e contou com a participação de <strong className="text-white">14 palestrantes</strong>, distribuídos em <strong className="text-white">seis mesas temáticas</strong>.
+                O evento reuniu mais de <strong className="text-[#FFE600]">260 participantes</strong> na modalidade presencial e mais de <strong className="text-[#FFE600]">130 na modalidade online</strong>, entre profissionais que atuam na gestão documental em órgãos do Poder Judiciário de todo o país, e contou com a participação de <strong className="text-white">14 palestrantes</strong>, distribuídos em <strong className="text-white">6 mesas temáticas</strong>.
               </p>
             </div>
 
