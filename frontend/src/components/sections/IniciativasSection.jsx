@@ -67,16 +67,9 @@ const IniciativasSection = () => (
           <div className="p-6 sm:p-8 md:p-10">
 
             {/* Título */}
-            <h4 className="font-outfit font-bold text-xl sm:text-2xl md:text-3xl text-white mb-4 leading-tight">
-              Digitalização de todo o acervo dos diários oficiais Minas Gerais
+            <h4 className="font-outfit font-bold text-xl sm:text-2xl md:text-3xl text-white mb-6 leading-tight">
+              Conduziu acordo de cooperação técnica entre os 3 poderes, assinado em cerimônia com os chefes de poder em 17/2/2025, para a digitalização de 3,5 milhões de páginas do diário
             </h4>
-
-            {/* Subtítulo */}
-            <div className="bg-[#9D00FF]/10 border-l-4 border-[#9D00FF] rounded-r-xl px-5 py-4 mb-6">
-              <p className="text-white/80 text-sm sm:text-base leading-relaxed font-medium">
-                Conduziu acordo de cooperação técnica entre os 3 poderes assinado em 17/2/2025 para a digitalização de 3,5 milhões de páginas do diário.
-              </p>
-            </div>
 
             {/* Texto principal detalhado */}
             <div className="space-y-5 text-white/70 text-base sm:text-lg leading-relaxed">
